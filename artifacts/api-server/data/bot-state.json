@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "savedAt": "2026-06-06T02:30:41.467Z",
-  "paperBalance": 47.54479307281745,
+  "savedAt": "2026-06-06T02:40:41.469Z",
+  "paperBalance": 47.568743091743194,
   "trades": [
     {
       "id": "mpyrbmdjjk7o3",
@@ -2035,11 +2035,11 @@
       "krakenPair": "AVAXUSD",
       "name": "Avalanche",
       "entryPrice": 6.732,
-      "currentPrice": 6.695,
+      "currentPrice": 6.692,
       "quantity": 3.6962693353061034,
       "investedUsd": 24.88328516528069,
-      "profitPercent": -0.5496137849079014,
-      "profitUsd": -0.13676196540632546,
+      "profitPercent": -0.5941770647653005,
+      "profitUsd": -0.1478507734122445,
       "status": "open",
       "strategy": "Voting Consensus",
       "winningStrategies": [
@@ -2089,12 +2089,12 @@
       "krakenPair": "VETUSD",
       "name": "VeChain",
       "entryPrice": 0.004731,
-      "currentPrice": 0.004732,
+      "currentPrice": 0.004741,
       "quantity": 4790.003785148334,
       "investedUsd": 22.661507907536766,
-      "profitPercent": 0.021137180300150764,
-      "profitUsd": 0.004790003785149821,
-      "status": "open",
+      "profitPercent": 0.21137180300149824,
+      "profitUsd": 0.047900037851487554,
+      "status": "closed",
       "strategy": "Voting Consensus",
       "winningStrategies": [
         "rsi",
@@ -2103,11 +2103,38 @@
         "ml"
       ],
       "openedAt": "2026-06-06T02:22:26.465Z",
-      "closedAt": null,
+      "closedAt": "2026-06-06T02:40:25.470Z",
       "paperMode": true,
-      "highestPrice": 0.004739,
+      "highestPrice": 0.004746,
       "trailingActive": false,
       "entryConfidence": 0.35517125813967765,
+      "closeReason": "swapped"
+    },
+    {
+      "id": "mq1qwz27xbsrf",
+      "symbol": "DOT",
+      "krakenPair": "DOTUSD",
+      "name": "Polkadot",
+      "entryPrice": 0.949,
+      "currentPrice": 0.949,
+      "quantity": 23.90459212482878,
+      "investedUsd": 22.68545792646251,
+      "profitPercent": 0,
+      "profitUsd": 0,
+      "status": "open",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "macd",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-06-06T02:40:25.471Z",
+      "closedAt": null,
+      "paperMode": true,
+      "highestPrice": 0.949,
+      "trailingActive": false,
+      "entryConfidence": 0.3168507342239234,
       "closeReason": null
     }
   ],
@@ -2120,14 +2147,14 @@
     "voteThreshold": 3
   },
   "botRunning": true,
-  "learningCycles": 305,
+  "learningCycles": 309,
   "strategyStats": [
     {
       "id": "rsi",
-      "weight": 1.384057971014493,
-      "totalSignals": 69,
-      "successfulSignals": 34,
-      "profitContribution": 24.399041104771886
+      "weight": 1.4000000000000001,
+      "totalSignals": 70,
+      "successfulSignals": 35,
+      "profitContribution": 24.610412907773384
     },
     {
       "id": "macd",
@@ -2138,10 +2165,10 @@
     },
     {
       "id": "bollinger",
-      "weight": 1.4186440677966103,
-      "totalSignals": 59,
-      "successfulSignals": 30,
-      "profitContribution": 22.859857761052854
+      "weight": 1.436666666666667,
+      "totalSignals": 60,
+      "successfulSignals": 31,
+      "profitContribution": 23.071229564054352
     },
     {
       "id": "ema",
@@ -2152,10 +2179,10 @@
     },
     {
       "id": "vwap",
-      "weight": 1.4000000000000001,
-      "totalSignals": 72,
-      "successfulSignals": 36,
-      "profitContribution": 24.49396769975641
+      "weight": 1.4150684931506852,
+      "totalSignals": 73,
+      "successfulSignals": 37,
+      "profitContribution": 24.70533950275791
     },
     {
       "id": "momentum",
@@ -2166,10 +2193,10 @@
     },
     {
       "id": "ml",
-      "weight": 1.4000000000000001,
-      "totalSignals": 58,
-      "successfulSignals": 29,
-      "profitContribution": 16.216129151672927
+      "weight": 1.4186440677966103,
+      "totalSignals": 59,
+      "successfulSignals": 30,
+      "profitContribution": 16.427500954674425
     }
   ],
   "patternHistory": {
@@ -2472,6 +2499,11 @@
       "wins": 0,
       "losses": 1,
       "totalProfit": -0.11523723568045338
+    },
+    "bollinger|ml|rsi|vwap:UUDDUDD": {
+      "wins": 1,
+      "losses": 0,
+      "totalProfit": 0.21137180300149824
     }
   }
 }
