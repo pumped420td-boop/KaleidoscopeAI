@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "savedAt": "2026-06-06T02:40:41.469Z",
-  "paperBalance": 47.568743091743194,
+  "savedAt": "2026-06-06T03:49:54.746Z",
+  "paperBalance": 47.53605474751297,
   "trades": [
     {
       "id": "mpyrbmdjjk7o3",
@@ -2035,11 +2035,11 @@
       "krakenPair": "AVAXUSD",
       "name": "Avalanche",
       "entryPrice": 6.732,
-      "currentPrice": 6.692,
+      "currentPrice": 6.519,
       "quantity": 3.6962693353061034,
       "investedUsd": 24.88328516528069,
-      "profitPercent": -0.5941770647653005,
-      "profitUsd": -0.1478507734122445,
+      "profitPercent": -3.163992869875224,
+      "profitUsd": -0.7873053684202027,
       "status": "open",
       "strategy": "Voting Consensus",
       "winningStrategies": [
@@ -2116,12 +2116,12 @@
       "krakenPair": "DOTUSD",
       "name": "Polkadot",
       "entryPrice": 0.949,
-      "currentPrice": 0.949,
+      "currentPrice": 0.9511,
       "quantity": 23.90459212482878,
       "investedUsd": 22.68545792646251,
-      "profitPercent": 0,
-      "profitUsd": 0,
-      "status": "open",
+      "profitPercent": 0.22128556375131384,
+      "profitUsd": 0.050199643462139676,
+      "status": "closed",
       "strategy": "Voting Consensus",
       "winningStrategies": [
         "rsi",
@@ -2130,11 +2130,119 @@
         "ml"
       ],
       "openedAt": "2026-06-06T02:40:25.471Z",
-      "closedAt": null,
+      "closedAt": "2026-06-06T02:49:56.608Z",
       "paperMode": true,
-      "highestPrice": 0.949,
+      "highestPrice": 0.9511,
       "trailingActive": false,
       "entryConfidence": 0.3168507342239234,
+      "closeReason": "swapped"
+    },
+    {
+      "id": "mq1r97r53072k",
+      "symbol": "VET",
+      "krakenPair": "VETUSD",
+      "name": "VeChain",
+      "entryPrice": 0.004737,
+      "currentPrice": 0.004743,
+      "quantity": 4794.2912704651835,
+      "investedUsd": 22.710557748193573,
+      "profitPercent": 0.1266624445851847,
+      "profitUsd": 0.02876574762279205,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-06-06T02:49:56.609Z",
+      "closedAt": "2026-06-06T02:50:25.519Z",
+      "paperMode": true,
+      "highestPrice": 0.004743,
+      "trailingActive": false,
+      "entryConfidence": 0.35593392912376226,
+      "closeReason": "swapped"
+    },
+    {
+      "id": "mq1r9u278u8i4",
+      "symbol": "TRX",
+      "krakenPair": "TRXUSD",
+      "name": "TRON",
+      "entryPrice": 0.320223,
+      "currentPrice": 0.320362,
+      "quantity": 70.96598502295267,
+      "investedUsd": 22.724940622004972,
+      "profitPercent": 0.04340725057225391,
+      "profitUsd": 0.009864271918189615,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "macd",
+        "bollinger",
+        "ml"
+      ],
+      "openedAt": "2026-06-06T02:50:25.519Z",
+      "closedAt": "2026-06-06T02:50:55.517Z",
+      "paperMode": true,
+      "highestPrice": 0.320362,
+      "trailingActive": false,
+      "entryConfidence": 0.32720516069302685,
+      "closeReason": "swapped"
+    },
+    {
+      "id": "mq1rah7im9hch",
+      "symbol": "ETH",
+      "krakenPair": "XETHZUSD",
+      "name": "Ethereum",
+      "entryPrice": 1584.54,
+      "currentPrice": 1573.79,
+      "quantity": 0.014344776880333768,
+      "investedUsd": 22.729872757964067,
+      "profitPercent": -0.6784303330935058,
+      "profitUsd": -0.15420635146358563,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "macd",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-06-06T02:50:55.518Z",
+      "closedAt": "2026-06-06T03:00:56.805Z",
+      "paperMode": true,
+      "highestPrice": 1584.9,
+      "trailingActive": false,
+      "entryConfidence": 0.31918531239753445,
+      "closeReason": "swapped"
+    },
+    {
+      "id": "mq1rnd5y1jgoe",
+      "symbol": "VET",
+      "krakenPair": "VETUSD",
+      "name": "VeChain",
+      "entryPrice": 0.004707,
+      "currentPrice": 0.004666,
+      "quantity": 4812.570550718562,
+      "investedUsd": 22.652769582232274,
+      "profitPercent": -0.8710431272572814,
+      "profitUsd": -0.19731539257946196,
+      "status": "open",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-06-06T03:00:56.806Z",
+      "closedAt": null,
+      "paperMode": true,
+      "highestPrice": 0.004707,
+      "trailingActive": false,
+      "entryConfidence": 0.3612374328425562,
       "closeReason": null
     }
   ],
@@ -2147,28 +2255,28 @@
     "voteThreshold": 3
   },
   "botRunning": true,
-  "learningCycles": 309,
+  "learningCycles": 325,
   "strategyStats": [
     {
       "id": "rsi",
-      "weight": 1.4000000000000001,
-      "totalSignals": 70,
-      "successfulSignals": 35,
-      "profitContribution": 24.610412907773384
+      "weight": 1.4297297297297298,
+      "totalSignals": 74,
+      "successfulSignals": 38,
+      "profitContribution": 25.001768166682137
     },
     {
       "id": "macd",
-      "weight": 1.342105263157895,
-      "totalSignals": 38,
-      "successfulSignals": 18,
-      "profitContribution": 7.978575850701764
+      "weight": 1.3731707317073172,
+      "totalSignals": 41,
+      "successfulSignals": 20,
+      "profitContribution": 8.243268665025333
     },
     {
       "id": "bollinger",
-      "weight": 1.436666666666667,
-      "totalSignals": 60,
-      "successfulSignals": 31,
-      "profitContribution": 23.071229564054352
+      "weight": 1.4709677419354839,
+      "totalSignals": 62,
+      "successfulSignals": 33,
+      "profitContribution": 23.241299259211793
     },
     {
       "id": "ema",
@@ -2179,10 +2287,10 @@
     },
     {
       "id": "vwap",
-      "weight": 1.4150684931506852,
-      "totalSignals": 73,
-      "successfulSignals": 37,
-      "profitContribution": 24.70533950275791
+      "weight": 1.428947368421053,
+      "totalSignals": 76,
+      "successfulSignals": 39,
+      "profitContribution": 25.053287511094407
     },
     {
       "id": "momentum",
@@ -2193,10 +2301,10 @@
     },
     {
       "id": "ml",
-      "weight": 1.4186440677966103,
-      "totalSignals": 59,
-      "successfulSignals": 30,
-      "profitContribution": 16.427500954674425
+      "weight": 1.4523809523809526,
+      "totalSignals": 63,
+      "successfulSignals": 33,
+      "profitContribution": 16.818856213583178
     }
   ],
   "patternHistory": {
@@ -2496,14 +2604,24 @@
       "totalProfit": -1.3111010739737035
     },
     "bollinger|macd|ml|rsi:UDDDUUD": {
-      "wins": 0,
+      "wins": 1,
       "losses": 1,
-      "totalProfit": -0.11523723568045338
+      "totalProfit": -0.07182998510819946
     },
     "bollinger|ml|rsi|vwap:UUDDUDD": {
+      "wins": 2,
+      "losses": 0,
+      "totalProfit": 0.33803424758668293
+    },
+    "macd|ml|rsi|vwap:UUDDUDU": {
       "wins": 1,
       "losses": 0,
-      "totalProfit": 0.21137180300149824
+      "totalProfit": 0.22128556375131384
+    },
+    "macd|ml|rsi|vwap:UDDUDDD": {
+      "wins": 0,
+      "losses": 1,
+      "totalProfit": -0.6784303330935058
     }
   }
 }
