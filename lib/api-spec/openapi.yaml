@@ -301,13 +301,16 @@ components:
         trailingStop:
           type: number
           description: Trailing stop loss % (default 2)
+        stopLossPercent:
+          type: number
+          description: Hard stop loss % below entry price — closes trade immediately regardless of trailing stop (default 7)
         maxConcurrentTrades:
           type: integer
           description: Max trades at once (default 2)
         voteThreshold:
           type: integer
           description: Minimum votes needed to trigger a trade (default 4)
-      required: [allocation, mode, profitTarget, trailingStop, maxConcurrentTrades, voteThreshold]
+      required: [allocation, mode, profitTarget, trailingStop, stopLossPercent, maxConcurrentTrades, voteThreshold]
 
     SettingsInput:
       type: object
@@ -320,6 +323,8 @@ components:
         profitTarget:
           type: number
         trailingStop:
+          type: number
+        stopLossPercent:
           type: number
         maxConcurrentTrades:
           type: integer

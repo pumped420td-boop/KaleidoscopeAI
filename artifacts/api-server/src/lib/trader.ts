@@ -145,6 +145,14 @@ async function updateActiveTrades(): Promise<void> {
       trade.highestPrice = price;
     }
 
+    // Hard stop loss — fires immediately if price drops X% below entry, no matter what
+    const hardDropPct = ((trade.entryPrice - price) / trade.entryPrice) * 100;
+    if (hardDropPct >= store.settings.stopLossPercent) {
+      logger.info({ symbol: trade.symbol, hardDropPct: hardDropPct.toFixed(2) }, "Hard stop loss triggered");
+      await closeTrade(trade, "stop");
+      continue;
+    }
+
     // Activate trailing stop once profit target is hit
     if (trade.profitPercent >= store.settings.profitTarget && !trade.trailingActive) {
       trade.trailingActive = true;

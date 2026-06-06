@@ -61,6 +61,7 @@ export default function SettingsScreen() {
   const [allocation, setAllocation] = useState("50");
   const [profitTarget, setProfitTarget] = useState("5");
   const [trailingStop, setTrailingStop] = useState("2");
+  const [stopLossPercent, setStopLossPercent] = useState("7");
   const [voteThreshold, setVoteThreshold] = useState("4");
 
   useEffect(() => {
@@ -68,6 +69,7 @@ export default function SettingsScreen() {
       setAllocation(String(settings.allocation));
       setProfitTarget(String(settings.profitTarget));
       setTrailingStop(String(settings.trailingStop));
+      setStopLossPercent(String(settings.stopLossPercent ?? 7));
       setVoteThreshold(String(settings.voteThreshold));
     }
   }, [settings]);
@@ -98,6 +100,7 @@ export default function SettingsScreen() {
         mode: settings?.mode ?? "paper",
         profitTarget: parseFloat(profitTarget) || 5,
         trailingStop: parseFloat(trailingStop) || 2,
+        stopLossPercent: parseFloat(stopLossPercent) || 7,
         maxConcurrentTrades: settings?.maxConcurrentTrades ?? 2,
         voteThreshold: parseInt(voteThreshold) || 4,
       },
@@ -113,6 +116,7 @@ export default function SettingsScreen() {
       allocation: settings?.allocation ?? 50,
       profitTarget: settings?.profitTarget ?? 5,
       trailingStop: settings?.trailingStop ?? 2,
+      stopLossPercent: settings?.stopLossPercent ?? 7,
       maxConcurrentTrades: settings?.maxConcurrentTrades ?? 2,
       voteThreshold: settings?.voteThreshold ?? 4,
     };
@@ -243,6 +247,7 @@ export default function SettingsScreen() {
           { label: "Balance Allocation", desc: "% of USD balance to use for trading", value: allocation, setter: setAllocation, unit: "%" },
           { label: "Profit Target", desc: "Minimum profit before trailing stop activates", value: profitTarget, setter: setProfitTarget, unit: "%" },
           { label: "Trailing Stop Loss", desc: "Close trade if price drops this % from peak", value: trailingStop, setter: setTrailingStop, unit: "%" },
+          { label: "Hard Stop Loss", desc: "Force-close trade if it drops this % below entry", value: stopLossPercent, setter: setStopLossPercent, unit: "%" },
           { label: "Vote Threshold", desc: "Min strategy buy votes to open a trade (max 7)", value: voteThreshold, setter: setVoteThreshold, unit: "/7" },
         ].map((row, i) => (
           <React.Fragment key={row.label}>

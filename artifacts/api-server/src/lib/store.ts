@@ -26,6 +26,8 @@ export interface StoredSettings {
   mode: "paper" | "live";
   profitTarget: number;
   trailingStop: number;
+  /** Hard stop loss: close trade immediately if price drops this % below entry */
+  stopLossPercent: number;
   maxConcurrentTrades: number;
   voteThreshold: number;
 }
@@ -69,6 +71,7 @@ class Store {
     mode: "paper",
     profitTarget: 5,
     trailingStop: 2,
+    stopLossPercent: 7,
     maxConcurrentTrades: 2,
     voteThreshold: 4,
   };

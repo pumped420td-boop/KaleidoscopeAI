@@ -56,6 +56,7 @@ export const GetSettingsResponse = zod.object({
   "mode": zod.enum(['paper', 'live']),
   "profitTarget": zod.number().describe('Minimum profit % to take (default 5)'),
   "trailingStop": zod.number().describe('Trailing stop loss % (default 2)'),
+  "stopLossPercent": zod.number().describe('Hard stop loss % below entry price — closes trade immediately regardless of trailing stop (default 7)'),
   "maxConcurrentTrades": zod.number().describe('Max trades at once (default 2)'),
   "voteThreshold": zod.number().describe('Minimum votes needed to trigger a trade (default 4)')
 })
@@ -69,6 +70,7 @@ export const UpdateSettingsBody = zod.object({
   "mode": zod.enum(['paper', 'live']).optional(),
   "profitTarget": zod.number().optional(),
   "trailingStop": zod.number().optional(),
+  "stopLossPercent": zod.number().optional(),
   "maxConcurrentTrades": zod.number().optional(),
   "voteThreshold": zod.number().optional()
 })
@@ -78,6 +80,7 @@ export const UpdateSettingsResponse = zod.object({
   "mode": zod.enum(['paper', 'live']),
   "profitTarget": zod.number().describe('Minimum profit % to take (default 5)'),
   "trailingStop": zod.number().describe('Trailing stop loss % (default 2)'),
+  "stopLossPercent": zod.number().describe('Hard stop loss % below entry price — closes trade immediately regardless of trailing stop (default 7)'),
   "maxConcurrentTrades": zod.number().describe('Max trades at once (default 2)'),
   "voteThreshold": zod.number().describe('Minimum votes needed to trigger a trade (default 4)')
 })

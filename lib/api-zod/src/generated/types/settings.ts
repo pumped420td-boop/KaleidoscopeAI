@@ -15,6 +15,8 @@ export interface Settings {
   profitTarget: number;
   /** Trailing stop loss % (default 2) */
   trailingStop: number;
+  /** Hard stop loss % below entry price — closes trade immediately regardless of trailing stop (default 7) */
+  stopLossPercent: number;
   /** Max trades at once (default 2) */
   maxConcurrentTrades: number;
   /** Minimum votes needed to trigger a trade (default 4) */

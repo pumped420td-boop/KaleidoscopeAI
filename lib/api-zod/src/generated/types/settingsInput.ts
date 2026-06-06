@@ -12,6 +12,7 @@ export interface SettingsInput {
   mode?: SettingsInputMode;
   profitTarget?: number;
   trailingStop?: number;
+  stopLossPercent?: number;
   maxConcurrentTrades?: number;
   voteThreshold?: number;
 }
