@@ -1,19 +1,101 @@
 {
   "version": 2,
-  "savedAt": "2026-07-02T16:07:42.013Z",
-  "paperBalance": 100,
-  "trades": [],
+  "savedAt": "2026-07-02T18:24:15.633Z",
+  "paperBalance": 50,
+  "trades": [
+    {
+      "id": "mr3piagqqlpi7",
+      "symbol": "OP",
+      "pair": "OPUSD",
+      "name": "Optimism",
+      "entryPrice": 0.101,
+      "currentPrice": 0.101,
+      "quantity": 247.5247524752475,
+      "investedUsd": 25,
+      "profitPercent": 0,
+      "profitUsd": 0,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "macd",
+        "ema",
+        "momentum",
+        "ml"
+      ],
+      "openedAt": "2026-07-02T16:16:15.482Z",
+      "closedAt": "2026-07-02T18:19:21.133Z",
+      "paperMode": true,
+      "highestPrice": 0.101,
+      "trailingActive": false,
+      "entryConfidence": 0.3615677642207666,
+      "closeReason": "swapped"
+    },
+    {
+      "id": "mr3twl9l7mjuu",
+      "symbol": "ZIL",
+      "pair": "ZILUSD",
+      "name": "Zilliqa",
+      "entryPrice": 0.00286,
+      "currentPrice": 0.00286,
+      "quantity": 8741.25874125874,
+      "investedUsd": 25,
+      "profitPercent": 0,
+      "profitUsd": -3.552713678800501e-15,
+      "status": "open",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-07-02T18:19:21.129Z",
+      "closedAt": null,
+      "paperMode": true,
+      "highestPrice": 0.00286,
+      "trailingActive": false,
+      "entryConfidence": 0.41359293710792083,
+      "closeReason": null
+    },
+    {
+      "id": "mr3twl9t6wu4d",
+      "symbol": "DGB",
+      "pair": "DGBUSD",
+      "name": "DigiByte",
+      "entryPrice": 0.00361,
+      "currentPrice": 0.00361,
+      "quantity": 6925.207756232687,
+      "investedUsd": 25,
+      "profitPercent": 0,
+      "profitUsd": 0,
+      "status": "open",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "macd",
+        "ema",
+        "momentum",
+        "ml"
+      ],
+      "openedAt": "2026-07-02T18:19:21.137Z",
+      "closedAt": null,
+      "paperMode": true,
+      "highestPrice": 0.00361,
+      "trailingActive": false,
+      "entryConfidence": 0.3885714285714285,
+      "closeReason": null
+    }
+  ],
   "settings": {
     "allocation": 50,
     "mode": "paper",
-    "profitTarget": 5,
-    "trailingStop": 2,
-    "stopLossPercent": 7,
+    "profitTarget": 1,
+    "trailingStop": 0.5,
+    "stopLossPercent": 2,
     "maxConcurrentTrades": 2,
     "voteThreshold": 4
   },
   "botRunning": true,
-  "learningCycles": 0,
+  "learningCycles": 4,
   "strategyStats": [
     {
       "id": "rsi",
@@ -24,8 +106,8 @@
     },
     {
       "id": "macd",
-      "weight": 1,
-      "totalSignals": 0,
+      "weight": 1.4000000000000001,
+      "totalSignals": 1,
       "successfulSignals": 0,
       "profitContribution": 0
     },
@@ -38,8 +120,8 @@
     },
     {
       "id": "ema",
-      "weight": 1,
-      "totalSignals": 0,
+      "weight": 1.4000000000000001,
+      "totalSignals": 1,
       "successfulSignals": 0,
       "profitContribution": 0
     },
@@ -52,18 +134,24 @@
     },
     {
       "id": "momentum",
-      "weight": 1,
-      "totalSignals": 0,
+      "weight": 1.4000000000000001,
+      "totalSignals": 1,
       "successfulSignals": 0,
       "profitContribution": 0
     },
     {
       "id": "ml",
-      "weight": 1,
-      "totalSignals": 0,
+      "weight": 1.4000000000000001,
+      "totalSignals": 1,
       "successfulSignals": 0,
       "profitContribution": 0
     }
   ],
-  "patternHistory": {}
+  "patternHistory": {
+    "ema|macd|ml|momentum:FFUFFFF": {
+      "wins": 0,
+      "losses": 1,
+      "totalProfit": 0
+    }
+  }
 }
