@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "savedAt": "2026-07-02T18:54:15.641Z",
+  "savedAt": "2026-07-02T23:34:15.810Z",
   "paperBalance": 50,
   "trades": [
     {
@@ -39,9 +39,9 @@
       "currentPrice": 0.00286,
       "quantity": 8741.25874125874,
       "investedUsd": 25,
-      "profitPercent": 0,
+      "profitPercent": -1.4210854715202004e-14,
       "profitUsd": -3.552713678800501e-15,
-      "status": "open",
+      "status": "closed",
       "strategy": "Voting Consensus",
       "winningStrategies": [
         "rsi",
@@ -50,12 +50,12 @@
         "ml"
       ],
       "openedAt": "2026-07-02T18:19:21.129Z",
-      "closedAt": null,
+      "closedAt": "2026-07-02T21:46:02.021Z",
       "paperMode": true,
       "highestPrice": 0.00286,
       "trailingActive": false,
       "entryConfidence": 0.41359293710792083,
-      "closeReason": null
+      "closeReason": "swapped"
     },
     {
       "id": "mr3twl9t6wu4d",
@@ -68,7 +68,7 @@
       "investedUsd": 25,
       "profitPercent": 0,
       "profitUsd": 0,
-      "status": "open",
+      "status": "closed",
       "strategy": "Voting Consensus",
       "winningStrategies": [
         "macd",
@@ -77,11 +77,65 @@
         "ml"
       ],
       "openedAt": "2026-07-02T18:19:21.137Z",
-      "closedAt": null,
+      "closedAt": "2026-07-02T22:13:02.128Z",
       "paperMode": true,
       "highestPrice": 0.00361,
       "trailingActive": false,
       "entryConfidence": 0.3885714285714285,
+      "closeReason": "swapped"
+    },
+    {
+      "id": "mr41aduu5xted",
+      "symbol": "RVN",
+      "pair": "RVNUSD",
+      "name": "Ravencoin",
+      "entryPrice": 0.00352,
+      "currentPrice": 0.00352,
+      "quantity": 7102.272727272727,
+      "investedUsd": 25,
+      "profitPercent": 0,
+      "profitUsd": 0,
+      "status": "open",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-07-02T21:46:02.022Z",
+      "closedAt": null,
+      "paperMode": true,
+      "highestPrice": 0.00352,
+      "trailingActive": false,
+      "entryConfidence": 0.3576278160020513,
+      "closeReason": null
+    },
+    {
+      "id": "mr4293xw388gw",
+      "symbol": "HBAR",
+      "pair": "HBARUSD",
+      "name": "Hedera",
+      "entryPrice": 0.07088,
+      "currentPrice": 0.07086,
+      "quantity": 352.7088036117382,
+      "investedUsd": 25,
+      "profitPercent": -0.028216704288928116,
+      "profitUsd": -0.007054176072230689,
+      "status": "open",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-07-02T22:13:02.132Z",
+      "closedAt": null,
+      "paperMode": true,
+      "highestPrice": 0.07088,
+      "trailingActive": false,
+      "entryConfidence": 0.39433661465691,
       "closeReason": null
     }
   ],
@@ -95,60 +149,70 @@
     "voteThreshold": 4
   },
   "botRunning": true,
-  "learningCycles": 4,
+  "learningCycles": 12,
   "strategyStats": [
     {
       "id": "rsi",
-      "weight": 1,
-      "totalSignals": 0,
+      "weight": 1.4000000000000001,
+      "totalSignals": 1,
       "successfulSignals": 0,
       "profitContribution": 0
     },
     {
       "id": "macd",
       "weight": 1.4000000000000001,
-      "totalSignals": 1,
+      "totalSignals": 2,
       "successfulSignals": 0,
       "profitContribution": 0
     },
     {
       "id": "bollinger",
-      "weight": 1,
-      "totalSignals": 0,
+      "weight": 1.4000000000000001,
+      "totalSignals": 1,
       "successfulSignals": 0,
       "profitContribution": 0
     },
     {
       "id": "ema",
       "weight": 1.4000000000000001,
-      "totalSignals": 1,
+      "totalSignals": 2,
       "successfulSignals": 0,
       "profitContribution": 0
     },
     {
       "id": "vwap",
-      "weight": 1,
-      "totalSignals": 0,
+      "weight": 1.4000000000000001,
+      "totalSignals": 1,
       "successfulSignals": 0,
       "profitContribution": 0
     },
     {
       "id": "momentum",
       "weight": 1.4000000000000001,
-      "totalSignals": 1,
+      "totalSignals": 2,
       "successfulSignals": 0,
       "profitContribution": 0
     },
     {
       "id": "ml",
       "weight": 1.4000000000000001,
-      "totalSignals": 1,
+      "totalSignals": 3,
       "successfulSignals": 0,
       "profitContribution": 0
     }
   ],
   "patternHistory": {
     "ema|macd|ml|momentum:FFUFFFF": {
+      "wins": 0,
+      "losses": 1,
+      "totalProfit": 0
+    },
+    "bollinger|ml|rsi|vwap:FFUDFFF": {
+      "wins": 0,
+      "losses": 1,
+      "totalProfit": -1.4210854715202004e-14
+    },
+    "ema|macd|ml|momentum:FUFFFFF": {
       "wins": 0,
       "losses": 1,
       "totalProfit": 0
