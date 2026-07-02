@@ -104,10 +104,13 @@ export function loadMlState(): boolean {
         store.trades = state.trades;
       }
       if (state.settings) {
-        // Restore everything except live mode — always start in paper for safety
+        // Restore everything except live mode — always start in paper for safety.
+        // Use nullish coalescing for fields added after the state file was created
+        // so that undefined values from old saves don't overwrite fresh defaults.
         store.settings = {
           ...store.settings,
           ...state.settings,
+          stopLossPercent: state.settings.stopLossPercent ?? store.settings.stopLossPercent,
           mode: "paper", // never auto-restore live mode; user must re-enable
         };
       }

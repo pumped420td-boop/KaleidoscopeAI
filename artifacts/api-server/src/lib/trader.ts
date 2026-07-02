@@ -238,39 +238,47 @@ async function scan(): Promise<void> {
 
     // Swap logic: if all trade slots are full, check whether any idle coin now has
     // significantly higher vote confidence than the weakest current trade.
+    // Trades with trailingActive=true are NEVER swapped — let them run to their
+    // trailing stop. Only non-trailing trades are candidates for early replacement.
     const SWAP_MIN_ADVANTAGE = 0.05; // new signal must beat current trade by ≥5%
     const currentOpen = store.getOpenTrades();
     if (currentOpen.length >= store.settings.maxConcurrentTrades) {
       const activeSymbols = new Set(currentOpen.map((t) => t.symbol));
 
-      // Current vote confidence for each open trade symbol
-      const activeVotes = allVoteResults.filter((r) => activeSymbols.has(r.symbol));
-      const weakestVote = activeVotes.sort((a, b) => a.confidence - b.confidence)[0];
-      const weakestTrade = weakestVote
-        ? currentOpen.find((t) => t.symbol === weakestVote.symbol)
-        : undefined;
+      // Only consider trades that are NOT currently trailing (trailing trades keep running)
+      const swappableTrades = currentOpen.filter((t) => !t.trailingActive);
 
-      if (weakestTrade && weakestVote) {
-        // Best new buy signal not in an active trade
-        const bestSwap = allVoteResults
-          .filter((r) => !activeSymbols.has(r.symbol))
-          .filter((r) => r.decision === "buy" && r.confidence >= store.settings.voteThreshold / 14)
-          .sort((a, b) => b.confidence - a.confidence)[0];
+      if (swappableTrades.length > 0) {
+        const swappableVotes = allVoteResults.filter((r) =>
+          swappableTrades.some((t) => t.symbol === r.symbol)
+        );
+        const weakestVote = swappableVotes.sort((a, b) => a.confidence - b.confidence)[0];
+        const weakestTrade = weakestVote
+          ? swappableTrades.find((t) => t.symbol === weakestVote.symbol)
+          : undefined;
 
-        if (bestSwap && bestSwap.confidence >= weakestVote.confidence + SWAP_MIN_ADVANTAGE) {
-          logger.info(
-            {
-              closing: weakestTrade.symbol,
-              closingConfidence: weakestVote.confidence.toFixed(3),
-              opening: bestSwap.symbol,
-              openingConfidence: bestSwap.confidence.toFixed(3),
-            },
-            "Swapping trade for higher-confidence opportunity"
-          );
-          await closeTrade(weakestTrade, "swapped");
-          const swapCoin = COINS.find((c) => c.symbol === bestSwap.symbol)!;
-          const swapStrategies = bestSwap.votes.filter((v) => v.vote === "buy").map((v) => v.strategyId);
-          await openTrade(bestSwap.symbol, swapCoin.krakenPair, bestSwap.name, bestSwap.price, swapStrategies, bestSwap.confidence);
+        if (weakestTrade && weakestVote) {
+          const bestSwap = allVoteResults
+            .filter((r) => !activeSymbols.has(r.symbol))
+            .filter((r) => r.decision === "buy" && r.confidence >= store.settings.voteThreshold / 14)
+            .sort((a, b) => b.confidence - a.confidence)[0];
+
+          if (bestSwap && bestSwap.confidence >= weakestVote.confidence + SWAP_MIN_ADVANTAGE) {
+            logger.info(
+              {
+                closing: weakestTrade.symbol,
+                closingConfidence: weakestVote.confidence.toFixed(3),
+                opening: bestSwap.symbol,
+                openingConfidence: bestSwap.confidence.toFixed(3),
+                trailingProtected: currentOpen.filter((t) => t.trailingActive).map((t) => t.symbol),
+              },
+              "Swapping trade for higher-confidence opportunity"
+            );
+            await closeTrade(weakestTrade, "swapped");
+            const swapCoin = COINS.find((c) => c.symbol === bestSwap.symbol)!;
+            const swapStrategies = bestSwap.votes.filter((v) => v.vote === "buy").map((v) => v.strategyId);
+            await openTrade(bestSwap.symbol, swapCoin.krakenPair, bestSwap.name, bestSwap.price, swapStrategies, bestSwap.confidence);
+          }
         }
       }
     }

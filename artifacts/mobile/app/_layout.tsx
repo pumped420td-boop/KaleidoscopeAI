@@ -17,7 +17,7 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { BotProvider } from "@/contexts/BotContext";
 
-setBaseUrl(`https://${process.env.EXPO_PUBLIC_DOMAIN}`);
+setBaseUrl("https://kaleidoscopeai.onrender.com");
 
 SplashScreen.preventAutoHideAsync();
 

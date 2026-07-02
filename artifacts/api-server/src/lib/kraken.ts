@@ -1,121 +1,93 @@
-import { createHash, createHmac } from "node:crypto";
+import { createHmac } from "node:crypto";
 import { store } from "./store.js";
 import type { OHLCCandle } from "./store.js";
 
-const BASE_URL = "https://api.kraken.com";
-const OHLC_TTL_MS = 5 * 60_000; // 5 min — 60-min candles change slowly
-const TICKER_TTL_MS = 10_000;
+// ── Binance.US REST API client ───────────────────────────────────────────────
+// Replaces the old Kraken client. All function signatures are preserved so
+// existing callers (trader.ts, voting.ts, market route) need no changes.
 
-function sign(path: string, nonce: string, data: string, secret: string): string {
-  const sha256 = createHash("sha256").update(nonce + data).digest();
-  const hmac = createHmac("sha512", Buffer.from(secret, "base64"))
-    .update(Buffer.concat([Buffer.from(path), sha256]))
-    .digest("base64");
-  return hmac;
-}
-
-/** Timeout (ms) for all Kraken HTTP requests — prevents indefinite hangs */
+const BASE_URL = "https://api.binance.us";
+const OHLC_TTL_MS = 5 * 60_000;
 const REQUEST_TIMEOUT_MS = 8_000;
 
 function withTimeout(ms: number): AbortSignal {
   return AbortSignal.timeout(ms);
 }
 
-async function publicRequest<T>(path: string, params?: Record<string, string>): Promise<T> {
-  const url = new URL(`${BASE_URL}/0/public/${path}`);
-  if (params) {
-    for (const [k, v] of Object.entries(params)) url.searchParams.set(k, v);
-  }
+function sign(queryString: string, secret: string): string {
+  return createHmac("sha256", secret).update(queryString).digest("hex");
+}
+
+async function publicGet<T>(path: string, params: Record<string, string> = {}): Promise<T> {
+  const url = new URL(`${BASE_URL}${path}`);
+  for (const [k, v] of Object.entries(params)) url.searchParams.set(k, v);
   const res = await fetch(url.toString(), {
     headers: { "User-Agent": "KrakenTradingBot/1.0" },
     signal: withTimeout(REQUEST_TIMEOUT_MS),
   });
-  if (!res.ok) throw new Error(`Kraken public request failed: ${res.status}`);
-  const json = (await res.json()) as { error: string[]; result: T };
-  if (json.error?.length) throw new Error(`Kraken error: ${json.error.join(", ")}`);
-  return json.result;
+  if (!res.ok) throw new Error(`Binance.US public request failed: ${res.status}`);
+  return res.json() as Promise<T>;
 }
 
-async function privateRequest<T>(path: string, body: Record<string, string> = {}): Promise<T> {
+async function privateRequest<T>(
+  path: string,
+  params: Record<string, string> = {},
+  method: "GET" | "POST" | "DELETE" = "GET"
+): Promise<T> {
   if (!store.apiKey || !store.apiSecret) throw new Error("API keys not configured");
-  const nonce = Date.now().toString();
-  const data = new URLSearchParams({ nonce, ...body }).toString();
-  const apiPath = `/0/private/${path}`;
-  const signature = sign(apiPath, nonce, data, store.apiSecret);
+  const timestamp = Date.now().toString();
+  const allParams = { ...params, timestamp };
+  const queryString = new URLSearchParams(allParams).toString();
+  const signature = sign(queryString, store.apiSecret);
+  const url = `${BASE_URL}${path}?${queryString}&signature=${signature}`;
 
-  const res = await fetch(`${BASE_URL}${apiPath}`, {
-    method: "POST",
+  const res = await fetch(url, {
+    method,
     headers: {
-      "API-Key": store.apiKey,
-      "API-Sign": signature,
-      "Content-Type": "application/x-www-form-urlencoded",
+      "X-MBX-APIKEY": store.apiKey,
       "User-Agent": "KrakenTradingBot/1.0",
     },
-    body: data,
+    signal: withTimeout(REQUEST_TIMEOUT_MS),
   });
-  if (!res.ok) throw new Error(`Kraken private request failed: ${res.status}`);
-  const json = (await res.json()) as { error: string[]; result: T };
-  if (json.error?.length) throw new Error(`Kraken error: ${json.error.join(", ")}`);
-  return json.result;
-}
-
-export interface KrakenTickerResult {
-  [pair: string]: {
-    a: [string, number, string];
-    b: [string, number, string];
-    c: [string, string];
-    v: [string, string];
-    p: [string, string];
-    t: [number, number];
-    l: [string, string];
-    h: [string, string];
-    o: string;
-  };
-}
-
-/**
- * Fetch ticker for multiple pairs, returning partial results even if some pairs are invalid.
- * Kraken may return both error[] and result{} simultaneously when some pairs in a batch are unknown.
- */
-async function fetchTickerPartial(pairs: string[]): Promise<KrakenTickerResult> {
-  const pairStr = pairs.join(",");
-  const url = `${BASE_URL}/0/public/Ticker?pair=${pairStr}`;
-  try {
-    const res = await fetch(url, {
-      headers: { "User-Agent": "KrakenTradingBot/1.0" },
-      signal: withTimeout(REQUEST_TIMEOUT_MS),
-    });
-    if (!res.ok) return {};
-    const json = (await res.json()) as { error?: string[]; result?: KrakenTickerResult };
-    return json.result ?? {};
-  } catch {
-    return {};
+  if (!res.ok) {
+    const text = await res.text().catch(() => "");
+    throw new Error(`Binance.US ${method} ${path} failed: ${res.status} ${text}`);
   }
+  return res.json() as Promise<T>;
 }
 
-export async function fetchOHLC(pair: string, interval = 60): Promise<OHLCCandle[]> {
+interface BinanceTicker {
+  symbol: string;
+  lastPrice: string;
+  openPrice: string;
+  highPrice: string;
+  lowPrice: string;
+  volume: string;
+  quoteVolume: string;
+}
+
+export async function fetchOHLC(pair: string): Promise<OHLCCandle[]> {
   const cached = store.ohlcCache[pair];
   if (cached && Date.now() - cached.lastUpdated < OHLC_TTL_MS) {
     return cached.candles;
   }
 
   try {
-    const result = await publicRequest<Record<string, unknown[][]>>("OHLC", {
-      pair,
-      interval: interval.toString(),
+    // Binance klines row: [openTime, open, high, low, close, volume, ...]
+    const data = await publicGet<(string | number)[][]>("/api/v3/klines", {
+      symbol: pair,
+      interval: "1h",
+      limit: "100",
     });
 
-    const key = Object.keys(result).find((k) => k !== "last");
-    if (!key) return [];
-
-    const candles: OHLCCandle[] = (result[key] as number[][]).map((row) => ({
-      time: row[0] as number,
+    const candles: OHLCCandle[] = data.map((row) => ({
+      time: Math.floor(Number(row[0]) / 1000),
       open: parseFloat(String(row[1])),
       high: parseFloat(String(row[2])),
       low: parseFloat(String(row[3])),
       close: parseFloat(String(row[4])),
-      vwap: parseFloat(String(row[5])),
-      volume: parseFloat(String(row[6])),
+      vwap: parseFloat(String(row[4])), // use close as vwap proxy
+      volume: parseFloat(String(row[5])),
     }));
 
     store.ohlcCache[pair] = { candles, lastUpdated: Date.now() };
@@ -125,10 +97,6 @@ export async function fetchOHLC(pair: string, interval = 60): Promise<OHLCCandle
   }
 }
 
-/**
- * Pre-fetch OHLC for many pairs concurrently without hammering Kraken.
- * Skips pairs whose cache is still fresh. Safe to call from a background timer.
- */
 export async function prefetchAllOHLC(pairs: string[], concurrency = 4): Promise<void> {
   const stale = pairs.filter((p) => {
     const cached = store.ohlcCache[p];
@@ -136,25 +104,23 @@ export async function prefetchAllOHLC(pairs: string[], concurrency = 4): Promise
   });
   if (stale.length === 0) return;
 
-  // Process in batches of `concurrency` to respect Kraken rate limits
   for (let i = 0; i < stale.length; i += concurrency) {
     const batch = stale.slice(i, i + concurrency);
     await Promise.all(batch.map((pair) => fetchOHLC(pair).catch(() => {})));
-    // Small pause between batches to avoid rate-limit errors
     if (i + concurrency < stale.length) {
-      await new Promise((r) => setTimeout(r, 300));
+      await new Promise((r) => setTimeout(r, 250));
     }
   }
 }
 
 export async function fetchBalance(): Promise<Record<string, string>> {
-  return privateRequest<Record<string, string>>("Balance");
+  const data = await privateRequest<{ balances: { asset: string; free: string }[] }>("/api/v3/account");
+  return Object.fromEntries(data.balances.map((b) => [b.asset, b.free]));
 }
 
 export async function fetchUsdBalance(): Promise<number> {
   const balance = await fetchBalance();
-  const usd = balance["ZUSD"] ?? balance["USD"] ?? "0";
-  return parseFloat(usd);
+  return parseFloat(balance["USD"] ?? "0");
 }
 
 export interface OrderResult {
@@ -162,69 +128,62 @@ export interface OrderResult {
   descr: { order: string };
 }
 
-export async function placeMarketBuy(pair: string, volume: string): Promise<OrderResult> {
-  return privateRequest<OrderResult>("AddOrder", {
-    pair,
-    type: "buy",
-    ordertype: "market",
-    volume,
-  });
+export async function placeMarketBuy(pair: string, quoteQty: string): Promise<OrderResult> {
+  await privateRequest("/api/v3/order", {
+    symbol: pair,
+    side: "BUY",
+    type: "MARKET",
+    quoteOrderQty: quoteQty,
+  }, "POST");
+  return { txid: [`${pair}-buy-${Date.now()}`], descr: { order: `BUY $${quoteQty} of ${pair}` } };
 }
 
-export async function placeMarketSell(pair: string, volume: string): Promise<OrderResult> {
-  return privateRequest<OrderResult>("AddOrder", {
-    pair,
-    type: "sell",
-    ordertype: "market",
-    volume,
-  });
+export async function placeMarketSell(pair: string, quantity: string): Promise<OrderResult> {
+  await privateRequest("/api/v3/order", {
+    symbol: pair,
+    side: "SELL",
+    type: "MARKET",
+    quantity,
+  }, "POST");
+  return { txid: [`${pair}-sell-${Date.now()}`], descr: { order: `SELL ${quantity} of ${pair}` } };
 }
 
+/** Refresh the market cache for all given Binance.US pairs in batches of 20 */
 export async function updateTickerCache(pairs: string[]): Promise<void> {
-  const chunks: string[][] = [];
-  for (let i = 0; i < pairs.length; i += 10) {
-    chunks.push(pairs.slice(i, i + 10));
-  }
-
   const { COINS } = await import("./coins.js");
+  const BATCH = 20;
 
-  for (const chunk of chunks) {
+  for (let i = 0; i < pairs.length; i += BATCH) {
+    const batch = pairs.slice(i, i + BATCH);
     try {
-      const result = await fetchTickerPartial(chunk);
-      // If Kraken returned nothing for this chunk (timeout, rate-limit, blip) just skip it.
-      // The next refresh cycle will fill in the gap — never retry inline.
+      const symbolsParam = JSON.stringify(batch);
+      const tickers = await publicGet<BinanceTicker[]>("/api/v3/ticker/24hr", {
+        symbols: symbolsParam,
+      });
 
-      for (const [krakenKey, data] of Object.entries(result)) {
-        const price = parseFloat(data.c[0]);
-        const open = parseFloat(data.o);
+      for (const t of tickers) {
+        const price = parseFloat(t.lastPrice);
+        const open = parseFloat(t.openPrice);
+        if (!isFinite(price) || price <= 0) continue;
         const change24h = open > 0 ? ((price - open) / open) * 100 : 0;
-
-        const coin = COINS.find(
-          (c) =>
-            c.krakenPair === krakenKey ||
-            krakenKey.includes(c.symbol) ||
-            c.krakenPair.replace(/X/g, "").replace(/Z/g, "") ===
-              krakenKey.replace(/X/g, "").replace(/Z/g, "")
-        );
-        const symbol =
-          coin?.symbol ??
-          krakenKey
-            .replace("ZUSD", "")
-            .replace("USD", "")
-            .replace(/^X/, "");
+        const coin = COINS.find((c) => c.krakenPair === t.symbol);
+        const symbol = coin?.symbol ?? t.symbol.replace(/USD$/, "");
 
         store.marketCache[symbol] = {
           price,
           change24h,
-          volume24h: parseFloat(data.v[1]),
-          high24h: parseFloat(data.h[1]),
-          low24h: parseFloat(data.l[1]),
+          volume24h: parseFloat(t.quoteVolume),
+          high24h: parseFloat(t.highPrice),
+          low24h: parseFloat(t.lowPrice),
           lastUpdated: Date.now(),
         };
       }
     } catch {
-      // Skip failed chunks silently
+      // skip failed batch, next cycle will retry
     }
-    await new Promise((resolve) => setTimeout(resolve, 200));
+
+    if (i + BATCH < pairs.length) {
+      await new Promise((r) => setTimeout(r, 200));
+    }
   }
 }
