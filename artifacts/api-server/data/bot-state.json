@@ -1,0 +1,69 @@
+{
+  "version": 2,
+  "savedAt": "2026-07-02T15:54:40.440Z",
+  "paperBalance": 100,
+  "trades": [],
+  "settings": {
+    "allocation": 50,
+    "mode": "paper",
+    "profitTarget": 5,
+    "trailingStop": 2,
+    "stopLossPercent": 7,
+    "maxConcurrentTrades": 2,
+    "voteThreshold": 4
+  },
+  "botRunning": false,
+  "learningCycles": 0,
+  "strategyStats": [
+    {
+      "id": "rsi",
+      "weight": 1,
+      "totalSignals": 0,
+      "successfulSignals": 0,
+      "profitContribution": 0
+    },
+    {
+      "id": "macd",
+      "weight": 1,
+      "totalSignals": 0,
+      "successfulSignals": 0,
+      "profitContribution": 0
+    },
+    {
+      "id": "bollinger",
+      "weight": 1,
+      "totalSignals": 0,
+      "successfulSignals": 0,
+      "profitContribution": 0
+    },
+    {
+      "id": "ema",
+      "weight": 1,
+      "totalSignals": 0,
+      "successfulSignals": 0,
+      "profitContribution": 0
+    },
+    {
+      "id": "vwap",
+      "weight": 1,
+      "totalSignals": 0,
+      "successfulSignals": 0,
+      "profitContribution": 0
+    },
+    {
+      "id": "momentum",
+      "weight": 1,
+      "totalSignals": 0,
+      "successfulSignals": 0,
+      "profitContribution": 0
+    },
+    {
+      "id": "ml",
+      "weight": 1,
+      "totalSignals": 0,
+      "successfulSignals": 0,
+      "profitContribution": 0
+    }
+  ],
+  "patternHistory": {}
+}
