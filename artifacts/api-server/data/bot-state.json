@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "savedAt": "2026-07-02T15:59:40.437Z",
+  "savedAt": "2026-07-02T16:07:42.013Z",
   "paperBalance": 100,
   "trades": [],
   "settings": {
@@ -12,7 +12,7 @@
     "maxConcurrentTrades": 2,
     "voteThreshold": 4
   },
-  "botRunning": false,
+  "botRunning": true,
   "learningCycles": 0,
   "strategyStats": [
     {

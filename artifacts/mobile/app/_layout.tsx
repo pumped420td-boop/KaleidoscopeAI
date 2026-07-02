@@ -10,6 +10,7 @@ import { setBaseUrl } from "@workspace/api-client-react";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import React, { useEffect } from "react";
+import { Platform } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { KeyboardProvider } from "react-native-keyboard-controller";
 import { SafeAreaProvider } from "react-native-safe-area-context";
@@ -17,7 +18,14 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { BotProvider } from "@/contexts/BotContext";
 
-setBaseUrl("https://kaleidoscopeai.onrender.com");
+// Web preview (Replit browser) uses the local dev server via the Replit proxy.
+// Native Expo Go on a phone uses the Render backend so it can reach the API
+// without being on the same local network.
+setBaseUrl(
+  Platform.OS === "web"
+    ? `https://${process.env.EXPO_PUBLIC_DOMAIN}`
+    : "https://kaleidoscopeai.onrender.com"
+);
 
 SplashScreen.preventAutoHideAsync();
 

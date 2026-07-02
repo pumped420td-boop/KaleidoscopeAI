@@ -21,6 +21,7 @@ router.put("/settings", (req, res) => {
   }
   if (body.profitTarget !== undefined) store.settings.profitTarget = Math.max(1, Math.min(50, Number(body.profitTarget)));
   if (body.trailingStop !== undefined) store.settings.trailingStop = Math.max(0.5, Math.min(10, Number(body.trailingStop)));
+  if (body.stopLossPercent !== undefined) store.settings.stopLossPercent = Math.max(1, Math.min(50, Number(body.stopLossPercent)));
   if (body.maxConcurrentTrades !== undefined) store.settings.maxConcurrentTrades = Math.max(1, Math.min(5, Number(body.maxConcurrentTrades)));
   if (body.voteThreshold !== undefined) store.settings.voteThreshold = Math.max(1, Math.min(7, Number(body.voteThreshold)));
   saveMlState();
