@@ -314,7 +314,7 @@ export const GetVotesResponse = zod.object({
 export const GetTickerResponse = zod.object({
   "tickers": zod.array(zod.object({
   "symbol": zod.string(),
-  "krakenPair": zod.string(),
+  "pair": zod.string(),
   "name": zod.string(),
   "price": zod.number(),
   "change24h": zod.number(),

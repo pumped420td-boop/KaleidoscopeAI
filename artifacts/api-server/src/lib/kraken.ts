@@ -166,7 +166,7 @@ export async function updateTickerCache(pairs: string[]): Promise<void> {
         const open = parseFloat(t.openPrice);
         if (!isFinite(price) || price <= 0) continue;
         const change24h = open > 0 ? ((price - open) / open) * 100 : 0;
-        const coin = COINS.find((c) => c.krakenPair === t.symbol);
+        const coin = COINS.find((c) => c.pair === t.symbol);
         const symbol = coin?.symbol ?? t.symbol.replace(/USD$/, "");
 
         store.marketCache[symbol] = {

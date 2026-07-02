@@ -43,8 +43,8 @@ export async function analyzeCoins(coins: Coin[]): Promise<VoteResult[]> {
   const ohlcMap = new Map<string, ReturnType<typeof fetchOHLC> extends Promise<infer T> ? T : never>();
   for (let i = 0; i < coins.length; i += OHLC_FETCH_CONCURRENCY) {
     const batch = coins.slice(i, i + OHLC_FETCH_CONCURRENCY);
-    const fetched = await Promise.all(batch.map((c) => fetchOHLC(c.krakenPair).catch(() => [] as Awaited<ReturnType<typeof fetchOHLC>>)));
-    batch.forEach((c, idx) => ohlcMap.set(c.krakenPair, fetched[idx]!));
+    const fetched = await Promise.all(batch.map((c) => fetchOHLC(c.pair).catch(() => [] as Awaited<ReturnType<typeof fetchOHLC>>)));
+    batch.forEach((c, idx) => ohlcMap.set(c.pair, fetched[idx]!));
   }
 
   for (const coin of coins) {
@@ -52,7 +52,7 @@ export async function analyzeCoins(coins: Coin[]): Promise<VoteResult[]> {
     if (!cached) continue;
 
     const price = cached.price;
-    const candles = ohlcMap.get(coin.krakenPair) ?? [];
+    const candles = ohlcMap.get(coin.pair) ?? [];
     if (candles.length < 10) continue;
 
     const votes: (StrategySignal & { weight: number })[] = [];

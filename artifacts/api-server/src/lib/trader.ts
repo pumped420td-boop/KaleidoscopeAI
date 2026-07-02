@@ -19,7 +19,7 @@ function generateId(): string {
 
 async function openTrade(
   symbol: string,
-  krakenPair: string,
+  pair: string,
   name: string,
   price: number,
   winningStrategies: string[],
@@ -39,7 +39,7 @@ async function openTrade(
 
   if (store.settings.mode === "live") {
     try {
-      await placeMarketBuy(krakenPair, quantity.toFixed(8));
+      await placeMarketBuy(pair, quantity.toFixed(8));
     } catch (err) {
       logger.error({ err, symbol }, "Failed to place live buy order");
       return;
@@ -53,7 +53,7 @@ async function openTrade(
   const trade: StoredTrade = {
     id: generateId(),
     symbol,
-    krakenPair,
+    pair,
     name,
     entryPrice: price,
     currentPrice: price,
@@ -82,7 +82,7 @@ export async function closeTrade(trade: StoredTrade, reason: "profit" | "stop" |
 
   if (store.settings.mode === "live") {
     try {
-      await placeMarketSell(trade.krakenPair, trade.quantity.toFixed(8));
+      await placeMarketSell(trade.pair, trade.quantity.toFixed(8));
     } catch (err) {
       logger.error({ err, symbol: trade.symbol }, "Failed to place live sell order");
       return;
@@ -105,7 +105,7 @@ export async function closeTrade(trade: StoredTrade, reason: "profit" | "stop" |
   }
 
   // Feed results into ML learning — keyed by strategy-combo + candle pattern
-  const candles = store.ohlcCache[trade.krakenPair]?.candles ?? [];
+  const candles = store.ohlcCache[trade.pair]?.candles ?? [];
   if (candles.length >= 10) {
     const closes = candles.map((c) => c.close);
     const pattern = encodePattern(closes);
@@ -188,7 +188,7 @@ async function scan(): Promise<void> {
 
   try {
     // Refresh market data
-    const pairs = COINS.map((c) => c.krakenPair);
+    const pairs = COINS.map((c) => c.pair);
     await updateTickerCache(pairs);
 
     // Update live balance if needed
@@ -230,7 +230,7 @@ async function scan(): Promise<void> {
         const winningStrategies = signal.votes
           .filter((v) => v.vote === "buy")
           .map((v) => v.strategyId);
-        await openTrade(signal.symbol, COINS.find((c) => c.symbol === signal.symbol)!.krakenPair, signal.name, signal.price, winningStrategies, signal.confidence);
+        await openTrade(signal.symbol, COINS.find((c) => c.symbol === signal.symbol)!.pair, signal.name, signal.price, winningStrategies, signal.confidence);
       }
     }
 
@@ -277,7 +277,7 @@ async function scan(): Promise<void> {
             await closeTrade(weakestTrade, "swapped");
             const swapCoin = COINS.find((c) => c.symbol === bestSwap.symbol)!;
             const swapStrategies = bestSwap.votes.filter((v) => v.vote === "buy").map((v) => v.strategyId);
-            await openTrade(bestSwap.symbol, swapCoin.krakenPair, bestSwap.name, bestSwap.price, swapStrategies, bestSwap.confidence);
+            await openTrade(bestSwap.symbol, swapCoin.pair, bestSwap.name, bestSwap.price, swapStrategies, bestSwap.confidence);
           }
         }
       }
@@ -300,7 +300,7 @@ export async function startBot(): Promise<void> {
 
   // Initial market data load
   try {
-    await updateTickerCache(COINS.map((c) => c.krakenPair));
+    await updateTickerCache(COINS.map((c) => c.pair));
   } catch {
     // ignore on startup
   }

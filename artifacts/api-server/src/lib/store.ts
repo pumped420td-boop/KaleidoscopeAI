@@ -1,7 +1,7 @@
 export interface StoredTrade {
   id: string;
   symbol: string;
-  krakenPair: string;
+  pair: string;
   name: string;
   entryPrice: number;
   currentPrice: number;

@@ -495,7 +495,7 @@ components:
       properties:
         symbol:
           type: string
-        krakenPair:
+        pair:
           type: string
         name:
           type: string
@@ -512,7 +512,7 @@ components:
         category:
           type: string
           enum: [crypto, meme]
-      required: [symbol, krakenPair, name, price, change24h, volume24h, high24h, low24h, category]
+      required: [symbol, pair, name, price, change24h, volume24h, high24h, low24h, category]
 
     TickerResponse:
       type: object

@@ -1,5 +1,6 @@
 import app from "./app";
 import { logger } from "./lib/logger";
+import { store } from "./lib/store";
 import { refreshVotesCache, startVotesCacheTimer, startBot } from "./lib/trader";
 import { loadMlState, saveMlState } from "./lib/persistence";
 
@@ -35,9 +36,11 @@ app.listen(port, (err) => {
     startVotesCacheTimer();
     logger.info("Votes cache initialized");
 
-    if (shouldAutoStart) {
+    // Always start the bot in paper mode on server start/restart/upgrade.
+    // startBot() is idempotent — it no-ops if already running.
+    if (!store.running) {
       await startBot();
-      logger.info("Bot auto-resumed from saved state");
+      logger.info(shouldAutoStart ? "Bot auto-resumed from saved state" : "Bot auto-started (paper mode)");
     }
   }, 4_000);
 

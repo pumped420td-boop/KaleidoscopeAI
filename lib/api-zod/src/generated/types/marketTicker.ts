@@ -9,7 +9,7 @@ import type { MarketTickerCategory } from './marketTickerCategory';
 
 export interface MarketTicker {
   symbol: string;
-  krakenPair: string;
+  pair: string;
   name: string;
   price: number;
   change24h: number;

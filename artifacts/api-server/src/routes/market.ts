@@ -10,7 +10,7 @@ let warmupPromise: Promise<void> | null = null;
 
 function ensureWarmup(): Promise<void> {
   if (!warmupPromise) {
-    warmupPromise = updateTickerCache(COINS.map((c) => c.krakenPair))
+    warmupPromise = updateTickerCache(COINS.map((c) => c.pair))
       .catch(() => {})
       .finally(() => {
         // Allow re-warmup after 30 seconds (handled by stale check below)
@@ -38,7 +38,7 @@ router.get("/market/ticker", (_req, res) => {
     const cached = store.marketCache[coin.symbol];
     return {
       symbol: coin.symbol,
-      krakenPair: coin.krakenPair,
+      pair: coin.pair,
       name: coin.name,
       price: cached?.price ?? 0,
       change24h: cached?.change24h ?? 0,

@@ -109,7 +109,7 @@ export default function SettingsScreen() {
 
   const handleModeToggle = (toLive: boolean) => {
     if (toLive && !keysStatus?.configured) {
-      Alert.alert("API Keys Required", "Add your Kraken API keys before switching to live mode.");
+      Alert.alert("API Keys Required", "Add your Binance.US API keys before switching to live mode.");
       return;
     }
     const base = {
@@ -123,7 +123,7 @@ export default function SettingsScreen() {
     if (toLive) {
       Alert.alert(
         "Enable Live Trading",
-        "This will place real orders on Kraken using your actual funds. Are you sure?",
+        "This will place real orders on Binance.US using your actual funds. Are you sure?",
         [
           { text: "Cancel", style: "cancel" },
           {
@@ -149,7 +149,7 @@ export default function SettingsScreen() {
       <Text style={[styles.title, { color: colors.foreground }]}>Settings</Text>
 
       {/* ── API Keys ── */}
-      <Text style={[styles.sectionLabel, { color: colors.mutedForeground }]}>KRAKEN API KEYS</Text>
+      <Text style={[styles.sectionLabel, { color: colors.mutedForeground }]}>BINANCE.US API KEYS</Text>
       <View style={[styles.card, { backgroundColor: colors.card, borderColor: colors.border, width: cardWidth }]}>
         {keysStatus?.configured ? (
           <View style={styles.keysConfigured}>
@@ -220,7 +220,7 @@ export default function SettingsScreen() {
               {isLive ? "Live Trading" : "Paper Trading"}
             </Text>
             <Text style={[styles.modeSub, { color: colors.mutedForeground }]}>
-              {isLive ? "Real orders on Kraken with real funds" : "Simulated trades with $10,000 virtual balance"}
+              {isLive ? "Real orders on Binance.US with real funds" : "Simulated trades with $10,000 virtual balance"}
             </Text>
           </View>
           <Switch
@@ -234,7 +234,7 @@ export default function SettingsScreen() {
           <View style={[styles.warningBanner, { backgroundColor: `${colors.destructive}22` }]}>
             <Feather name="alert-triangle" size={14} color={colors.destructive} />
             <Text style={[styles.warningText, { color: colors.destructive }]}>
-              Live mode uses real funds. Bot will place actual Kraken orders.
+              Live mode uses real funds. Bot will place actual Binance.US orders.
             </Text>
           </View>
         )}
