@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "savedAt": "2026-07-02T23:34:15.810Z",
+  "savedAt": "2026-07-03T00:09:15.752Z",
   "paperBalance": 50,
   "trades": [
     {
@@ -117,11 +117,11 @@
       "pair": "HBARUSD",
       "name": "Hedera",
       "entryPrice": 0.07088,
-      "currentPrice": 0.07086,
+      "currentPrice": 0.07079,
       "quantity": 352.7088036117382,
       "investedUsd": 25,
-      "profitPercent": -0.028216704288928116,
-      "profitUsd": -0.007054176072230689,
+      "profitPercent": -0.12697516930021566,
+      "profitUsd": -0.03174379232505231,
       "status": "open",
       "strategy": "Voting Consensus",
       "winningStrategies": [

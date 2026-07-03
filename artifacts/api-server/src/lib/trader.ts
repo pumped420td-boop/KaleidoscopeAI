@@ -1,7 +1,7 @@
 import { store } from "./store.js";
 import { COINS } from "./coins.js";
 import { analyzeCoins } from "./voting.js";
-import { updateTickerCache, fetchUsdBalance, placeMarketBuy, placeMarketSell } from "./kraken.js";
+import { updateTickerCache, fetchUsdBalance, placeMarketBuy, placeMarketSell } from "./binance.js";
 import { encodePattern, recordPatternOutcome } from "./strategies/ml.js";
 import { saveMlState } from "./persistence.js";
 import { logger } from "./logger.js";

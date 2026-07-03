@@ -1,14 +1,13 @@
 import { createHmac } from "node:crypto";
 import { store } from "./store.js";
+import { logger } from "./logger.js";
 import type { OHLCCandle } from "./store.js";
 
 // ── Binance.US REST API client ───────────────────────────────────────────────
-// Replaces the old Kraken client. All function signatures are preserved so
-// existing callers (trader.ts, voting.ts, market route) need no changes.
 
 const BASE_URL = "https://api.binance.us";
 const OHLC_TTL_MS = 5 * 60_000;
-const REQUEST_TIMEOUT_MS = 8_000;
+const REQUEST_TIMEOUT_MS = 10_000;
 
 function withTimeout(ms: number): AbortSignal {
   return AbortSignal.timeout(ms);
@@ -22,10 +21,10 @@ async function publicGet<T>(path: string, params: Record<string, string> = {}): 
   const url = new URL(`${BASE_URL}${path}`);
   for (const [k, v] of Object.entries(params)) url.searchParams.set(k, v);
   const res = await fetch(url.toString(), {
-    headers: { "User-Agent": "KrakenTradingBot/1.0" },
+    headers: { "User-Agent": "BinanceTradingBot/1.0" },
     signal: withTimeout(REQUEST_TIMEOUT_MS),
   });
-  if (!res.ok) throw new Error(`Binance.US public request failed: ${res.status}`);
+  if (!res.ok) throw new Error(`Binance.US public request failed: ${res.status} ${res.statusText}`);
   return res.json() as Promise<T>;
 }
 
@@ -45,7 +44,7 @@ async function privateRequest<T>(
     method,
     headers: {
       "X-MBX-APIKEY": store.apiKey,
-      "User-Agent": "KrakenTradingBot/1.0",
+      "User-Agent": "BinanceTradingBot/1.0",
     },
     signal: withTimeout(REQUEST_TIMEOUT_MS),
   });
@@ -73,7 +72,6 @@ export async function fetchOHLC(pair: string): Promise<OHLCCandle[]> {
   }
 
   try {
-    // Binance klines row: [openTime, open, high, low, close, volume, ...]
     const data = await publicGet<(string | number)[][]>("/api/v3/klines", {
       symbol: pair,
       interval: "1h",
@@ -86,13 +84,14 @@ export async function fetchOHLC(pair: string): Promise<OHLCCandle[]> {
       high: parseFloat(String(row[2])),
       low: parseFloat(String(row[3])),
       close: parseFloat(String(row[4])),
-      vwap: parseFloat(String(row[4])), // use close as vwap proxy
+      vwap: parseFloat(String(row[4])),
       volume: parseFloat(String(row[5])),
     }));
 
     store.ohlcCache[pair] = { candles, lastUpdated: Date.now() };
     return candles;
-  } catch {
+  } catch (err) {
+    logger.warn({ err, pair }, "OHLC fetch failed, using cached data");
     return store.ohlcCache[pair]?.candles ?? [];
   }
 }
@@ -156,11 +155,11 @@ export async function updateTickerCache(pairs: string[]): Promise<void> {
   for (let i = 0; i < pairs.length; i += BATCH) {
     const batch = pairs.slice(i, i + BATCH);
     try {
-      const symbolsParam = JSON.stringify(batch);
       const tickers = await publicGet<BinanceTicker[]>("/api/v3/ticker/24hr", {
-        symbols: symbolsParam,
+        symbols: JSON.stringify(batch),
       });
 
+      let updated = 0;
       for (const t of tickers) {
         const price = parseFloat(t.lastPrice);
         const open = parseFloat(t.openPrice);
@@ -177,9 +176,12 @@ export async function updateTickerCache(pairs: string[]): Promise<void> {
           low24h: parseFloat(t.lowPrice),
           lastUpdated: Date.now(),
         };
+        updated++;
       }
-    } catch {
-      // skip failed batch, next cycle will retry
+
+      logger.debug({ batchStart: i, batchSize: batch.length, updated }, "Ticker batch updated");
+    } catch (err) {
+      logger.warn({ err, batchStart: i, pairs: batch }, "Ticker batch fetch failed — will retry next cycle");
     }
 
     if (i + BATCH < pairs.length) {

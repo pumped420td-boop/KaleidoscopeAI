@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { store } from "../lib/store.js";
 import { COINS } from "../lib/coins.js";
-import { updateTickerCache } from "../lib/kraken.js";
+import { updateTickerCache } from "../lib/binance.js";
 
 const router = Router();
 

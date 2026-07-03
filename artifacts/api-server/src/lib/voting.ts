@@ -1,4 +1,4 @@
-import { fetchOHLC } from "./kraken.js";
+import { fetchOHLC } from "./binance.js";
 import { store } from "./store.js";
 import { rsiStrategy } from "./strategies/rsi.js";
 import { macdStrategy } from "./strategies/macd.js";
