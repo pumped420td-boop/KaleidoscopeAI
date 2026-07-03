@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "savedAt": "2026-07-03T00:32:36.413Z",
+  "savedAt": "2026-07-03T00:44:54.658Z",
   "paperBalance": 50,
   "trades": [
     {
@@ -95,7 +95,7 @@
       "investedUsd": 25,
       "profitPercent": 0,
       "profitUsd": 0,
-      "status": "open",
+      "status": "closed",
       "strategy": "Voting Consensus",
       "winningStrategies": [
         "rsi",
@@ -104,12 +104,12 @@
         "ml"
       ],
       "openedAt": "2026-07-02T21:46:02.022Z",
-      "closedAt": null,
+      "closedAt": "2026-07-03T00:36:48.113Z",
       "paperMode": true,
       "highestPrice": 0.00352,
       "trailingActive": false,
       "entryConfidence": 0.3576278160020513,
-      "closeReason": null
+      "closeReason": "manual"
     },
     {
       "id": "mr4293xw388gw",
@@ -117,11 +117,11 @@
       "pair": "HBARUSD",
       "name": "Hedera",
       "entryPrice": 0.07088,
-      "currentPrice": 0.07079,
+      "currentPrice": 0.07055,
       "quantity": 352.7088036117382,
       "investedUsd": 25,
-      "profitPercent": -0.12697516930021566,
-      "profitUsd": -0.03174379232505231,
+      "profitPercent": -0.4655756207674901,
+      "profitUsd": -0.11639390519187032,
       "status": "open",
       "strategy": "Voting Consensus",
       "winningStrategies": [
@@ -137,6 +137,33 @@
       "trailingActive": false,
       "entryConfidence": 0.39433661465691,
       "closeReason": null
+    },
+    {
+      "id": "mr47e9i02ecz1",
+      "symbol": "SHIB",
+      "pair": "SHIBUSD",
+      "name": "Shiba Inu",
+      "entryPrice": 0.00000422,
+      "currentPrice": 0.00000422,
+      "quantity": 5924170.616113744,
+      "investedUsd": 25,
+      "profitPercent": 0,
+      "profitUsd": 0,
+      "status": "open",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-07-03T00:37:00.696Z",
+      "closedAt": null,
+      "paperMode": true,
+      "highestPrice": 0.00000422,
+      "trailingActive": false,
+      "entryConfidence": 0.2957142857142857,
+      "closeReason": null
     }
   ],
   "settings": {
@@ -149,12 +176,12 @@
     "voteThreshold": 4
   },
   "botRunning": true,
-  "learningCycles": 12,
+  "learningCycles": 16,
   "strategyStats": [
     {
       "id": "rsi",
       "weight": 1.4000000000000001,
-      "totalSignals": 1,
+      "totalSignals": 2,
       "successfulSignals": 0,
       "profitContribution": 0
     },
@@ -168,7 +195,7 @@
     {
       "id": "bollinger",
       "weight": 1.4000000000000001,
-      "totalSignals": 1,
+      "totalSignals": 2,
       "successfulSignals": 0,
       "profitContribution": 0
     },
@@ -182,7 +209,7 @@
     {
       "id": "vwap",
       "weight": 1.4000000000000001,
-      "totalSignals": 1,
+      "totalSignals": 2,
       "successfulSignals": 0,
       "profitContribution": 0
     },
@@ -196,7 +223,7 @@
     {
       "id": "ml",
       "weight": 1.4000000000000001,
-      "totalSignals": 3,
+      "totalSignals": 4,
       "successfulSignals": 0,
       "profitContribution": 0
     }
@@ -216,6 +243,113 @@
       "wins": 0,
       "losses": 1,
       "totalProfit": 0
+    },
+    "bollinger|ml|rsi|vwap:FFFDFFF": {
+      "wins": 0,
+      "losses": 1,
+      "totalProfit": 0
     }
-  }
+  },
+  "balanceHistory": [
+    {
+      "ts": 1783038900121,
+      "balance": 100,
+      "pnl": -3.552713678800501e-15
+    },
+    {
+      "ts": 1783038930762,
+      "balance": 100,
+      "pnl": -3.552713678800501e-15
+    },
+    {
+      "ts": 1783038960693,
+      "balance": 100,
+      "pnl": -3.552713678800501e-15
+    },
+    {
+      "ts": 1783038990704,
+      "balance": 100,
+      "pnl": -3.552713678800501e-15
+    },
+    {
+      "ts": 1783039020697,
+      "balance": 100,
+      "pnl": -3.552713678800501e-15
+    },
+    {
+      "ts": 1783039050705,
+      "balance": 100,
+      "pnl": -3.552713678800501e-15
+    },
+    {
+      "ts": 1783039080664,
+      "balance": 100,
+      "pnl": -3.552713678800501e-15
+    },
+    {
+      "ts": 1783039110678,
+      "balance": 100,
+      "pnl": -3.552713678800501e-15
+    },
+    {
+      "ts": 1783039140693,
+      "balance": 100,
+      "pnl": -3.552713678800501e-15
+    },
+    {
+      "ts": 1783039170671,
+      "balance": 100,
+      "pnl": -3.552713678800501e-15
+    },
+    {
+      "ts": 1783039201020,
+      "balance": 100,
+      "pnl": -3.552713678800501e-15
+    },
+    {
+      "ts": 1783039230738,
+      "balance": 100,
+      "pnl": -3.552713678800501e-15
+    },
+    {
+      "ts": 1783039260780,
+      "balance": 100,
+      "pnl": -3.552713678800501e-15
+    },
+    {
+      "ts": 1783039290653,
+      "balance": 100,
+      "pnl": -3.552713678800501e-15
+    },
+    {
+      "ts": 1783039320702,
+      "balance": 100,
+      "pnl": -3.552713678800501e-15
+    },
+    {
+      "ts": 1783039350690,
+      "balance": 100,
+      "pnl": -3.552713678800501e-15
+    },
+    {
+      "ts": 1783039380706,
+      "balance": 100,
+      "pnl": -3.552713678800501e-15
+    },
+    {
+      "ts": 1783039410738,
+      "balance": 100,
+      "pnl": -3.552713678800501e-15
+    },
+    {
+      "ts": 1783039440701,
+      "balance": 100,
+      "pnl": -3.552713678800501e-15
+    },
+    {
+      "ts": 1783039470711,
+      "balance": 100,
+      "pnl": -3.552713678800501e-15
+    }
+  ]
 }
