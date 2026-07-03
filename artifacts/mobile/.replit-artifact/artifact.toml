@@ -1,6 +1,6 @@
 kind = "mobile"
 previewPath = "/"
-title = "Kraken Trading Bot"
+title = "Binance.US Trading Bot"
 version = "1.0.0"
 id = "artifacts/mobile"
 router = "expo-domain"

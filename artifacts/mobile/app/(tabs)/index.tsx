@@ -9,6 +9,7 @@ import {
   Platform,
   RefreshControl,
 } from "react-native";
+import Svg, { Path, Defs, LinearGradient, Stop } from "react-native-svg";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { Feather } from "@expo/vector-icons";
 import * as Haptics from "expo-haptics";
@@ -24,6 +25,36 @@ import {
 import { useColors } from "@/hooks/useColors";
 import { useBot } from "@/contexts/BotContext";
 import { TradeCard } from "@/components/TradeCard";
+
+type BalancePoint = { ts: number; balance: number; pnl: number };
+
+function BalanceSparkline({ data, color }: { data: BalancePoint[]; color: string }) {
+  if (!data || data.length < 2) return null;
+  const W = 300;
+  const H = 72;
+  const balances = data.map((d) => d.balance);
+  const minB = Math.min(...balances);
+  const maxB = Math.max(...balances);
+  const range = maxB - minB || 0.01;
+  const pts = data.map((d, i) => ({
+    x: (i / (data.length - 1)) * W,
+    y: H - 4 - ((d.balance - minB) / range) * (H - 8),
+  }));
+  const linePath = pts.map((p, i) => `${i === 0 ? "M" : "L"}${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(" ");
+  const fillPath = `${linePath} L${W},${H} L0,${H} Z`;
+  return (
+    <Svg width="100%" height={H} viewBox={`0 0 ${W} ${H}`}>
+      <Defs>
+        <LinearGradient id="balGrad" x1="0" y1="0" x2="0" y2="1">
+          <Stop offset="0%" stopColor={color} stopOpacity={0.28} />
+          <Stop offset="100%" stopColor={color} stopOpacity={0.02} />
+        </LinearGradient>
+      </Defs>
+      <Path d={fillPath} fill="url(#balGrad)" />
+      <Path d={linePath} stroke={color} strokeWidth={1.8} fill="none" strokeLinejoin="round" strokeLinecap="round" />
+    </Svg>
+  );
+}
 
 export default function DashboardScreen() {
   const colors = useColors();
@@ -73,6 +104,11 @@ export default function DashboardScreen() {
   const pnlPositive = (portfolio?.totalPnl ?? 0) >= 0;
   const activeTrades = botStatus?.activeTrades ?? [];
   const isPaper = settings?.mode === "paper";
+  const balanceHistory: BalancePoint[] = (portfolio as any)?.balanceHistory ?? [];
+  const chartUp = balanceHistory.length > 1
+    ? balanceHistory[balanceHistory.length - 1].balance >= balanceHistory[0].balance
+    : pnlPositive;
+  const chartColor = chartUp ? colors.success : colors.destructive;
 
   return (
     <ScrollView
@@ -106,6 +142,31 @@ export default function DashboardScreen() {
             ${(portfolio?.totalBalance ?? 0).toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
           </Text>
         )}
+
+        {/* Balance history sparkline */}
+        {balanceHistory.length >= 2 ? (
+          <View style={styles.chartWrapper}>
+            <BalanceSparkline data={balanceHistory} color={chartColor} />
+            <View style={styles.chartLabels}>
+              <Text style={[styles.chartLabel, { color: colors.mutedForeground }]}>
+                {new Date(balanceHistory[0].ts).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
+              </Text>
+              <Text style={[styles.chartLabel, { color: chartColor, fontFamily: "Inter_600SemiBold" }]}>
+                {pnlPositive ? "+" : ""}${(portfolio?.totalPnl ?? 0).toFixed(2)} P&L
+              </Text>
+              <Text style={[styles.chartLabel, { color: colors.mutedForeground }]}>
+                {new Date(balanceHistory[balanceHistory.length - 1].ts).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
+              </Text>
+            </View>
+          </View>
+        ) : (
+          <View style={styles.chartPlaceholder}>
+            <Text style={[styles.chartPlaceholderText, { color: colors.mutedForeground }]}>
+              Balance graph appears after first scan
+            </Text>
+          </View>
+        )}
+
         <View style={styles.statsRow}>
           <View style={styles.statItem}>
             <Text style={[styles.statLabel, { color: colors.mutedForeground }]}>Total P&L</Text>
@@ -170,7 +231,7 @@ export default function DashboardScreen() {
             <Text style={[styles.botButtonSub, { color: colors.mutedForeground }]}>
               {bot.isRunning
                 ? `${activeTrades.length} active trade${activeTrades.length !== 1 ? "s" : ""} · scanning every 30s`
-                : "Ready to scan 40 coins"}
+                : "Ready to scan 47 coins"}
             </Text>
           </View>
           <View style={[styles.runningDot, { backgroundColor: bot.isRunning ? colors.success : colors.mutedForeground }]} />
@@ -203,7 +264,7 @@ export default function DashboardScreen() {
           <Feather name="power" size={24} color={colors.mutedForeground} />
           <Text style={[styles.emptyTitle, { color: colors.foreground }]}>Bot Offline</Text>
           <Text style={[styles.emptyText, { color: colors.mutedForeground }]}>
-            Start the bot to begin scanning 40 coins with the voting engine.
+            Start the bot to begin scanning 47 coins with the voting engine.
           </Text>
         </View>
       )}
@@ -222,7 +283,12 @@ const styles = StyleSheet.create({
   modeLabel: { fontSize: 11, fontFamily: "Inter_700Bold", letterSpacing: 0.5 },
   portfolioCard: { borderRadius: 20, borderWidth: 1, padding: 20, marginBottom: 16 },
   balanceLabel: { fontSize: 13, fontFamily: "Inter_400Regular", marginBottom: 6 },
-  balanceAmount: { fontSize: 36, fontFamily: "Inter_700Bold", letterSpacing: -1, marginBottom: 16 },
+  balanceAmount: { fontSize: 36, fontFamily: "Inter_700Bold", letterSpacing: -1, marginBottom: 4 },
+  chartWrapper: { marginHorizontal: -4, marginBottom: 14 },
+  chartLabels: { flexDirection: "row", justifyContent: "space-between", paddingHorizontal: 4, marginTop: 4 },
+  chartLabel: { fontSize: 10, fontFamily: "Inter_400Regular" },
+  chartPlaceholder: { height: 40, justifyContent: "center", alignItems: "center", marginBottom: 14 },
+  chartPlaceholderText: { fontSize: 11, fontFamily: "Inter_400Regular" },
   statsRow: { flexDirection: "row", marginBottom: 14 },
   statItem: { flex: 1, alignItems: "center" },
   statLabel: { fontSize: 11, fontFamily: "Inter_400Regular", marginBottom: 4 },
@@ -241,11 +307,4 @@ const styles = StyleSheet.create({
   emptyCard: { borderRadius: 20, borderWidth: 1, padding: 32, alignItems: "center", gap: 10 },
   emptyTitle: { fontSize: 16, fontFamily: "Inter_600SemiBold" },
   emptyText: { fontSize: 13, fontFamily: "Inter_400Regular", textAlign: "center", lineHeight: 20 },
-  // eslint-disable-next-line react-native/no-unused-styles
-  success: {},
-  // eslint-disable-next-line react-native/no-unused-styles
-  warning: {},
 });
-
-// Add missing color refs at module level to prevent TS errors
-const { success, warning } = { success: "#00E676", warning: "#FFB300" };

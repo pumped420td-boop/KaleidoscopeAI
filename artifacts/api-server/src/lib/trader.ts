@@ -205,7 +205,12 @@ async function scan(): Promise<void> {
 
     // Analyze ALL coins once — share the result for both trading decisions and the votes cache.
     // This avoids the previous pattern of calling analyzeCoins twice per scan.
-    const allCoins = COINS.filter((c) => store.marketCache[c.symbol]);
+    // Minimum 24h volume filter: skip coins with < $500 USD traded in 24h to avoid illiquid signals.
+    const MIN_VOLUME_USD = 500;
+    const allCoins = COINS.filter((c) => {
+      const cached = store.marketCache[c.symbol];
+      return cached && cached.volume24h >= MIN_VOLUME_USD;
+    });
     const allVoteResults = await analyzeCoins(allCoins);
 
     // Persist votes cache for the Signals tab
@@ -235,6 +240,14 @@ async function scan(): Promise<void> {
     }
 
     store.lastScanAt = new Date().toISOString();
+
+    // Record balance snapshot for dashboard graph (cap at 288 points = 24h @ 30s)
+    store.balanceHistory.push({
+      ts: Date.now(),
+      balance: store.getTotalPortfolioValue(),
+      pnl: store.getTotalPnl(),
+    });
+    if (store.balanceHistory.length > 288) store.balanceHistory.shift();
 
     // Swap logic: if all trade slots are full, check whether any idle coin now has
     // significantly higher vote confidence than the weakest current trade.

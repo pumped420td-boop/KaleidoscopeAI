@@ -52,6 +52,12 @@ export interface MarketEntry {
   lastUpdated: number;
 }
 
+export interface BalanceSnapshot {
+  ts: number;
+  balance: number;
+  pnl: number;
+}
+
 export interface OHLCCandle {
   time: number;
   open: number;
@@ -160,6 +166,7 @@ class Store {
   votesCache: import("./voting.js").VoteResult[] = [];
   votesCachedAt: string | null = null;
 
+  balanceHistory: BalanceSnapshot[] = [];
   learningCycles = 0;
   lastScanAt: string | null = null;
   running = false;

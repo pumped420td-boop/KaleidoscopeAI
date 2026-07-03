@@ -6,6 +6,8 @@
  * OpenAPI spec version: 0.1.0
  */
 
-export type CloseTrade404 = {
-  error?: string;
-};
+export interface BalanceSnapshot {
+  ts: number;
+  balance: number;
+  pnl: number;
+}

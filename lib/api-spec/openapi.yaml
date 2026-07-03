@@ -2,7 +2,7 @@ openapi: 3.1.0
 info:
   title: Api
   version: 0.1.0
-  description: Kraken Trading Bot API
+  description: Binance.US Trading Bot API
 servers:
   - url: /api
     description: Base API path
@@ -54,7 +54,7 @@ paths:
     post:
       operationId: saveKeys
       tags: [keys]
-      summary: Save Kraken API keys
+      summary: Save Binance.US API keys
       requestBody:
         required: true
         content:
@@ -71,7 +71,7 @@ paths:
     delete:
       operationId: deleteKeys
       tags: [keys]
-      summary: Remove Kraken API keys
+      summary: Remove Binance.US API keys
       responses:
         "200":
           description: Keys removed
@@ -550,6 +550,17 @@ components:
           type: integer
       required: [running, mode, activeTradeCount, activeTrades, balance, allocatedBalance, scanIntervalSeconds]
 
+    BalanceSnapshot:
+      type: object
+      properties:
+        ts:
+          type: integer
+        balance:
+          type: number
+        pnl:
+          type: number
+      required: [ts, balance, pnl]
+
     Portfolio:
       type: object
       properties:
@@ -571,4 +582,8 @@ components:
           type: integer
         paperMode:
           type: boolean
-      required: [totalBalance, availableBalance, allocatedBalance, allocatedInTrades, totalPnl, totalPnlPercent, winRate, totalTrades, paperMode]
+        balanceHistory:
+          type: array
+          items:
+            $ref: "#/components/schemas/BalanceSnapshot"
+      required: [totalBalance, availableBalance, allocatedBalance, allocatedInTrades, totalPnl, totalPnlPercent, winRate, totalTrades, paperMode, balanceHistory]

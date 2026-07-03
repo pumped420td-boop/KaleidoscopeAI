@@ -1,7 +1,7 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
 import { join } from "node:path";
 import { store } from "./store.js";
-import type { StoredTrade, StoredSettings } from "./store.js";
+import type { StoredTrade, StoredSettings, BalanceSnapshot } from "./store.js";
 import { getPatternHistory, setPatternHistory } from "./strategies/ml.js";
 import { logger } from "./logger.js";
 
@@ -31,6 +31,8 @@ interface BotState {
   learningCycles: number;
   strategyStats: PersistedStratStat[];
   patternHistory: Record<string, { wins: number; losses: number; totalProfit: number }>;
+  // Balance history graph
+  balanceHistory?: BalanceSnapshot[];
 }
 
 export function saveMlState(): void {
@@ -54,6 +56,7 @@ export function saveMlState(): void {
         profitContribution: s.profitContribution,
       })),
       patternHistory: getPatternHistory(),
+      balanceHistory: store.balanceHistory,
     };
     writeFileSync(STATE_FILE, JSON.stringify(state, null, 2), "utf8");
   } catch (err) {
@@ -128,6 +131,10 @@ export function loadMlState(): boolean {
       },
       "Bot state restored"
     );
+
+    if (Array.isArray(state.balanceHistory)) {
+      store.balanceHistory = state.balanceHistory;
+    }
 
     // Return whether the bot should auto-start (only safe for paper mode)
     return state.botRunning === true && store.settings.mode === "paper";

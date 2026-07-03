@@ -22,6 +22,7 @@ router.get("/portfolio", (_req, res) => {
     winRate: store.getWinRate(),
     totalTrades: store.trades.filter((t) => t.status !== "open").length,
     paperMode: store.settings.mode === "paper",
+    balanceHistory: store.balanceHistory,
   });
 });
 
