@@ -129,9 +129,11 @@ export async function closeTrade(trade: StoredTrade, reason: "profit" | "stop" |
   saveMlState();
 }
 
-// If the market cache entry is older than this, skip the trade update to avoid
-// acting on stale prices (e.g. Binance.US returned no tick for that coin).
-const PRICE_STALE_MS = 90_000; // 90 seconds = ~4.5 scan cycles
+// Price entries older than this are considered stale — ticker fetch likely failed for
+// that coin in the last scan. We still run the hard stop check on stale prices
+// (capital protection must never be skipped), but we don't update the trailing
+// high-water mark or the displayed currentPrice on stale data.
+const PRICE_STALE_MS = 90_000; // 90 seconds ≈ 4.5 scan cycles
 
 async function updateActiveTrades(): Promise<void> {
   const open = store.getOpenTrades();
@@ -139,13 +141,36 @@ async function updateActiveTrades(): Promise<void> {
     const cached = store.marketCache[trade.symbol];
     if (!cached) continue;
 
-    // Skip if the cached price is older than our staleness threshold
-    if (Date.now() - cached.lastUpdated > PRICE_STALE_MS) {
-      logger.warn({ symbol: trade.symbol, ageMs: Date.now() - cached.lastUpdated }, "Stale price — skipping trade update");
+    const price = cached.price;
+    const isStale = Date.now() - cached.lastUpdated > PRICE_STALE_MS;
+
+    if (isStale) {
+      logger.warn(
+        { symbol: trade.symbol, ageMs: Date.now() - cached.lastUpdated },
+        "Stale price — hard stop still checked, trailing/display updates skipped"
+      );
+    }
+
+    // ── Hard stop loss ─────────────────────────────────────────────────────────
+    // Always runs, even on stale data. Protecting capital takes priority over
+    // price freshness — a missed close is worse than a close on a slightly old price.
+    // After triggering, the symbol is banned from new entries for 1 hour.
+    const hardDropPct = ((trade.entryPrice - price) / trade.entryPrice) * 100;
+    if (hardDropPct >= store.settings.stopLossPercent) {
+      logger.info(
+        { symbol: trade.symbol, hardDropPct: hardDropPct.toFixed(2), stale: isStale },
+        "Hard stop loss triggered — banning for 1 hour"
+      );
+      store.banSymbol(trade.symbol, 3_600_000);
+      await closeTrade(trade, "stop");
       continue;
     }
 
-    const price = cached.price;
+    // ── Remaining updates require a fresh price ────────────────────────────────
+    // Stale data could push the trailing high-water mark in the wrong direction
+    // or show misleading P&L on the dashboard — skip these when the ticker is stale.
+    if (isStale) continue;
+
     trade.currentPrice = price;
     trade.profitPercent = ((price - trade.entryPrice) / trade.entryPrice) * 100;
     trade.profitUsd = trade.quantity * price - trade.investedUsd;
@@ -153,17 +178,6 @@ async function updateActiveTrades(): Promise<void> {
     // Track highest price for trailing stop
     if (price > trade.highestPrice) {
       trade.highestPrice = price;
-    }
-
-    // Hard stop loss — fires immediately if price drops X% below entry, no matter what.
-    // After triggering, the symbol is banned from new entries for 1 hour to avoid
-    // re-entering a falling knife regardless of how confident the voting engine is.
-    const hardDropPct = ((trade.entryPrice - price) / trade.entryPrice) * 100;
-    if (hardDropPct >= store.settings.stopLossPercent) {
-      logger.info({ symbol: trade.symbol, hardDropPct: hardDropPct.toFixed(2) }, "Hard stop loss triggered — banning for 1 hour");
-      store.banSymbol(trade.symbol, 3_600_000);
-      await closeTrade(trade, "stop");
-      continue;
     }
 
     // Activate trailing stop once profit target is hit
