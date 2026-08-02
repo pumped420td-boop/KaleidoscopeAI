@@ -7,8 +7,8 @@ import { saveMlState } from "./persistence.js";
 import { logger } from "./logger.js";
 import type { StoredTrade } from "./store.js";
 
-const SCAN_INTERVAL_MS = 30_000; // 30 seconds
-const VOTES_REFRESH_MS = 30_000; // background votes refresh interval
+const SCAN_INTERVAL_MS = 20_000; // 20 seconds
+const VOTES_REFRESH_MS = 20_000; // background votes refresh interval
 
 let scanInterval: ReturnType<typeof setInterval> | null = null;
 let votesInterval: ReturnType<typeof setInterval> | null = null;
@@ -129,11 +129,21 @@ export async function closeTrade(trade: StoredTrade, reason: "profit" | "stop" |
   saveMlState();
 }
 
+// If the market cache entry is older than this, skip the trade update to avoid
+// acting on stale prices (e.g. Binance.US returned no tick for that coin).
+const PRICE_STALE_MS = 90_000; // 90 seconds = ~4.5 scan cycles
+
 async function updateActiveTrades(): Promise<void> {
   const open = store.getOpenTrades();
   for (const trade of open) {
     const cached = store.marketCache[trade.symbol];
     if (!cached) continue;
+
+    // Skip if the cached price is older than our staleness threshold
+    if (Date.now() - cached.lastUpdated > PRICE_STALE_MS) {
+      logger.warn({ symbol: trade.symbol, ageMs: Date.now() - cached.lastUpdated }, "Stale price — skipping trade update");
+      continue;
+    }
 
     const price = cached.price;
     trade.currentPrice = price;
@@ -145,10 +155,13 @@ async function updateActiveTrades(): Promise<void> {
       trade.highestPrice = price;
     }
 
-    // Hard stop loss — fires immediately if price drops X% below entry, no matter what
+    // Hard stop loss — fires immediately if price drops X% below entry, no matter what.
+    // After triggering, the symbol is banned from new entries for 1 hour to avoid
+    // re-entering a falling knife regardless of how confident the voting engine is.
     const hardDropPct = ((trade.entryPrice - price) / trade.entryPrice) * 100;
     if (hardDropPct >= store.settings.stopLossPercent) {
-      logger.info({ symbol: trade.symbol, hardDropPct: hardDropPct.toFixed(2) }, "Hard stop loss triggered");
+      logger.info({ symbol: trade.symbol, hardDropPct: hardDropPct.toFixed(2) }, "Hard stop loss triggered — banning for 1 hour");
+      store.banSymbol(trade.symbol, 3_600_000);
       await closeTrade(trade, "stop");
       continue;
     }
@@ -227,6 +240,7 @@ async function scan(): Promise<void> {
       const minConfidence = store.settings.voteThreshold / 14; // 4/14 ≈ 0.29 default
       const buySignals = allVoteResults
         .filter((r) => !activeSymbols.has(r.symbol))
+        .filter((r) => !store.isBanned(r.symbol)) // skip coins banned after a hard stop
         .filter((r) => r.decision === "buy" && r.confidence >= minConfidence)
         .sort((a, b) => b.confidence - a.confidence);
 
@@ -241,13 +255,13 @@ async function scan(): Promise<void> {
 
     store.lastScanAt = new Date().toISOString();
 
-    // Record balance snapshot for dashboard graph (cap at 288 points = 24h @ 30s)
+    // Record balance snapshot for dashboard graph (cap at 432 points = 24h @ 20s)
     store.balanceHistory.push({
       ts: Date.now(),
       balance: store.getTotalPortfolioValue(),
       pnl: store.getTotalPnl(),
     });
-    if (store.balanceHistory.length > 288) store.balanceHistory.shift();
+    if (store.balanceHistory.length > 432) store.balanceHistory.shift();
 
     // Swap logic: if all trade slots are full, check whether any idle coin now has
     // significantly higher vote confidence than the weakest current trade.
@@ -273,6 +287,7 @@ async function scan(): Promise<void> {
         if (weakestTrade && weakestVote) {
           const bestSwap = allVoteResults
             .filter((r) => !activeSymbols.has(r.symbol))
+            .filter((r) => !store.isBanned(r.symbol)) // skip coins banned after a hard stop
             .filter((r) => r.decision === "buy" && r.confidence >= store.settings.voteThreshold / 14)
             .sort((a, b) => b.confidence - a.confidence)[0];
 

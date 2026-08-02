@@ -13,8 +13,8 @@ function ensureWarmup(): Promise<void> {
     warmupPromise = updateTickerCache(COINS.map((c) => c.pair))
       .catch(() => {})
       .finally(() => {
-        // Allow re-warmup after 30 seconds (handled by stale check below)
-        setTimeout(() => { warmupPromise = null; }, 30_000);
+        // Allow re-warmup after 20 seconds (matches scan interval)
+        setTimeout(() => { warmupPromise = null; }, 20_000);
       });
   }
   return warmupPromise;
@@ -30,7 +30,7 @@ router.get("/market/ticker", (_req, res) => {
   const now = Date.now();
   const stale = COINS.some((c) => {
     const cached = store.marketCache[c.symbol];
-    return !cached || now - cached.lastUpdated > 15_000;
+    return !cached || now - cached.lastUpdated > 20_000; // matches 20s scan interval
   });
   if (stale) ensureWarmup();
 

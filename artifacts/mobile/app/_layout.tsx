@@ -18,11 +18,12 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { BotProvider } from "@/contexts/BotContext";
 
-// Expo Go on a physical device → Render (always-on backend).
-// Replit web preview → local dev server (fast iteration, no deploy needed).
+// Native (Expo Go / standalone) → KaleidoscopeAI backend on Render.
+// Web (Replit preview in browser) → relative URLs; browser resolves against
+// the same host automatically so no base URL is needed.
 setBaseUrl(
   Platform.OS === "web"
-    ? `https://${process.env.EXPO_PUBLIC_DOMAIN}`
+    ? "" // empty → custom-fetch uses relative paths, browser resolves host
     : "https://kaleidoscopeai.onrender.com"
 );
 

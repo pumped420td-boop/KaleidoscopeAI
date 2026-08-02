@@ -171,6 +171,27 @@ class Store {
   lastScanAt: string | null = null;
   running = false;
 
+  /**
+   * Symbols banned from new trades until the given timestamp (ms).
+   * A coin that hit the hard stop loss is excluded for 1 hour regardless of
+   * how confident the voting engine is — we don't re-enter a falling knife.
+   */
+  stopBannedUntil: Record<string, number> = {};
+
+  isBanned(symbol: string): boolean {
+    const until = this.stopBannedUntil[symbol];
+    if (!until) return false;
+    if (Date.now() >= until) {
+      delete this.stopBannedUntil[symbol]; // lift expired ban
+      return false;
+    }
+    return true;
+  }
+
+  banSymbol(symbol: string, durationMs = 3_600_000): void {
+    this.stopBannedUntil[symbol] = Date.now() + durationMs;
+  }
+
   getOpenTrades(): StoredTrade[] {
     return this.trades.filter((t) => t.status === "open");
   }
