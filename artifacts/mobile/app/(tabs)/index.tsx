@@ -119,7 +119,7 @@ export default function DashboardScreen() {
       {/* Header */}
       <View style={styles.header}>
         <View>
-          <Text style={[styles.greeting, { color: colors.mutedForeground }]}>Binance.US Bot</Text>
+          <Text style={[styles.greeting, { color: colors.mutedForeground }]}>KaleidoscopeAi</Text>
           <Text style={[styles.title, { color: colors.foreground }]}>Dashboard</Text>
         </View>
         <View style={[styles.modePill, { backgroundColor: isPaper ? `${colors.warning}22` : `${colors.success}22` }]}>
