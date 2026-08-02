@@ -248,6 +248,24 @@ class Store {
   getTotalPnl(): number {
     return this.trades.filter((t) => t.status !== "open").reduce((sum, t) => sum + t.profitUsd, 0);
   }
+
+  /**
+   * Realized P&L from trades closed since UTC midnight today.
+   * Does NOT include open (unrealized) positions.
+   */
+  getDailyPnl(): number {
+    const startOfDayUtc = new Date();
+    startOfDayUtc.setUTCHours(0, 0, 0, 0);
+    const startMs = startOfDayUtc.getTime();
+    return this.trades
+      .filter(
+        (t) =>
+          t.status !== "open" &&
+          t.closedAt !== null &&
+          new Date(t.closedAt).getTime() >= startMs
+      )
+      .reduce((sum, t) => sum + t.profitUsd, 0);
+  }
 }
 
 export const store = new Store();

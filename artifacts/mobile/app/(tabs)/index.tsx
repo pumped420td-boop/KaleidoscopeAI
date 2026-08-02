@@ -102,6 +102,8 @@ export default function DashboardScreen() {
   };
 
   const pnlPositive = (portfolio?.totalPnl ?? 0) >= 0;
+  const dailyPnl = portfolio?.dailyPnl ?? 0;
+  const dailyPnlPositive = dailyPnl >= 0;
   const activeTrades = botStatus?.activeTrades ?? [];
   const isPaper = settings?.mode === "paper";
   const balanceHistory: BalancePoint[] = (portfolio as any)?.balanceHistory ?? [];
@@ -176,6 +178,13 @@ export default function DashboardScreen() {
           </View>
           <View style={[styles.statDivider, { backgroundColor: colors.border }]} />
           <View style={styles.statItem}>
+            <Text style={[styles.statLabel, { color: colors.mutedForeground }]}>Today's P&L</Text>
+            <Text style={[styles.statValue, { color: dailyPnlPositive ? colors.success : colors.destructive }]}>
+              {dailyPnlPositive ? "+" : ""}${dailyPnl.toFixed(2)}
+            </Text>
+          </View>
+          <View style={[styles.statDivider, { backgroundColor: colors.border }]} />
+          <View style={styles.statItem}>
             <Text style={[styles.statLabel, { color: colors.mutedForeground }]}>Win Rate</Text>
             <Text style={[styles.statValue, { color: colors.foreground }]}>
               {(portfolio?.winRate ?? 0).toFixed(1)}%
@@ -230,7 +239,7 @@ export default function DashboardScreen() {
             </Text>
             <Text style={[styles.botButtonSub, { color: colors.mutedForeground }]}>
               {bot.isRunning
-                ? `${activeTrades.length} active trade${activeTrades.length !== 1 ? "s" : ""} · scanning every 30s`
+                ? `${activeTrades.length} active trade${activeTrades.length !== 1 ? "s" : ""} · scanning every 20s`
                 : "Ready to scan 47 coins"}
             </Text>
           </View>

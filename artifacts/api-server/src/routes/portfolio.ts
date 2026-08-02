@@ -18,6 +18,7 @@ router.get("/portfolio", (_req, res) => {
     allocatedBalance,
     allocatedInTrades,
     totalPnl,
+    dailyPnl: store.getDailyPnl(),
     totalPnlPercent,
     winRate: store.getWinRate(),
     totalTrades: store.trades.filter((t) => t.status !== "open").length,

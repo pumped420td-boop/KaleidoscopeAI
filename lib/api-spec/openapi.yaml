@@ -574,6 +574,9 @@ components:
           type: number
         totalPnl:
           type: number
+        dailyPnl:
+          type: number
+          description: Realized P&L from trades closed since UTC midnight today
         totalPnlPercent:
           type: number
         winRate:
@@ -586,4 +589,4 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/BalanceSnapshot"
-      required: [totalBalance, availableBalance, allocatedBalance, allocatedInTrades, totalPnl, totalPnlPercent, winRate, totalTrades, paperMode, balanceHistory]
+      required: [totalBalance, availableBalance, allocatedBalance, allocatedInTrades, totalPnl, dailyPnl, totalPnlPercent, winRate, totalTrades, paperMode, balanceHistory]

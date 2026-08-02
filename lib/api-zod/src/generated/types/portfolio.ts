@@ -13,6 +13,8 @@ export interface Portfolio {
   allocatedBalance: number;
   allocatedInTrades: number;
   totalPnl: number;
+  /** Realized P&L from trades closed since UTC midnight today */
+  dailyPnl: number;
   totalPnlPercent: number;
   winRate: number;
   totalTrades: number;

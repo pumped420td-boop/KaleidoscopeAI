@@ -336,6 +336,7 @@ export const GetPortfolioResponse = zod.object({
   "allocatedBalance": zod.number(),
   "allocatedInTrades": zod.number(),
   "totalPnl": zod.number(),
+  "dailyPnl": zod.number().describe('Realized P&L from trades closed since UTC midnight today'),
   "totalPnlPercent": zod.number(),
   "winRate": zod.number(),
   "totalTrades": zod.number(),
