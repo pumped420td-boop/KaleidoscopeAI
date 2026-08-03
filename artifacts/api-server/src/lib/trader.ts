@@ -142,19 +142,20 @@ async function updateActiveTrades(): Promise<void> {
     let price = cached.price;
 
     if (Date.now() - cached.lastUpdated > PRICE_STALE_MS) {
-      // Stale cache — the last batch fetch missed this symbol.
-      // Fetch a verified fresh price directly before making any exit decision.
-      // If the fetch fails, defer all exit logic for this cycle rather than
-      // acting on unverified data.
+      // Stale cache — attempt an emergency single-symbol fetch from Binance.US.
+      // If the fetch succeeds, update the cache and use the fresh price.
+      // If it fails (network error, unknown coin), fall through with the cached
+      // price so that hard stop / trailing stop are never skipped entirely.
       const coin = COINS.find((c) => c.symbol === trade.symbol);
-      if (!coin) continue;
-      try {
-        price = await fetchSymbolPrice(coin.pair);
-        store.marketCache[trade.symbol] = { ...cached, price, lastUpdated: Date.now() };
-        logger.info({ symbol: trade.symbol, price }, "Emergency fresh price fetched for open position");
-      } catch (err) {
-        logger.warn({ err, symbol: trade.symbol }, "Emergency fresh-price fetch failed — exit logic deferred");
-        continue;
+      if (coin) {
+        try {
+          price = await fetchSymbolPrice(coin.pair);
+          store.marketCache[trade.symbol] = { ...cached, price, lastUpdated: Date.now() };
+          logger.info({ symbol: trade.symbol, price }, "Emergency fresh price fetched for open position");
+        } catch (err) {
+          logger.warn({ err, symbol: trade.symbol }, "Emergency fresh-price fetch failed — using cached price for stop checks");
+          // fall through: price still holds cached.price; stops must not be skipped
+        }
       }
     }
 
