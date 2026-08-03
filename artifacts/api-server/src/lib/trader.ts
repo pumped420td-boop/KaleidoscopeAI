@@ -1,7 +1,7 @@
 import { store } from "./store.js";
 import { COINS } from "./coins.js";
 import { analyzeCoins } from "./voting.js";
-import { updateTickerCache, fetchUsdBalance, placeMarketBuy, placeMarketSell } from "./binance.js";
+import { updateTickerCache, fetchUsdBalance, placeMarketBuy, placeMarketSell, fetchSymbolPrice } from "./binance.js";
 import { encodePattern, recordPatternOutcome } from "./strategies/ml.js";
 import { saveMlState } from "./persistence.js";
 import { logger } from "./logger.js";
@@ -129,10 +129,8 @@ export async function closeTrade(trade: StoredTrade, reason: "profit" | "stop" |
   saveMlState();
 }
 
-// Price entries older than this are considered stale — ticker fetch likely failed for
-// that coin in the last scan. We still run the hard stop check on stale prices
-// (capital protection must never be skipped), but we don't update the trailing
-// high-water mark or the displayed currentPrice on stale data.
+// Cached prices older than this require an emergency direct fetch before any
+// exit decision can be made — stale data must never be treated as current.
 const PRICE_STALE_MS = 90_000; // 90 seconds ≈ 4.5 scan cycles
 
 async function updateActiveTrades(): Promise<void> {
@@ -141,44 +139,41 @@ async function updateActiveTrades(): Promise<void> {
     const cached = store.marketCache[trade.symbol];
     if (!cached) continue;
 
-    const price = cached.price;
-    const isStale = Date.now() - cached.lastUpdated > PRICE_STALE_MS;
+    let price = cached.price;
 
-    if (isStale) {
-      logger.warn(
-        { symbol: trade.symbol, ageMs: Date.now() - cached.lastUpdated },
-        "Stale price — hard stop still checked, trailing/display updates skipped"
-      );
+    if (Date.now() - cached.lastUpdated > PRICE_STALE_MS) {
+      // Stale cache — the last batch fetch missed this symbol.
+      // Fetch a verified fresh price directly before making any exit decision.
+      // If the fetch fails, defer all exit logic for this cycle rather than
+      // acting on unverified data.
+      const coin = COINS.find((c) => c.symbol === trade.symbol);
+      if (!coin) continue;
+      try {
+        price = await fetchSymbolPrice(coin.pair);
+        store.marketCache[trade.symbol] = { ...cached, price, lastUpdated: Date.now() };
+        logger.info({ symbol: trade.symbol, price }, "Emergency fresh price fetched for open position");
+      } catch (err) {
+        logger.warn({ err, symbol: trade.symbol }, "Emergency fresh-price fetch failed — exit logic deferred");
+        continue;
+      }
     }
 
-    // ── Hard stop loss ─────────────────────────────────────────────────────────
-    // Always runs, even on stale data. Protecting capital takes priority over
-    // price freshness — a missed close is worse than a close on a slightly old price.
-    // After triggering, the symbol is banned from new entries for 1 hour.
+    // price is now a verified fresh Binance.US price — evaluate all exits.
+    trade.currentPrice = price;
+    trade.profitPercent = ((price - trade.entryPrice) / trade.entryPrice) * 100;
+    trade.profitUsd = trade.quantity * price - trade.investedUsd;
+
+    // Hard stop loss
     const hardDropPct = ((trade.entryPrice - price) / trade.entryPrice) * 100;
     if (hardDropPct >= store.settings.stopLossPercent) {
-      logger.info(
-        { symbol: trade.symbol, hardDropPct: hardDropPct.toFixed(2), stale: isStale },
-        "Hard stop loss triggered — banning for 1 hour"
-      );
+      logger.info({ symbol: trade.symbol, hardDropPct: hardDropPct.toFixed(2) }, "Hard stop loss triggered — banning for 1 hour");
       store.banSymbol(trade.symbol, 3_600_000);
       await closeTrade(trade, "stop");
       continue;
     }
 
-    // ── Remaining updates require a fresh price ────────────────────────────────
-    // Stale data could push the trailing high-water mark in the wrong direction
-    // or show misleading P&L on the dashboard — skip these when the ticker is stale.
-    if (isStale) continue;
-
-    trade.currentPrice = price;
-    trade.profitPercent = ((price - trade.entryPrice) / trade.entryPrice) * 100;
-    trade.profitUsd = trade.quantity * price - trade.investedUsd;
-
     // Track highest price for trailing stop
-    if (price > trade.highestPrice) {
-      trade.highestPrice = price;
-    }
+    if (price > trade.highestPrice) trade.highestPrice = price;
 
     // Activate trailing stop once profit target is hit
     if (trade.profitPercent >= store.settings.profitTarget && !trade.trailingActive) {
@@ -186,7 +181,7 @@ async function updateActiveTrades(): Promise<void> {
       logger.info({ symbol: trade.symbol, profit: trade.profitPercent }, "Trailing stop activated");
     }
 
-    // Check trailing stop loss
+    // Check trailing stop
     if (trade.trailingActive) {
       const trailingDropPct = ((trade.highestPrice - price) / trade.highestPrice) * 100;
       if (trailingDropPct >= store.settings.trailingStop) {

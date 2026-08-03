@@ -147,6 +147,14 @@ export async function placeMarketSell(pair: string, quantity: string): Promise<O
   return { txid: [`${pair}-sell-${Date.now()}`], descr: { order: `SELL ${quantity} of ${pair}` } };
 }
 
+/** Fetch the latest traded price for a single pair directly from Binance.US. */
+export async function fetchSymbolPrice(pair: string): Promise<number> {
+  const data = await publicGet<{ symbol: string; price: string }>("/api/v3/ticker/price", { symbol: pair });
+  const price = parseFloat(data.price);
+  if (!isFinite(price) || price <= 0) throw new Error(`Invalid price for ${pair}: ${data.price}`);
+  return price;
+}
+
 /** Refresh the market cache for all given Binance.US pairs in batches of 20 */
 export async function updateTickerCache(pairs: string[]): Promise<void> {
   const { COINS } = await import("./coins.js");
