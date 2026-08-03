@@ -40,8 +40,11 @@ export default function TradesScreen() {
 
   const handleRefresh = async () => {
     setRefreshing(true);
-    await refetch();
-    setRefreshing(false);
+    try {
+      await refetch();
+    } finally {
+      setRefreshing(false);
+    }
   };
 
   const trades = data?.trades ?? [];
@@ -113,7 +116,7 @@ export default function TradesScreen() {
           renderItem={({ item }) => <TradeCard trade={item} />}
           contentContainerStyle={{ paddingHorizontal: 16, paddingBottom: Platform.OS === "web" ? 34 + 84 : 84 }}
           refreshControl={<RefreshControl refreshing={refreshing} onRefresh={handleRefresh} tintColor={colors.primary} />}
-          scrollEnabled={!!filtered.length}
+          scrollEnabled
         />
       )}
     </View>

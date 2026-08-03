@@ -50,8 +50,11 @@ export default function SignalsScreen() {
 
   const handleRefresh = async () => {
     setRefreshing(true);
-    await Promise.all([refetchStrat(), tab === "votes" ? refetchVotes() : Promise.resolve()]);
-    setRefreshing(false);
+    try {
+      await Promise.all([refetchStrat(), tab === "votes" ? refetchVotes() : Promise.resolve()]);
+    } finally {
+      setRefreshing(false);
+    }
   };
 
   const strategies = stratData?.strategies ?? [];

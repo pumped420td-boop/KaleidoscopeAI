@@ -88,8 +88,11 @@ export default function DashboardScreen() {
 
   const handleRefresh = async () => {
     setRefreshing(true);
-    await Promise.all([refetchPortfolio(), refetchBot()]);
-    setRefreshing(false);
+    try {
+      await Promise.all([refetchPortfolio(), refetchBot()]);
+    } finally {
+      setRefreshing(false);
+    }
   };
 
   const handleBotToggle = async () => {

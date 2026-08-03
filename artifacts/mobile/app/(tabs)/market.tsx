@@ -39,8 +39,11 @@ export default function MarketScreen() {
 
   const handleRefresh = async () => {
     setRefreshing(true);
-    await refetch();
-    setRefreshing(false);
+    try {
+      await refetch();
+    } finally {
+      setRefreshing(false);
+    }
   };
 
   const tickers = data?.tickers ?? [];
@@ -140,7 +143,7 @@ export default function MarketScreen() {
           renderItem={renderTicker}
           refreshControl={<RefreshControl refreshing={refreshing} onRefresh={handleRefresh} tintColor={colors.primary} />}
           contentContainerStyle={{ paddingBottom: Platform.OS === "web" ? 34 + 84 : 84 }}
-          scrollEnabled={!!filtered.length}
+          scrollEnabled
         />
       )}
     </View>
