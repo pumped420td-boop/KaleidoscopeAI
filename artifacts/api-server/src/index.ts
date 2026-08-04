@@ -46,6 +46,16 @@ app.listen(port, (err) => {
 
   // Persist ML state every 5 minutes so learned weights survive restarts
   setInterval(saveMlState, 5 * 60_000);
+
+  // Keep Render dyno alive — ping ourselves every 14 minutes so the free-tier
+  // instance never hits the 15-minute inactivity sleep window.
+  const RENDER_URL = process.env["RENDER_EXTERNAL_URL"];
+  if (RENDER_URL) {
+    setInterval(() => {
+      fetch(`${RENDER_URL}/healthz`).catch(() => {});
+    }, 14 * 60_000);
+    logger.info({ url: RENDER_URL }, "Render keep-alive ping scheduled");
+  }
 });
 
 // Save ML state before the process exits (SIGTERM from workflow restart, Ctrl-C, etc.)

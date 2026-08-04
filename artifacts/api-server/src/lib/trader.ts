@@ -7,11 +7,21 @@ import { saveMlState } from "./persistence.js";
 import { logger } from "./logger.js";
 import type { StoredTrade } from "./store.js";
 
-const SCAN_INTERVAL_MS = 20_000; // 20 seconds
-const VOTES_REFRESH_MS = 20_000; // background votes refresh interval
+const SCAN_INTERVAL_MS = 20_000;    // 20 seconds
+const VOTES_REFRESH_MS = 20_000;    // background votes refresh when bot is off
+const MARKET_REFRESH_MS = 20_000;   // background market cache refresh when bot is off
 
 let scanInterval: ReturnType<typeof setInterval> | null = null;
 let votesInterval: ReturnType<typeof setInterval> | null = null;
+let marketInterval: ReturnType<typeof setInterval> | null = null;
+
+async function refreshMarketCache(): Promise<void> {
+  try {
+    await updateTickerCache(COINS.map((c) => c.pair));
+  } catch {
+    // ignore — will retry next cycle
+  }
+}
 
 function generateId(): string {
   return Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
@@ -330,11 +340,9 @@ export async function startBot(): Promise<void> {
   store.running = true;
   logger.info({ mode: store.settings.mode }, "Bot started");
 
-  // Stop standalone votes timer — the scan loop now handles refreshes
-  if (votesInterval) {
-    clearInterval(votesInterval);
-    votesInterval = null;
-  }
+  // Scan loop handles all refreshes — stop the standalone background timers
+  if (votesInterval) { clearInterval(votesInterval); votesInterval = null; }
+  if (marketInterval) { clearInterval(marketInterval); marketInterval = null; }
 
   // Initial market data load
   try {
@@ -350,25 +358,22 @@ export async function startBot(): Promise<void> {
 export async function stopBot(): Promise<void> {
   if (!store.running) return;
   store.running = false;
-  if (scanInterval) {
-    clearInterval(scanInterval);
-    scanInterval = null;
-  }
+  if (scanInterval) { clearInterval(scanInterval); scanInterval = null; }
   logger.info("Bot stopped");
 
-  // Keep votes fresh even while bot is off (market cache still has data)
-  if (!votesInterval) {
-    votesInterval = setInterval(refreshVotesCache, VOTES_REFRESH_MS);
-  }
+  // Keep market data and votes fresh while bot is off
+  if (!marketInterval) marketInterval = setInterval(refreshMarketCache, MARKET_REFRESH_MS);
+  if (!votesInterval)  votesInterval  = setInterval(refreshVotesCache,  VOTES_REFRESH_MS);
 }
 
 /**
- * Start a background votes-cache timer for use before the bot is ever started.
- * Called once at server startup so the Signals tab works immediately.
+ * Start background refresh timers before the bot is first started.
+ * Called once at server startup so the Market and Signals tabs work immediately.
  */
 export function startVotesCacheTimer(): void {
-  if (votesInterval || store.running) return;
-  votesInterval = setInterval(refreshVotesCache, VOTES_REFRESH_MS);
+  if (store.running) return;
+  if (!marketInterval) marketInterval = setInterval(refreshMarketCache, MARKET_REFRESH_MS);
+  if (!votesInterval)  votesInterval  = setInterval(refreshVotesCache,  VOTES_REFRESH_MS);
 }
 
 export { SCAN_INTERVAL_MS, refreshVotesCache };

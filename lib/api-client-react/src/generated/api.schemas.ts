@@ -230,6 +230,8 @@ export interface BotStatus {
   allocatedBalance: number;
   lastScanAt?: string | null;
   scanIntervalSeconds: number;
+  /** True when all Binance.US market cache entries are less than 30 seconds old */
+  priceFeedFresh?: boolean;
 }
 
 export interface BalanceSnapshot {

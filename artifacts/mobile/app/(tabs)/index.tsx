@@ -109,6 +109,15 @@ export default function DashboardScreen() {
   const dailyPnlPositive = dailyPnl >= 0;
   const activeTrades = botStatus?.activeTrades ?? [];
   const isPaper = settings?.mode === "paper";
+
+  // Show a banner when prices are stale: either the backend says priceFeedFresh
+  // is false, or the last scan was more than 45 seconds ago.
+  const lastScanAgeMs = botStatus?.lastScanAt
+    ? Date.now() - new Date(botStatus.lastScanAt).getTime()
+    : null;
+  const pricesStale =
+    (botStatus as any)?.priceFeedFresh === false ||
+    (lastScanAgeMs !== null && lastScanAgeMs > 45_000);
   const balanceHistory: BalancePoint[] = (portfolio as any)?.balanceHistory ?? [];
   const chartUp = balanceHistory.length > 1
     ? balanceHistory[balanceHistory.length - 1].balance >= balanceHistory[0].balance
@@ -121,6 +130,16 @@ export default function DashboardScreen() {
       contentContainerStyle={[styles.content, { paddingTop: topPad + 16, paddingBottom: bottomPad + 80 }]}
       refreshControl={<RefreshControl refreshing={refreshing} onRefresh={handleRefresh} tintColor={colors.primary} />}
     >
+      {/* Stale price feed warning */}
+      {pricesStale && (
+        <View style={[styles.staleBanner, { backgroundColor: `${colors.warning}22`, borderColor: `${colors.warning}44` }]}>
+          <Feather name="wifi-off" size={13} color={colors.warning} />
+          <Text style={[styles.staleBannerText, { color: colors.warning }]}>
+            Prices delayed — reconnecting to Binance.US
+          </Text>
+        </View>
+      )}
+
       {/* Header */}
       <View style={styles.header}>
         <View>
@@ -319,4 +338,6 @@ const styles = StyleSheet.create({
   emptyCard: { borderRadius: 20, borderWidth: 1, padding: 32, alignItems: "center", gap: 10 },
   emptyTitle: { fontSize: 16, fontFamily: "Inter_600SemiBold" },
   emptyText: { fontSize: 13, fontFamily: "Inter_400Regular", textAlign: "center", lineHeight: 20 },
+  staleBanner: { flexDirection: "row", alignItems: "center", gap: 6, borderWidth: 1, borderRadius: 10, paddingHorizontal: 12, paddingVertical: 7, marginBottom: 14 },
+  staleBannerText: { fontSize: 12, fontFamily: "Inter_500Medium", flex: 1 },
 });

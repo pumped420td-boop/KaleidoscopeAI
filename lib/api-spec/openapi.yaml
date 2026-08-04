@@ -548,6 +548,9 @@ components:
           nullable: true
         scanIntervalSeconds:
           type: integer
+        priceFeedFresh:
+          type: boolean
+          description: True when all Binance.US market cache entries are less than 30 seconds old
       required: [running, mode, activeTradeCount, activeTrades, balance, allocatedBalance, scanIntervalSeconds]
 
     BalanceSnapshot:

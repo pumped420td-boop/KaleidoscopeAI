@@ -1,10 +1,15 @@
 import { Router } from "express";
 import { store } from "../lib/store.js";
 import { startBot, stopBot, SCAN_INTERVAL_MS } from "../lib/trader.js";
+import { COINS } from "../lib/coins.js";
 
 const router = Router();
 
 function buildStatus() {
+  const now = Date.now();
+  const cached = COINS.map((c) => store.marketCache[c.symbol]).filter(Boolean);
+  const priceFeedFresh = cached.length > 0 && cached.every((e) => now - e!.lastUpdated < 30_000);
+
   return {
     running: store.running,
     mode: store.settings.mode,
@@ -14,6 +19,7 @@ function buildStatus() {
     allocatedBalance: store.getAllocatedAmount(),
     lastScanAt: store.lastScanAt,
     scanIntervalSeconds: SCAN_INTERVAL_MS / 1000,
+    priceFeedFresh,
   };
 }
 

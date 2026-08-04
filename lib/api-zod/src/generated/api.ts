@@ -117,7 +117,8 @@ export const StartBotResponse = zod.object({
   "balance": zod.number(),
   "allocatedBalance": zod.number(),
   "lastScanAt": zod.string().nullish(),
-  "scanIntervalSeconds": zod.number()
+  "scanIntervalSeconds": zod.number(),
+  "priceFeedFresh": zod.boolean().optional().describe('True when all Binance.US market cache entries are less than 30 seconds old')
 })
 
 
@@ -152,7 +153,8 @@ export const StopBotResponse = zod.object({
   "balance": zod.number(),
   "allocatedBalance": zod.number(),
   "lastScanAt": zod.string().nullish(),
-  "scanIntervalSeconds": zod.number()
+  "scanIntervalSeconds": zod.number(),
+  "priceFeedFresh": zod.boolean().optional().describe('True when all Binance.US market cache entries are less than 30 seconds old')
 })
 
 
@@ -187,7 +189,8 @@ export const GetBotStatusResponse = zod.object({
   "balance": zod.number(),
   "allocatedBalance": zod.number(),
   "lastScanAt": zod.string().nullish(),
-  "scanIntervalSeconds": zod.number()
+  "scanIntervalSeconds": zod.number(),
+  "priceFeedFresh": zod.boolean().optional().describe('True when all Binance.US market cache entries are less than 30 seconds old')
 })
 
 
