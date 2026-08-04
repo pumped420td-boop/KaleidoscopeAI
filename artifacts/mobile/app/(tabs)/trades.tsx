@@ -97,28 +97,28 @@ export default function TradesScreen() {
         ))}
       </View>
 
-      {isLoading ? (
-        <View style={styles.loading}>
-          <ActivityIndicator color={colors.primary} size="large" />
-        </View>
-      ) : filtered.length === 0 ? (
-        <View style={styles.empty}>
-          <Feather name="inbox" size={36} color={colors.mutedForeground} />
-          <Text style={[styles.emptyTitle, { color: colors.foreground }]}>No trades yet</Text>
-          <Text style={[styles.emptyText, { color: colors.mutedForeground }]}>
-            Start the bot to begin trading
-          </Text>
-        </View>
-      ) : (
-        <FlatList
-          data={filtered}
-          keyExtractor={(t) => t.id}
-          renderItem={({ item }) => <TradeCard trade={item} />}
-          contentContainerStyle={{ paddingHorizontal: 16, paddingBottom: Platform.OS === "web" ? 34 + 84 : 84 }}
-          refreshControl={<RefreshControl refreshing={refreshing} onRefresh={handleRefresh} tintColor={colors.primary} />}
-          scrollEnabled
-        />
-      )}
+      <FlatList
+        data={filtered}
+        keyExtractor={(t) => t.id}
+        renderItem={({ item }) => <TradeCard trade={item} />}
+        contentContainerStyle={{ paddingHorizontal: 16, paddingBottom: Platform.OS === "web" ? 34 + 84 : 84, flexGrow: 1 }}
+        refreshControl={<RefreshControl refreshing={refreshing} onRefresh={handleRefresh} tintColor={colors.primary} />}
+        ListEmptyComponent={
+          isLoading ? (
+            <View style={styles.loading}>
+              <ActivityIndicator color={colors.primary} size="large" />
+            </View>
+          ) : (
+            <View style={styles.empty}>
+              <Feather name="inbox" size={36} color={colors.mutedForeground} />
+              <Text style={[styles.emptyTitle, { color: colors.foreground }]}>No trades yet</Text>
+              <Text style={[styles.emptyText, { color: colors.mutedForeground }]}>
+                Start the bot to begin trading
+              </Text>
+            </View>
+          )
+        }
+      />
     </View>
   );
 }

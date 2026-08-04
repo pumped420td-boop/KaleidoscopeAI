@@ -131,21 +131,25 @@ export default function MarketScreen() {
         </View>
       </View>
 
-      {isLoading ? (
-        <View style={styles.loading}>
-          <ActivityIndicator color={colors.primary} size="large" />
-          <Text style={[styles.loadingText, { color: colors.mutedForeground }]}>Loading market data...</Text>
-        </View>
-      ) : (
-        <FlatList
-          data={filtered}
-          keyExtractor={(t) => t.symbol}
-          renderItem={renderTicker}
-          refreshControl={<RefreshControl refreshing={refreshing} onRefresh={handleRefresh} tintColor={colors.primary} />}
-          contentContainerStyle={{ paddingBottom: Platform.OS === "web" ? 34 + 84 : 84 }}
-          scrollEnabled
-        />
-      )}
+      <FlatList
+        data={filtered}
+        keyExtractor={(t) => t.symbol}
+        renderItem={renderTicker}
+        refreshControl={<RefreshControl refreshing={refreshing} onRefresh={handleRefresh} tintColor={colors.primary} />}
+        contentContainerStyle={{ paddingBottom: Platform.OS === "web" ? 34 + 84 : 84, flexGrow: 1 }}
+        ListEmptyComponent={
+          <View style={styles.loading}>
+            {isLoading ? (
+              <>
+                <ActivityIndicator color={colors.primary} size="large" />
+                <Text style={[styles.loadingText, { color: colors.mutedForeground }]}>Loading market data...</Text>
+              </>
+            ) : (
+              <Text style={[styles.loadingText, { color: colors.mutedForeground }]}>No coins match your filter</Text>
+            )}
+          </View>
+        }
+      />
     </View>
   );
 }
