@@ -250,6 +250,35 @@ async function scan(): Promise<void> {
     store.votesCache = allVoteResults;
     store.votesCachedAt = new Date().toISOString();
 
+    // Require three consecutive valid scans below the configured BUY-vote
+    // threshold before closing an open trade. Missing vote results do not
+    // count as a low-vote scan.
+    const votesBySymbol = new Map(allVoteResults.map((result) => [result.symbol, result]));
+    for (const trade of store.getOpenTrades()) {
+      const voteResult = votesBySymbol.get(trade.symbol);
+      if (!voteResult) continue;
+
+      const buyVotes = voteResult.votes.filter((vote) => vote.vote === "buy").length;
+      if (buyVotes < store.settings.voteThreshold) {
+        const lowVoteScans = (store.voteBelowThresholdScans[trade.id] ?? 0) + 1;
+        store.voteBelowThresholdScans[trade.id] = lowVoteScans;
+        logger.info(
+          { symbol: trade.symbol, buyVotes, threshold: store.settings.voteThreshold, lowVoteScans },
+          "Open trade below vote threshold"
+        );
+        if (lowVoteScans >= 3) {
+          logger.info(
+            { symbol: trade.symbol, buyVotes, threshold: store.settings.voteThreshold },
+            "Closing trade after three consecutive below-threshold scans"
+          );
+          await closeTrade(trade, "sell_signal");
+          delete store.voteBelowThresholdScans[trade.id];
+        }
+      } else {
+        delete store.voteBelowThresholdScans[trade.id];
+      }
+    }
+
     // Find new trade opportunities using the results we just computed
     const openTrades = store.getOpenTrades();
     if (openTrades.length < store.settings.maxConcurrentTrades) {
@@ -330,8 +359,13 @@ async function scan(): Promise<void> {
         }
       }
     }
+
+    // Persist trades, learning state, balances, and vote counters after every
+    // completed scan so restarts do not discard the latest state.
+    saveMlState();
   } catch (err) {
     logger.error({ err }, "Scan error");
+    saveMlState();
   }
 }
 
@@ -364,6 +398,7 @@ export async function stopBot(): Promise<void> {
   // Keep market data and votes fresh while bot is off
   if (!marketInterval) marketInterval = setInterval(refreshMarketCache, MARKET_REFRESH_MS);
   if (!votesInterval)  votesInterval  = setInterval(refreshVotesCache,  VOTES_REFRESH_MS);
+  saveMlState();
 }
 
 /**

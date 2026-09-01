@@ -1,7 +1,7 @@
 {
-  "version": 2,
-  "savedAt": "2026-08-05T18:42:30.082Z",
-  "paperBalance": 123.66554182468086,
+  "version": 3,
+  "savedAt": "2026-09-01T11:01:35.062Z",
+  "paperBalance": 80.12489871704496,
   "trades": [
     {
       "id": "mr3piagqqlpi7",
@@ -6528,6 +6528,2032 @@
       "trailingActive": false,
       "entryConfidence": 0.3363465169353516,
       "closeReason": "manual"
+    },
+    {
+      "id": "msgkacs9ar7h5",
+      "symbol": "UNI",
+      "pair": "UNIUSD",
+      "name": "Uniswap",
+      "entryPrice": 4.177,
+      "currentPrice": 4.177,
+      "quantity": 7.401576599514057,
+      "investedUsd": 30.916385456170214,
+      "profitPercent": 0,
+      "profitUsd": 0,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "macd",
+        "ema",
+        "momentum",
+        "ml"
+      ],
+      "openedAt": "2026-08-05T20:50:49.785Z",
+      "closedAt": "2026-08-05T21:06:09.771Z",
+      "paperMode": true,
+      "highestPrice": 4.177,
+      "trailingActive": false,
+      "entryConfidence": 0.30255580147316674,
+      "closeReason": "manual"
+    },
+    {
+      "id": "msgpm7nfrnox6",
+      "symbol": "NEAR",
+      "pair": "NEARUSD",
+      "name": "NEAR Protocol",
+      "entryPrice": 1.664,
+      "currentPrice": 1.926,
+      "quantity": 18.579558567409986,
+      "investedUsd": 30.916385456170214,
+      "profitPercent": 15.745192307692314,
+      "profitUsd": 4.8678443446614175,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-05T23:20:01.083Z",
+      "closedAt": "2026-08-23T14:51:48.749Z",
+      "paperMode": true,
+      "highestPrice": 1.926,
+      "trailingActive": true,
+      "entryConfidence": 0.4037848707383318,
+      "closeReason": "manual"
+    },
+    {
+      "id": "msgt7q5w0f3gr",
+      "symbol": "RVN",
+      "pair": "RVNUSD",
+      "name": "Ravencoin",
+      "entryPrice": 0.00348,
+      "currentPrice": 0.0035,
+      "quantity": 8884.018809244315,
+      "investedUsd": 30.916385456170214,
+      "profitPercent": 0.5747126436781671,
+      "profitUsd": 0.1776803761848882,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-06T01:00:43.700Z",
+      "closedAt": "2026-08-06T01:56:05.020Z",
+      "paperMode": true,
+      "highestPrice": 0.0035,
+      "trailingActive": false,
+      "entryConfidence": 0.37718092883076126,
+      "closeReason": "swapped"
+    },
+    {
+      "id": "msgv6wwuncj6p",
+      "symbol": "SHIB",
+      "pair": "SHIBUSD",
+      "name": "Shiba Inu",
+      "entryPrice": 0.00000482,
+      "currentPrice": 0.00000482,
+      "quantity": 6432619.428270263,
+      "investedUsd": 31.005225644262662,
+      "profitPercent": 0,
+      "profitUsd": 0,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-06T01:56:05.022Z",
+      "closedAt": "2026-08-06T01:58:24.810Z",
+      "paperMode": true,
+      "highestPrice": 0.00000482,
+      "trailingActive": false,
+      "entryConfidence": 0.37316339280274413,
+      "closeReason": "swapped"
+    },
+    {
+      "id": "msgv9wrxvflpz",
+      "symbol": "XLM",
+      "pair": "XLMUSD",
+      "name": "Stellar",
+      "entryPrice": 0.16272,
+      "currentPrice": 0.15949,
+      "quantity": 190.54342210092588,
+      "investedUsd": 31.005225644262662,
+      "profitPercent": -1.9850049164208616,
+      "profitUsd": -0.6154552533859956,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-06T01:58:24.813Z",
+      "closedAt": "2026-08-06T10:05:49.539Z",
+      "paperMode": true,
+      "highestPrice": 0.16272,
+      "trailingActive": false,
+      "entryConfidence": 0.3768339042502998,
+      "closeReason": "swapped"
+    },
+    {
+      "id": "mshcoq5k47pbl",
+      "symbol": "AVAX",
+      "pair": "AVAXUSD",
+      "name": "Avalanche",
+      "entryPrice": 6.385,
+      "currentPrice": 6.418,
+      "quantity": 4.8077522345449735,
+      "investedUsd": 30.697498017569654,
+      "profitPercent": 0.5168363351605444,
+      "profitUsd": 0.15865582373998777,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-06T10:05:49.544Z",
+      "closedAt": "2026-08-06T12:31:49.951Z",
+      "paperMode": true,
+      "highestPrice": 6.445,
+      "trailingActive": false,
+      "entryConfidence": 0.43667601421943786,
+      "closeReason": "swapped"
+    },
+    {
+      "id": "mshhwhqa5a40b",
+      "symbol": "ZEC",
+      "pair": "ZECUSD",
+      "name": "Zcash",
+      "entryPrice": 489.71,
+      "currentPrice": 844.4,
+      "quantity": 0.06284704402491198,
+      "investedUsd": 30.776825929439642,
+      "profitPercent": 72.4285801801066,
+      "profitUsd": 22.29121804519603,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-06T12:31:49.954Z",
+      "closedAt": "2026-08-23T14:51:46.792Z",
+      "paperMode": true,
+      "highestPrice": 844.4,
+      "trailingActive": true,
+      "entryConfidence": 0.4622862279748204,
+      "closeReason": "manual"
+    },
+    {
+      "id": "mt5xe4mt4k8il",
+      "symbol": "LTC",
+      "pair": "LTCUSD",
+      "name": "Litecoin",
+      "entryPrice": 52.97,
+      "currentPrice": 52.97,
+      "quantity": 0.7105223955119745,
+      "investedUsd": 37.63637129026929,
+      "profitPercent": 0,
+      "profitUsd": 0,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "macd",
+        "ema",
+        "momentum",
+        "ml"
+      ],
+      "openedAt": "2026-08-23T14:51:55.253Z",
+      "closedAt": "2026-08-23T15:43:35.874Z",
+      "paperMode": true,
+      "highestPrice": 52.97,
+      "trailingActive": false,
+      "entryConfidence": 0.3343220680906721,
+      "closeReason": "swapped"
+    },
+    {
+      "id": "mt5xe4mtmlcwx",
+      "symbol": "XLM",
+      "pair": "XLMUSD",
+      "name": "Stellar",
+      "entryPrice": 0.19854,
+      "currentPrice": 0.1985,
+      "quantity": 189.56568595884602,
+      "investedUsd": 37.63637129026929,
+      "profitPercent": -0.02014707363755199,
+      "profitUsd": -0.007582627438353029,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "macd",
+        "ema",
+        "momentum",
+        "ml"
+      ],
+      "openedAt": "2026-08-23T14:51:55.253Z",
+      "closedAt": "2026-08-23T15:01:15.693Z",
+      "paperMode": true,
+      "highestPrice": 0.19854,
+      "trailingActive": false,
+      "entryConfidence": 0.3343220680906721,
+      "closeReason": "swapped"
+    },
+    {
+      "id": "mt5xq52p55uyt",
+      "symbol": "BONK",
+      "pair": "BONKUSD",
+      "name": "Bonk",
+      "entryPrice": 0.00000334,
+      "currentPrice": 0.00000334,
+      "quantity": 11267239.513937159,
+      "investedUsd": 37.63257997655011,
+      "profitPercent": 0,
+      "profitUsd": 0,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "macd",
+        "ema",
+        "momentum",
+        "ml"
+      ],
+      "openedAt": "2026-08-23T15:01:15.697Z",
+      "closedAt": "2026-08-23T17:21:55.870Z",
+      "paperMode": true,
+      "highestPrice": 0.00000334,
+      "trailingActive": false,
+      "entryConfidence": 0.32074588659332587,
+      "closeReason": "swapped"
+    },
+    {
+      "id": "mt5z8l3a4cqwn",
+      "symbol": "UNI",
+      "pair": "UNIUSD",
+      "name": "Uniswap",
+      "entryPrice": 4.535,
+      "currentPrice": 4.603,
+      "quantity": 8.29908958991605,
+      "investedUsd": 37.63637129026929,
+      "profitPercent": 1.4994487320837908,
+      "profitUsd": 0.5643380921142906,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "macd",
+        "ema",
+        "momentum",
+        "ml"
+      ],
+      "openedAt": "2026-08-23T15:43:35.878Z",
+      "closedAt": "2026-08-23T18:22:20.485Z",
+      "paperMode": true,
+      "highestPrice": 4.603,
+      "trailingActive": true,
+      "entryConfidence": 0.33823877437605243,
+      "closeReason": "manual"
+    },
+    {
+      "id": "mt62r1k0uohcf",
+      "symbol": "TRUMP",
+      "pair": "TRUMPUSD",
+      "name": "Official Trump",
+      "entryPrice": 2.594,
+      "currentPrice": 2.594,
+      "quantity": 14.507548179086397,
+      "investedUsd": 37.63257997655011,
+      "profitPercent": 0,
+      "profitUsd": 0,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "macd",
+        "ema",
+        "momentum",
+        "ml"
+      ],
+      "openedAt": "2026-08-23T17:21:55.872Z",
+      "closedAt": "2026-08-23T18:20:06.528Z",
+      "paperMode": true,
+      "highestPrice": 2.594,
+      "trailingActive": false,
+      "entryConfidence": 0.35999110204003965,
+      "closeReason": "swapped"
+    },
+    {
+      "id": "mt64tuyrgw3n1",
+      "symbol": "DGB",
+      "pair": "DGBUSD",
+      "name": "DigiByte",
+      "entryPrice": 0.00498,
+      "currentPrice": 0.00538,
+      "quantity": 7556.742967178737,
+      "investedUsd": 37.63257997655011,
+      "profitPercent": 8.03212851405623,
+      "profitUsd": 3.022697186871497,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "ema",
+        "vwap",
+        "momentum",
+        "ml"
+      ],
+      "openedAt": "2026-08-23T18:20:06.531Z",
+      "closedAt": "2026-08-24T09:53:44.543Z",
+      "paperMode": true,
+      "highestPrice": 0.00538,
+      "trailingActive": true,
+      "entryConfidence": 0.3353884748429375,
+      "closeReason": "manual"
+    },
+    {
+      "id": "mt6an32nwr6xu",
+      "symbol": "TRUMP",
+      "pair": "TRUMPUSD",
+      "name": "Official Trump",
+      "entryPrice": 2.594,
+      "currentPrice": 2.592,
+      "quantity": 14.617787330889138,
+      "investedUsd": 37.91854033632642,
+      "profitPercent": -0.07710100231302366,
+      "profitUsd": -0.029235574661775843,
+      "status": "stopped",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "ema",
+        "vwap",
+        "momentum",
+        "ml"
+      ],
+      "openedAt": "2026-08-23T21:02:48.143Z",
+      "closedAt": "2026-08-23T23:57:08.511Z",
+      "paperMode": true,
+      "highestPrice": 2.632,
+      "trailingActive": true,
+      "entryConfidence": 0.3703567482387766,
+      "closeReason": "stop"
+    },
+    {
+      "id": "mt6gvacje4mxv",
+      "symbol": "TRUMP",
+      "pair": "TRUMPUSD",
+      "name": "Official Trump",
+      "entryPrice": 2.592,
+      "currentPrice": 2.53,
+      "quantity": 14.6234269093347,
+      "investedUsd": 37.903922548995546,
+      "profitPercent": -2.3919753086419955,
+      "profitUsd": -0.9066524683787591,
+      "status": "stopped",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "ema",
+        "vwap",
+        "momentum",
+        "ml"
+      ],
+      "openedAt": "2026-08-23T23:57:08.515Z",
+      "closedAt": "2026-08-24T00:25:00.955Z",
+      "paperMode": true,
+      "highestPrice": 2.592,
+      "trailingActive": false,
+      "entryConfidence": 0.36956202986077596,
+      "closeReason": "stop"
+    },
+    {
+      "id": "mt6l7lyqlvx85",
+      "symbol": "NEAR",
+      "pair": "NEARUSD",
+      "name": "NEAR Protocol",
+      "entryPrice": 1.963,
+      "currentPrice": 1.963,
+      "quantity": 19.078245702906855,
+      "investedUsd": 37.450596314806155,
+      "profitPercent": 0,
+      "profitUsd": 0,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "macd",
+        "ema",
+        "momentum",
+        "ml"
+      ],
+      "openedAt": "2026-08-24T01:58:41.906Z",
+      "closedAt": "2026-08-24T02:05:02.276Z",
+      "paperMode": true,
+      "highestPrice": 1.963,
+      "trailingActive": false,
+      "entryConfidence": 0.2976914792788671,
+      "closeReason": "swapped"
+    },
+    {
+      "id": "mt6lfrgm5huyc",
+      "symbol": "BONK",
+      "pair": "BONKUSD",
+      "name": "Bonk",
+      "entryPrice": 0.00000313,
+      "currentPrice": 0.00000313,
+      "quantity": 11965046.745944459,
+      "investedUsd": 37.450596314806155,
+      "profitPercent": 0,
+      "profitUsd": 0,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-24T02:05:02.278Z",
+      "closedAt": "2026-08-24T09:52:15.385Z",
+      "paperMode": true,
+      "highestPrice": 0.00000313,
+      "trailingActive": false,
+      "entryConfidence": 0.3587195647638535,
+      "closeReason": "swapped"
+    },
+    {
+      "id": "mt724ly4cmqzs",
+      "symbol": "VET",
+      "pair": "VETUSD",
+      "name": "VeChain",
+      "entryPrice": 0.005577,
+      "currentPrice": 0.005577,
+      "quantity": 6715.186715941573,
+      "investedUsd": 37.450596314806155,
+      "profitPercent": 0,
+      "profitUsd": 0,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-24T09:52:15.388Z",
+      "closedAt": "2026-08-24T09:53:46.961Z",
+      "paperMode": true,
+      "highestPrice": 0.005577,
+      "trailingActive": false,
+      "entryConfidence": 0.39406378740242604,
+      "closeReason": "manual"
+    },
+    {
+      "id": "mt726rk55vhkw",
+      "symbol": "VET",
+      "pair": "VETUSD",
+      "name": "VeChain",
+      "entryPrice": 0.005577,
+      "currentPrice": 0.005594,
+      "quantity": 6867.0006172487,
+      "investedUsd": 38.297262442396004,
+      "profitPercent": 0.3048233817464554,
+      "profitUsd": 0.11673901049322666,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-24T09:53:55.973Z",
+      "closedAt": "2026-08-24T13:14:55.192Z",
+      "paperMode": true,
+      "highestPrice": 0.005624,
+      "trailingActive": false,
+      "entryConfidence": 0.390716266485507,
+      "closeReason": "swapped"
+    },
+    {
+      "id": "mt726rk5iyl1y",
+      "symbol": "HYPE",
+      "pair": "HYPEUSD",
+      "name": "Hyperliquid",
+      "entryPrice": 78.44,
+      "currentPrice": 79.37,
+      "quantity": 0.4882363901376339,
+      "investedUsd": 38.297262442396004,
+      "profitPercent": 1.1856195818460034,
+      "profitUsd": 0.45405984282800205,
+      "status": "stopped",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-24T09:53:55.973Z",
+      "closedAt": "2026-08-24T15:05:05.142Z",
+      "paperMode": true,
+      "highestPrice": 80.85,
+      "trailingActive": true,
+      "entryConfidence": 0.3211360003835259,
+      "closeReason": "stop"
+    },
+    {
+      "id": "mt79d8ij34yxa",
+      "symbol": "DGB",
+      "pair": "DGBUSD",
+      "name": "DigiByte",
+      "entryPrice": 0.005,
+      "currentPrice": 0.00504,
+      "quantity": 7671.126389528524,
+      "investedUsd": 38.35563194764262,
+      "profitPercent": 0.8000000000000037,
+      "profitUsd": 0.3068450555811424,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-24T13:14:55.195Z",
+      "closedAt": "2026-08-24T15:05:05.179Z",
+      "paperMode": true,
+      "highestPrice": 0.00504,
+      "trailingActive": false,
+      "entryConfidence": 0.43432065598505387,
+      "closeReason": "swapped"
+    },
+    {
+      "id": "mt7dawt7zuanp",
+      "symbol": "ONE",
+      "pair": "ONEUSD",
+      "name": "Harmony",
+      "entryPrice": 0.0004,
+      "currentPrice": 0.0004,
+      "quantity": 96310.73090952501,
+      "investedUsd": 38.524292363810005,
+      "profitPercent": 0,
+      "profitUsd": 0,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-24T15:05:05.179Z",
+      "closedAt": "2026-08-24T22:59:22.599Z",
+      "paperMode": true,
+      "highestPrice": 0.0004,
+      "trailingActive": false,
+      "entryConfidence": 0.49520401943270725,
+      "closeReason": "manual"
+    },
+    {
+      "id": "mt7dawy0viubw",
+      "symbol": "VET",
+      "pair": "VETUSD",
+      "name": "VeChain",
+      "entryPrice": 0.005539,
+      "currentPrice": 0.005539,
+      "quantity": 6952.347802028018,
+      "investedUsd": 38.50905447543319,
+      "profitPercent": 0,
+      "profitUsd": 0,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-24T15:05:05.352Z",
+      "closedAt": "2026-08-24T15:17:46.117Z",
+      "paperMode": true,
+      "highestPrice": 0.005539,
+      "trailingActive": false,
+      "entryConfidence": 0.3616925224849131,
+      "closeReason": "swapped"
+    },
+    {
+      "id": "mt7mbygm32ka5",
+      "symbol": "THETA",
+      "pair": "THETAUSD",
+      "name": "Theta Network",
+      "entryPrice": 0.185,
+      "currentPrice": 0.185,
+      "quantity": 208.15705121855777,
+      "investedUsd": 38.50905447543319,
+      "profitPercent": 0,
+      "profitUsd": 0,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-24T19:17:50.518Z",
+      "closedAt": "2026-08-24T22:59:23.494Z",
+      "paperMode": true,
+      "highestPrice": 0.185,
+      "trailingActive": false,
+      "entryConfidence": 0.40355322759844664,
+      "closeReason": "manual"
+    },
+    {
+      "id": "mt7ud5p4krx2q",
+      "symbol": "SUI",
+      "pair": "SUIUSD",
+      "name": "Sui",
+      "entryPrice": 0.7966,
+      "currentPrice": 0.7986,
+      "quantity": 48.351334948056234,
+      "investedUsd": 38.5166734196216,
+      "profitPercent": 0.2510670348983131,
+      "profitUsd": 0.09670266989611065,
+      "status": "stopped",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-24T23:02:43.480Z",
+      "closedAt": "2026-08-25T09:53:41.480Z",
+      "paperMode": true,
+      "highestPrice": 0.806,
+      "trailingActive": true,
+      "entryConfidence": 0.32132752249391106,
+      "closeReason": "stop"
+    },
+    {
+      "id": "mt7ue0aghzmzh",
+      "symbol": "LTC",
+      "pair": "LTCUSD",
+      "name": "Litecoin",
+      "entryPrice": 51.24,
+      "currentPrice": 50.82,
+      "quantity": 0.751691518727978,
+      "investedUsd": 38.5166734196216,
+      "profitPercent": -0.8196721311475483,
+      "profitUsd": -0.3157104378657536,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-24T23:03:23.128Z",
+      "closedAt": "2026-08-25T12:37:44.748Z",
+      "paperMode": true,
+      "highestPrice": 51.63,
+      "trailingActive": false,
+      "entryConfidence": 0.3843151684695326,
+      "closeReason": "swapped"
+    },
+    {
+      "id": "mt8nha5nfih8b",
+      "symbol": "TRUMP",
+      "pair": "TRUMPUSD",
+      "name": "Official Trump",
+      "entryPrice": 2.363,
+      "currentPrice": 2.363,
+      "quantity": 16.32036595622922,
+      "investedUsd": 38.56502475456965,
+      "profitPercent": 0,
+      "profitUsd": 0,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "macd",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-25T12:37:44.747Z",
+      "closedAt": "2026-08-25T13:35:00.548Z",
+      "paperMode": true,
+      "highestPrice": 2.363,
+      "trailingActive": false,
+      "entryConfidence": 0.42554964257337263,
+      "closeReason": "swapped"
+    },
+    {
+      "id": "mt8nha5rrq32s",
+      "symbol": "NEAR",
+      "pair": "NEARUSD",
+      "name": "NEAR Protocol",
+      "entryPrice": 1.915,
+      "currentPrice": 1.9,
+      "quantity": 20.030714465111608,
+      "investedUsd": 38.35881820068873,
+      "profitPercent": -0.7832898172323912,
+      "profitUsd": -0.30046071697668,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-25T12:37:44.751Z",
+      "closedAt": "2026-08-25T16:14:32.239Z",
+      "paperMode": true,
+      "highestPrice": 1.915,
+      "trailingActive": false,
+      "entryConfidence": 0.4091187466313712,
+      "closeReason": "swapped"
+    },
+    {
+      "id": "mt8pix8n5jboc",
+      "symbol": "ATOM",
+      "pair": "ATOMUSD",
+      "name": "Cosmos",
+      "entryPrice": 1.532,
+      "currentPrice": 1.56,
+      "quantity": 25.172992659640762,
+      "investedUsd": 38.56502475456965,
+      "profitPercent": 1.827676240208885,
+      "profitUsd": 0.7048437944699444,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "macd",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-25T13:35:00.551Z",
+      "closedAt": "2026-08-26T09:47:42.976Z",
+      "paperMode": true,
+      "highestPrice": 1.56,
+      "trailingActive": true,
+      "entryConfidence": 0.43076138193425056,
+      "closeReason": "manual"
+    },
+    {
+      "id": "mt8v82szzkhcp",
+      "symbol": "BONK",
+      "pair": "BONKUSD",
+      "name": "Bonk",
+      "entryPrice": 0.00000313,
+      "currentPrice": 0.00000314,
+      "quantity": 12207216.563003313,
+      "investedUsd": 38.20858784220037,
+      "profitPercent": 0.31948881789136524,
+      "profitUsd": 0.12207216563002987,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-25T16:14:32.243Z",
+      "closedAt": "2026-08-25T18:31:12.161Z",
+      "paperMode": true,
+      "highestPrice": 0.00000314,
+      "trailingActive": false,
+      "entryConfidence": 0.4349921292941545,
+      "closeReason": "swapped"
+    },
+    {
+      "id": "mt903twlns9ip",
+      "symbol": "IOTA",
+      "pair": "IOTAUSD",
+      "name": "IOTA",
+      "entryPrice": 0.04,
+      "currentPrice": 0.04,
+      "quantity": 956.7405981253848,
+      "investedUsd": 38.269623925015395,
+      "profitPercent": 0,
+      "profitUsd": 0,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-25T18:31:12.165Z",
+      "closedAt": "2026-08-26T00:26:31.481Z",
+      "paperMode": true,
+      "highestPrice": 0.04,
+      "trailingActive": false,
+      "entryConfidence": 0.4931609158163736,
+      "closeReason": "swapped"
+    },
+    {
+      "id": "mt9csrzx645n3",
+      "symbol": "XLM",
+      "pair": "XLMUSD",
+      "name": "Stellar",
+      "entryPrice": 0.18144,
+      "currentPrice": 0.18234,
+      "quantity": 210.92164861670744,
+      "investedUsd": 38.269623925015395,
+      "profitPercent": 0.4960317460317572,
+      "profitUsd": 0.18982948375504094,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-26T00:26:31.485Z",
+      "closedAt": "2026-08-26T09:46:38.235Z",
+      "paperMode": true,
+      "highestPrice": 0.18234,
+      "trailingActive": false,
+      "entryConfidence": 0.4732210513704184,
+      "closeReason": "swapped"
+    },
+    {
+      "id": "mt9wt34u3a4z0",
+      "symbol": "PEPE",
+      "pair": "PEPEUSD",
+      "name": "Pepe",
+      "entryPrice": 0.00000378,
+      "currentPrice": 0.00000378,
+      "quantity": 10149348.853675378,
+      "investedUsd": 38.364538666892926,
+      "profitPercent": 0,
+      "profitUsd": 0,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-26T09:46:38.238Z",
+      "closedAt": "2026-08-26T10:40:55.592Z",
+      "paperMode": true,
+      "highestPrice": 0.00000378,
+      "trailingActive": false,
+      "entryConfidence": 0.4188068642401524,
+      "closeReason": "manual"
+    },
+    {
+      "id": "mt9wutadq8m8n",
+      "symbol": "XRP",
+      "pair": "XRPUSD",
+      "name": "XRP",
+      "entryPrice": 1.4107,
+      "currentPrice": 1.4138,
+      "quantity": 27.587330156521308,
+      "investedUsd": 38.91744665180461,
+      "profitPercent": 0.21974906074996728,
+      "profitUsd": 0.08552072348521023,
+      "status": "stopped",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-26T09:47:58.789Z",
+      "closedAt": "2026-08-26T11:34:13.041Z",
+      "paperMode": true,
+      "highestPrice": 1.4321,
+      "trailingActive": true,
+      "entryConfidence": 0.3840761127257907,
+      "closeReason": "stop"
+    },
+    {
+      "id": "mt9yr6ah2op1c",
+      "symbol": "LTC",
+      "pair": "LTCUSD",
+      "name": "Litecoin",
+      "entryPrice": 49.7,
+      "currentPrice": 50.68,
+      "quantity": 0.7719223071809441,
+      "investedUsd": 38.364538666892926,
+      "profitPercent": 1.9718309859154903,
+      "profitUsd": 0.7564838610373243,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "macd",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-26T10:41:08.249Z",
+      "closedAt": "2026-08-26T11:34:56.650Z",
+      "paperMode": true,
+      "highestPrice": 50.71,
+      "trailingActive": true,
+      "entryConfidence": 0.3557928228401356,
+      "closeReason": "manual"
+    },
+    {
+      "id": "mta0nfpwt9w97",
+      "symbol": "THETA",
+      "pair": "THETAUSD",
+      "name": "Theta Network",
+      "entryPrice": 0.175,
+      "currentPrice": 0.175,
+      "quantity": 222.62975436312698,
+      "investedUsd": 38.96020701354722,
+      "profitPercent": 0,
+      "profitUsd": 0,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-26T11:34:13.076Z",
+      "closedAt": "2026-08-26T12:04:35.110Z",
+      "paperMode": true,
+      "highestPrice": 0.175,
+      "trailingActive": false,
+      "entryConfidence": 0.39716562350660417,
+      "closeReason": "swapped"
+    },
+    {
+      "id": "mta0oqjalsj6j",
+      "symbol": "XRP",
+      "pair": "XRPUSD",
+      "name": "XRP",
+      "entryPrice": 1.4142,
+      "currentPrice": 1.4078,
+      "quantity": 27.39554560699448,
+      "investedUsd": 38.742780597411596,
+      "profitPercent": -0.4525526799604135,
+      "profitUsd": -0.17533149188476926,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-26T11:35:13.750Z",
+      "closedAt": "2026-08-26T11:39:13.990Z",
+      "paperMode": true,
+      "highestPrice": 1.4152,
+      "trailingActive": false,
+      "entryConfidence": 0.32082984127481107,
+      "closeReason": "swapped"
+    },
+    {
+      "id": "mta0tvwpfaex6",
+      "symbol": "POL",
+      "pair": "POLUSD",
+      "name": "Polygon",
+      "entryPrice": 0.1174,
+      "currentPrice": 0.1087,
+      "quantity": 329.2599220738433,
+      "investedUsd": 38.65511485146921,
+      "profitPercent": -7.410562180579226,
+      "profitUsd": -2.864561322042441,
+      "status": "stopped",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-26T11:39:13.993Z",
+      "closedAt": "2026-08-26T18:18:30.447Z",
+      "paperMode": true,
+      "highestPrice": 0.119,
+      "trailingActive": true,
+      "entryConfidence": 0.3856389483684104,
+      "closeReason": "stop"
+    },
+    {
+      "id": "mta1qhm1ybkva",
+      "symbol": "VET",
+      "pair": "VETUSD",
+      "name": "VeChain",
+      "entryPrice": 0.005602,
+      "currentPrice": 0.005819,
+      "quantity": 6954.696003846344,
+      "investedUsd": 38.96020701354722,
+      "profitPercent": 3.8736165655123154,
+      "profitUsd": 1.5091690328346559,
+      "status": "stopped",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-26T12:04:35.113Z",
+      "closedAt": "2026-08-26T20:10:24.395Z",
+      "paperMode": true,
+      "highestPrice": 0.005914,
+      "trailingActive": true,
+      "entryConfidence": 0.38326341899408145,
+      "closeReason": "stop"
+    },
+    {
+      "id": "mtaf3cuuylh6n",
+      "symbol": "BONK",
+      "pair": "BONKUSD",
+      "name": "Bonk",
+      "entryPrice": 0.00000287,
+      "currentPrice": 0.00000293,
+      "quantity": 12969628.637786753,
+      "investedUsd": 37.22283419044798,
+      "profitPercent": 2.090592334494764,
+      "profitUsd": 0.7781777182672016,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-26T18:18:30.486Z",
+      "closedAt": "2026-08-26T20:11:01.192Z",
+      "paperMode": true,
+      "highestPrice": 0.00000293,
+      "trailingActive": true,
+      "entryConfidence": 0.4712049336527223,
+      "closeReason": "manual"
+    },
+    {
+      "id": "mtaj39dcxs4ij",
+      "symbol": "POL",
+      "pair": "POLUSD",
+      "name": "Polygon",
+      "entryPrice": 0.1065,
+      "currentPrice": 0.1073,
+      "quantity": 372.9088406569442,
+      "investedUsd": 39.71479152996456,
+      "profitPercent": 0.7511737089201979,
+      "profitUsd": 0.29832707252555934,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-26T20:10:24.432Z",
+      "closedAt": "2026-08-27T00:14:10.561Z",
+      "paperMode": true,
+      "highestPrice": 0.1073,
+      "trailingActive": false,
+      "entryConfidence": 0.4372232339355883,
+      "closeReason": "manual"
+    },
+    {
+      "id": "mtaj44nz87ice",
+      "symbol": "DGB",
+      "pair": "DGBUSD",
+      "name": "DigiByte",
+      "entryPrice": 0.00494,
+      "currentPrice": 0.00494,
+      "quantity": 7613.749605178457,
+      "investedUsd": 37.61192304958158,
+      "profitPercent": 0,
+      "profitUsd": 0,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-26T20:11:04.991Z",
+      "closedAt": "2026-08-27T00:14:15.294Z",
+      "paperMode": true,
+      "highestPrice": 0.00494,
+      "trailingActive": false,
+      "entryConfidence": 0.4119287704263064,
+      "closeReason": "manual"
+    },
+    {
+      "id": "mtarsz44tc3eu",
+      "symbol": "DGB",
+      "pair": "DGBUSD",
+      "name": "DigiByte",
+      "entryPrice": 0.00494,
+      "currentPrice": 0.00494,
+      "quantity": 7841.6880684017115,
+      "investedUsd": 38.737939057904455,
+      "profitPercent": 0,
+      "profitUsd": 0,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-27T00:14:21.124Z",
+      "closedAt": "2026-08-27T11:01:18.121Z",
+      "paperMode": true,
+      "highestPrice": 0.00494,
+      "trailingActive": false,
+      "entryConfidence": 0.38344981935361533,
+      "closeReason": "manual"
+    },
+    {
+      "id": "mtaux2phjddxe",
+      "symbol": "THETA",
+      "pair": "THETAUSD",
+      "name": "Theta Network",
+      "entryPrice": 0.179,
+      "currentPrice": 0.178,
+      "quantity": 216.41306736259475,
+      "investedUsd": 38.737939057904455,
+      "profitPercent": -0.5586592178770952,
+      "profitUsd": -0.2164130673625948,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "macd",
+        "ema",
+        "momentum",
+        "ml"
+      ],
+      "openedAt": "2026-08-27T01:41:31.253Z",
+      "closedAt": "2026-08-27T10:06:14.626Z",
+      "paperMode": true,
+      "highestPrice": 0.179,
+      "trailingActive": false,
+      "entryConfidence": 0.3292339500142803,
+      "closeReason": "manual"
+    },
+    {
+      "id": "mtbk6iap1pttm",
+      "symbol": "VTHO",
+      "pair": "VTHOUSD",
+      "name": "VeThor",
+      "entryPrice": 0.000409,
+      "currentPrice": 0.000403,
+      "quantity": 94581.505601623,
+      "investedUsd": 38.68383579106381,
+      "profitPercent": -1.4669926650366778,
+      "profitUsd": -0.5674890336097391,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "macd",
+        "ema",
+        "vwap",
+        "momentum",
+        "ml"
+      ],
+      "openedAt": "2026-08-27T13:28:41.761Z",
+      "closedAt": "2026-08-27T15:34:34.186Z",
+      "paperMode": true,
+      "highestPrice": 0.000409,
+      "trailingActive": false,
+      "entryConfidence": 0.3943624649407288,
+      "closeReason": "swapped"
+    },
+    {
+      "id": "mtbk6iaprq7mx",
+      "symbol": "VET",
+      "pair": "VETUSD",
+      "name": "VeChain",
+      "entryPrice": 0.007361,
+      "currentPrice": 0.007404,
+      "quantity": 5255.241922437685,
+      "investedUsd": 38.68383579106381,
+      "profitPercent": 0.5841597609020379,
+      "profitUsd": 0.2259754026648153,
+      "status": "stopped",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "macd",
+        "ema",
+        "momentum",
+        "ml"
+      ],
+      "openedAt": "2026-08-27T13:28:41.761Z",
+      "closedAt": "2026-08-27T20:17:34.579Z",
+      "paperMode": true,
+      "highestPrice": 0.007627,
+      "trailingActive": true,
+      "entryConfidence": 0.35526976127098303,
+      "closeReason": "stop"
+    },
+    {
+      "id": "mtboodshndiyt",
+      "symbol": "TRUMP",
+      "pair": "TRUMPUSD",
+      "name": "Official Trump",
+      "entryPrice": 2.486,
+      "currentPrice": 2.521,
+      "quantity": 15.446537117561919,
+      "investedUsd": 38.40009127425893,
+      "profitPercent": 1.407884151246975,
+      "profitUsd": 0.5406287991146641,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "macd",
+        "ema",
+        "momentum",
+        "ml"
+      ],
+      "openedAt": "2026-08-27T15:34:34.193Z",
+      "closedAt": "2026-08-27T20:18:06.872Z",
+      "paperMode": true,
+      "highestPrice": 2.521,
+      "trailingActive": true,
+      "entryConfidence": 0.339922645875849,
+      "closeReason": "manual"
+    },
+    {
+      "id": "mtca5nf2kob5g",
+      "symbol": "ATOM",
+      "pair": "ATOMUSD",
+      "name": "Cosmos",
+      "entryPrice": 1.63,
+      "currentPrice": 1.483,
+      "quantity": 23.76295373196702,
+      "investedUsd": 38.73361458310624,
+      "profitPercent": -9.01840490797544,
+      "profitUsd": -3.493154198599143,
+      "status": "stopped",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "macd",
+        "ema",
+        "momentum",
+        "ml"
+      ],
+      "openedAt": "2026-08-28T01:35:51.758Z",
+      "closedAt": "2026-08-28T09:41:54.997Z",
+      "paperMode": true,
+      "highestPrice": 1.63,
+      "trailingActive": false,
+      "entryConfidence": 0.32622742458136067,
+      "closeReason": "stop"
+    },
+    {
+      "id": "mtcripy26tiih",
+      "symbol": "CRV",
+      "pair": "CRVUSD",
+      "name": "Curve DAO",
+      "entryPrice": 0.3169,
+      "currentPrice": 0.3192,
+      "quantity": 119.47089313176538,
+      "investedUsd": 37.86032603345645,
+      "profitPercent": 0.7257810034711139,
+      "profitUsd": 0.2747830542030556,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-28T09:41:55.034Z",
+      "closedAt": "2026-08-29T02:30:03.215Z",
+      "paperMode": true,
+      "highestPrice": 0.3192,
+      "trailingActive": false,
+      "entryConfidence": 0.4673480619270541,
+      "closeReason": "manual"
+    },
+    {
+      "id": "mtcripy3uiv7g",
+      "symbol": "ZIL",
+      "pair": "ZILUSD",
+      "name": "Zilliqa",
+      "entryPrice": 0.002511,
+      "currentPrice": 0.002511,
+      "quantity": 15077.788145542194,
+      "investedUsd": 37.86032603345645,
+      "profitPercent": 0,
+      "profitUsd": 0,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-28T09:41:55.035Z",
+      "closedAt": "2026-08-28T11:53:18.897Z",
+      "paperMode": true,
+      "highestPrice": 0.002511,
+      "trailingActive": false,
+      "entryConfidence": 0.43616951079897565,
+      "closeReason": "swapped"
+    },
+    {
+      "id": "mtcw7p6d8qtwd",
+      "symbol": "DGB",
+      "pair": "DGBUSD",
+      "name": "DigiByte",
+      "entryPrice": 0.00472,
+      "currentPrice": 0.00472,
+      "quantity": 8021.255515562807,
+      "investedUsd": 37.86032603345645,
+      "profitPercent": 0,
+      "profitUsd": 0,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-28T11:53:18.901Z",
+      "closedAt": "2026-08-28T19:10:51.992Z",
+      "paperMode": true,
+      "highestPrice": 0.00472,
+      "trailingActive": false,
+      "entryConfidence": 0.4739603578587681,
+      "closeReason": "swapped"
+    },
+    {
+      "id": "mtdbue6zodrkc",
+      "symbol": "PEPE",
+      "pair": "PEPEUSD",
+      "name": "Pepe",
+      "entryPrice": 0.00000365,
+      "currentPrice": 0.00000367,
+      "quantity": 10372692.063960671,
+      "investedUsd": 37.86032603345645,
+      "profitPercent": 0.5479452054794453,
+      "profitUsd": 0.20745384127921085,
+      "status": "stopped",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-28T19:10:51.995Z",
+      "closedAt": "2026-08-29T02:29:14.494Z",
+      "paperMode": true,
+      "highestPrice": 0.00000369,
+      "trailingActive": true,
+      "entryConfidence": 0.43090791633826475,
+      "closeReason": "stop"
+    },
+    {
+      "id": "mtdri5c5k4pp3",
+      "symbol": "PEPE",
+      "pair": "PEPEUSD",
+      "name": "Pepe",
+      "entryPrice": 0.00000367,
+      "currentPrice": 0.00000367,
+      "quantity": 10344428.597846337,
+      "investedUsd": 37.964052954096054,
+      "profitPercent": 0,
+      "profitUsd": 0,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "macd",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-29T02:29:14.501Z",
+      "closedAt": "2026-08-29T02:30:14.824Z",
+      "paperMode": true,
+      "highestPrice": 0.00000367,
+      "trailingActive": false,
+      "entryConfidence": 0.3847808458155898,
+      "closeReason": "manual"
+    },
+    {
+      "id": "mtdrjg4bdtps9",
+      "symbol": "PEPE",
+      "pair": "PEPEUSD",
+      "name": "Pepe",
+      "entryPrice": 0.00000367,
+      "currentPrice": 0.00000362,
+      "quantity": 10349015.056492375,
+      "investedUsd": 37.98088525732702,
+      "profitPercent": -1.3623978201634785,
+      "profitUsd": -0.5174507528246153,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "macd",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-29T02:30:15.131Z",
+      "closedAt": "2026-08-29T12:39:27.724Z",
+      "paperMode": true,
+      "highestPrice": 0.00000367,
+      "trailingActive": false,
+      "entryConfidence": 0.3842093073991457,
+      "closeReason": "manual"
+    },
+    {
+      "id": "mtdrjg4bphcck",
+      "symbol": "ADA",
+      "pair": "ADAUSD",
+      "name": "Cardano",
+      "entryPrice": 0.20222,
+      "currentPrice": 0.20069,
+      "quantity": 187.81962841126997,
+      "investedUsd": 37.98088525732702,
+      "profitPercent": -0.7566017208980373,
+      "profitUsd": -0.28736403146924516,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "macd",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-29T02:30:15.131Z",
+      "closedAt": "2026-08-29T12:22:42.667Z",
+      "paperMode": true,
+      "highestPrice": 0.20222,
+      "trailingActive": false,
+      "entryConfidence": 0.3216038008576307,
+      "closeReason": "swapped"
+    },
+    {
+      "id": "mtecpcs0vwkyr",
+      "symbol": "RENDER",
+      "pair": "RENDERUSD",
+      "name": "Render",
+      "entryPrice": 1.414,
+      "currentPrice": 1.414,
+      "quantity": 26.758983904945126,
+      "investedUsd": 37.837203241592405,
+      "profitPercent": 0,
+      "profitUsd": 0,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-29T12:22:42.672Z",
+      "closedAt": "2026-08-29T18:40:38.113Z",
+      "paperMode": true,
+      "highestPrice": 1.414,
+      "trailingActive": false,
+      "entryConfidence": 0.4352625886781575,
+      "closeReason": "swapped"
+    },
+    {
+      "id": "mtedb5zlagmfm",
+      "symbol": "IOTA",
+      "pair": "IOTAUSD",
+      "name": "IOTA",
+      "entryPrice": 0.0376,
+      "currentPrice": 0.0376,
+      "quantity": 1003.2489330030505,
+      "investedUsd": 37.7221598809147,
+      "profitPercent": 0,
+      "profitUsd": 0,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-29T12:39:40.305Z",
+      "closedAt": "2026-08-29T16:47:23.289Z",
+      "paperMode": true,
+      "highestPrice": 0.0376,
+      "trailingActive": false,
+      "entryConfidence": 0.3818807774900246,
+      "closeReason": "swapped"
+    },
+    {
+      "id": "mtem5qce3t6re",
+      "symbol": "ONE",
+      "pair": "ONEUSD",
+      "name": "Harmony",
+      "entryPrice": 0.00031,
+      "currentPrice": 0.000356,
+      "quantity": 121684.38671262807,
+      "investedUsd": 37.7221598809147,
+      "profitPercent": 14.83870967741935,
+      "profitUsd": 5.59748178878089,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-29T16:47:23.294Z",
+      "closedAt": "2026-08-29T18:41:08.474Z",
+      "paperMode": true,
+      "highestPrice": 0.000356,
+      "trailingActive": true,
+      "entryConfidence": 0.49074393547599415,
+      "closeReason": "manual"
+    },
+    {
+      "id": "mteq7d9ggaevh",
+      "symbol": "POL",
+      "pair": "POLUSD",
+      "name": "Polygon",
+      "entryPrice": 0.1036,
+      "currentPrice": 0.1045,
+      "quantity": 365.22396951344024,
+      "investedUsd": 37.837203241592405,
+      "profitPercent": 0.8687258687258685,
+      "profitUsd": 0.3287015725620961,
+      "status": "stopped",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-29T18:40:38.116Z",
+      "closedAt": "2026-08-30T07:09:28.156Z",
+      "paperMode": true,
+      "highestPrice": 0.1051,
+      "trailingActive": true,
+      "entryConfidence": 0.40876019513890643,
+      "closeReason": "stop"
+    },
+    {
+      "id": "mteq88k2mz58a",
+      "symbol": "IOTA",
+      "pair": "IOTAUSD",
+      "name": "IOTA",
+      "entryPrice": 0.0376,
+      "currentPrice": 0.0376,
+      "quantity": 1077.6835312581156,
+      "investedUsd": 40.52090077530515,
+      "profitPercent": 0,
+      "profitUsd": 0,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "macd",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-29T18:41:18.674Z",
+      "closedAt": "2026-08-30T01:47:28.547Z",
+      "paperMode": true,
+      "highestPrice": 0.0376,
+      "trailingActive": false,
+      "entryConfidence": 0.3546035205808617,
+      "closeReason": "swapped"
+    },
+    {
+      "id": "mtf5gaeehcmao",
+      "symbol": "TRUMP",
+      "pair": "TRUMPUSD",
+      "name": "Official Trump",
+      "entryPrice": 2.615,
+      "currentPrice": 2.615,
+      "quantity": 15.49556435002109,
+      "investedUsd": 40.52090077530515,
+      "profitPercent": 0,
+      "profitUsd": 0,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-30T01:47:28.550Z",
+      "closedAt": "2026-08-30T07:09:28.161Z",
+      "paperMode": true,
+      "highestPrice": 2.615,
+      "trailingActive": false,
+      "entryConfidence": 0.4158122849032933,
+      "closeReason": "swapped"
+    },
+    {
+      "id": "mtfgydi86joea",
+      "symbol": "VTHO",
+      "pair": "VTHOUSD",
+      "name": "VeThor",
+      "entryPrice": 0.000399,
+      "currentPrice": 0.000422,
+      "quantity": 95241.99004479559,
+      "investedUsd": 38.00155402787344,
+      "profitPercent": 5.7644110275689275,
+      "profitUsd": 2.1905657710303004,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-30T07:09:28.160Z",
+      "closedAt": "2026-08-30T14:23:32.600Z",
+      "paperMode": true,
+      "highestPrice": 0.000422,
+      "trailingActive": true,
+      "entryConfidence": 0.4169588541450378,
+      "closeReason": "manual"
+    },
+    {
+      "id": "mtfgydij2ikin",
+      "symbol": "ICP",
+      "pair": "ICPUSD",
+      "name": "Internet Computer",
+      "entryPrice": 2.443,
+      "currentPrice": 2.443,
+      "quantity": 16.586533268647216,
+      "investedUsd": 40.52090077530515,
+      "profitPercent": 0,
+      "profitUsd": 0,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-30T07:09:28.171Z",
+      "closedAt": "2026-08-30T10:55:54.298Z",
+      "paperMode": true,
+      "highestPrice": 2.443,
+      "trailingActive": false,
+      "entryConfidence": 0.40761642579933305,
+      "closeReason": "swapped"
+    },
+    {
+      "id": "mtfp1kn2av9xa",
+      "symbol": "TRUMP",
+      "pair": "TRUMPUSD",
+      "name": "Official Trump",
+      "entryPrice": 2.495,
+      "currentPrice": 2.495,
+      "quantity": 16.24084199411028,
+      "investedUsd": 40.52090077530515,
+      "profitPercent": 0,
+      "profitUsd": 0,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-30T10:55:54.302Z",
+      "closedAt": "2026-08-30T19:27:29.008Z",
+      "paperMode": true,
+      "highestPrice": 2.495,
+      "trailingActive": false,
+      "entryConfidence": 0.4604058292381171,
+      "closeReason": "manual"
+    },
+    {
+      "id": "mtg25xj5k9jm6",
+      "symbol": "UNI",
+      "pair": "UNIUSD",
+      "name": "Uniswap",
+      "entryPrice": 5.379,
+      "currentPrice": 5.435,
+      "quantity": 7.268421065883734,
+      "investedUsd": 39.0968369133886,
+      "profitPercent": 1.0410857036624048,
+      "profitUsd": 0.40703157968949455,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "macd",
+        "ema",
+        "momentum",
+        "ml"
+      ],
+      "openedAt": "2026-08-30T17:03:12.641Z",
+      "closedAt": "2026-08-30T19:27:23.920Z",
+      "paperMode": true,
+      "highestPrice": 5.435,
+      "trailingActive": true,
+      "entryConfidence": 0.3436628604994426,
+      "closeReason": "manual"
+    },
+    {
+      "id": "mtg7bnx6sngzc",
+      "symbol": "DGB",
+      "pair": "DGBUSD",
+      "name": "DigiByte",
+      "entryPrice": 0.005,
+      "currentPrice": 0.005,
+      "quantity": 7982.125347853849,
+      "investedUsd": 39.91062673926925,
+      "profitPercent": 0,
+      "profitUsd": 0,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "macd",
+        "ema",
+        "momentum",
+        "ml"
+      ],
+      "openedAt": "2026-08-30T19:27:38.202Z",
+      "closedAt": "2026-08-30T21:24:08.851Z",
+      "paperMode": true,
+      "highestPrice": 0.005,
+      "trailingActive": false,
+      "entryConfidence": 0.29472013956406146,
+      "closeReason": "swapped"
+    },
+    {
+      "id": "mtgbhhxu0nvgs",
+      "symbol": "ICP",
+      "pair": "ICPUSD",
+      "name": "Internet Computer",
+      "entryPrice": 2.398,
+      "currentPrice": 2.36,
+      "quantity": 16.643297222380838,
+      "investedUsd": 39.91062673926925,
+      "profitPercent": -1.584653878231855,
+      "profitUsd": -0.6324452944504699,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-30T21:24:08.851Z",
+      "closedAt": "2026-08-31T01:08:42.187Z",
+      "paperMode": true,
+      "highestPrice": 2.398,
+      "trailingActive": false,
+      "entryConfidence": 0.40481232850490734,
+      "closeReason": "manual"
+    },
+    {
+      "id": "mtgbhhxyzwel5",
+      "symbol": "VET",
+      "pair": "VETUSD",
+      "name": "VeChain",
+      "entryPrice": 0.006886,
+      "currentPrice": 0.006635,
+      "quantity": 5795.90861737863,
+      "investedUsd": 39.91062673926925,
+      "profitPercent": -3.6450769677606667,
+      "profitUsd": -1.4547730629620332,
+      "status": "stopped",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-30T21:24:08.854Z",
+      "closedAt": "2026-08-31T01:08:08.212Z",
+      "paperMode": true,
+      "highestPrice": 0.006886,
+      "trailingActive": false,
+      "entryConfidence": 0.3529412601694445,
+      "closeReason": "stop"
+    },
+    {
+      "id": "mtgjhjvmvkxxz",
+      "symbol": "TRUMP",
+      "pair": "TRUMPUSD",
+      "name": "Official Trump",
+      "entryPrice": 2.321,
+      "currentPrice": 2.321,
+      "quantity": 16.882050929680407,
+      "investedUsd": 39.18324020778823,
+      "profitPercent": 0,
+      "profitUsd": 0,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-31T01:08:08.290Z",
+      "closedAt": "2026-08-31T09:38:27.779Z",
+      "paperMode": true,
+      "highestPrice": 2.321,
+      "trailingActive": false,
+      "entryConfidence": 0.48371426180180904,
+      "closeReason": "manual"
+    },
+    {
+      "id": "mtgjif73xxo2f",
+      "symbol": "PEPE",
+      "pair": "PEPEUSD",
+      "name": "Pepe",
+      "entryPrice": 0.00000341,
+      "currentPrice": 0.00000341,
+      "quantity": 11611262.197080357,
+      "investedUsd": 39.594404092044016,
+      "profitPercent": 0,
+      "profitUsd": 0,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-31T01:08:48.879Z",
+      "closedAt": "2026-08-31T09:38:28.689Z",
+      "paperMode": true,
+      "highestPrice": 0.00000341,
+      "trailingActive": false,
+      "entryConfidence": 0.45987845457798904,
+      "closeReason": "manual"
+    },
+    {
+      "id": "mth4kuvnz5qik",
+      "symbol": "VET",
+      "pair": "VETUSD",
+      "name": "VeChain",
+      "entryPrice": 0.006635,
+      "currentPrice": 0.00674,
+      "quantity": 5936.52180104237,
+      "investedUsd": 39.38882214991612,
+      "profitPercent": 1.5825169555388114,
+      "profitUsd": 0.6233347891094496,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-31T10:58:34.451Z",
+      "closedAt": "2026-09-01T02:21:48.729Z",
+      "paperMode": true,
+      "highestPrice": 0.00674,
+      "trailingActive": true,
+      "entryConfidence": 0.43147004766633085,
+      "closeReason": "manual"
+    },
+    {
+      "id": "mth4kuvntg0ag",
+      "symbol": "TRUMP",
+      "pair": "TRUMPUSD",
+      "name": "Official Trump",
+      "entryPrice": 2.34,
+      "currentPrice": 2.432,
+      "quantity": 16.832829978596635,
+      "investedUsd": 39.38882214991612,
+      "profitPercent": 3.931623931623944,
+      "profitUsd": 1.5486203580308953,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-08-31T10:58:34.451Z",
+      "closedAt": "2026-09-01T02:21:47.031Z",
+      "paperMode": true,
+      "highestPrice": 2.432,
+      "trailingActive": true,
+      "entryConfidence": 0.4203178962758113,
+      "closeReason": "manual"
+    },
+    {
+      "id": "mti1k802wicck",
+      "symbol": "POL",
+      "pair": "POLUSD",
+      "name": "Polygon",
+      "entryPrice": 0.0917,
+      "currentPrice": 0.0929,
+      "quantity": 435.4614060708965,
+      "investedUsd": 39.93181093670121,
+      "profitPercent": 1.3086150490730455,
+      "profitUsd": 0.5225536872850682,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "macd",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-09-01T02:21:52.130Z",
+      "closedAt": "2026-09-01T10:00:16.900Z",
+      "paperMode": true,
+      "highestPrice": 0.0929,
+      "trailingActive": true,
+      "entryConfidence": 0.40013785305789795,
+      "closeReason": "manual"
+    },
+    {
+      "id": "mtihu569vjmud",
+      "symbol": "TRUMP",
+      "pair": "TRUMPUSD",
+      "name": "Official Trump",
+      "entryPrice": 2.35,
+      "currentPrice": 2.35,
+      "quantity": 16.992259973064346,
+      "investedUsd": 39.93181093670121,
+      "profitPercent": 0,
+      "profitUsd": 7.105427357601002e-15,
+      "status": "open",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-09-01T09:57:28.881Z",
+      "closedAt": null,
+      "paperMode": true,
+      "highestPrice": 2.35,
+      "trailingActive": false,
+      "entryConfidence": 0.43875977064754584,
+      "closeReason": null
+    },
+    {
+      "id": "mtijll0cn7syu",
+      "symbol": "PEPE",
+      "pair": "PEPEUSD",
+      "name": "Pepe",
+      "entryPrice": 0.00000349,
+      "currentPrice": 0.00000349,
+      "quantity": 11516644.063135743,
+      "investedUsd": 40.193087780343745,
+      "profitPercent": 0,
+      "profitUsd": 0,
+      "status": "open",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-09-01T10:46:48.732Z",
+      "closedAt": null,
+      "paperMode": true,
+      "highestPrice": 0.00000349,
+      "trailingActive": false,
+      "entryConfidence": 0.40093853260155105,
+      "closeReason": null
     }
   ],
   "settings": {
@@ -6540,62 +8566,62 @@
     "voteThreshold": 4
   },
   "botRunning": true,
-  "learningCycles": 983,
+  "learningCycles": 1276,
   "strategyStats": [
     {
       "id": "rsi",
-      "weight": 1.3367816091954023,
-      "totalSignals": 174,
-      "successfulSignals": 82,
-      "profitContribution": 139.05640610070716
+      "weight": 1.313913043478261,
+      "totalSignals": 230,
+      "successfulSignals": 106,
+      "profitContribution": 271.98172574446085
     },
     {
       "id": "macd",
-      "weight": 0.9571428571428571,
-      "totalSignals": 77,
-      "successfulSignals": 23,
-      "profitContribution": 44.85776030645365
+      "weight": 0.9666666666666668,
+      "totalSignals": 99,
+      "successfulSignals": 30,
+      "profitContribution": 54.49846092954628
     },
     {
       "id": "bollinger",
-      "weight": 1.331958762886598,
-      "totalSignals": 194,
-      "successfulSignals": 91,
-      "profitContribution": 178.1163549849123
+      "weight": 1.3181818181818183,
+      "totalSignals": 242,
+      "successfulSignals": 112,
+      "profitContribution": 305.93355235346854
     },
     {
       "id": "ema",
-      "weight": 1.3290322580645162,
-      "totalSignals": 62,
-      "successfulSignals": 29,
-      "profitContribution": 74.8118039355676
+      "weight": 1.2468354430379749,
+      "totalSignals": 79,
+      "successfulSignals": 34,
+      "profitContribution": 87.37651079751903
     },
     {
       "id": "vwap",
-      "weight": 1.328140703517588,
-      "totalSignals": 199,
-      "successfulSignals": 93,
-      "profitContribution": 188.0257148636028
+      "weight": 1.3023166023166024,
+      "totalSignals": 259,
+      "successfulSignals": 118,
+      "profitContribution": 328.9831630214127
     },
     {
       "id": "momentum",
-      "weight": 1.1555555555555557,
-      "totalSignals": 36,
-      "successfulSignals": 14,
-      "profitContribution": 19.035837701087203
+      "weight": 1.088679245283019,
+      "totalSignals": 53,
+      "successfulSignals": 19,
+      "profitContribution": 31.600544563038646
     },
     {
       "id": "ml",
-      "weight": 1.2858921161825727,
-      "totalSignals": 241,
-      "successfulSignals": 108,
-      "profitContribution": 205.69768104406376
+      "weight": 1.2598726114649683,
+      "totalSignals": 314,
+      "successfulSignals": 137,
+      "profitContribution": 351.1877075497689
     }
   ],
   "patternHistory": {
     "ema|macd|ml|momentum:FFUFFFF": {
       "wins": 0,
-      "losses": 3,
+      "losses": 5,
       "totalProfit": -12.896131173338912
     },
     "bollinger|ml|rsi|vwap:FFUDFFF": {
@@ -6610,8 +8636,8 @@
     },
     "bollinger|ml|rsi|vwap:FFFDFFF": {
       "wins": 1,
-      "losses": 2,
-      "totalProfit": 0.4622353702505283
+      "losses": 3,
+      "totalProfit": -0.3210544469818629
     },
     "bollinger|ml|rsi|vwap:DDUUUUF": {
       "wins": 1,
@@ -6714,9 +8740,9 @@
       "totalProfit": 5.008077544426494
     },
     "bollinger|ml|rsi|vwap:FFFFDUU": {
-      "wins": 1,
+      "wins": 2,
       "losses": 0,
-      "totalProfit": 7.617896009673533
+      "totalProfit": 22.456605687092882
     },
     "bollinger|ml|rsi|vwap:UUUDDDD": {
       "wins": 0,
@@ -6739,9 +8765,9 @@
       "totalProfit": 0.3099730458220992
     },
     "bollinger|ml|rsi|vwap:FDFFDFF": {
-      "wins": 0,
+      "wins": 1,
       "losses": 1,
-      "totalProfit": -0.8474576271186482
+      "totalProfit": 0.7350593284201632
     },
     "bollinger|ema|ml|rsi|vwap:UDUUUDD": {
       "wins": 1,
@@ -6754,9 +8780,9 @@
       "totalProfit": -1.5691515691515798
     },
     "bollinger|ml|rsi|vwap:FFFFFFF": {
-      "wins": 3,
-      "losses": 7,
-      "totalProfit": 5.444151566524506
+      "wins": 4,
+      "losses": 16,
+      "totalProfit": 6.16993256999562
     },
     "macd|ml|rsi|vwap:UFUFFFF": {
       "wins": 0,
@@ -6930,7 +8956,7 @@
     },
     "bollinger|ml|rsi|vwap:FUFFDFF": {
       "wins": 1,
-      "losses": 0,
+      "losses": 1,
       "totalProfit": 0.4173536685902624
     },
     "bollinger|ml|rsi|vwap:FFFFDFF": {
@@ -6969,13 +8995,13 @@
       "totalProfit": -2.111667210677107
     },
     "bollinger|ml|rsi|vwap:DDUDUDD": {
-      "wins": 1,
+      "wins": 2,
       "losses": 0,
-      "totalProfit": 0.6048982000590122
+      "totalProfit": 1.1009299460907693
     },
     "bollinger|ml|rsi|vwap:DFFFFFF": {
       "wins": 0,
-      "losses": 5,
+      "losses": 6,
       "totalProfit": -0.849522224986894
     },
     "bollinger|ml|rsi|vwap:UFFDFDD": {
@@ -7029,9 +9055,9 @@
       "totalProfit": 0.8028976758225214
     },
     "bollinger|ml|rsi|vwap:FFDFFFF": {
-      "wins": 2,
-      "losses": 0,
-      "totalProfit": 3.5333333333333483
+      "wins": 3,
+      "losses": 1,
+      "totalProfit": 4.284507042253546
     },
     "ema|macd|ml|momentum:FFUUUFU": {
       "wins": 1,
@@ -7219,9 +9245,9 @@
       "totalProfit": 0.9404388714733468
     },
     "macd|ml|rsi|vwap:FFFFFFF": {
-      "wins": 1,
-      "losses": 2,
-      "totalProfit": 1.1720685402617708e-14
+      "wins": 2,
+      "losses": 4,
+      "totalProfit": 1.8276762402088969
     },
     "bollinger|ml|rsi|vwap:FFFDFUF": {
       "wins": 1,
@@ -7354,9 +9380,9 @@
       "totalProfit": 0.02825976374835931
     },
     "ema|macd|ml|momentum:UUUUUDU": {
-      "wins": 1,
+      "wins": 2,
       "losses": 0,
-      "totalProfit": 0.4105839416058475
+      "totalProfit": 0.9947437025078854
     },
     "bollinger|macd|ml|rsi:FFFFFFF": {
       "wins": 0,
@@ -7409,9 +9435,9 @@
       "totalProfit": 0.8312958435207719
     },
     "bollinger|ml|rsi|vwap:FDFFUFF": {
-      "wins": 1,
+      "wins": 2,
       "losses": 0,
-      "totalProfit": 0.6191950464396218
+      "totalProfit": 0.9386838643309869
     },
     "ema|macd|ml|momentum:FFFDFFD": {
       "wins": 0,
@@ -7420,7 +9446,7 @@
     },
     "ema|macd|ml|momentum:FFFFUFF": {
       "wins": 0,
-      "losses": 1,
+      "losses": 2,
       "totalProfit": -1.1204481792717265
     },
     "ema|macd|ml|rsi:UFDFFDU": {
@@ -7442,2168 +9468,2390 @@
       "wins": 1,
       "losses": 0,
       "totalProfit": 0.7661748013620822
+    },
+    "ema|macd|ml|momentum:UUDUFUF": {
+      "wins": 0,
+      "losses": 1,
+      "totalProfit": 0
+    },
+    "bollinger|ml|rsi|vwap:FFFDFFU": {
+      "wins": 1,
+      "losses": 0,
+      "totalProfit": 0.5747126436781671
+    },
+    "bollinger|ml|rsi|vwap:FFFFUFD": {
+      "wins": 0,
+      "losses": 1,
+      "totalProfit": 0
+    },
+    "bollinger|ml|rsi|vwap:UUFDDDD": {
+      "wins": 0,
+      "losses": 1,
+      "totalProfit": -1.9850049164208616
+    },
+    "bollinger|ml|rsi|vwap:FFFDDUD": {
+      "wins": 1,
+      "losses": 0,
+      "totalProfit": 0.5168363351605444
+    },
+    "bollinger|ml|rsi|vwap:UUUUFUD": {
+      "wins": 1,
+      "losses": 0,
+      "totalProfit": 72.4285801801066
+    },
+    "bollinger|ml|rsi|vwap:FUUFFUD": {
+      "wins": 1,
+      "losses": 0,
+      "totalProfit": 15.745192307692314
+    },
+    "ema|macd|ml|momentum:DUUUUDF": {
+      "wins": 0,
+      "losses": 1,
+      "totalProfit": -0.02014707363755199
+    },
+    "ema|macd|ml|momentum:FFUUFDF": {
+      "wins": 0,
+      "losses": 1,
+      "totalProfit": 0
+    },
+    "ema|macd|ml|momentum:UUDUFFF": {
+      "wins": 1,
+      "losses": 0,
+      "totalProfit": 1.4994487320837908
+    },
+    "ema|ml|momentum|vwap:DFFFUFF": {
+      "wins": 0,
+      "losses": 1,
+      "totalProfit": -0.07710100231302366
+    },
+    "ema|ml|momentum|vwap:FFFUFDD": {
+      "wins": 0,
+      "losses": 1,
+      "totalProfit": -2.3919753086419955
+    },
+    "ema|macd|ml|momentum:FUDUUDF": {
+      "wins": 0,
+      "losses": 1,
+      "totalProfit": 0
+    },
+    "ema|ml|momentum|vwap:FFFFFFF": {
+      "wins": 1,
+      "losses": 0,
+      "totalProfit": 8.03212851405623
+    },
+    "bollinger|ml|rsi|vwap:FFFDUFD": {
+      "wins": 0,
+      "losses": 1,
+      "totalProfit": 0
+    },
+    "bollinger|ml|rsi|vwap:UFDUUDF": {
+      "wins": 1,
+      "losses": 0,
+      "totalProfit": 0.3048233817464554
+    },
+    "bollinger|ml|rsi|vwap:UUUUDUU": {
+      "wins": 1,
+      "losses": 0,
+      "totalProfit": 1.1856195818460034
+    },
+    "bollinger|ml|rsi|vwap:FDDFUFF": {
+      "wins": 1,
+      "losses": 0,
+      "totalProfit": 0.8000000000000037
+    },
+    "bollinger|ml|rsi|vwap:DUUDDDF": {
+      "wins": 0,
+      "losses": 1,
+      "totalProfit": 0
+    },
+    "bollinger|ml|rsi|vwap:FDUDUUD": {
+      "wins": 0,
+      "losses": 1,
+      "totalProfit": 0
+    },
+    "bollinger|ml|rsi|vwap:DUUDDUD": {
+      "wins": 1,
+      "losses": 0,
+      "totalProfit": 0.2510670348983131
+    },
+    "bollinger|ml|rsi|vwap:DDFDFFD": {
+      "wins": 0,
+      "losses": 1,
+      "totalProfit": -0.8196721311475483
+    },
+    "bollinger|ml|rsi|vwap:FDFFDDF": {
+      "wins": 0,
+      "losses": 1,
+      "totalProfit": 0
+    },
+    "bollinger|ml|rsi|vwap:UDDDDUD": {
+      "wins": 1,
+      "losses": 1,
+      "totalProfit": -0.2328036192104462
+    },
+    "macd|ml|rsi|vwap:FFFFFUD": {
+      "wins": 1,
+      "losses": 0,
+      "totalProfit": 1.9718309859154903
+    },
+    "bollinger|ml|rsi|vwap:FDDFDDF": {
+      "wins": 0,
+      "losses": 1,
+      "totalProfit": -7.410562180579226
+    },
+    "bollinger|ml|rsi|vwap:DDUDUDF": {
+      "wins": 1,
+      "losses": 0,
+      "totalProfit": 3.8736165655123154
+    },
+    "bollinger|ml|rsi|vwap:FDDFFUF": {
+      "wins": 1,
+      "losses": 0,
+      "totalProfit": 2.090592334494764
+    },
+    "bollinger|ml|rsi|vwap:DUFFFFF": {
+      "wins": 0,
+      "losses": 1,
+      "totalProfit": 0
+    },
+    "ema|macd|ml|momentum:FFUFUDD": {
+      "wins": 0,
+      "losses": 1,
+      "totalProfit": -0.5586592178770952
+    },
+    "ema|macd|ml|momentum|vwap:FFFUFFD": {
+      "wins": 0,
+      "losses": 1,
+      "totalProfit": -1.4669926650366778
+    },
+    "ema|macd|ml|momentum:UUFFDFF": {
+      "wins": 1,
+      "losses": 0,
+      "totalProfit": 1.407884151246975
+    },
+    "ema|macd|ml|momentum:FDFFDDF": {
+      "wins": 0,
+      "losses": 1,
+      "totalProfit": -9.01840490797544
+    },
+    "bollinger|ml|rsi|vwap:FFUFFFD": {
+      "wins": 1,
+      "losses": 0,
+      "totalProfit": 0.5479452054794453
+    },
+    "macd|ml|rsi|vwap:FFUFFFD": {
+      "wins": 0,
+      "losses": 1,
+      "totalProfit": 0
+    },
+    "macd|ml|rsi|vwap:DUDUUFU": {
+      "wins": 0,
+      "losses": 1,
+      "totalProfit": -0.7566017208980373
+    },
+    "macd|ml|rsi|vwap:DFFFDFF": {
+      "wins": 0,
+      "losses": 1,
+      "totalProfit": -1.3623978201634785
+    },
+    "bollinger|ml|rsi|vwap:UDFFFFF": {
+      "wins": 1,
+      "losses": 0,
+      "totalProfit": 0.8687258687258685
+    },
+    "bollinger|ml|rsi|vwap:FFFFFUF": {
+      "wins": 1,
+      "losses": 0,
+      "totalProfit": 5.7644110275689275
+    },
+    "ema|macd|ml|momentum:UDUUUDF": {
+      "wins": 1,
+      "losses": 0,
+      "totalProfit": 1.0410857036624048
+    },
+    "bollinger|ml|rsi|vwap:UUDDDFF": {
+      "wins": 0,
+      "losses": 1,
+      "totalProfit": -3.6450769677606667
+    },
+    "bollinger|ml|rsi|vwap:FFDDDFF": {
+      "wins": 0,
+      "losses": 1,
+      "totalProfit": -1.584653878231855
+    },
+    "bollinger|ml|rsi|vwap:FFFFUFF": {
+      "wins": 1,
+      "losses": 0,
+      "totalProfit": 3.931623931623944
+    },
+    "macd|ml|rsi|vwap:UUFFFFF": {
+      "wins": 1,
+      "losses": 0,
+      "totalProfit": 1.3086150490730455
     }
   },
   "balanceHistory": [
     {
-      "ts": 1785840454697,
-      "balance": 122.72918375672452,
-      "pnl": 22.72918375672445
+      "ts": 1788087754974,
+      "balance": 157.04490960635718,
+      "pnl": 57.0449096063572
     },
     {
-      "ts": 1785840474708,
-      "balance": 122.72918375672452,
-      "pnl": 22.72918375672445
+      "ts": 1788087774953,
+      "balance": 157.04490960635718,
+      "pnl": 57.0449096063572
     },
     {
-      "ts": 1785840494711,
-      "balance": 122.72918375672452,
-      "pnl": 22.72918375672445
+      "ts": 1788087794913,
+      "balance": 157.04490960635718,
+      "pnl": 57.0449096063572
     },
     {
-      "ts": 1785840514711,
-      "balance": 122.72918375672452,
-      "pnl": 22.72918375672445
+      "ts": 1788087814949,
+      "balance": 157.04490960635718,
+      "pnl": 57.0449096063572
     },
     {
-      "ts": 1785840534714,
-      "balance": 122.72918375672452,
-      "pnl": 22.72918375672445
+      "ts": 1788087834937,
+      "balance": 157.04490960635718,
+      "pnl": 57.0449096063572
     },
     {
-      "ts": 1785840554766,
-      "balance": 122.72918375672452,
-      "pnl": 22.72918375672445
+      "ts": 1788087854940,
+      "balance": 157.04490960635718,
+      "pnl": 57.0449096063572
     },
     {
-      "ts": 1785840574727,
-      "balance": 122.72918375672452,
-      "pnl": 22.72918375672445
+      "ts": 1788087874960,
+      "balance": 157.04490960635718,
+      "pnl": 57.0449096063572
     },
     {
-      "ts": 1785840594743,
-      "balance": 122.72918375672452,
-      "pnl": 22.72918375672445
+      "ts": 1788087894937,
+      "balance": 157.04490960635718,
+      "pnl": 57.0449096063572
     },
     {
-      "ts": 1785840614792,
-      "balance": 122.72918375672452,
-      "pnl": 22.72918375672445
+      "ts": 1788087914946,
+      "balance": 157.04490960635718,
+      "pnl": 57.0449096063572
     },
     {
-      "ts": 1785840634717,
-      "balance": 122.72918375672452,
-      "pnl": 22.72918375672445
+      "ts": 1788087934932,
+      "balance": 157.04490960635718,
+      "pnl": 57.0449096063572
     },
     {
-      "ts": 1785840654769,
-      "balance": 122.72918375672452,
-      "pnl": 22.72918375672445
+      "ts": 1788099735995,
+      "balance": 157.04490960635718,
+      "pnl": 57.0449096063572
     },
     {
-      "ts": 1785840674801,
-      "balance": 122.72918375672452,
-      "pnl": 22.72918375672445
+      "ts": 1788099756602,
+      "balance": 157.04490960635718,
+      "pnl": 57.0449096063572
     },
     {
-      "ts": 1785840695090,
-      "balance": 122.72918375672452,
-      "pnl": 22.72918375672445
+      "ts": 1788099776653,
+      "balance": 157.04490960635718,
+      "pnl": 57.0449096063572
     },
     {
-      "ts": 1785840714776,
-      "balance": 122.72918375672452,
-      "pnl": 22.72918375672445
+      "ts": 1788099796569,
+      "balance": 157.04490960635718,
+      "pnl": 57.0449096063572
     },
     {
-      "ts": 1785840734784,
-      "balance": 122.72918375672452,
-      "pnl": 22.72918375672445
+      "ts": 1788099816561,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785840754763,
-      "balance": 122.72918375672452,
-      "pnl": 22.72918375672445
+      "ts": 1788099836551,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785840774819,
-      "balance": 122.72918375672452,
-      "pnl": 22.72918375672445
+      "ts": 1788099856542,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785840794790,
-      "balance": 122.72918375672452,
-      "pnl": 22.72918375672445
+      "ts": 1788099876565,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785840814797,
-      "balance": 122.72918375672452,
-      "pnl": 22.72918375672445
+      "ts": 1788099896540,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785840834764,
-      "balance": 122.72918375672452,
-      "pnl": 22.72918375672445
+      "ts": 1788099916619,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785840854823,
-      "balance": 122.72918375672452,
-      "pnl": 22.72918375672445
+      "ts": 1788099936601,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785840874721,
-      "balance": 122.72918375672452,
-      "pnl": 22.72918375672445
+      "ts": 1788099956608,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785840894807,
-      "balance": 122.72918375672452,
-      "pnl": 22.72918375672445
+      "ts": 1788099976627,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785840914763,
-      "balance": 122.72918375672452,
-      "pnl": 22.72918375672445
+      "ts": 1788099996614,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785840934749,
-      "balance": 122.72918375672452,
-      "pnl": 22.72918375672445
+      "ts": 1788100016618,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785840954788,
-      "balance": 122.72918375672452,
-      "pnl": 22.72918375672445
+      "ts": 1788100036959,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785840974807,
-      "balance": 122.72918375672452,
-      "pnl": 22.72918375672445
+      "ts": 1788100056651,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785840994845,
-      "balance": 122.72918375672452,
-      "pnl": 22.72918375672445
+      "ts": 1788100076630,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785841015169,
-      "balance": 122.72918375672452,
-      "pnl": 22.72918375672445
+      "ts": 1788100096657,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785841034809,
-      "balance": 122.72918375672452,
-      "pnl": 22.72918375672445
+      "ts": 1788100116635,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785841054812,
-      "balance": 122.72918375672452,
-      "pnl": 22.72918375672445
+      "ts": 1788100136603,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785841074767,
-      "balance": 122.72918375672452,
-      "pnl": 22.72918375672445
+      "ts": 1788100156656,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785841094810,
-      "balance": 122.72918375672452,
-      "pnl": 22.72918375672445
+      "ts": 1788100176614,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785841114778,
-      "balance": 122.72918375672452,
-      "pnl": 22.72918375672445
+      "ts": 1788100196649,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785841134819,
-      "balance": 122.72918375672452,
-      "pnl": 22.72918375672445
+      "ts": 1788100216631,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785841154811,
-      "balance": 122.72918375672452,
-      "pnl": 22.72918375672445
+      "ts": 1788100236649,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785841174849,
-      "balance": 122.72918375672452,
-      "pnl": 22.72918375672445
+      "ts": 1788100256659,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785841194843,
-      "balance": 122.72918375672452,
-      "pnl": 22.72918375672445
+      "ts": 1788100276677,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785841214842,
-      "balance": 122.72918375672452,
-      "pnl": 22.72918375672445
+      "ts": 1788100296672,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785841234865,
-      "balance": 122.72918375672452,
-      "pnl": 22.72918375672445
+      "ts": 1788100316679,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785841254829,
-      "balance": 122.72918375672452,
-      "pnl": 22.72918375672445
+      "ts": 1788103671137,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785841274935,
-      "balance": 122.72918375672452,
-      "pnl": 22.72918375672445
+      "ts": 1788103691661,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785842500514,
-      "balance": 122.72918375672452,
-      "pnl": 22.72918375672445
+      "ts": 1788103711686,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785842521056,
-      "balance": 122.72918375672452,
-      "pnl": 22.72918375672445
+      "ts": 1788103731741,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785842541066,
-      "balance": 122.72918375672452,
-      "pnl": 22.72918375672445
+      "ts": 1788103751724,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785842561065,
-      "balance": 122.72918375672452,
-      "pnl": 22.72918375672445
+      "ts": 1788103771694,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785842581085,
-      "balance": 122.72918375672452,
-      "pnl": 22.72918375672445
+      "ts": 1788103791688,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785842601102,
-      "balance": 122.72918375672452,
-      "pnl": 22.72918375672445
+      "ts": 1788103811733,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785842621100,
-      "balance": 122.72918375672452,
-      "pnl": 22.72918375672445
+      "ts": 1788103831684,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785842641064,
-      "balance": 122.72918375672452,
-      "pnl": 22.72918375672445
+      "ts": 1788103851752,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785842661044,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788103871716,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785842681116,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788103891758,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785842701059,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788103911742,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785842721079,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788103931752,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785842741077,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788103951736,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785842761070,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788103972070,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785842781088,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788103991783,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785842801424,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788104011769,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785842821108,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788104031747,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785842841133,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788104051765,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785842861130,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788104071779,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785842881136,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788104091782,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785842901112,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788104111773,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785842921122,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788104131789,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785842941173,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788104151738,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785842961105,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788104171784,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785842981122,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788104191777,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785843001164,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788104211778,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785843021165,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788104231857,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785843041189,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788104251825,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785843061210,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788109091701,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785843081177,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788109112283,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785848375591,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788109132265,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785848396132,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788109152307,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785848416168,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788109172293,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785848436121,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788109192262,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785848456154,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788109212312,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785848476143,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788109232249,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785848496195,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788109252305,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785848516168,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788109272305,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785848536208,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788109292289,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785848556175,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788109312295,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785848576178,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788109332316,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785848596234,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788109352323,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785848616217,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788109372303,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785848636163,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788109392641,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785848656212,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788109412296,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785848676532,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788109432315,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785848696226,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788109452329,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785848716187,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788109472320,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785848736233,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788109492352,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785848756221,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788109512371,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785848776181,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788109532321,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785848796241,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788109552329,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785848816233,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788109572378,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785848836254,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788109592348,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785848856208,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788109612395,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785848876204,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788109632323,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785848896250,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788109652365,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785848916267,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788109672386,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785848936278,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788117997639,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785848956300,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788118018183,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785849807940,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788118038199,
+      "balance": 159.2354753773875,
+      "pnl": 59.2354753773875
     },
     {
-      "ts": 1785849828497,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788118058202,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785849848497,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788118078195,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785849868527,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788118098190,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785849888507,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788118118241,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785849908493,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788118138242,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785849928477,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788118158211,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785849948508,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788118178230,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785849968500,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788118198243,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785849988552,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788118218224,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785850008515,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788118238254,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785850028482,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788118258200,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785850048559,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788118278201,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785850068557,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788118298588,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785850088522,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788118318266,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785850108918,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788118338232,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785850128529,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788118358246,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785850148582,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788118378253,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785850168523,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788118398298,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785850188544,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788118418295,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785850208551,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788118438230,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785850228591,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788118458247,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785850248539,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788118478271,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785850268612,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788118498298,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785850288605,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788118518325,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785850308583,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788118538311,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785850328643,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788118558259,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785850348569,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788118578313,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785850368648,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788120642175,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785850388584,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788120662755,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785866077297,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788120682757,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785866097892,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788120702718,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785866117889,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788120722769,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785866137869,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788120742734,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785866157866,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788120762730,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785866178009,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788120782729,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785866197851,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788120802748,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785866217897,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788120822749,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785866237880,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788120842795,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785866257858,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788120862793,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785866277861,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788120882736,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785866297873,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788120902792,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785866317866,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788120922740,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785866337934,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788120943152,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785866357910,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788120962800,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785866378267,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788120982814,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785866397875,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788121002827,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785866417892,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788121022865,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785866437896,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788121042813,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785866457898,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788121062824,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785866477913,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788121082839,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785866498035,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788121102772,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785866517945,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788121122832,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785866537955,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788121142824,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785866557932,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788121162825,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785866577927,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788121182819,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785866597970,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788121202845,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785866617951,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788121222871,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785866637973,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788121242885,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785866657983,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788121263158,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785868368218,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788121282887,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785868388742,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788121302846,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785868408774,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788121322907,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785868428731,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788121342873,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785868448718,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788121362904,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785868468711,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788121382879,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785868488787,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788121402916,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785868508812,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788121422923,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785868528744,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788121442966,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785868548737,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788121462902,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785868568786,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788121482911,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785868588786,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788121502924,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785868608770,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788121522928,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785868628849,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788125048851,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785868648810,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788125069522,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785868669136,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788125089381,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785868688815,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788125109430,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785868708761,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788125129442,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785868728764,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788125149410,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785868748834,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788125169441,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785868768827,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788125189454,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785868788805,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788125209476,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785868808792,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788125229406,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785868828783,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788125249466,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785868848791,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788125269492,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785868868829,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788125289500,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785868888860,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788125309486,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785868908854,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788125329470,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785868928820,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788125349781,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785868948817,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788125369460,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785874762046,
-      "balance": 125.99522067517076,
-      "pnl": 25.995220675170675
+      "ts": 1788125389564,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785874782644,
-      "balance": 126.17958393976157,
-      "pnl": 26.179583939761486
+      "ts": 1788125409484,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785874802577,
-      "balance": 126.17958393976157,
-      "pnl": 26.179583939761486
+      "ts": 1788125429497,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785874822612,
-      "balance": 126.17958393976157,
-      "pnl": 26.179583939761486
+      "ts": 1788125449472,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785874842610,
-      "balance": 126.17958393976157,
-      "pnl": 26.179583939761486
+      "ts": 1788125469509,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785874862610,
-      "balance": 126.17958393976157,
-      "pnl": 26.179583939761486
+      "ts": 1788125489511,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785874882617,
-      "balance": 126.17958393976157,
-      "pnl": 26.179583939761486
+      "ts": 1788125509490,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785874902587,
-      "balance": 126.17958393976157,
-      "pnl": 26.179583939761486
+      "ts": 1788125529540,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785874922602,
-      "balance": 126.17958393976157,
-      "pnl": 26.179583939761486
+      "ts": 1788125549523,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785874942673,
-      "balance": 126.17958393976157,
-      "pnl": 26.179583939761486
+      "ts": 1788125569524,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785874962633,
-      "balance": 126.17958393976157,
-      "pnl": 26.179583939761486
+      "ts": 1788125589480,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785874982640,
-      "balance": 126.17958393976157,
-      "pnl": 26.179583939761486
+      "ts": 1788125609549,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785875002626,
-      "balance": 126.17958393976157,
-      "pnl": 26.179583939761486
+      "ts": 1788125629564,
+      "balance": 159.642506957077,
+      "pnl": 59.642506957076996
     },
     {
-      "ts": 1785875022650,
-      "balance": 126.17958393976157,
-      "pnl": 26.179583939761486
+      "ts": 1788138488291,
+      "balance": 158.18773389411496,
+      "pnl": 58.18773389411496
     },
     {
-      "ts": 1785875042615,
-      "balance": 126.17958393976157,
-      "pnl": 26.179583939761486
+      "ts": 1788138508854,
+      "balance": 158.18773389411496,
+      "pnl": 58.18773389411496
     },
     {
-      "ts": 1785875062957,
-      "balance": 126.17958393976157,
-      "pnl": 26.179583939761486
+      "ts": 1788138528879,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785875082655,
-      "balance": 126.17958393976157,
-      "pnl": 26.179583939761486
+      "ts": 1788138548881,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785875102625,
-      "balance": 126.17958393976157,
-      "pnl": 26.179583939761486
+      "ts": 1788138568862,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785875122667,
-      "balance": 126.17958393976157,
-      "pnl": 26.179583939761486
+      "ts": 1788138588879,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785875142661,
-      "balance": 126.17958393976157,
-      "pnl": 26.179583939761486
+      "ts": 1788138608858,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785875162654,
-      "balance": 126.17958393976157,
-      "pnl": 26.179583939761486
+      "ts": 1788138628906,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785875182647,
-      "balance": 126.17958393976157,
-      "pnl": 26.179583939761486
+      "ts": 1788138648862,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785875202684,
-      "balance": 126.17958393976157,
-      "pnl": 26.179583939761486
+      "ts": 1788138668869,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785875222712,
-      "balance": 126.17958393976157,
-      "pnl": 26.179583939761486
+      "ts": 1788138688914,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785875242726,
-      "balance": 126.17958393976157,
-      "pnl": 26.179583939761486
+      "ts": 1788138708879,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785875262707,
-      "balance": 126.17958393976157,
-      "pnl": 26.179583939761486
+      "ts": 1788138728887,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785875282750,
-      "balance": 126.17958393976157,
-      "pnl": 26.179583939761486
+      "ts": 1788138748937,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785875302694,
-      "balance": 126.17958393976157,
-      "pnl": 26.179583939761486
+      "ts": 1788138768886,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785875322771,
-      "balance": 126.17958393976157,
-      "pnl": 26.179583939761486
+      "ts": 1788138789276,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785875342735,
-      "balance": 126.17958393976157,
-      "pnl": 26.179583939761486
+      "ts": 1788138808946,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785879019804,
-      "balance": 126.17958393976157,
-      "pnl": 26.179583939761486
+      "ts": 1788138828903,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785879040390,
-      "balance": 126.17958393976157,
-      "pnl": 26.179583939761482
+      "ts": 1788138848906,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785879060359,
-      "balance": 126.17958393976157,
-      "pnl": 26.179583939761482
+      "ts": 1788138868956,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785879080380,
-      "balance": 126.17958393976157,
-      "pnl": 26.179583939761482
+      "ts": 1788138888920,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785879100369,
-      "balance": 126.17958393976157,
-      "pnl": 26.179583939761482
+      "ts": 1788138908942,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785879120392,
-      "balance": 126.17958393976157,
-      "pnl": 26.179583939761482
+      "ts": 1788138928917,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785879140353,
-      "balance": 126.17958393976157,
-      "pnl": 26.179583939761482
+      "ts": 1788138948993,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785879160356,
-      "balance": 126.17958393976157,
-      "pnl": 26.179583939761482
+      "ts": 1788138968895,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785879180354,
-      "balance": 126.17958393976157,
-      "pnl": 26.179583939761482
+      "ts": 1788138988897,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785879200457,
-      "balance": 126.17958393976157,
-      "pnl": 26.179583939761482
+      "ts": 1788139008951,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785879220420,
-      "balance": 126.17958393976157,
-      "pnl": 26.179583939761482
+      "ts": 1788139028942,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785879240361,
-      "balance": 126.17958393976157,
-      "pnl": 26.179583939761482
+      "ts": 1788139048971,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785879260407,
-      "balance": 126.17958393976157,
-      "pnl": 26.179583939761482
+      "ts": 1788139068943,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785879280375,
-      "balance": 126.17958393976157,
-      "pnl": 26.179583939761482
+      "ts": 1788140663021,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785879300403,
-      "balance": 126.17958393976157,
-      "pnl": 26.179583939761482
+      "ts": 1788140683720,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785879320640,
-      "balance": 126.17958393976157,
-      "pnl": 26.179583939761482
+      "ts": 1788140703622,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785879340383,
-      "balance": 126.17958393976157,
-      "pnl": 26.179583939761482
+      "ts": 1788140723606,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785879360422,
-      "balance": 126.17958393976157,
-      "pnl": 26.179583939761482
+      "ts": 1788140743610,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785879380390,
-      "balance": 126.17958393976157,
-      "pnl": 26.179583939761482
+      "ts": 1788140763630,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785879400395,
-      "balance": 126.17958393976157,
-      "pnl": 26.179583939761482
+      "ts": 1788140783596,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785879420407,
-      "balance": 126.17958393976157,
-      "pnl": 26.179583939761482
+      "ts": 1788140803626,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785879440397,
-      "balance": 126.17958393976157,
-      "pnl": 26.179583939761482
+      "ts": 1788140823613,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785879460416,
-      "balance": 124.1359621520901,
-      "pnl": 24.135962152090013
+      "ts": 1788140843633,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785879480436,
-      "balance": 124.1359621520901,
-      "pnl": 24.135962152090013
+      "ts": 1788140863601,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785879500498,
-      "balance": 124.1359621520901,
-      "pnl": 24.135962152090013
+      "ts": 1788140883630,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785879520521,
-      "balance": 124.1359621520901,
-      "pnl": 24.135962152090013
+      "ts": 1788140903658,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785879540440,
-      "balance": 124.1359621520901,
-      "pnl": 24.135962152090013
+      "ts": 1788140923622,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785879560493,
-      "balance": 124.1359621520901,
-      "pnl": 24.135962152090013
+      "ts": 1788140943670,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785879580486,
-      "balance": 124.1359621520901,
-      "pnl": 24.135962152090013
+      "ts": 1788140963971,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785879600459,
-      "balance": 124.1359621520901,
-      "pnl": 24.135962152090013
+      "ts": 1788140983687,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785894679082,
-      "balance": 124.1359621520901,
-      "pnl": 24.135962152090013
+      "ts": 1788141003712,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785894699654,
-      "balance": 123.81234429076687,
-      "pnl": 23.812344290766795
+      "ts": 1788141023696,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785894719653,
-      "balance": 123.81234429076687,
-      "pnl": 23.812344290766795
+      "ts": 1788141043637,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785894739666,
-      "balance": 123.81234429076687,
-      "pnl": 23.812344290766795
+      "ts": 1788141063660,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785894759649,
-      "balance": 123.81234429076687,
-      "pnl": 23.812344290766795
+      "ts": 1788141083645,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785894779670,
-      "balance": 123.81234429076687,
-      "pnl": 23.812344290766795
+      "ts": 1788141103676,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785894799677,
-      "balance": 123.81234429076687,
-      "pnl": 23.812344290766795
+      "ts": 1788141123666,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785894819674,
-      "balance": 123.81234429076687,
-      "pnl": 23.812344290766795
+      "ts": 1788141143668,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785894839701,
-      "balance": 123.81234429076687,
-      "pnl": 23.812344290766795
+      "ts": 1788141163694,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785894859675,
-      "balance": 123.81234429076687,
-      "pnl": 23.812344290766795
+      "ts": 1788141183726,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785894879636,
-      "balance": 123.81234429076687,
-      "pnl": 23.812344290766795
+      "ts": 1788141203705,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785894899663,
-      "balance": 123.81234429076687,
-      "pnl": 23.812344290766795
+      "ts": 1788141223690,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785894919650,
-      "balance": 123.81234429076687,
-      "pnl": 23.812344290766795
+      "ts": 1788141243684,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785894939652,
-      "balance": 123.81234429076687,
-      "pnl": 23.812344290766795
+      "ts": 1788169045822,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785894959727,
-      "balance": 123.81234429076687,
-      "pnl": 23.812344290766795
+      "ts": 1788169066230,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785894980049,
-      "balance": 123.81234429076687,
-      "pnl": 23.812344290766795
+      "ts": 1788169086228,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785894999736,
-      "balance": 123.81234429076687,
-      "pnl": 23.812344290766795
+      "ts": 1788169106230,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785895019672,
-      "balance": 123.81234429076687,
-      "pnl": 23.812344290766795
+      "ts": 1788169126229,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785895039690,
-      "balance": 123.81234429076687,
-      "pnl": 23.812344290766795
+      "ts": 1788169146235,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785895059643,
-      "balance": 123.81234429076687,
-      "pnl": 23.812344290766795
+      "ts": 1788169166237,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785895079690,
-      "balance": 123.81234429076687,
-      "pnl": 23.812344290766795
+      "ts": 1788169186247,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785895099682,
-      "balance": 123.81234429076687,
-      "pnl": 23.812344290766795
+      "ts": 1788169206249,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785895119710,
-      "balance": 123.81234429076687,
-      "pnl": 23.812344290766795
+      "ts": 1788169226254,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785895139695,
-      "balance": 123.81234429076687,
-      "pnl": 23.812344290766795
+      "ts": 1788169246255,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785895159723,
-      "balance": 123.81234429076687,
-      "pnl": 23.812344290766795
+      "ts": 1788169266262,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785895179716,
-      "balance": 123.81234429076687,
-      "pnl": 23.812344290766795
+      "ts": 1788169286269,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785895199776,
-      "balance": 123.81234429076687,
-      "pnl": 23.812344290766795
+      "ts": 1788169306267,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785895219765,
-      "balance": 123.81234429076687,
-      "pnl": 23.812344290766795
+      "ts": 1788169326269,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785895239734,
-      "balance": 123.81234429076687,
-      "pnl": 23.812344290766795
+      "ts": 1788169346274,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785895259732,
-      "balance": 123.81234429076687,
-      "pnl": 23.812344290766795
+      "ts": 1788169366275,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785923337856,
-      "balance": 123.81234429076687,
-      "pnl": 23.812344290766795
+      "ts": 1788169386280,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785923358445,
-      "balance": 124.0689178944809,
-      "pnl": 24.068917894480826
+      "ts": 1788169406279,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785923378397,
-      "balance": 124.0689178944809,
-      "pnl": 24.068917894480826
+      "ts": 1788169426294,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785923398434,
-      "balance": 124.0689178944809,
-      "pnl": 24.068917894480826
+      "ts": 1788169446299,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785923418416,
-      "balance": 124.0689178944809,
-      "pnl": 24.068917894480826
+      "ts": 1788169466291,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785923438415,
-      "balance": 124.0689178944809,
-      "pnl": 24.068917894480826
+      "ts": 1788169486299,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785923458400,
-      "balance": 124.0689178944809,
-      "pnl": 24.068917894480826
+      "ts": 1788169506302,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785923478458,
-      "balance": 124.0689178944809,
-      "pnl": 24.068917894480826
+      "ts": 1788169526306,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785923498397,
-      "balance": 124.0689178944809,
-      "pnl": 24.068917894480826
+      "ts": 1788169546309,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785923518439,
-      "balance": 124.0689178944809,
-      "pnl": 24.068917894480826
+      "ts": 1788169566314,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785923538466,
-      "balance": 124.0689178944809,
-      "pnl": 24.068917894480826
+      "ts": 1788169586316,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785923558452,
-      "balance": 124.0689178944809,
-      "pnl": 24.068917894480826
+      "ts": 1788169606321,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785923578450,
-      "balance": 124.0689178944809,
-      "pnl": 24.068917894480826
+      "ts": 1788169626322,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785923598479,
-      "balance": 124.0689178944809,
-      "pnl": 24.068917894480826
+      "ts": 1788169646327,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785923618466,
-      "balance": 124.0689178944809,
-      "pnl": 24.068917894480826
+      "ts": 1788169666327,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785923638800,
-      "balance": 124.0689178944809,
-      "pnl": 24.068917894480826
+      "ts": 1788169686334,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785923658453,
-      "balance": 124.0689178944809,
-      "pnl": 24.068917894480826
+      "ts": 1788169706347,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785923678456,
-      "balance": 124.0689178944809,
-      "pnl": 24.068917894480826
+      "ts": 1788169726338,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785923698473,
-      "balance": 124.0689178944809,
-      "pnl": 24.068917894480826
+      "ts": 1788169746347,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785923718435,
-      "balance": 124.0689178944809,
-      "pnl": 24.068917894480826
+      "ts": 1788169766349,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785923738471,
-      "balance": 124.0689178944809,
-      "pnl": 24.068917894480826
+      "ts": 1788169786357,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785923758523,
-      "balance": 124.0689178944809,
-      "pnl": 24.068917894480826
+      "ts": 1788169806360,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785923778494,
-      "balance": 124.0689178944809,
-      "pnl": 24.068917894480826
+      "ts": 1788169826365,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785923798457,
-      "balance": 124.0689178944809,
-      "pnl": 24.068917894480826
+      "ts": 1788169846368,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785923818513,
-      "balance": 124.0689178944809,
-      "pnl": 24.068917894480826
+      "ts": 1788169866371,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785923838506,
-      "balance": 124.0689178944809,
-      "pnl": 24.068917894480826
+      "ts": 1788169886374,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785923858509,
-      "balance": 124.0689178944809,
-      "pnl": 24.068917894480826
+      "ts": 1788169906382,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785923878519,
-      "balance": 124.0689178944809,
-      "pnl": 24.068917894480826
+      "ts": 1788169926382,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785923898562,
-      "balance": 124.0689178944809,
-      "pnl": 24.068917894480826
+      "ts": 1788169946390,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785923918530,
-      "balance": 124.0689178944809,
-      "pnl": 24.068917894480826
+      "ts": 1788169966390,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785936510478,
-      "balance": 124.0689178944809,
-      "pnl": 24.068917894480826
+      "ts": 1788169986394,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785936531067,
-      "balance": 124.0689178944809,
-      "pnl": 24.068917894480826
+      "ts": 1788170006395,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785936551140,
-      "balance": 124.0689178944809,
-      "pnl": 24.068917894480826
+      "ts": 1788170026400,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785936571040,
-      "balance": 124.0689178944809,
-      "pnl": 24.068917894480826
+      "ts": 1788170046398,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785936591060,
-      "balance": 124.0689178944809,
-      "pnl": 24.068917894480826
+      "ts": 1788170066403,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785936611052,
-      "balance": 124.0689178944809,
-      "pnl": 24.068917894480826
+      "ts": 1788170086411,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785936631037,
-      "balance": 124.0689178944809,
-      "pnl": 24.068917894480826
+      "ts": 1788170106416,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785936651084,
-      "balance": 124.0689178944809,
-      "pnl": 24.068917894480826
+      "ts": 1788170126421,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785936671017,
-      "balance": 124.0689178944809,
-      "pnl": 24.068917894480826
+      "ts": 1788170146423,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785936691019,
-      "balance": 124.0689178944809,
-      "pnl": 24.068917894480826
+      "ts": 1788170166430,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785936711065,
-      "balance": 124.0689178944809,
-      "pnl": 24.068917894480826
+      "ts": 1788170186433,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785936731054,
-      "balance": 124.0689178944809,
-      "pnl": 24.068917894480826
+      "ts": 1788170206438,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785936751035,
-      "balance": 124.0689178944809,
-      "pnl": 24.068917894480826
+      "ts": 1788170226440,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785936771074,
-      "balance": 124.0689178944809,
-      "pnl": 24.068917894480826
+      "ts": 1788173914451,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785936791083,
-      "balance": 124.0689178944809,
-      "pnl": 24.068917894480826
+      "ts": 1788173935717,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785936811422,
-      "balance": 124.0689178944809,
-      "pnl": 24.068917894480826
+      "ts": 1788173956025,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785936831100,
-      "balance": 124.0689178944809,
-      "pnl": 24.068917894480826
+      "ts": 1788173976066,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785936851155,
-      "balance": 124.0689178944809,
-      "pnl": 24.068917894480826
+      "ts": 1788173996036,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785936871135,
-      "balance": 124.0689178944809,
-      "pnl": 24.068917894480826
+      "ts": 1788174015731,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785936891107,
-      "balance": 124.0689178944809,
-      "pnl": 24.068917894480826
+      "ts": 1788174035757,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785936911090,
-      "balance": 124.0689178944809,
-      "pnl": 24.068917894480826
+      "ts": 1788174056043,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785936931112,
-      "balance": 124.0689178944809,
-      "pnl": 24.068917894480826
+      "ts": 1788174075647,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785936951093,
-      "balance": 124.0689178944809,
-      "pnl": 24.068917894480826
+      "ts": 1788174096086,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785936971275,
-      "balance": 123.43034560074614,
-      "pnl": 23.430345600746058
+      "ts": 1788174116071,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785936991069,
-      "balance": 123.43034560074614,
-      "pnl": 23.430345600746058
+      "ts": 1788174136066,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785937011070,
-      "balance": 123.43034560074614,
-      "pnl": 23.430345600746058
+      "ts": 1788174156090,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785937031122,
-      "balance": 123.43034560074614,
-      "pnl": 23.430345600746058
+      "ts": 1788174176076,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785937051119,
-      "balance": 123.43034560074614,
-      "pnl": 23.430345600746058
+      "ts": 1788174196082,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785937071121,
-      "balance": 123.43034560074614,
-      "pnl": 23.430345600746058
+      "ts": 1788229270544,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785937091116,
-      "balance": 123.43034560074614,
-      "pnl": 23.430345600746058
+      "ts": 1788229292114,
+      "balance": 157.5552885996645,
+      "pnl": 57.55528859966449
     },
     {
-      "ts": 1785942639501,
-      "balance": 123.43034560074614,
-      "pnl": 23.430345600746058
+      "ts": 1788229312130,
+      "balance": 159.72724374680485,
+      "pnl": 59.72724374680484
     },
     {
-      "ts": 1785942660061,
-      "balance": 123.43034560074614,
-      "pnl": 23.430345600746058
+      "ts": 1788229332114,
+      "balance": 159.72724374680485,
+      "pnl": 59.72724374680484
     },
     {
-      "ts": 1785942680051,
-      "balance": 123.43034560074614,
-      "pnl": 23.430345600746058
+      "ts": 1788229352118,
+      "balance": 159.72724374680485,
+      "pnl": 59.72724374680484
     },
     {
-      "ts": 1785942700073,
-      "balance": 123.43034560074614,
-      "pnl": 23.430345600746058
+      "ts": 1788229371813,
+      "balance": 159.72724374680485,
+      "pnl": 59.72724374680484
     },
     {
-      "ts": 1785942720063,
-      "balance": 123.43034560074614,
-      "pnl": 23.430345600746058
+      "ts": 1788229391802,
+      "balance": 159.72724374680485,
+      "pnl": 59.72724374680484
     },
     {
-      "ts": 1785942740056,
-      "balance": 123.43034560074614,
-      "pnl": 23.430345600746058
+      "ts": 1788229412136,
+      "balance": 159.72724374680485,
+      "pnl": 59.72724374680484
     },
     {
-      "ts": 1785942760068,
-      "balance": 123.43034560074614,
-      "pnl": 23.430345600746058
+      "ts": 1788229432130,
+      "balance": 159.72724374680485,
+      "pnl": 59.72724374680484
     },
     {
-      "ts": 1785942780064,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788229452125,
+      "balance": 159.72724374680485,
+      "pnl": 59.72724374680484
     },
     {
-      "ts": 1785942800037,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788229472156,
+      "balance": 159.72724374680485,
+      "pnl": 59.72724374680484
     },
     {
-      "ts": 1785942820106,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788229491826,
+      "balance": 159.72724374680485,
+      "pnl": 59.72724374680484
     },
     {
-      "ts": 1785942840042,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788229511834,
+      "balance": 159.72724374680485,
+      "pnl": 59.72724374680484
     },
     {
-      "ts": 1785942860041,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788229531854,
+      "balance": 159.72724374680485,
+      "pnl": 59.72724374680484
     },
     {
-      "ts": 1785942880093,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788229552155,
+      "balance": 159.72724374680485,
+      "pnl": 59.72724374680484
     },
     {
-      "ts": 1785942900077,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788229574154,
+      "balance": 159.72724374680485,
+      "pnl": 59.72724374680484
     },
     {
-      "ts": 1785942920089,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788229592170,
+      "balance": 159.72724374680485,
+      "pnl": 59.72724374680484
     },
     {
-      "ts": 1785942940441,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788229612160,
+      "balance": 159.72724374680485,
+      "pnl": 59.72724374680484
     },
     {
-      "ts": 1785942960057,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788229632165,
+      "balance": 159.72724374680485,
+      "pnl": 59.72724374680484
     },
     {
-      "ts": 1785942980103,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788229652185,
+      "balance": 159.72724374680485,
+      "pnl": 59.72724374680484
     },
     {
-      "ts": 1785943000111,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788229672168,
+      "balance": 159.72724374680485,
+      "pnl": 59.72724374680484
     },
     {
-      "ts": 1785943020095,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788229692179,
+      "balance": 159.72724374680485,
+      "pnl": 59.72724374680484
     },
     {
-      "ts": 1785943040150,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788229711878,
+      "balance": 159.72724374680485,
+      "pnl": 59.72724374680484
     },
     {
-      "ts": 1785943060079,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788229732184,
+      "balance": 159.72724374680485,
+      "pnl": 59.72724374680484
     },
     {
-      "ts": 1785943080153,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788229752203,
+      "balance": 159.72724374680485,
+      "pnl": 59.72724374680484
     },
     {
-      "ts": 1785943100110,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788229772196,
+      "balance": 159.72724374680485,
+      "pnl": 59.72724374680484
     },
     {
-      "ts": 1785943120160,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788229792202,
+      "balance": 159.72724374680485,
+      "pnl": 59.72724374680484
     },
     {
-      "ts": 1785943140139,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788229811914,
+      "balance": 159.72724374680485,
+      "pnl": 59.72724374680484
     },
     {
-      "ts": 1785943160169,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788229832218,
+      "balance": 159.72724374680485,
+      "pnl": 59.72724374680484
     },
     {
-      "ts": 1785943180190,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788229852224,
+      "balance": 159.72724374680485,
+      "pnl": 59.72724374680484
     },
     {
-      "ts": 1785943200178,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788256648881,
+      "balance": 159.72724374680485,
+      "pnl": 59.72724374680484
     },
     {
-      "ts": 1785943220166,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788256670443,
+      "balance": 159.72724374680485,
+      "pnl": 59.72724374680484
     },
     {
-      "ts": 1785947526518,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788256690145,
+      "balance": 159.72724374680485,
+      "pnl": 59.72724374680484
     },
     {
-      "ts": 1785947547105,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788256710134,
+      "balance": 159.72724374680485,
+      "pnl": 59.72724374680484
     },
     {
-      "ts": 1785947567078,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788256730455,
+      "balance": 159.72724374680485,
+      "pnl": 59.72724374680484
     },
     {
-      "ts": 1785947587058,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788256750447,
+      "balance": 159.72724374680485,
+      "pnl": 59.72724374680484
     },
     {
-      "ts": 1785947607077,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788256770457,
+      "balance": 159.72724374680485,
+      "pnl": 59.72724374680484
     },
     {
-      "ts": 1785947627109,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788256790467,
+      "balance": 159.72724374680485,
+      "pnl": 59.72724374680484
     },
     {
-      "ts": 1785947647126,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788256810488,
+      "balance": 159.72724374680485,
+      "pnl": 59.72724374680484
     },
     {
-      "ts": 1785947667095,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788256830481,
+      "balance": 160.2497974340899,
+      "pnl": 60.249797434089906
     },
     {
-      "ts": 1785947687151,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788256850466,
+      "balance": 160.2497974340899,
+      "pnl": 60.249797434089906
     },
     {
-      "ts": 1785947707097,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788256870461,
+      "balance": 160.2497974340899,
+      "pnl": 60.249797434089906
     },
     {
-      "ts": 1785947727112,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788256890485,
+      "balance": 160.2497974340899,
+      "pnl": 60.249797434089906
     },
     {
-      "ts": 1785947747140,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788256910151,
+      "balance": 160.2497974340899,
+      "pnl": 60.249797434089906
     },
     {
-      "ts": 1785947767198,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788256930474,
+      "balance": 160.2497974340899,
+      "pnl": 60.249797434089906
     },
     {
-      "ts": 1785947787151,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788256952175,
+      "balance": 160.2497974340899,
+      "pnl": 60.249797434089906
     },
     {
-      "ts": 1785947807101,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788256970166,
+      "balance": 160.2497974340899,
+      "pnl": 60.249797434089906
     },
     {
-      "ts": 1785947827468,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788256990478,
+      "balance": 160.2497974340899,
+      "pnl": 60.249797434089906
     },
     {
-      "ts": 1785947847101,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788257010502,
+      "balance": 160.2497974340899,
+      "pnl": 60.249797434089906
     },
     {
-      "ts": 1785947867195,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788257030182,
+      "balance": 160.2497974340899,
+      "pnl": 60.249797434089906
     },
     {
-      "ts": 1785947887159,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788257049875,
+      "balance": 160.2497974340899,
+      "pnl": 60.249797434089906
     },
     {
-      "ts": 1785947907167,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788257070203,
+      "balance": 160.2497974340899,
+      "pnl": 60.249797434089906
     },
     {
-      "ts": 1785947927173,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788257090501,
+      "balance": 160.2497974340899,
+      "pnl": 60.249797434089906
     },
     {
-      "ts": 1785947947167,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788257110510,
+      "balance": 160.2497974340899,
+      "pnl": 60.249797434089906
     },
     {
-      "ts": 1785947967148,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788257130527,
+      "balance": 160.2497974340899,
+      "pnl": 60.249797434089906
     },
     {
-      "ts": 1785947987182,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788257150529,
+      "balance": 160.2497974340899,
+      "pnl": 60.249797434089906
     },
     {
-      "ts": 1785948007167,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788257170522,
+      "balance": 160.2497974340899,
+      "pnl": 60.249797434089906
     },
     {
-      "ts": 1785948027159,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788257190549,
+      "balance": 160.2497974340899,
+      "pnl": 60.249797434089906
     },
     {
-      "ts": 1785948047202,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788257210230,
+      "balance": 160.2497974340899,
+      "pnl": 60.249797434089906
     },
     {
-      "ts": 1785948067212,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788257230251,
+      "balance": 160.2497974340899,
+      "pnl": 60.249797434089906
     },
     {
-      "ts": 1785948087200,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788259608732,
+      "balance": 160.2497974340899,
+      "pnl": 60.249797434089906
     },
     {
-      "ts": 1785948107197,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788259629998,
+      "balance": 160.2497974340899,
+      "pnl": 60.249797434089906
     },
     {
-      "ts": 1785954755498,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788259650304,
+      "balance": 160.2497974340899,
+      "pnl": 60.249797434089906
     },
     {
-      "ts": 1785954776039,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788259670326,
+      "balance": 160.2497974340899,
+      "pnl": 60.249797434089906
     },
     {
-      "ts": 1785954796037,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788259690312,
+      "balance": 160.2497974340899,
+      "pnl": 60.249797434089906
     },
     {
-      "ts": 1785954816042,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788259710313,
+      "balance": 160.2497974340899,
+      "pnl": 60.249797434089906
     },
     {
-      "ts": 1785954836067,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788259730342,
+      "balance": 160.2497974340899,
+      "pnl": 60.249797434089906
     },
     {
-      "ts": 1785954856154,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788259750317,
+      "balance": 160.2497974340899,
+      "pnl": 60.249797434089906
     },
     {
-      "ts": 1785954876112,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788259770009,
+      "balance": 160.2497974340899,
+      "pnl": 60.249797434089906
     },
     {
-      "ts": 1785954896071,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788259790338,
+      "balance": 160.2497974340899,
+      "pnl": 60.249797434089906
     },
     {
-      "ts": 1785954916082,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788259810013,
+      "balance": 160.2497974340899,
+      "pnl": 60.249797434089906
     },
     {
-      "ts": 1785954936072,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788259830009,
+      "balance": 160.2497974340899,
+      "pnl": 60.249797434089906
     },
     {
-      "ts": 1785954956115,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788259850331,
+      "balance": 160.2497974340899,
+      "pnl": 60.249797434089906
     },
     {
-      "ts": 1785954976089,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788259870336,
+      "balance": 160.2497974340899,
+      "pnl": 60.249797434089906
     },
     {
-      "ts": 1785954996149,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788259890322,
+      "balance": 160.2497974340899,
+      "pnl": 60.249797434089906
     },
     {
-      "ts": 1785955016115,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788259912322,
+      "balance": 160.2497974340899,
+      "pnl": 60.249797434089906
     },
     {
-      "ts": 1785955036104,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788259930352,
+      "balance": 160.2497974340899,
+      "pnl": 60.249797434089906
     },
     {
-      "ts": 1785955056377,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788259950344,
+      "balance": 160.2497974340899,
+      "pnl": 60.249797434089906
     },
     {
-      "ts": 1785955076096,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788259970349,
+      "balance": 160.2497974340899,
+      "pnl": 60.249797434089906
     },
     {
-      "ts": 1785955096130,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788259990043,
+      "balance": 160.2497974340899,
+      "pnl": 60.249797434089906
     },
     {
-      "ts": 1785955116099,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788260010351,
+      "balance": 160.2497974340899,
+      "pnl": 60.249797434089906
     },
     {
-      "ts": 1785955136117,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788260030361,
+      "balance": 160.2497974340899,
+      "pnl": 60.249797434089906
     },
     {
-      "ts": 1785955156168,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788260050355,
+      "balance": 160.2497974340899,
+      "pnl": 60.249797434089906
     },
     {
-      "ts": 1785955176188,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788260070374,
+      "balance": 160.2497974340899,
+      "pnl": 60.249797434089906
     },
     {
-      "ts": 1785955196100,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788260090044,
+      "balance": 160.2497974340899,
+      "pnl": 60.249797434089906
     },
     {
-      "ts": 1785955216073,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788260110364,
+      "balance": 160.2497974340899,
+      "pnl": 60.249797434089906
     },
     {
-      "ts": 1785955236090,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788260130392,
+      "balance": 160.2497974340899,
+      "pnl": 60.249797434089906
     },
     {
-      "ts": 1785955256136,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788260150387,
+      "balance": 160.2497974340899,
+      "pnl": 60.249797434089906
     },
     {
-      "ts": 1785955276157,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788260170073,
+      "balance": 160.2497974340899,
+      "pnl": 60.249797434089906
     },
     {
-      "ts": 1785955296150,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788260190398,
+      "balance": 160.2497974340899,
+      "pnl": 60.249797434089906
     },
     {
-      "ts": 1785955316183,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788260473471,
+      "balance": 160.2497974340899,
+      "pnl": 60.249797434089906
     },
     {
-      "ts": 1785955336206,
-      "balance": 123.66554182468086,
-      "pnl": 23.665541824680776
+      "ts": 1788260495062,
+      "balance": 160.2497974340899,
+      "pnl": 60.249797434089906
     }
-  ]
+  ],
+  "voteBelowThresholdScans": {},
+  "stopBannedUntil": {}
 }

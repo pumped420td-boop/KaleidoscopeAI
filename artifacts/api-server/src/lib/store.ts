@@ -165,6 +165,9 @@ class Store {
   // Pre-computed votes cache — updated in background, served instantly from GET /strategies/votes
   votesCache: import("./voting.js").VoteResult[] = [];
   votesCachedAt: string | null = null;
+  // Consecutive completed scans where an open trade was below the configured
+  // minimum BUY-vote threshold.
+  voteBelowThresholdScans: Record<string, number> = {};
 
   balanceHistory: BalanceSnapshot[] = [];
   learningCycles = 0;

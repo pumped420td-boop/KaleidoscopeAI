@@ -34,13 +34,13 @@ An automated crypto trading mobile app that connects to Binance.US via API keys 
 
 ## Architecture decisions
 
-- **In-memory store**: All state (trades, settings, market cache, strategy weights) lives in memory. No database — simple and fast for a bot. Data resets on server restart.
+- **In-memory store with state snapshots**: Runtime state is held in memory for speed and atomically snapshotted to `bot-state.json` after each scan and trade close. On Render, mount a persistent disk at `/data` (or set `DATA_DIR` to the disk mount) so trades, balances, learned weights, ML patterns, and learning cycles survive redeploys. Market prices are intentionally refetched after restart.
 - **Voting system**: All 7 strategies compute simultaneously. Each vote is weighted by strategy's learned weight (0.2–2.5x). Trade opens when ≥N buy votes (configurable, default 4/7).
 - **Learning algorithm**: After each closed trade, the strategies that voted for it get their weights adjusted based on win/loss outcome and profit percentage. ML Pattern strategy additionally tracks candle patterns.
 - **Trailing stop**: Once profit target is hit (default 5%), bot trails with a configurable stop (default 2% from peak). This lets winners run past the 5% floor.
 - **Hard stop ban**: After a coin hits the hard stop loss, it is banned from new entries for 1 hour regardless of confidence score — avoids re-entering a falling knife.
 - **Paper vs Live**: Paper mode simulates trades against a virtual balance using real Binance.US prices. Live mode calls Binance.US private API to place real market orders.
-- **Price staleness guard**: Market cache entries older than 90 seconds are skipped during trade updates — stale prices won't trigger false exits.
+- **Price staleness guard**: Market cache entries older than 90 seconds trigger a direct Binance.US refresh before trade updates — stale prices are never treated as current for exits.
 
 ## Product
 

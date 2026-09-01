@@ -1,14 +1,16 @@
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
+import { readFileSync, writeFileSync, mkdirSync, existsSync, renameSync } from "node:fs";
 import { join } from "node:path";
 import { store } from "./store.js";
 import type { StoredTrade, StoredSettings, BalanceSnapshot } from "./store.js";
 import { getPatternHistory, setPatternHistory } from "./strategies/ml.js";
 import { logger } from "./logger.js";
 
-// DATA_DIR can be overridden by env var — set DATA_DIR=/data on Render when using a persistent disk
-const DATA_DIR = process.env["DATA_DIR"] ?? join(process.cwd(), "data");
+// Render's persistent disk convention is /data. DATA_DIR remains overrideable
+// for local development or another mounted persistent volume.
+const DATA_DIR = process.env["DATA_DIR"] ??
+  (process.env["RENDER_EXTERNAL_URL"] ? "/data" : join(process.cwd(), "data"));
 const STATE_FILE = join(DATA_DIR, "bot-state.json");
-const STATE_VERSION = 2;
+const STATE_VERSION = 3;
 
 interface PersistedStratStat {
   id: string;
@@ -33,6 +35,10 @@ interface BotState {
   patternHistory: Record<string, { wins: number; losses: number; totalProfit: number }>;
   // Balance history graph
   balanceHistory?: BalanceSnapshot[];
+  // Consecutive low-vote exit state
+  voteBelowThresholdScans?: Record<string, number>;
+  // Temporary entry protection state
+  stopBannedUntil?: Record<string, number>;
 }
 
 export function saveMlState(): void {
@@ -57,8 +63,12 @@ export function saveMlState(): void {
       })),
       patternHistory: getPatternHistory(),
       balanceHistory: store.balanceHistory,
+      voteBelowThresholdScans: store.voteBelowThresholdScans,
+      stopBannedUntil: store.stopBannedUntil,
     };
-    writeFileSync(STATE_FILE, JSON.stringify(state, null, 2), "utf8");
+    const tempFile = `${STATE_FILE}.tmp`;
+    writeFileSync(tempFile, JSON.stringify(state, null, 2), "utf8");
+    renameSync(tempFile, STATE_FILE);
   } catch (err) {
     logger.warn({ err }, "Failed to save bot state");
   }
@@ -113,7 +123,12 @@ export function loadMlState(): boolean {
         store.settings = {
           ...store.settings,
           ...state.settings,
+          allocation: state.settings.allocation ?? store.settings.allocation,
+          profitTarget: state.settings.profitTarget ?? store.settings.profitTarget,
+          trailingStop: state.settings.trailingStop ?? store.settings.trailingStop,
           stopLossPercent: state.settings.stopLossPercent ?? store.settings.stopLossPercent,
+          maxConcurrentTrades: state.settings.maxConcurrentTrades ?? store.settings.maxConcurrentTrades,
+          voteThreshold: state.settings.voteThreshold ?? store.settings.voteThreshold,
           mode: "paper", // never auto-restore live mode; user must re-enable
         };
       }
@@ -134,6 +149,12 @@ export function loadMlState(): boolean {
 
     if (Array.isArray(state.balanceHistory)) {
       store.balanceHistory = state.balanceHistory;
+    }
+    if (state.voteBelowThresholdScans && typeof state.voteBelowThresholdScans === "object") {
+      store.voteBelowThresholdScans = state.voteBelowThresholdScans;
+    }
+    if (state.stopBannedUntil && typeof state.stopBannedUntil === "object") {
+      store.stopBannedUntil = state.stopBannedUntil;
     }
 
     // Return whether the bot should auto-start (only safe for paper mode)
