@@ -49,7 +49,11 @@ router.get("/market/ticker", (_req, res) => {
     };
   }).filter((t) => t.price > 0);
 
-  res.json({ tickers, lastUpdated: new Date().toISOString() });
+  const latestCacheUpdate = tickers.reduce((latest, ticker) => {
+    const updated = store.marketCache[ticker.symbol]?.lastUpdated ?? 0;
+    return Math.max(latest, updated);
+  }, 0);
+  res.json({ tickers, lastUpdated: latestCacheUpdate ? new Date(latestCacheUpdate).toISOString() : null });
 });
 
 export default router;

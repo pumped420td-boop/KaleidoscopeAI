@@ -147,26 +147,27 @@ async function updateActiveTrades(): Promise<void> {
   const open = store.getOpenTrades();
   for (const trade of open) {
     const cached = store.marketCache[trade.symbol];
-    if (!cached) continue;
+    const coin = COINS.find((c) => c.symbol === trade.symbol);
+    if (!coin) continue;
 
-    let price = cached.price;
-
-    if (Date.now() - cached.lastUpdated > PRICE_STALE_MS) {
-      // Stale cache — attempt an emergency single-symbol fetch from Binance.US.
-      // If the fetch succeeds, update the cache and use the fresh price.
-      // If it fails (network error, unknown coin), fall through with the cached
-      // price so that hard stop / trailing stop are never skipped entirely.
-      const coin = COINS.find((c) => c.symbol === trade.symbol);
-      if (coin) {
-        try {
-          price = await fetchSymbolPrice(coin.pair);
-          store.marketCache[trade.symbol] = { ...cached, price, lastUpdated: Date.now() };
-          logger.info({ symbol: trade.symbol, price }, "Emergency fresh price fetched for open position");
-        } catch (err) {
-          logger.warn({ err, symbol: trade.symbol }, "Emergency fresh-price fetch failed — using cached price for stop checks");
-          // fall through: price still holds cached.price; stops must not be skipped
-        }
+    let price: number;
+    if (!cached || Date.now() - cached.lastUpdated > PRICE_STALE_MS) {
+      // Missing/stale cache — fetch directly from Binance.US. Never make an
+      // exit decision from an old value.
+      try {
+        price = await fetchSymbolPrice(coin.pair);
+        store.marketCache[trade.symbol] = {
+          ...(cached ?? { change24h: 0, volume24h: 0, high24h: price, low24h: price }),
+          price,
+          lastUpdated: Date.now(),
+        };
+        logger.info({ symbol: trade.symbol, price }, "Fresh price fetched for open position");
+      } catch (err) {
+        logger.warn({ err, symbol: trade.symbol }, "Fresh price fetch failed — exit decision deferred");
+        continue;
       }
+    } else {
+      price = cached.price;
     }
 
     // price is now a verified fresh Binance.US price — evaluate all exits.

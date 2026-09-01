@@ -168,13 +168,20 @@ export async function updateTickerCache(pairs: string[]): Promise<void> {
       });
 
       let updated = 0;
+      const returnedPairs = new Set<string>();
       for (const t of tickers) {
+        returnedPairs.add(t.symbol);
         const price = parseFloat(t.lastPrice);
         const open = parseFloat(t.openPrice);
-        if (!isFinite(price) || price <= 0) continue;
-        const change24h = open > 0 ? ((price - open) / open) * 100 : 0;
         const coin = COINS.find((c) => c.pair === t.symbol);
         const symbol = coin?.symbol ?? t.symbol.replace(/USD$/, "");
+        if (!isFinite(price) || price <= 0) {
+          // Binance.US can return a zero lastPrice for an inactive market.
+          // Never leave an older value in the cache as if it were current.
+          delete store.marketCache[symbol];
+          continue;
+        }
+        const change24h = open > 0 ? ((price - open) / open) * 100 : 0;
 
         store.marketCache[symbol] = {
           price,
@@ -187,9 +194,55 @@ export async function updateTickerCache(pairs: string[]): Promise<void> {
         updated++;
       }
 
-      logger.debug({ batchStart: i, batchSize: batch.length, updated }, "Ticker batch updated");
+      // Retry missing or invalid symbols individually so one incomplete batch
+      // cannot leave stale prices in the cache.
+      const retryPairs = batch.filter((pair) => !returnedPairs.has(pair) ||
+        !store.marketCache[COINS.find((c) => c.pair === pair)?.symbol ?? pair.replace(/USD$/, "")]);
+      if (retryPairs.length > 0) {
+        await Promise.all(retryPairs.map(async (pair) => {
+          const coin = COINS.find((c) => c.pair === pair);
+          const symbol = coin?.symbol ?? pair.replace(/USD$/, "");
+          try {
+            const price = await fetchSymbolPrice(pair);
+            const previous = store.marketCache[symbol];
+            store.marketCache[symbol] = {
+              price,
+              change24h: previous?.change24h ?? 0,
+              volume24h: previous?.volume24h ?? 0,
+              high24h: previous?.high24h ?? price,
+              low24h: previous?.low24h ?? price,
+              lastUpdated: Date.now(),
+            };
+          } catch (err) {
+            delete store.marketCache[symbol];
+            logger.warn({ err, symbol, pair }, "Symbol price retry failed — stale price removed");
+          }
+        }));
+      }
+
+      logger.debug({ batchStart: i, batchSize: batch.length, updated, retried: retryPairs.length }, "Ticker batch updated");
     } catch (err) {
-      logger.warn({ err, batchStart: i, pairs: batch }, "Ticker batch fetch failed — will retry next cycle");
+      // A batch failure must not make all of its symbols wait for the next
+      // scan. Retry each symbol directly from Binance.US now.
+      await Promise.all(batch.map(async (pair) => {
+        const coin = COINS.find((c) => c.pair === pair);
+        const symbol = coin?.symbol ?? pair.replace(/USD$/, "");
+        try {
+          const price = await fetchSymbolPrice(pair);
+          const previous = store.marketCache[symbol];
+          store.marketCache[symbol] = {
+            price,
+            change24h: previous?.change24h ?? 0,
+            volume24h: previous?.volume24h ?? 0,
+            high24h: previous?.high24h ?? price,
+            low24h: previous?.low24h ?? price,
+            lastUpdated: Date.now(),
+          };
+        } catch (retryErr) {
+          delete store.marketCache[symbol];
+          logger.warn({ err, retryErr, symbol, pair }, "Ticker batch and symbol retry failed — stale price removed");
+        }
+      }));
     }
 
     if (i + BATCH < pairs.length) {
