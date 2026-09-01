@@ -28,7 +28,7 @@ An automated crypto trading mobile app that connects to Binance.US via API keys 
 - `artifacts/api-server/src/lib/trader.ts` — trade execution engine + main loop
 - `artifacts/api-server/src/lib/store.ts` — in-memory state (trades, settings, cache)
 - `artifacts/api-server/src/lib/binance.ts` — Binance.US REST API client (public + private)
-- `artifacts/api-server/src/lib/coins.ts` — 47 coins (top crypto + meme with active Binance.US markets)
+- `artifacts/api-server/src/lib/coins.ts` — current Binance.US USD universe (validated against exchangeInfo/ticker data)
 - `artifacts/mobile/app/(tabs)/` — 5 screens: Dashboard, Trades, Signals, Market, Settings
 - `artifacts/mobile/contexts/BotContext.tsx` — global bot start/stop state
 
@@ -47,7 +47,7 @@ An automated crypto trading mobile app that connects to Binance.US via API keys 
 - **Dashboard**: Portfolio overview, bot on/off toggle, active trade cards with trailing stop status, balance/P&L chart
 - **Trades**: Full trade history with open/closed filter and P&L display
 - **Signals**: Two views — Strategy weights/learning stats AND live voting breakdown per coin
-- **Market**: Real-time prices for all 47 coins with crypto/meme filter and search
+- **Market**: Real-time prices for the current Binance.US USD universe with crypto/meme filter and search
 - **Settings**: API key management, paper/live mode toggle, allocation %, profit target, trailing stop, vote threshold
 
 ## Expo Go connectivity

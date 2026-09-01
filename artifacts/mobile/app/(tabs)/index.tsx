@@ -262,7 +262,7 @@ export default function DashboardScreen() {
             <Text style={[styles.botButtonSub, { color: colors.mutedForeground }]}>
               {bot.isRunning
                 ? `${activeTrades.length} active trade${activeTrades.length !== 1 ? "s" : ""} · scanning every 20s`
-                : "Ready to scan 47 coins"}
+                : "Ready to scan 38 coins"}
             </Text>
           </View>
           <View style={[styles.runningDot, { backgroundColor: bot.isRunning ? colors.success : colors.mutedForeground }]} />
@@ -295,7 +295,7 @@ export default function DashboardScreen() {
           <Feather name="power" size={24} color={colors.mutedForeground} />
           <Text style={[styles.emptyTitle, { color: colors.foreground }]}>Bot Offline</Text>
           <Text style={[styles.emptyText, { color: colors.mutedForeground }]}>
-            Start the bot to begin scanning 47 coins with the voting engine.
+            Start the bot to begin scanning 38 coins with the voting engine.
           </Text>
         </View>
       )}
