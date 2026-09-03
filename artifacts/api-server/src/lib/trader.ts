@@ -237,24 +237,28 @@ async function scan(): Promise<void> {
     // Update open trade prices + check exits
     await updateActiveTrades();
 
-    // Analyze ALL coins once — share the result for both trading decisions and the votes cache.
-    // This avoids the previous pattern of calling analyzeCoins twice per scan.
-    // Minimum 24h volume filter: skip coins with < $500 USD traded in 24h to avoid illiquid signals.
+    // Analyze the full current market universe once. The Signals tab should
+    // show every valid market pair, while the trading engine can still apply
+    // its liquidity filter to entries and swaps.
     const MIN_VOLUME_USD = 500;
-    const allCoins = COINS.filter((c) => {
+    const cachedCoins = COINS.filter((c) => store.marketCache[c.symbol]);
+    const tradableCoins = cachedCoins.filter((c) => {
       const cached = store.marketCache[c.symbol];
       return cached && cached.volume24h >= MIN_VOLUME_USD;
     });
-    const allVoteResults = await analyzeCoins(allCoins);
+    const allVoteResults = await analyzeCoins(cachedCoins);
 
     // Persist votes cache for the Signals tab
     store.votesCache = allVoteResults;
     store.votesCachedAt = new Date().toISOString();
 
+    const tradableSymbols = new Set(tradableCoins.map((coin) => coin.symbol));
+    const tradableVoteResults = allVoteResults.filter((result) => tradableSymbols.has(result.symbol));
+
     // Require three consecutive valid scans below the configured BUY-vote
     // threshold before closing an open trade. Missing vote results do not
     // count as a low-vote scan.
-    const votesBySymbol = new Map(allVoteResults.map((result) => [result.symbol, result]));
+    const votesBySymbol = new Map(tradableVoteResults.map((result) => [result.symbol, result]));
     for (const trade of store.getOpenTrades()) {
       const voteResult = votesBySymbol.get(trade.symbol);
       if (!voteResult) continue;
@@ -288,7 +292,7 @@ async function scan(): Promise<void> {
       // voteThreshold is now a minimum confidence % (scaled: threshold/7) so the
       // setting still gives users control without blocking every weighted buy signal.
       const minConfidence = store.settings.voteThreshold / 14; // 4/14 ≈ 0.29 default
-      const buySignals = allVoteResults
+      const buySignals = tradableVoteResults
         .filter((r) => !activeSymbols.has(r.symbol))
         .filter((r) => !store.isBanned(r.symbol)) // skip coins banned after a hard stop
         .filter((r) => r.decision === "buy" && r.confidence >= minConfidence)
@@ -326,7 +330,7 @@ async function scan(): Promise<void> {
       const swappableTrades = currentOpen.filter((t) => !t.trailingActive);
 
       if (swappableTrades.length > 0) {
-        const swappableVotes = allVoteResults.filter((r) =>
+          const swappableVotes = tradableVoteResults.filter((r) =>
           swappableTrades.some((t) => t.symbol === r.symbol)
         );
         const weakestVote = swappableVotes.sort((a, b) => a.confidence - b.confidence)[0];
@@ -335,7 +339,7 @@ async function scan(): Promise<void> {
           : undefined;
 
         if (weakestTrade && weakestVote) {
-          const bestSwap = allVoteResults
+          const bestSwap = tradableVoteResults
             .filter((r) => !activeSymbols.has(r.symbol))
             .filter((r) => !store.isBanned(r.symbol)) // skip coins banned after a hard stop
             .filter((r) => r.decision === "buy" && r.confidence >= store.settings.voteThreshold / 14)
