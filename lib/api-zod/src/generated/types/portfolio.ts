@@ -20,4 +20,13 @@ export interface Portfolio {
   totalTrades: number;
   paperMode: boolean;
   balanceHistory: BalanceSnapshot[];
+  usdtStartingBalance: number;
+  usdtCurrentBalance: number;
+  usdtAmountInvested: number;
+  usdtAvailableBalance: number;
+  usdtRealizedPnl: number;
+  usdtUnrealizedPnl: number;
+  usdtTotalPnl: number;
+  usdtTradeCount: number;
+  usdtBalanceHistory: BalanceSnapshot[];
 }

@@ -70,6 +70,14 @@ export const TradeStatus = {
   stopped: 'stopped',
 } as const;
 
+export type TradeQuoteAsset = typeof TradeQuoteAsset[keyof typeof TradeQuoteAsset];
+
+
+export const TradeQuoteAsset = {
+  USD: 'USD',
+  USDT: 'USDT',
+} as const;
+
 /**
  * Why the trade was closed
  */
@@ -87,6 +95,7 @@ export const TradeCloseReason = {
 export interface Trade {
   id: string;
   symbol: string;
+  pair: string;
   name: string;
   entryPrice: number;
   currentPrice: number;
@@ -100,6 +109,7 @@ export interface Trade {
   openedAt: string;
   closedAt?: string | null;
   paperMode: boolean;
+  quoteAsset: TradeQuoteAsset;
   highestPrice: number;
   trailingActive: boolean;
   /** Voting confidence score (0-1) at the time this trade was opened */
@@ -188,6 +198,14 @@ export interface VotesResponse {
   timestamp: string;
 }
 
+export type MarketTickerQuoteAsset = typeof MarketTickerQuoteAsset[keyof typeof MarketTickerQuoteAsset];
+
+
+export const MarketTickerQuoteAsset = {
+  USD: 'USD',
+  USDT: 'USDT',
+} as const;
+
 export type MarketTickerCategory = typeof MarketTickerCategory[keyof typeof MarketTickerCategory];
 
 
@@ -199,6 +217,7 @@ export const MarketTickerCategory = {
 export interface MarketTicker {
   symbol: string;
   pair: string;
+  quoteAsset: MarketTickerQuoteAsset;
   name: string;
   price: number;
   change24h: number;
@@ -253,6 +272,15 @@ export interface Portfolio {
   totalTrades: number;
   paperMode: boolean;
   balanceHistory: BalanceSnapshot[];
+  usdtStartingBalance: number;
+  usdtCurrentBalance: number;
+  usdtAmountInvested: number;
+  usdtAvailableBalance: number;
+  usdtRealizedPnl: number;
+  usdtUnrealizedPnl: number;
+  usdtTotalPnl: number;
+  usdtTradeCount: number;
+  usdtBalanceHistory: BalanceSnapshot[];
 }
 
 export type CloseTrade404 = {

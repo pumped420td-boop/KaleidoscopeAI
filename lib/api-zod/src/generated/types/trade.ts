@@ -6,11 +6,13 @@
  * OpenAPI spec version: 0.1.0
  */
 import type { TradeCloseReason } from './tradeCloseReason';
+import type { TradeQuoteAsset } from './tradeQuoteAsset';
 import type { TradeStatus } from './tradeStatus';
 
 export interface Trade {
   id: string;
   symbol: string;
+  pair: string;
   name: string;
   entryPrice: number;
   currentPrice: number;
@@ -24,6 +26,7 @@ export interface Trade {
   openedAt: string;
   closedAt?: string | null;
   paperMode: boolean;
+  quoteAsset: TradeQuoteAsset;
   highestPrice: number;
   trailingActive: boolean;
   /** Voting confidence score (0-1) at the time this trade was opened */

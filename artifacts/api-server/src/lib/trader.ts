@@ -1,15 +1,16 @@
 import { store } from "./store.js";
-import { COINS } from "./coins.js";
+import { COINS, getUsdtPair } from "./coins.js";
 import { analyzeCoins } from "./voting.js";
-import { updateTickerCache, fetchUsdBalance, placeMarketBuy, placeMarketSell, fetchSymbolPrice } from "./binance.js";
+import { updateTickerCache, fetchUsdBalance, fetchUsdtBalance, placeMarketBuy, placeMarketSell, fetchSymbolPrice } from "./binance.js";
 import { encodePattern, recordPatternOutcome } from "./strategies/ml.js";
 import { saveMlState } from "./persistence.js";
 import { logger } from "./logger.js";
-import type { StoredTrade } from "./store.js";
+import type { QuoteAsset, StoredTrade } from "./store.js";
 
 const SCAN_INTERVAL_MS = 20_000;    // 20 seconds
 const VOTES_REFRESH_MS = 20_000;    // background votes refresh when bot is off
 const MARKET_REFRESH_MS = 20_000;   // background market cache refresh when bot is off
+const MIN_VOLUME_USD = 500;
 
 let scanInterval: ReturnType<typeof setInterval> | null = null;
 let votesInterval: ReturnType<typeof setInterval> | null = null;
@@ -17,10 +18,33 @@ let marketInterval: ReturnType<typeof setInterval> | null = null;
 
 async function refreshMarketCache(): Promise<void> {
   try {
-    await updateTickerCache(COINS.map((c) => c.pair));
+    await updateTickerCache(COINS.flatMap((c) => [c.pair, getUsdtPair(c)]));
   } catch {
     // ignore — will retry next cycle
   }
+}
+
+interface SelectedMarket {
+  pair: string;
+  quoteAsset: QuoteAsset;
+  price: number;
+}
+
+function selectMarket(symbol: string): SelectedMarket | null {
+  const coin = COINS.find((c) => c.symbol === symbol);
+  if (!coin) return null;
+
+  const usd = store.marketCache[symbol];
+  if (usd && usd.volume24h >= MIN_VOLUME_USD) {
+    return { pair: coin.pair, quoteAsset: "USD", price: usd.price };
+  }
+
+  const usdt = store.usdtMarketCache[symbol];
+  if (usdt && usdt.volume24h >= MIN_VOLUME_USD) {
+    return { pair: getUsdtPair(coin), quoteAsset: "USDT", price: usdt.price };
+  }
+
+  return null;
 }
 
 function generateId(): string {
@@ -30,6 +54,7 @@ function generateId(): string {
 async function openTrade(
   symbol: string,
   pair: string,
+  quoteAsset: QuoteAsset,
   name: string,
   price: number,
   winningStrategies: string[],
@@ -38,7 +63,7 @@ async function openTrade(
   const openTrades = store.getOpenTrades();
   if (openTrades.length >= store.settings.maxConcurrentTrades) return;
 
-  const available = store.getAvailableForTrade();
+  const available = store.getAvailableForTrade(quoteAsset);
   const perTrade = available / (store.settings.maxConcurrentTrades - openTrades.length);
   if (perTrade < 10) {
     logger.warn({ symbol }, "Insufficient balance to open trade");
@@ -57,7 +82,8 @@ async function openTrade(
   }
 
   if (store.settings.mode === "paper") {
-    store.paperBalance -= perTrade;
+    if (quoteAsset === "USDT") store.paperUsdtBalance -= perTrade;
+    else store.paperBalance -= perTrade;
   }
 
   const trade: StoredTrade = {
@@ -77,6 +103,7 @@ async function openTrade(
     openedAt: new Date().toISOString(),
     closedAt: null,
     paperMode: store.settings.mode === "paper",
+    quoteAsset,
     highestPrice: price,
     trailingActive: false,
     entryConfidence,
@@ -88,7 +115,9 @@ async function openTrade(
 }
 
 export async function closeTrade(trade: StoredTrade, reason: "profit" | "stop" | "sell_signal" | "manual" | "swapped"): Promise<void> {
-  const price = store.marketCache[trade.symbol]?.price ?? trade.currentPrice;
+  const quoteAsset = trade.quoteAsset ?? "USD";
+  const priceCache = quoteAsset === "USDT" ? store.usdtMarketCache : store.marketCache;
+  const price = priceCache[trade.symbol]?.price ?? trade.currentPrice;
 
   if (store.settings.mode === "live") {
     try {
@@ -111,7 +140,8 @@ export async function closeTrade(trade: StoredTrade, reason: "profit" | "stop" |
   trade.closeReason = reason;
 
   if (store.settings.mode === "paper") {
-    store.paperBalance += exitValue;
+    if (quoteAsset === "USDT") store.paperUsdtBalance += exitValue;
+    else store.paperBalance += exitValue;
   }
 
   // Feed results into ML learning — keyed by strategy-combo + candle pattern
@@ -146,7 +176,9 @@ const PRICE_STALE_MS = 90_000; // 90 seconds ≈ 4.5 scan cycles
 async function updateActiveTrades(): Promise<void> {
   const open = store.getOpenTrades();
   for (const trade of open) {
-    const cached = store.marketCache[trade.symbol];
+    const quoteAsset = trade.quoteAsset ?? "USD";
+    const priceCache = quoteAsset === "USDT" ? store.usdtMarketCache : store.marketCache;
+    const cached = priceCache[trade.symbol];
     const coin = COINS.find((c) => c.symbol === trade.symbol);
     if (!coin) continue;
 
@@ -155,8 +187,8 @@ async function updateActiveTrades(): Promise<void> {
       // Missing/stale cache — fetch directly from Binance.US. Never make an
       // exit decision from an old value.
       try {
-        price = await fetchSymbolPrice(coin.pair);
-        store.marketCache[trade.symbol] = {
+         price = await fetchSymbolPrice(trade.pair);
+         priceCache[trade.symbol] = {
           ...(cached ?? { change24h: 0, volume24h: 0, high24h: price, low24h: price }),
           price,
           lastUpdated: Date.now(),
@@ -222,13 +254,15 @@ async function scan(): Promise<void> {
 
   try {
     // Refresh market data
-    const pairs = COINS.map((c) => c.pair);
+    const pairs = COINS.flatMap((c) => [c.pair, getUsdtPair(c)]);
     await updateTickerCache(pairs);
 
     // Update live balance if needed
     if (store.settings.mode === "live" && store.apiKey && store.apiSecret) {
       try {
         store.liveBalance = await fetchUsdBalance();
+        // USDT is tracked independently from USD when the live account is used.
+        store.liveUsdtBalance = await fetchUsdtBalance();
       } catch {
         // ignore
       }
@@ -240,7 +274,6 @@ async function scan(): Promise<void> {
     // Analyze the full current market universe once. The Signals tab should
     // show every valid market pair, while the trading engine can still apply
     // its liquidity filter to entries and swaps.
-    const MIN_VOLUME_USD = 500;
     const cachedCoins = COINS.filter((c) => store.marketCache[c.symbol]);
     const tradableCoins = cachedCoins.filter((c) => {
       const cached = store.marketCache[c.symbol];
@@ -258,7 +291,7 @@ async function scan(): Promise<void> {
     // Require three consecutive valid scans below the configured BUY-vote
     // threshold before closing an open trade. Missing vote results do not
     // count as a low-vote scan.
-    const votesBySymbol = new Map(tradableVoteResults.map((result) => [result.symbol, result]));
+    const votesBySymbol = new Map(allVoteResults.map((result) => [result.symbol, result]));
     for (const trade of store.getOpenTrades()) {
       const voteResult = votesBySymbol.get(trade.symbol);
       if (!voteResult) continue;
@@ -292,7 +325,7 @@ async function scan(): Promise<void> {
       // voteThreshold is now a minimum confidence % (scaled: threshold/7) so the
       // setting still gives users control without blocking every weighted buy signal.
       const minConfidence = store.settings.voteThreshold / 14; // 4/14 ≈ 0.29 default
-      const buySignals = tradableVoteResults
+      const buySignals = allVoteResults
         .filter((r) => !activeSymbols.has(r.symbol))
         .filter((r) => !store.isBanned(r.symbol)) // skip coins banned after a hard stop
         .filter((r) => r.decision === "buy" && r.confidence >= minConfidence)
@@ -303,7 +336,20 @@ async function scan(): Promise<void> {
         const winningStrategies = signal.votes
           .filter((v) => v.vote === "buy")
           .map((v) => v.strategyId);
-        await openTrade(signal.symbol, COINS.find((c) => c.symbol === signal.symbol)!.pair, signal.name, signal.price, winningStrategies, signal.confidence);
+        const selectedMarket = selectMarket(signal.symbol);
+        if (!selectedMarket) {
+          logger.debug({ symbol: signal.symbol }, "BUY signal rejected — neither USD nor USDT liquidity meets threshold");
+          continue;
+        }
+        await openTrade(
+          signal.symbol,
+          selectedMarket.pair,
+          selectedMarket.quoteAsset,
+          signal.name,
+          selectedMarket.price,
+          winningStrategies,
+          signal.confidence,
+        );
       }
     }
 
@@ -316,6 +362,12 @@ async function scan(): Promise<void> {
       pnl: store.getTotalPnl(),
     });
     if (store.balanceHistory.length > 432) store.balanceHistory.shift();
+    store.usdtBalanceHistory.push({
+      ts: Date.now(),
+      balance: store.getTotalPortfolioValue("USDT"),
+      pnl: store.getTotalPnlIncludingOpen("USDT"),
+    });
+    if (store.usdtBalanceHistory.length > 432) store.usdtBalanceHistory.shift();
 
     // Swap logic: if all trade slots are full, check whether any idle coin now has
     // significantly higher vote confidence than the weakest current trade.
@@ -339,7 +391,7 @@ async function scan(): Promise<void> {
           : undefined;
 
         if (weakestTrade && weakestVote) {
-          const bestSwap = tradableVoteResults
+          const bestSwap = allVoteResults
             .filter((r) => !activeSymbols.has(r.symbol))
             .filter((r) => !store.isBanned(r.symbol)) // skip coins banned after a hard stop
             .filter((r) => r.decision === "buy" && r.confidence >= store.settings.voteThreshold / 14)
@@ -357,9 +409,19 @@ async function scan(): Promise<void> {
               "Swapping trade for higher-confidence opportunity"
             );
             await closeTrade(weakestTrade, "swapped");
-            const swapCoin = COINS.find((c) => c.symbol === bestSwap.symbol)!;
             const swapStrategies = bestSwap.votes.filter((v) => v.vote === "buy").map((v) => v.strategyId);
-            await openTrade(bestSwap.symbol, swapCoin.pair, bestSwap.name, bestSwap.price, swapStrategies, bestSwap.confidence);
+            const selectedMarket = selectMarket(bestSwap.symbol);
+            if (selectedMarket) {
+              await openTrade(
+                bestSwap.symbol,
+                selectedMarket.pair,
+                selectedMarket.quoteAsset,
+                bestSwap.name,
+                selectedMarket.price,
+                swapStrategies,
+                bestSwap.confidence,
+              );
+            }
           }
         }
       }
@@ -385,7 +447,7 @@ export async function startBot(): Promise<void> {
 
   // Initial market data load
   try {
-    await updateTickerCache(COINS.map((c) => c.pair));
+    await updateTickerCache(COINS.flatMap((c) => [c.pair, getUsdtPair(c)]));
   } catch {
     // ignore on startup
   }

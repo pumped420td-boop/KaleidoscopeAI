@@ -1,3 +1,5 @@
+export type QuoteAsset = "USD" | "USDT";
+
 export interface StoredTrade {
   id: string;
   symbol: string;
@@ -15,6 +17,8 @@ export interface StoredTrade {
   openedAt: string;
   closedAt: string | null;
   paperMode: boolean;
+  /** Quote currency used for both entry and exit. Legacy trades default to USD. */
+  quoteAsset: QuoteAsset;
   highestPrice: number;
   trailingActive: boolean;
   entryConfidence: number;
@@ -84,7 +88,9 @@ class Store {
 
   trades: StoredTrade[] = [];
   paperBalance = 100;
+  paperUsdtBalance = 100;
   liveBalance = 0;
+  liveUsdtBalance = 0;
 
   strategyStats: StrategyStats[] = [
     {
@@ -160,6 +166,7 @@ class Store {
   ];
 
   marketCache: Record<string, MarketEntry> = {};
+  usdtMarketCache: Record<string, MarketEntry> = {};
   ohlcCache: Record<string, { candles: OHLCCandle[]; lastUpdated: number }> = {};
 
   // Pre-computed votes cache — updated in background, served instantly from GET /strategies/votes
@@ -170,6 +177,7 @@ class Store {
   voteBelowThresholdScans: Record<string, number> = {};
 
   balanceHistory: BalanceSnapshot[] = [];
+  usdtBalanceHistory: BalanceSnapshot[] = [];
   learningCycles = 0;
   lastScanAt: string | null = null;
   running = false;
@@ -195,11 +203,16 @@ class Store {
     this.stopBannedUntil[symbol] = Date.now() + durationMs;
   }
 
-  getOpenTrades(): StoredTrade[] {
-    return this.trades.filter((t) => t.status === "open");
+  getOpenTrades(quoteAsset?: QuoteAsset): StoredTrade[] {
+    return this.trades.filter((t) =>
+      t.status === "open" && (!quoteAsset || (t.quoteAsset ?? "USD") === quoteAsset)
+    );
   }
 
-  getBalance(): number {
+  getBalance(quoteAsset: QuoteAsset = "USD"): number {
+    if (quoteAsset === "USDT") {
+      return this.settings.mode === "paper" ? this.paperUsdtBalance : this.liveUsdtBalance;
+    }
     return this.settings.mode === "paper" ? this.paperBalance : this.liveBalance;
   }
 
@@ -210,22 +223,29 @@ class Store {
    * same amount, so the total stays constant and allocation percentages work
    * correctly across multiple concurrent trades.
    */
-  getTotalPortfolioValue(): number {
-    return this.settings.mode === "paper"
-      ? this.paperBalance + this.getAmountInTrades()
-      : this.liveBalance;
+  getTotalPortfolioValue(quoteAsset: QuoteAsset = "USD"): number {
+    if (this.settings.mode !== "paper") return this.getBalance(quoteAsset);
+    if (quoteAsset === "USDT") {
+      return this.paperUsdtBalance + this.getCurrentValueInTrades("USDT");
+    }
+    // Keep the existing USD portfolio calculation unchanged.
+    return this.paperBalance + this.getAmountInTrades();
   }
 
-  getAllocatedAmount(): number {
-    return (this.getTotalPortfolioValue() * this.settings.allocation) / 100;
+  getAllocatedAmount(quoteAsset: QuoteAsset = "USD"): number {
+    return (this.getTotalPortfolioValue(quoteAsset) * this.settings.allocation) / 100;
   }
 
-  getAmountInTrades(): number {
-    return this.getOpenTrades().reduce((sum, t) => sum + t.investedUsd, 0);
+  getAmountInTrades(quoteAsset: QuoteAsset = "USD"): number {
+    return this.getOpenTrades(quoteAsset).reduce((sum, t) => sum + t.investedUsd, 0);
   }
 
-  getAvailableForTrade(): number {
-    return Math.max(0, this.getAllocatedAmount() - this.getAmountInTrades());
+  getCurrentValueInTrades(quoteAsset: QuoteAsset): number {
+    return this.getOpenTrades(quoteAsset).reduce((sum, t) => sum + t.quantity * t.currentPrice, 0);
+  }
+
+  getAvailableForTrade(quoteAsset: QuoteAsset = "USD"): number {
+    return Math.max(0, this.getAllocatedAmount(quoteAsset) - this.getAmountInTrades(quoteAsset));
   }
 
   updateStrategyWeight(id: string, success: boolean, profitPercent: number): void {
@@ -241,15 +261,39 @@ class Store {
     this.learningCycles++;
   }
 
-  getWinRate(): number {
-    const closed = this.trades.filter((t) => t.status !== "open");
+  getWinRate(quoteAsset: QuoteAsset = "USD"): number {
+    const closed = this.trades.filter(
+      (t) => (t.quoteAsset ?? "USD") === quoteAsset && t.status !== "open",
+    );
     if (!closed.length) return 0;
     const wins = closed.filter((t) => t.profitPercent > 0).length;
     return (wins / closed.length) * 100;
   }
 
   getTotalPnl(): number {
-    return this.trades.filter((t) => t.status !== "open").reduce((sum, t) => sum + t.profitUsd, 0);
+    return this.trades
+      .filter((t) => (t.quoteAsset ?? "USD") === "USD" && t.status !== "open")
+      .reduce((sum, t) => sum + t.profitUsd, 0);
+  }
+
+  getRealizedPnl(quoteAsset: QuoteAsset): number {
+    return this.trades
+      .filter((t) => (t.quoteAsset ?? "USD") === quoteAsset && t.status !== "open")
+      .reduce((sum, t) => sum + t.profitUsd, 0);
+  }
+
+  getUnrealizedPnl(quoteAsset: QuoteAsset): number {
+    return this.getOpenTrades(quoteAsset).reduce((sum, t) => sum + t.profitUsd, 0);
+  }
+
+  getTotalPnlIncludingOpen(quoteAsset: QuoteAsset): number {
+    return this.getRealizedPnl(quoteAsset) + this.getUnrealizedPnl(quoteAsset);
+  }
+
+  getTradeCount(quoteAsset: QuoteAsset): number {
+    return this.trades.filter(
+      (t) => (t.quoteAsset ?? "USD") === quoteAsset && t.status !== "open",
+    ).length;
   }
 
   /**
@@ -263,6 +307,7 @@ class Store {
     return this.trades
       .filter(
         (t) =>
+          (t.quoteAsset ?? "USD") === "USD" &&
           t.status !== "open" &&
           t.closedAt !== null &&
           new Date(t.closedAt).getTime() >= startMs

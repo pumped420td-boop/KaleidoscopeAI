@@ -10,7 +10,7 @@ import { logger } from "./logger.js";
 const DATA_DIR = process.env["DATA_DIR"] ??
   (process.env["RENDER_EXTERNAL_URL"] ? "/data" : join(process.cwd(), "data"));
 const STATE_FILE = join(DATA_DIR, "bot-state.json");
-const STATE_VERSION = 3;
+const STATE_VERSION = 4;
 
 interface PersistedStratStat {
   id: string;
@@ -25,6 +25,7 @@ interface BotState {
   savedAt: string;
   // Paper trading
   paperBalance: number;
+  paperUsdtBalance?: number;
   trades: StoredTrade[];
   settings: StoredSettings;
   // Bot state
@@ -35,6 +36,7 @@ interface BotState {
   patternHistory: Record<string, { wins: number; losses: number; totalProfit: number }>;
   // Balance history graph
   balanceHistory?: BalanceSnapshot[];
+  usdtBalanceHistory?: BalanceSnapshot[];
   // Consecutive low-vote exit state
   voteBelowThresholdScans?: Record<string, number>;
   // Temporary entry protection state
@@ -48,6 +50,7 @@ export function saveMlState(): void {
       version: STATE_VERSION,
       savedAt: new Date().toISOString(),
       paperBalance: store.paperBalance,
+      paperUsdtBalance: store.paperUsdtBalance,
       // Persist ALL trades (open + closed). Open trades are restored on restart
       // so their investedUsd stays accounted for in paperBalance correctly.
       trades: store.trades,
@@ -63,6 +66,7 @@ export function saveMlState(): void {
       })),
       patternHistory: getPatternHistory(),
       balanceHistory: store.balanceHistory,
+      usdtBalanceHistory: store.usdtBalanceHistory,
       voteBelowThresholdScans: store.voteBelowThresholdScans,
       stopBannedUntil: store.stopBannedUntil,
     };
@@ -113,8 +117,15 @@ export function loadMlState(): boolean {
       if (typeof state.paperBalance === "number") {
         store.paperBalance = state.paperBalance;
       }
+      if (typeof state.paperUsdtBalance === "number") {
+        store.paperUsdtBalance = state.paperUsdtBalance;
+      }
       if (Array.isArray(state.trades)) {
-        store.trades = state.trades;
+        store.trades = state.trades.map((trade) => ({
+          ...trade,
+          // Existing persisted trades were all USD trades.
+          quoteAsset: trade.quoteAsset ?? "USD",
+        }));
       }
       if (state.settings) {
         // Restore everything except live mode — always start in paper for safety.
@@ -149,6 +160,9 @@ export function loadMlState(): boolean {
 
     if (Array.isArray(state.balanceHistory)) {
       store.balanceHistory = state.balanceHistory;
+    }
+    if (Array.isArray(state.usdtBalanceHistory)) {
+      store.usdtBalanceHistory = state.usdtBalanceHistory;
     }
     if (state.voteBelowThresholdScans && typeof state.voteBelowThresholdScans === "object") {
       store.voteBelowThresholdScans = state.voteBelowThresholdScans;

@@ -28,7 +28,7 @@ import { TradeCard } from "@/components/TradeCard";
 
 type BalancePoint = { ts: number; balance: number; pnl: number };
 
-function BalanceSparkline({ data, color }: { data: BalancePoint[]; color: string }) {
+function BalanceSparkline({ data, color, gradientId = "balGrad" }: { data: BalancePoint[]; color: string; gradientId?: string }) {
   if (!data || data.length < 2) return null;
   const W = 300;
   const H = 72;
@@ -45,12 +45,12 @@ function BalanceSparkline({ data, color }: { data: BalancePoint[]; color: string
   return (
     <Svg width="100%" height={H} viewBox={`0 0 ${W} ${H}`}>
       <Defs>
-        <LinearGradient id="balGrad" x1="0" y1="0" x2="0" y2="1">
+        <LinearGradient id={gradientId} x1="0" y1="0" x2="0" y2="1">
           <Stop offset="0%" stopColor={color} stopOpacity={0.28} />
           <Stop offset="100%" stopColor={color} stopOpacity={0.02} />
         </LinearGradient>
       </Defs>
-      <Path d={fillPath} fill="url(#balGrad)" />
+       <Path d={fillPath} fill={`url(#${gradientId})`} />
       <Path d={linePath} stroke={color} strokeWidth={1.8} fill="none" strokeLinejoin="round" strokeLinecap="round" />
     </Svg>
   );
@@ -231,6 +231,84 @@ export default function DashboardScreen() {
         </View>
       </View>
 
+      {/* Separate USDT portfolio */}
+      <View style={[styles.usdtCard, { backgroundColor: colors.card, borderColor: colors.border }]}>
+        <View style={styles.usdtHeader}>
+          <View>
+            <Text style={[styles.usdtTitle, { color: colors.foreground }]}>USDT Paper Portfolio</Text>
+            <Text style={[styles.usdtSubtitle, { color: colors.mutedForeground }]}>Separate from USD trading</Text>
+          </View>
+          <Text style={[styles.usdtStarting, { color: colors.mutedForeground }]}>
+            Starting ${(portfolio?.usdtStartingBalance ?? 100).toFixed(2)}
+          </Text>
+        </View>
+
+        <Text style={[styles.usdtBalanceLabel, { color: colors.mutedForeground }]}>Current USDT balance</Text>
+        <Text style={[styles.usdtBalanceAmount, { color: colors.foreground }]}>
+          ${(portfolio?.usdtCurrentBalance ?? 100).toFixed(2)}
+        </Text>
+
+        {(portfolio?.usdtBalanceHistory?.length ?? 0) >= 2 ? (
+          <View style={styles.chartWrapper}>
+            <BalanceSparkline
+              data={portfolio?.usdtBalanceHistory ?? []}
+              color={(portfolio?.usdtTotalPnl ?? 0) >= 0 ? colors.success : colors.destructive}
+              gradientId="usdtGrad"
+            />
+            <View style={styles.chartLabels}>
+              <Text style={[styles.chartLabel, { color: colors.mutedForeground }]}>
+                {new Date(portfolio!.usdtBalanceHistory[0].ts).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
+              </Text>
+              <Text style={[styles.chartLabel, { color: (portfolio?.usdtTotalPnl ?? 0) >= 0 ? colors.success : colors.destructive, fontFamily: "Inter_600SemiBold" }]}>
+                {(portfolio?.usdtTotalPnl ?? 0) >= 0 ? "+" : ""}${(portfolio?.usdtTotalPnl ?? 0).toFixed(2)} P&L
+              </Text>
+              <Text style={[styles.chartLabel, { color: colors.mutedForeground }]}>
+                {new Date(portfolio!.usdtBalanceHistory[portfolio!.usdtBalanceHistory.length - 1].ts).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
+              </Text>
+            </View>
+          </View>
+        ) : (
+          <View style={styles.chartPlaceholder}>
+            <Text style={[styles.chartPlaceholderText, { color: colors.mutedForeground }]}>
+              USDT graph appears after first scan
+            </Text>
+          </View>
+        )}
+
+        <View style={styles.usdtStatsGrid}>
+          <View style={styles.usdtStat}>
+            <Text style={[styles.statLabel, { color: colors.mutedForeground }]}>Invested</Text>
+            <Text style={[styles.statValue, { color: colors.foreground }]}>${(portfolio?.usdtAmountInvested ?? 0).toFixed(2)}</Text>
+          </View>
+          <View style={styles.usdtStat}>
+            <Text style={[styles.statLabel, { color: colors.mutedForeground }]}>Available</Text>
+            <Text style={[styles.statValue, { color: colors.foreground }]}>${(portfolio?.usdtAvailableBalance ?? 100).toFixed(2)}</Text>
+          </View>
+          <View style={styles.usdtStat}>
+            <Text style={[styles.statLabel, { color: colors.mutedForeground }]}>Realized P&L</Text>
+            <Text style={[styles.statValue, { color: (portfolio?.usdtRealizedPnl ?? 0) >= 0 ? colors.success : colors.destructive }]}>
+              {(portfolio?.usdtRealizedPnl ?? 0) >= 0 ? "+" : ""}${(portfolio?.usdtRealizedPnl ?? 0).toFixed(2)}
+            </Text>
+          </View>
+          <View style={styles.usdtStat}>
+            <Text style={[styles.statLabel, { color: colors.mutedForeground }]}>Unrealized P&L</Text>
+            <Text style={[styles.statValue, { color: (portfolio?.usdtUnrealizedPnl ?? 0) >= 0 ? colors.success : colors.destructive }]}>
+              {(portfolio?.usdtUnrealizedPnl ?? 0) >= 0 ? "+" : ""}${(portfolio?.usdtUnrealizedPnl ?? 0).toFixed(2)}
+            </Text>
+          </View>
+          <View style={styles.usdtStat}>
+            <Text style={[styles.statLabel, { color: colors.mutedForeground }]}>Total P&L</Text>
+            <Text style={[styles.statValue, { color: (portfolio?.usdtTotalPnl ?? 0) >= 0 ? colors.success : colors.destructive }]}>
+              {(portfolio?.usdtTotalPnl ?? 0) >= 0 ? "+" : ""}${(portfolio?.usdtTotalPnl ?? 0).toFixed(2)}
+            </Text>
+          </View>
+          <View style={styles.usdtStat}>
+            <Text style={[styles.statLabel, { color: colors.mutedForeground }]}>USDT trades</Text>
+            <Text style={[styles.statValue, { color: colors.foreground }]}>{portfolio?.usdtTradeCount ?? 0}</Text>
+          </View>
+        </View>
+      </View>
+
       {/* Bot Toggle */}
       <TouchableOpacity
         onPress={handleBotToggle}
@@ -327,6 +405,15 @@ const styles = StyleSheet.create({
   statDivider: { width: 1, marginHorizontal: 8 },
   allocationRow: { flexDirection: "row", justifyContent: "space-between", paddingTop: 12, borderTopWidth: 1, borderTopColor: "rgba(255,255,255,0.05)" },
   allocationLabel: { fontSize: 12, fontFamily: "Inter_400Regular" },
+  usdtCard: { borderRadius: 20, borderWidth: 1, padding: 20, marginBottom: 16 },
+  usdtHeader: { flexDirection: "row", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 16 },
+  usdtTitle: { fontSize: 17, fontFamily: "Inter_600SemiBold" },
+  usdtSubtitle: { fontSize: 11, fontFamily: "Inter_400Regular", marginTop: 3 },
+  usdtStarting: { fontSize: 11, fontFamily: "Inter_500Medium" },
+  usdtBalanceLabel: { fontSize: 12, fontFamily: "Inter_400Regular", marginBottom: 5 },
+  usdtBalanceAmount: { fontSize: 30, fontFamily: "Inter_700Bold", letterSpacing: -0.5, marginBottom: 4 },
+  usdtStatsGrid: { flexDirection: "row", flexWrap: "wrap", marginHorizontal: -4, marginTop: 4 },
+  usdtStat: { width: "33.333%", paddingHorizontal: 4, marginTop: 12 },
   botButton: { borderRadius: 16, borderWidth: 1, padding: 16, marginBottom: 20 },
   botButtonInner: { flexDirection: "row", alignItems: "center", gap: 14 },
   botButtonText: { flex: 1 },

@@ -59,5 +59,10 @@ export function getCoinBySymbol(symbol: string): Coin | undefined {
 }
 
 export function getCoinByPair(pair: string): Coin | undefined {
-  return COINS.find((c) => c.pair === pair);
+  return COINS.find((c) => c.pair === pair || getUsdtPair(c) === pair);
+}
+
+/** The corresponding USDT market for each existing USD coin. */
+export function getUsdtPair(coin: Coin): string {
+  return `${coin.symbol}USDT`;
 }

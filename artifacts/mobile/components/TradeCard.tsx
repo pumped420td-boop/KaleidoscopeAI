@@ -19,6 +19,7 @@ export function TradeCard({ trade }: Props) {
   const colors = useColors();
   const queryClient = useQueryClient();
   const [confirmClose, setConfirmClose] = useState(false);
+  const quoteAsset = trade.quoteAsset ?? "USD";
   const isProfit = trade.profitPercent >= 0;
   const isOpen = trade.status === "open";
 
@@ -65,6 +66,7 @@ export function TradeCard({ trade }: Props) {
         <View style={styles.leftTop}>
           <Text style={[styles.symbol, { color: colors.foreground }]}>{trade.symbol}</Text>
           <Text style={[styles.name, { color: colors.mutedForeground }]}>{trade.name}</Text>
+           <Text style={[styles.pair, { color: colors.primary }]}>{trade.pair} · {quoteAsset}</Text>
         </View>
         <View style={styles.rightTop}>
           <View style={[styles.statusBadge, { backgroundColor: `${statusColor()}22` }]}>
@@ -94,7 +96,7 @@ export function TradeCard({ trade }: Props) {
             {isProfit ? "+" : ""}{trade.profitPercent.toFixed(2)}%
           </Text>
           <Text style={[styles.profitUsd, { color: profitColor }]}>
-            {isProfit ? "+" : ""}${Math.abs(trade.profitUsd).toFixed(2)}
+             {isProfit ? "+" : ""}{quoteAsset} {Math.abs(trade.profitUsd).toFixed(2)}
           </Text>
         </View>
       </View>
@@ -113,7 +115,7 @@ export function TradeCard({ trade }: Props) {
           {trade.winningStrategies.length > 3 ? ` +${trade.winningStrategies.length - 3}` : ""}
         </Text>
         <Text style={[styles.footerText, { color: colors.mutedForeground }]}>
-          ${trade.investedUsd.toFixed(0)} invested
+           {quoteAsset} {trade.investedUsd.toFixed(2)} invested
         </Text>
       </View>
 
@@ -170,6 +172,7 @@ const styles = StyleSheet.create({
   rightTop: { flexDirection: "row", gap: 6, alignItems: "center" },
   symbol: { fontSize: 18, fontFamily: "Inter_700Bold" },
   name: { fontSize: 12, fontFamily: "Inter_400Regular", marginTop: 2 },
+  pair: { fontSize: 10, fontFamily: "Inter_500Medium", marginTop: 3 },
   statusBadge: {
     flexDirection: "row",
     alignItems: "center",

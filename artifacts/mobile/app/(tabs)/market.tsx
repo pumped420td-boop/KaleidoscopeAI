@@ -70,6 +70,9 @@ export default function MarketScreen() {
             <Text style={[styles.tickerSymbol, { color: colors.foreground }]}>{t.symbol}</Text>
             <View style={styles.nameRow}>
               <Text style={[styles.tickerName, { color: colors.mutedForeground }]}>{t.name}</Text>
+             <View style={[styles.quoteBadge, { backgroundColor: t.quoteAsset === "USDT" ? `${colors.primary}22` : `${colors.mutedForeground}22` }]}>
+               <Text style={[styles.quoteBadgeText, { color: t.quoteAsset === "USDT" ? colors.primary : colors.mutedForeground }]}>{t.quoteAsset}</Text>
+             </View>
               {t.category === "meme" && (
                 <View style={[styles.memeBadge, { backgroundColor: `${colors.warning}22` }]}>
                   <Text style={[styles.memeBadgeText, { color: colors.warning }]}>MEME</Text>
@@ -133,7 +136,7 @@ export default function MarketScreen() {
 
       <FlatList
         data={filtered}
-        keyExtractor={(t) => t.symbol}
+         keyExtractor={(t) => t.pair}
         renderItem={renderTicker}
         refreshControl={<RefreshControl refreshing={refreshing} onRefresh={handleRefresh} tintColor={colors.primary} />}
         contentContainerStyle={{ paddingBottom: Platform.OS === "web" ? 34 + 84 : 84, flexGrow: 1 }}
@@ -181,6 +184,8 @@ const styles = StyleSheet.create({
   nameRow: { flexDirection: "row", alignItems: "center", gap: 6, marginTop: 3 },
   tickerSymbol: { fontSize: 15, fontFamily: "Inter_600SemiBold" },
   tickerName: { fontSize: 11, fontFamily: "Inter_400Regular" },
+  quoteBadge: { paddingHorizontal: 5, paddingVertical: 1, borderRadius: 4 },
+  quoteBadgeText: { fontSize: 8, fontFamily: "Inter_700Bold" },
   memeBadge: { paddingHorizontal: 5, paddingVertical: 1, borderRadius: 4 },
   memeBadgeText: { fontSize: 8, fontFamily: "Inter_700Bold" },
   tickerRight: { alignItems: "flex-end", gap: 4 },

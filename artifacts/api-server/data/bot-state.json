@@ -1,7 +1,8 @@
 {
-  "version": 3,
-  "savedAt": "2026-09-05T23:16:56.159Z",
+  "version": 4,
+  "savedAt": "2026-09-05T23:30:41.055Z",
   "paperBalance": 164.8916275869658,
+  "paperUsdtBalance": 50,
   "trades": [
     {
       "id": "mr3piagqqlpi7",
@@ -28,7 +29,8 @@
       "highestPrice": 0.101,
       "trailingActive": false,
       "entryConfidence": 0.3615677642207666,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr3twl9l7mjuu",
@@ -55,7 +57,8 @@
       "highestPrice": 0.00286,
       "trailingActive": false,
       "entryConfidence": 0.41359293710792083,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr3twl9t6wu4d",
@@ -82,7 +85,8 @@
       "highestPrice": 0.00361,
       "trailingActive": false,
       "entryConfidence": 0.3885714285714285,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr41aduu5xted",
@@ -109,7 +113,8 @@
       "highestPrice": 0.00352,
       "trailingActive": false,
       "entryConfidence": 0.3576278160020513,
-      "closeReason": "manual"
+      "closeReason": "manual",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr4293xw388gw",
@@ -136,7 +141,8 @@
       "highestPrice": 0.07156,
       "trailingActive": false,
       "entryConfidence": 0.39433661465691,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr47e9i02ecz1",
@@ -163,7 +169,8 @@
       "highestPrice": 0.00000431,
       "trailingActive": true,
       "entryConfidence": 0.2957142857142857,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr4ckr63yd5xb",
@@ -190,7 +197,8 @@
       "highestPrice": 1.965,
       "trailingActive": false,
       "entryConfidence": 0.3131450483177379,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr4hm2z4yejef",
@@ -218,7 +226,8 @@
       "highestPrice": 2.019,
       "trailingActive": true,
       "entryConfidence": 0.3981716839973374,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr4hmqe50x3id",
@@ -245,7 +254,8 @@
       "highestPrice": 0.00000428,
       "trailingActive": false,
       "entryConfidence": 0.2894333843797856,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr4t43bmdnmw8",
@@ -272,7 +282,8 @@
       "highestPrice": 0.1703,
       "trailingActive": true,
       "entryConfidence": 0.31012245830103335,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr52hruwvqt56",
@@ -299,7 +310,8 @@
       "highestPrice": 0.1747,
       "trailingActive": true,
       "entryConfidence": 0.29750851078840224,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr54zsnk3psum",
@@ -326,7 +338,8 @@
       "highestPrice": 0.1768,
       "trailingActive": true,
       "entryConfidence": 0.30158482057326175,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr55lnp6wobb9",
@@ -353,7 +366,8 @@
       "highestPrice": 1.823,
       "trailingActive": false,
       "entryConfidence": 0.3195043737666383,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr56vyco5em7u",
@@ -380,7 +394,8 @@
       "highestPrice": 0.145,
       "trailingActive": false,
       "entryConfidence": 0.31059273409420385,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr5ej6vf8ttx3",
@@ -407,7 +422,8 @@
       "highestPrice": 0.885,
       "trailingActive": false,
       "entryConfidence": 0.30400392582271873,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr5eq9i7lb9w7",
@@ -434,7 +450,8 @@
       "highestPrice": 0.261,
       "trailingActive": true,
       "entryConfidence": 0.3178535987003705,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr5hfd1akce10",
@@ -461,7 +478,8 @@
       "highestPrice": 0.00000279,
       "trailingActive": false,
       "entryConfidence": 0.36001607035294203,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr5idfvf78zax",
@@ -488,7 +506,8 @@
       "highestPrice": 0.00000281,
       "trailingActive": true,
       "entryConfidence": 0.33037543016417614,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr5ndhy4967iq",
@@ -516,7 +535,8 @@
       "highestPrice": 0.143,
       "trailingActive": false,
       "entryConfidence": 0.5164323621052006,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr5ng2iwurmd2",
@@ -543,7 +563,8 @@
       "highestPrice": 0.00000494,
       "trailingActive": false,
       "entryConfidence": 0.35488172364889886,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr5t9p96ib22s",
@@ -570,7 +591,8 @@
       "highestPrice": 45.01,
       "trailingActive": true,
       "entryConfidence": 0.40451696476105903,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr625bdsrzfpk",
@@ -597,7 +619,8 @@
       "highestPrice": 1.975,
       "trailingActive": false,
       "entryConfidence": 0.3813555751331061,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr6flljowp9gm",
@@ -624,7 +647,8 @@
       "highestPrice": 0.00000271,
       "trailingActive": false,
       "entryConfidence": 0.2951521745135769,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr6g83kdlc9ox",
@@ -651,7 +675,8 @@
       "highestPrice": 2.024,
       "trailingActive": true,
       "entryConfidence": 0.4406956135973613,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr6h2bobg3bpm",
@@ -678,7 +703,8 @@
       "highestPrice": 0.00000275,
       "trailingActive": true,
       "entryConfidence": 0.305180686207751,
-      "closeReason": "manual"
+      "closeReason": "manual",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr6j2zw0f41qk",
@@ -705,7 +731,8 @@
       "highestPrice": 0.896,
       "trailingActive": true,
       "entryConfidence": 0.48830388267030345,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr6n6vwp5cnz9",
@@ -733,7 +760,8 @@
       "highestPrice": 45.74,
       "trailingActive": true,
       "entryConfidence": 0.46508335466394884,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr6oz6ydbyy62",
@@ -760,7 +788,8 @@
       "highestPrice": 70.17,
       "trailingActive": false,
       "entryConfidence": 0.3971775566767176,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr70zye8ez872",
@@ -787,7 +816,8 @@
       "highestPrice": 0.00000502,
       "trailingActive": true,
       "entryConfidence": 0.3298757039000015,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr74szlc3wbv6",
@@ -814,7 +844,8 @@
       "highestPrice": 1.77,
       "trailingActive": false,
       "entryConfidence": 0.45607088970284343,
-      "closeReason": "manual"
+      "closeReason": "manual",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr753wrsfcbru",
@@ -841,7 +872,8 @@
       "highestPrice": 69.03,
       "trailingActive": false,
       "entryConfidence": 0.3921760829272347,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr7a7tgb2t9sw",
@@ -868,7 +900,8 @@
       "highestPrice": 0.7446,
       "trailingActive": false,
       "entryConfidence": 0.32546435054425943,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr7bt1z77q0r9",
@@ -895,7 +928,8 @@
       "highestPrice": 0.20202,
       "trailingActive": false,
       "entryConfidence": 0.4285991284355562,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr7esga9z3jpu",
@@ -922,7 +956,8 @@
       "highestPrice": 0.0000043,
       "trailingActive": false,
       "entryConfidence": 0.436021391207954,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr7mhlk8zlna3",
@@ -950,7 +985,8 @@
       "highestPrice": 0.1863,
       "trailingActive": false,
       "entryConfidence": 0.49097783886106044,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr7mivvq7whfo",
@@ -977,7 +1013,8 @@
       "highestPrice": 1.928,
       "trailingActive": false,
       "entryConfidence": 0.45107653430395406,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr7psk42iol2d",
@@ -1004,7 +1041,8 @@
       "highestPrice": 0.0047,
       "trailingActive": false,
       "entryConfidence": 0.4192251764702375,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr7qtv2wx9wqa",
@@ -1031,7 +1069,8 @@
       "highestPrice": 0.00126,
       "trailingActive": false,
       "entryConfidence": 0.4081385427986552,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr7x6tx9r7x6w",
@@ -1058,7 +1097,8 @@
       "highestPrice": 0.00000483,
       "trailingActive": false,
       "entryConfidence": 0.3475824555344501,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr81gim98pxse",
@@ -1085,7 +1125,8 @@
       "highestPrice": 0.00000434,
       "trailingActive": false,
       "entryConfidence": 0.31884369325226086,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr82jqhft9vfp",
@@ -1112,7 +1153,8 @@
       "highestPrice": 0.00000478,
       "trailingActive": false,
       "entryConfidence": 0.4066157811029036,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr84vcskd93ez",
@@ -1139,7 +1181,8 @@
       "highestPrice": 44.63,
       "trailingActive": false,
       "entryConfidence": 0.3680237376985643,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr8b0ko9crudy",
@@ -1166,7 +1209,8 @@
       "highestPrice": 2.047,
       "trailingActive": false,
       "entryConfidence": 0.3595091492865099,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr8f7oizmkrvz",
@@ -1193,7 +1237,8 @@
       "highestPrice": 0.00000279,
       "trailingActive": false,
       "entryConfidence": 0.2994466826817713,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr8gawm27e32p",
@@ -1220,7 +1265,8 @@
       "highestPrice": 1.99,
       "trailingActive": false,
       "entryConfidence": 0.2933402183374519,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr8gcu1bmvffo",
@@ -1247,7 +1293,8 @@
       "highestPrice": 46.38,
       "trailingActive": true,
       "entryConfidence": 0.39639954767637325,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr8grlldu3i5k",
@@ -1274,7 +1321,8 @@
       "highestPrice": 1.61,
       "trailingActive": true,
       "entryConfidence": 0.42462072553132524,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr8mvj98mz2iq",
@@ -1301,7 +1349,8 @@
       "highestPrice": 0.0386,
       "trailingActive": true,
       "entryConfidence": 0.39715142749663246,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr8owu0rru1tg",
@@ -1328,7 +1377,8 @@
       "highestPrice": 0.0386,
       "trailingActive": true,
       "entryConfidence": 0.3743717868433654,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr8prpb0am8kr",
@@ -1356,7 +1406,8 @@
       "highestPrice": 0.0399,
       "trailingActive": true,
       "entryConfidence": 0.38751953187348015,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr8q5ulwnlis7",
@@ -1383,7 +1434,8 @@
       "highestPrice": 0.0375,
       "trailingActive": true,
       "entryConfidence": 0.31209685762276457,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr8q74t79epe8",
@@ -1410,7 +1462,8 @@
       "highestPrice": 0.0375,
       "trailingActive": true,
       "entryConfidence": 0.3085554133372959,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr8q8f6f4474f",
@@ -1437,7 +1490,8 @@
       "highestPrice": 0.0375,
       "trailingActive": true,
       "entryConfidence": 0.30516126219242246,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr8q9pdpxg0f2",
@@ -1464,7 +1518,8 @@
       "highestPrice": 0.0375,
       "trailingActive": true,
       "entryConfidence": 0.3019038887159574,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr8qazw91xvyj",
@@ -1491,7 +1546,8 @@
       "highestPrice": 0.0375,
       "trailingActive": true,
       "entryConfidence": 0.29877390646454793,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr8qjzu52ikez",
@@ -1518,7 +1574,8 @@
       "highestPrice": 0.0377,
       "trailingActive": true,
       "entryConfidence": 0.29576289314594556,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr8qla25sl12x",
@@ -1545,7 +1602,8 @@
       "highestPrice": 0.0377,
       "trailingActive": true,
       "entryConfidence": 0.2928632560190072,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr8qmkfkwj8io",
@@ -1572,7 +1630,8 @@
       "highestPrice": 0.0377,
       "trailingActive": true,
       "entryConfidence": 0.2900681209645099,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr8qnunk1ow98",
@@ -1599,7 +1658,8 @@
       "highestPrice": 0.0377,
       "trailingActive": true,
       "entryConfidence": 0.2873712402673725,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr8r3agyq3rdc",
@@ -1626,7 +1686,8 @@
       "highestPrice": 0.1866,
       "trailingActive": false,
       "entryConfidence": 0.3060752303150012,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr8rvl12nhohr",
@@ -1653,7 +1714,8 @@
       "highestPrice": 0.0375,
       "trailingActive": true,
       "entryConfidence": 0.3327762613532387,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr8rwv983885w",
@@ -1680,7 +1742,8 @@
       "highestPrice": 0.0375,
       "trailingActive": true,
       "entryConfidence": 0.32714467278520803,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr8ry5e04khp5",
@@ -1707,7 +1770,8 @@
       "highestPrice": 0.0375,
       "trailingActive": true,
       "entryConfidence": 0.32446267811360924,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr8rzfrb0kas4",
@@ -1734,7 +1798,8 @@
       "highestPrice": 0.0375,
       "trailingActive": true,
       "entryConfidence": 0.3218636225183534,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr8s0q0ofz15e",
@@ -1761,7 +1826,8 @@
       "highestPrice": 0.0375,
       "trailingActive": true,
       "entryConfidence": 0.31934326882728953,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr8s20ez1iwkc",
@@ -1788,7 +1854,8 @@
       "highestPrice": 0.0375,
       "trailingActive": true,
       "entryConfidence": 0.31689769937782025,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr8s3apzjzu67",
@@ -1815,7 +1882,8 @@
       "highestPrice": 0.7416,
       "trailingActive": false,
       "entryConfidence": 0.3116736165970476,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr8vgusgpyxtt",
@@ -1842,7 +1910,8 @@
       "highestPrice": 0.1833,
       "trailingActive": false,
       "entryConfidence": 0.37878267357178624,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr8wxl762qjvf",
@@ -1869,7 +1938,8 @@
       "highestPrice": 0.7439,
       "trailingActive": false,
       "entryConfidence": 0.3734267507158679,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr91245hyds1i",
@@ -1896,7 +1966,8 @@
       "highestPrice": 446.95,
       "trailingActive": false,
       "entryConfidence": 0.40219240343555623,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr96159w57dp8",
@@ -1923,7 +1994,8 @@
       "highestPrice": 0.1833,
       "trailingActive": false,
       "entryConfidence": 0.3455834216230147,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr968vljcz0im",
@@ -1950,7 +2022,8 @@
       "highestPrice": 0.00000468,
       "trailingActive": true,
       "entryConfidence": 0.4007913801995006,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr97yqz7btlu5",
@@ -1977,7 +2050,8 @@
       "highestPrice": 0.1811,
       "trailingActive": false,
       "entryConfidence": 0.4126017638140349,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr9bbeo2rhc61",
@@ -2004,7 +2078,8 @@
       "highestPrice": 0.1658,
       "trailingActive": false,
       "entryConfidence": 0.38309023130358144,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr9brhf7ogc0k",
@@ -2031,7 +2106,8 @@
       "highestPrice": 0.00000275,
       "trailingActive": true,
       "entryConfidence": 0.38072528317282905,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr9d4czclwhmc",
@@ -2058,7 +2134,8 @@
       "highestPrice": 1.61,
       "trailingActive": true,
       "entryConfidence": 0.426839245834619,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr9jbhtzb2cpk",
@@ -2085,7 +2162,8 @@
       "highestPrice": 0.00000429,
       "trailingActive": true,
       "entryConfidence": 0.44356532287933864,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr9jw2b953nug",
@@ -2112,7 +2190,8 @@
       "highestPrice": 0.00000437,
       "trailingActive": true,
       "entryConfidence": 0.4406627702074326,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr9k17j3sm4ta",
@@ -2139,7 +2218,8 @@
       "highestPrice": 0.00000446,
       "trailingActive": true,
       "entryConfidence": 0.4088622977644396,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr9l0kvvcps2o",
@@ -2166,7 +2246,8 @@
       "highestPrice": 2.096,
       "trailingActive": false,
       "entryConfidence": 0.30734405166481715,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr9rkmkqewgfc",
@@ -2193,7 +2274,8 @@
       "highestPrice": 0.91,
       "trailingActive": false,
       "entryConfidence": 0.3022110127420106,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr9tpsh6nlsz7",
@@ -2220,7 +2302,8 @@
       "highestPrice": 0.0377,
       "trailingActive": false,
       "entryConfidence": 0.35364034004543116,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mr9y5wpl5op97",
@@ -2247,7 +2330,8 @@
       "highestPrice": 0.20138,
       "trailingActive": false,
       "entryConfidence": 0.35210063404241027,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mra4hfi5d2h8h",
@@ -2274,7 +2358,8 @@
       "highestPrice": 0.19618,
       "trailingActive": false,
       "entryConfidence": 0.3066654046465807,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mra4hfi5157a2",
@@ -2301,7 +2386,8 @@
       "highestPrice": 0.07262,
       "trailingActive": false,
       "entryConfidence": 0.3066654046465807,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mra5i2ryn9huz",
@@ -2328,7 +2414,8 @@
       "highestPrice": 43.29,
       "trailingActive": false,
       "entryConfidence": 0.35918838866982566,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mraj83z4fw1sj",
@@ -2355,7 +2442,8 @@
       "highestPrice": 0.07134,
       "trailingActive": false,
       "entryConfidence": 0.3968153257817118,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrajiem0mo98o",
@@ -2382,7 +2470,8 @@
       "highestPrice": 0.17973,
       "trailingActive": true,
       "entryConfidence": 0.39417127311908956,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mralnkbca8gep",
@@ -2409,7 +2498,8 @@
       "highestPrice": 0.19489,
       "trailingActive": false,
       "entryConfidence": 0.36397375298412177,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrambzzf5vly9",
@@ -2436,7 +2526,8 @@
       "highestPrice": 0.143,
       "trailingActive": false,
       "entryConfidence": 0.3665718690281224,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mranxw0tr4qlu",
@@ -2463,7 +2554,8 @@
       "highestPrice": 0.1656,
       "trailingActive": false,
       "entryConfidence": 0.44553379797527976,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mraoqtwax8lsx",
@@ -2490,7 +2582,8 @@
       "highestPrice": 0.19243,
       "trailingActive": false,
       "entryConfidence": 0.40261364374478154,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrb1mmdjllon9",
@@ -2517,7 +2610,8 @@
       "highestPrice": 0.00000416,
       "trailingActive": false,
       "entryConfidence": 0.41641384833485495,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrb3dm0mdxdrp",
@@ -2545,7 +2639,8 @@
       "highestPrice": 0.139,
       "trailingActive": false,
       "entryConfidence": 0.5228950920725158,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrb4vmwgvfunv",
@@ -2572,7 +2667,8 @@
       "highestPrice": 0.00000416,
       "trailingActive": false,
       "entryConfidence": 0.39614982233864504,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrbetrcgevdj1",
@@ -2599,7 +2695,8 @@
       "highestPrice": 68.33,
       "trailingActive": false,
       "entryConfidence": 0.4412660400535439,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrbetrcixsvct",
@@ -2626,7 +2723,8 @@
       "highestPrice": 1.54,
       "trailingActive": false,
       "entryConfidence": 0.4306873476215886,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrbhbt0b31r6j",
@@ -2653,7 +2751,8 @@
       "highestPrice": 1.887,
       "trailingActive": false,
       "entryConfidence": 0.451269825542325,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrbsfscr8ku0x",
@@ -2680,7 +2779,8 @@
       "highestPrice": 0.0000026,
       "trailingActive": false,
       "entryConfidence": 0.39842954946948417,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrbv7gl7s3uj2",
@@ -2707,7 +2807,8 @@
       "highestPrice": 0.00000426,
       "trailingActive": true,
       "entryConfidence": 0.4486068176599657,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrchevefij5a0",
@@ -2734,7 +2835,8 @@
       "highestPrice": 1.89,
       "trailingActive": true,
       "entryConfidence": 0.33882946548548004,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrchevehhc259",
@@ -2761,7 +2863,8 @@
       "highestPrice": 0.18178,
       "trailingActive": false,
       "entryConfidence": 0.31592261611138445,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrcl0shq3dmjk",
@@ -2788,7 +2891,8 @@
       "highestPrice": 66.87,
       "trailingActive": false,
       "entryConfidence": 0.3260517885542022,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrcm78erucobj",
@@ -2815,7 +2919,8 @@
       "highestPrice": 0.1668,
       "trailingActive": false,
       "entryConfidence": 0.3020465920443482,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrcm95we9ts9g",
@@ -2842,7 +2947,8 @@
       "highestPrice": 0.818,
       "trailingActive": false,
       "entryConfidence": 0.32534538413385944,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrcmy8qknzmam",
@@ -2869,7 +2975,8 @@
       "highestPrice": 1.925,
       "trailingActive": true,
       "entryConfidence": 0.3615704203792257,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrcobrci4s8lq",
@@ -2896,7 +3003,8 @@
       "highestPrice": 0.205,
       "trailingActive": false,
       "entryConfidence": 0.36290595087444005,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrcqsi3f3owzl",
@@ -2923,7 +3031,8 @@
       "highestPrice": 0.837,
       "trailingActive": true,
       "entryConfidence": 0.32304343634649835,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrdxmn8jd839o",
@@ -2950,7 +3059,8 @@
       "highestPrice": 0.16698,
       "trailingActive": false,
       "entryConfidence": 0.30599902205473506,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mre2ezmxpy1ep",
@@ -2977,7 +3087,8 @@
       "highestPrice": 1.589,
       "trailingActive": true,
       "entryConfidence": 0.4261847674175559,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrezg1z6srdho",
@@ -3004,7 +3115,8 @@
       "highestPrice": 0.004,
       "trailingActive": false,
       "entryConfidence": 0.38673281574649954,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrf4kn5hrqhol",
@@ -3031,7 +3143,8 @@
       "highestPrice": 0.00000281,
       "trailingActive": true,
       "entryConfidence": 0.30172085087032197,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrf68fw1chfas",
@@ -3059,7 +3172,8 @@
       "highestPrice": 1.6,
       "trailingActive": true,
       "entryConfidence": 0.46072401658770173,
-      "closeReason": "manual"
+      "closeReason": "manual",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrf68fw3hmg0y",
@@ -3086,7 +3200,8 @@
       "highestPrice": 1.923,
       "trailingActive": true,
       "entryConfidence": 0.41753982958701924,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrgyizasrdarn",
@@ -3113,7 +3228,8 @@
       "highestPrice": 3.745,
       "trailingActive": false,
       "entryConfidence": 0.3219886861783744,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrgzta81psq5t",
@@ -3140,7 +3256,8 @@
       "highestPrice": 0.856,
       "trailingActive": false,
       "entryConfidence": 0.38951854067902153,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrhv1d5cdbukj",
@@ -3167,7 +3284,8 @@
       "highestPrice": 1.905,
       "trailingActive": true,
       "entryConfidence": 0.3179103025990474,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrigi0xw3gc1f",
@@ -3194,7 +3312,8 @@
       "highestPrice": 531.04,
       "trailingActive": true,
       "entryConfidence": 0.3352098573847284,
-      "closeReason": "manual"
+      "closeReason": "manual",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrikm95ssuqzk",
@@ -3221,7 +3340,8 @@
       "highestPrice": 0.16053,
       "trailingActive": false,
       "entryConfidence": 0.36626155653531045,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrin67llw0iky",
@@ -3248,7 +3368,8 @@
       "highestPrice": 0.18345,
       "trailingActive": false,
       "entryConfidence": 0.33227193770862323,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrinbzwiwhkcq",
@@ -3275,7 +3396,8 @@
       "highestPrice": 568.15,
       "trailingActive": false,
       "entryConfidence": 0.3880223617874192,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mringhxj8catl",
@@ -3302,7 +3424,8 @@
       "highestPrice": 1.0745,
       "trailingActive": false,
       "entryConfidence": 0.3660756250547557,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrinwh5qyjfvm",
@@ -3329,7 +3452,8 @@
       "highestPrice": 0.18233,
       "trailingActive": false,
       "entryConfidence": 0.3339806530967173,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrio4ucd9hoab",
@@ -3356,7 +3480,8 @@
       "highestPrice": 1.0724,
       "trailingActive": false,
       "entryConfidence": 0.3923064204113012,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrioljxp4v3i2",
@@ -3383,7 +3508,8 @@
       "highestPrice": 0.18233,
       "trailingActive": false,
       "entryConfidence": 0.33416002167485526,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrip3kcs6j13m",
@@ -3410,7 +3536,8 @@
       "highestPrice": 0.7285,
       "trailingActive": false,
       "entryConfidence": 0.3922687992804979,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrir8qb82dbdx",
@@ -3437,7 +3564,8 @@
       "highestPrice": 3.55,
       "trailingActive": true,
       "entryConfidence": 0.4449327431376383,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrisanu2mfgle",
@@ -3464,7 +3592,8 @@
       "highestPrice": 0.004825,
       "trailingActive": false,
       "entryConfidence": 0.36499289794860135,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mritj1590s8zl",
@@ -3491,7 +3620,8 @@
       "highestPrice": 0.149,
       "trailingActive": true,
       "entryConfidence": 0.4546092644271865,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrjmfk8pe2brk",
@@ -3518,7 +3648,8 @@
       "highestPrice": 94.01,
       "trailingActive": false,
       "entryConfidence": 0.40982702911273683,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrjpjh1qe9ghb",
@@ -3545,7 +3676,8 @@
       "highestPrice": 497.7,
       "trailingActive": false,
       "entryConfidence": 0.3933440020245262,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrjqv1qfl30ed",
@@ -3572,7 +3704,8 @@
       "highestPrice": 0.00000379,
       "trailingActive": true,
       "entryConfidence": 0.4517851347449096,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrlsrh4m8r8mm",
@@ -3599,7 +3732,8 @@
       "highestPrice": 0.00000284,
       "trailingActive": true,
       "entryConfidence": 0.39277148676948187,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrmgx07uq52ap",
@@ -3626,7 +3760,8 @@
       "highestPrice": 46.22,
       "trailingActive": true,
       "entryConfidence": 0.3939744793778338,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrmgx07uj8afq",
@@ -3653,7 +3788,8 @@
       "highestPrice": 0.2167,
       "trailingActive": false,
       "entryConfidence": 0.3928236105124016,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrmu0cpaotmdk",
@@ -3680,7 +3816,8 @@
       "highestPrice": 44.31,
       "trailingActive": false,
       "entryConfidence": 0.35525920529434435,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrmutahxwhr1e",
@@ -3707,7 +3844,8 @@
       "highestPrice": 1.522,
       "trailingActive": false,
       "entryConfidence": 0.39403998642902033,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrmuuktzcfk27",
@@ -3734,7 +3872,8 @@
       "highestPrice": 44.31,
       "trailingActive": false,
       "entryConfidence": 0.3094857045562752,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrmw4vqmm1nf4",
@@ -3761,7 +3900,8 @@
       "highestPrice": 66.4,
       "trailingActive": false,
       "entryConfidence": 0.3717597981183114,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrmwdvvbmyd7e",
@@ -3788,7 +3928,8 @@
       "highestPrice": 44.31,
       "trailingActive": false,
       "entryConfidence": 0.309585845352616,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrmwidw8dkm2o",
@@ -3815,7 +3956,8 @@
       "highestPrice": 66.36,
       "trailingActive": false,
       "entryConfidence": 0.3718379291704285,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrmwv8wu2grc3",
@@ -3842,7 +3984,8 @@
       "highestPrice": 44.31,
       "trailingActive": false,
       "entryConfidence": 0.3096823402708775,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrmwzr16nai08",
@@ -3869,7 +4012,8 @@
       "highestPrice": 66.45,
       "trailingActive": false,
       "entryConfidence": 0.3719130741374052,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrmx1ofpqz4wq",
@@ -3896,7 +4040,8 @@
       "highestPrice": 45.34,
       "trailingActive": true,
       "entryConfidence": 0.3097753873746795,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrn7a6jzlmcow",
@@ -3923,7 +4068,8 @@
       "highestPrice": 76.29,
       "trailingActive": false,
       "entryConfidence": 0.33333318552071306,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrn7fyv1xc3bk",
@@ -3950,7 +4096,8 @@
       "highestPrice": 0.00000273,
       "trailingActive": false,
       "entryConfidence": 0.30986517046606143,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrnbqb711xdvi",
@@ -3977,7 +4124,8 @@
       "highestPrice": 0.036,
       "trailingActive": false,
       "entryConfidence": 0.4294707956099751,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrnbs8uiwys5y",
@@ -4004,7 +4152,8 @@
       "highestPrice": 1884.73,
       "trailingActive": false,
       "entryConfidence": 0.3939188172242029,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrncctr1364pt",
@@ -4031,7 +4180,8 @@
       "highestPrice": 0.0368,
       "trailingActive": true,
       "entryConfidence": 0.47679740617638233,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrnysiev9gnc2",
@@ -4058,7 +4208,8 @@
       "highestPrice": 543.35,
       "trailingActive": false,
       "entryConfidence": 0.4158295358908563,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrnz60km6foea",
@@ -4085,7 +4236,8 @@
       "highestPrice": 62.67,
       "trailingActive": false,
       "entryConfidence": 0.41164859283289434,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mro3ds6bngdie",
@@ -4112,7 +4264,8 @@
       "highestPrice": 0.00356,
       "trailingActive": true,
       "entryConfidence": 0.44492666236945194,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mro4hnebkcz9f",
@@ -4139,7 +4292,8 @@
       "highestPrice": 61.59,
       "trailingActive": false,
       "entryConfidence": 0.4190295277744957,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mro85hjv5vygg",
@@ -4166,7 +4320,8 @@
       "highestPrice": 530.49,
       "trailingActive": true,
       "entryConfidence": 0.4246483460179751,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mroaazzaxjfz1",
@@ -4193,7 +4348,8 @@
       "highestPrice": 60.53,
       "trailingActive": true,
       "entryConfidence": 0.42353410512637957,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrocfj0gjqkql",
@@ -4220,7 +4376,8 @@
       "highestPrice": 60.44,
       "trailingActive": false,
       "entryConfidence": 0.41828070375677784,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrol1yb0eaczw",
@@ -4247,7 +4404,8 @@
       "highestPrice": 61,
       "trailingActive": true,
       "entryConfidence": 0.4160646268200147,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrorjdrelzher",
@@ -4274,7 +4432,8 @@
       "highestPrice": 0.00294,
       "trailingActive": false,
       "entryConfidence": 0.4162025525284195,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mros9qtulprdj",
@@ -4301,7 +4460,8 @@
       "highestPrice": 0.00466,
       "trailingActive": true,
       "entryConfidence": 0.43103879679465507,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mroslbj6jld0k",
@@ -4328,7 +4488,8 @@
       "highestPrice": 1.45,
       "trailingActive": false,
       "entryConfidence": 0.3728269970620231,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrow3d5hk3dr4",
@@ -4355,7 +4516,8 @@
       "highestPrice": 563.99,
       "trailingActive": false,
       "entryConfidence": 0.3728269970620231,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mroxdnic804mm",
@@ -4383,7 +4545,8 @@
       "highestPrice": 0.00000321,
       "trailingActive": false,
       "entryConfidence": 0.5241542222846588,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mroxi5kooyhcc",
@@ -4411,7 +4574,8 @@
       "highestPrice": 0.00126,
       "trailingActive": true,
       "entryConfidence": 0.5101371138541794,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mroyy31sb63rm",
@@ -4438,7 +4602,8 @@
       "highestPrice": 0.00000323,
       "trailingActive": true,
       "entryConfidence": 0.47035435482304877,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrozeteeov6wl",
@@ -4465,7 +4630,8 @@
       "highestPrice": 1808.15,
       "trailingActive": false,
       "entryConfidence": 0.40707311138075164,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrozjymhj9vzy",
@@ -4492,7 +4658,8 @@
       "highestPrice": 0.852,
       "trailingActive": true,
       "entryConfidence": 0.431417828280751,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrp1l9mnylskd",
@@ -4519,7 +4686,8 @@
       "highestPrice": 0.00000322,
       "trailingActive": false,
       "entryConfidence": 0.47408469100534417,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrp8yv2z5wwq2",
@@ -4546,7 +4714,8 @@
       "highestPrice": 1.55,
       "trailingActive": false,
       "entryConfidence": 0.32674229529798826,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrpicg5xj22a8",
@@ -4573,7 +4742,8 @@
       "highestPrice": 0.00000308,
       "trailingActive": false,
       "entryConfidence": 0.4657022940102002,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrpnv5q6id0q8",
@@ -4600,7 +4770,8 @@
       "highestPrice": 0.00301,
       "trailingActive": false,
       "entryConfidence": 0.339974637503639,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrpy9fiavc1p0",
@@ -4627,7 +4798,8 @@
       "highestPrice": 59.14,
       "trailingActive": false,
       "entryConfidence": 0.3970230606016705,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrq01qhsmogzt",
@@ -4654,7 +4826,8 @@
       "highestPrice": 0.00000309,
       "trailingActive": false,
       "entryConfidence": 0.3309428281669097,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrq0rgkfq9qqd",
@@ -4682,7 +4855,8 @@
       "highestPrice": 58.96,
       "trailingActive": false,
       "entryConfidence": 0.4199130832377217,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrq0wlr55s71d",
@@ -4710,7 +4884,8 @@
       "highestPrice": 0.00000299,
       "trailingActive": false,
       "entryConfidence": 0.5447852113404823,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrqee3bdiv82w",
@@ -4737,7 +4912,8 @@
       "highestPrice": 59.59,
       "trailingActive": true,
       "entryConfidence": 0.35361974553520426,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrqfzzeipo22k",
@@ -4765,7 +4941,8 @@
       "highestPrice": 0.00000288,
       "trailingActive": false,
       "entryConfidence": 0.5531663424761817,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrqinsye1wl3a",
@@ -4792,7 +4969,8 @@
       "highestPrice": 0.0000028,
       "trailingActive": false,
       "entryConfidence": 0.4826510724793425,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrqjblmr18v2b",
@@ -4819,7 +4997,8 @@
       "highestPrice": 0.00000278,
       "trailingActive": true,
       "entryConfidence": 0.48276005187005055,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrqky46ttqrz5",
@@ -4846,7 +5025,8 @@
       "highestPrice": 0.00000285,
       "trailingActive": true,
       "entryConfidence": 0.4839154499613062,
-      "closeReason": "manual"
+      "closeReason": "manual",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrqkzefh0ucfq",
@@ -4873,7 +5053,8 @@
       "highestPrice": 0.16463,
       "trailingActive": false,
       "entryConfidence": 0.3773952272418533,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrqnfi6xtszsm",
@@ -4900,7 +5081,8 @@
       "highestPrice": 0.00114,
       "trailingActive": false,
       "entryConfidence": 0.4188043889889779,
-      "closeReason": "manual"
+      "closeReason": "manual",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrr0u9cetcc32",
@@ -4927,7 +5109,8 @@
       "highestPrice": 0.00114,
       "trailingActive": false,
       "entryConfidence": 0.4172821232013724,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrr2cx19lz3i0",
@@ -4955,7 +5138,8 @@
       "highestPrice": 0.00000276,
       "trailingActive": false,
       "entryConfidence": 0.4321075795710566,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrr5k935w1eqt",
@@ -4982,7 +5166,8 @@
       "highestPrice": 0.00401,
       "trailingActive": false,
       "entryConfidence": 0.3481005267958878,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrrc2b4q099yh",
@@ -5009,7 +5194,8 @@
       "highestPrice": 0.00365,
       "trailingActive": false,
       "entryConfidence": 0.3181001965939747,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrrs5pnmftay5",
@@ -5036,7 +5222,8 @@
       "highestPrice": 6.428,
       "trailingActive": false,
       "entryConfidence": 0.3840544879311188,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrs6p5wc6tz6t",
@@ -5063,7 +5250,8 @@
       "highestPrice": 0.00325,
       "trailingActive": false,
       "entryConfidence": 0.4260352396059857,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrs84mg7gvw33",
@@ -5090,7 +5278,8 @@
       "highestPrice": 0.828,
       "trailingActive": true,
       "entryConfidence": 0.41046374915429346,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrsaag09y18nb",
@@ -5117,7 +5306,8 @@
       "highestPrice": 0.004677,
       "trailingActive": false,
       "entryConfidence": 0.38221907208401473,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrscebx1o30iy",
@@ -5144,7 +5334,8 @@
       "highestPrice": 2.121,
       "trailingActive": false,
       "entryConfidence": 0.4044368584226186,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrshonx0amfpm",
@@ -5171,7 +5362,8 @@
       "highestPrice": 1.393,
       "trailingActive": false,
       "entryConfidence": 0.46222900656453314,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrswf6bquxequ",
@@ -5198,7 +5390,8 @@
       "highestPrice": 0.00000304,
       "trailingActive": true,
       "entryConfidence": 0.41406592349691324,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrswf6bs8o3nw",
@@ -5225,7 +5418,8 @@
       "highestPrice": 0.137,
       "trailingActive": true,
       "entryConfidence": 0.40913596290433557,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrt1ar3tdfvzn",
@@ -5252,7 +5446,8 @@
       "highestPrice": 46.43,
       "trailingActive": false,
       "entryConfidence": 0.38084684886324205,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrt6fb9s9ow2e",
@@ -5279,7 +5474,8 @@
       "highestPrice": 0.861,
       "trailingActive": true,
       "entryConfidence": 0.38084684886324205,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrt8mfcp25six",
@@ -5306,7 +5502,8 @@
       "highestPrice": 1.393,
       "trailingActive": false,
       "entryConfidence": 0.4111948966019465,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrtm58c6tnmfc",
@@ -5333,7 +5530,8 @@
       "highestPrice": 1.605,
       "trailingActive": true,
       "entryConfidence": 0.38094433918984894,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrux3bh5lbmos",
@@ -5360,7 +5558,8 @@
       "highestPrice": 61.54,
       "trailingActive": false,
       "entryConfidence": 0.34329274630033996,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrv14or9kk3i8",
@@ -5387,7 +5586,8 @@
       "highestPrice": 60.75,
       "trailingActive": false,
       "entryConfidence": 0.4140384196914421,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrvaxq7dqhbz1",
@@ -5414,7 +5614,8 @@
       "highestPrice": 0.00000303,
       "trailingActive": true,
       "entryConfidence": 0.4160068441357742,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrvmwo2k3kuo3",
@@ -5441,7 +5642,8 @@
       "highestPrice": 518,
       "trailingActive": false,
       "entryConfidence": 0.38259647249370893,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrvn6bams0ilr",
@@ -5468,7 +5670,8 @@
       "highestPrice": 59.31,
       "trailingActive": false,
       "entryConfidence": 0.4500351555902594,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrw4tsn2s5q3u",
@@ -5495,7 +5698,8 @@
       "highestPrice": 0.137,
       "trailingActive": false,
       "entryConfidence": 0.4069374514018931,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mrw9m57c7q7lb",
@@ -5523,7 +5727,8 @@
       "highestPrice": 507.69,
       "trailingActive": false,
       "entryConfidence": 0.48426575757037577,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "msb9jhpwspzjd",
@@ -5550,7 +5755,8 @@
       "highestPrice": 0.1844,
       "trailingActive": true,
       "entryConfidence": 0.290225108237819,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "msbbz0q8rhikk",
@@ -5577,7 +5783,8 @@
       "highestPrice": 6.657,
       "trailingActive": true,
       "entryConfidence": 0.33729071808730116,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "msbc5ga4tp0bv",
@@ -5604,7 +5811,8 @@
       "highestPrice": 91,
       "trailingActive": false,
       "entryConfidence": 0.35811229284805374,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "msbd3b8fmos6g",
@@ -5632,7 +5840,8 @@
       "highestPrice": 0.138,
       "trailingActive": true,
       "entryConfidence": 0.4646160097702452,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "msbd4lhsnh0ty",
@@ -5660,7 +5869,8 @@
       "highestPrice": 0.137,
       "trailingActive": true,
       "entryConfidence": 0.4704528254265139,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "msbd5vry53oox",
@@ -5688,7 +5898,8 @@
       "highestPrice": 0.131,
       "trailingActive": true,
       "entryConfidence": 0.46958144338988167,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "msbd7641u803f",
@@ -5715,7 +5926,8 @@
       "highestPrice": 91,
       "trailingActive": false,
       "entryConfidence": 0.3581489735724436,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "msbdfqqmukoxq",
@@ -5743,7 +5955,8 @@
       "highestPrice": 0.137,
       "trailingActive": true,
       "entryConfidence": 0.39916081371975315,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "msbe81lmvh26z",
@@ -5770,7 +5983,8 @@
       "highestPrice": 0.17698,
       "trailingActive": false,
       "entryConfidence": 0.29269334530845453,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "msberbtkdzx4h",
@@ -5797,7 +6011,8 @@
       "highestPrice": 0.132,
       "trailingActive": true,
       "entryConfidence": 0.4006057436271936,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "msbev6tuf2nns",
@@ -5824,7 +6039,8 @@
       "highestPrice": 0.17698,
       "trailingActive": false,
       "entryConfidence": 0.2959881751789367,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "msbfwhh46gpws",
@@ -5851,7 +6067,8 @@
       "highestPrice": 0.13,
       "trailingActive": true,
       "entryConfidence": 0.3500705493202989,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "msbg3rqovco74",
@@ -5878,7 +6095,8 @@
       "highestPrice": 6.603,
       "trailingActive": false,
       "entryConfidence": 0.29597048859870073,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "msbgxs1lnodfe",
@@ -5906,7 +6124,8 @@
       "highestPrice": 0.126,
       "trailingActive": false,
       "entryConfidence": 0.4780591384767116,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "msbqwndjsbtch",
@@ -5933,7 +6152,8 @@
       "highestPrice": 51.69,
       "trailingActive": false,
       "entryConfidence": 0.3286131045193884,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "msbxpg72kfp3k",
@@ -5960,7 +6180,8 @@
       "highestPrice": 1.413,
       "trailingActive": false,
       "entryConfidence": 0.3847958554504507,
-      "closeReason": "manual"
+      "closeReason": "manual",
+      "quoteAsset": "USD"
     },
     {
       "id": "msc3z23j4eeco",
@@ -5987,7 +6208,8 @@
       "highestPrice": 1896.43,
       "trailingActive": true,
       "entryConfidence": 0.3454723704584811,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mscg5r1h8kkd2",
@@ -6014,7 +6236,8 @@
       "highestPrice": 6.553,
       "trailingActive": false,
       "entryConfidence": 0.3151350723780397,
-      "closeReason": "manual"
+      "closeReason": "manual",
+      "quoteAsset": "USD"
     },
     {
       "id": "mschs1xp80e55",
@@ -6041,7 +6264,8 @@
       "highestPrice": 6.536,
       "trailingActive": false,
       "entryConfidence": 0.3308170525487479,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "msck088tc90aw",
@@ -6068,7 +6292,8 @@
       "highestPrice": 0.1871,
       "trailingActive": true,
       "entryConfidence": 0.34029736619822204,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "msclay87gxwyj",
@@ -6095,7 +6320,8 @@
       "highestPrice": 0.17225,
       "trailingActive": false,
       "entryConfidence": 0.3654654042116722,
-      "closeReason": "manual"
+      "closeReason": "manual",
+      "quoteAsset": "USD"
     },
     {
       "id": "mscnrovjneph4",
@@ -6122,7 +6348,8 @@
       "highestPrice": 1.413,
       "trailingActive": false,
       "entryConfidence": 0.3732512908452321,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mscrifvui1o7g",
@@ -6149,7 +6376,8 @@
       "highestPrice": 0.18721,
       "trailingActive": true,
       "entryConfidence": 0.36936002941081364,
-      "closeReason": "manual"
+      "closeReason": "manual",
+      "quoteAsset": "USD"
     },
     {
       "id": "msd2zblkri487",
@@ -6176,7 +6404,8 @@
       "highestPrice": 6.387,
       "trailingActive": false,
       "entryConfidence": 0.36442939502579974,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "msd4346t6hzf2",
@@ -6203,7 +6432,8 @@
       "highestPrice": 8.257,
       "trailingActive": false,
       "entryConfidence": 0.3652039001284072,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "msdjuyrxbjgo4",
@@ -6230,7 +6460,8 @@
       "highestPrice": 490.53,
       "trailingActive": false,
       "entryConfidence": 0.2942350999363965,
-      "closeReason": "manual"
+      "closeReason": "manual",
+      "quoteAsset": "USD"
     },
     {
       "id": "msdjyepbi7v9e",
@@ -6257,7 +6488,8 @@
       "highestPrice": 3.903,
       "trailingActive": false,
       "entryConfidence": 0.3645467668341113,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "msdpjvt69htq5",
@@ -6284,7 +6516,8 @@
       "highestPrice": 1.768,
       "trailingActive": true,
       "entryConfidence": 0.4508042473289383,
-      "closeReason": "manual"
+      "closeReason": "manual",
+      "quoteAsset": "USD"
     },
     {
       "id": "msdvw6acxwc84",
@@ -6311,7 +6544,8 @@
       "highestPrice": 0.0357,
       "trailingActive": false,
       "entryConfidence": 0.3533368559536166,
-      "closeReason": "manual"
+      "closeReason": "manual",
+      "quoteAsset": "USD"
     },
     {
       "id": "mseo6xtgwrofr",
@@ -6338,7 +6572,8 @@
       "highestPrice": 0.0353,
       "trailingActive": false,
       "entryConfidence": 0.30191871632359407,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mseyjwc130rte",
@@ -6365,7 +6600,8 @@
       "highestPrice": 0.00464,
       "trailingActive": false,
       "entryConfidence": 0.4372357724563892,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "msf3q1j7guv7z",
@@ -6392,7 +6628,8 @@
       "highestPrice": 0.00371,
       "trailingActive": false,
       "entryConfidence": 0.3476615719370981,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "msf69au71f3gd",
@@ -6419,7 +6656,8 @@
       "highestPrice": 0.00000292,
       "trailingActive": false,
       "entryConfidence": 0.3711615058797826,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "msffkxm20m336",
@@ -6446,7 +6684,8 @@
       "highestPrice": 0.167,
       "trailingActive": false,
       "entryConfidence": 0.37644539998132787,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "msffkxm6bj6ri",
@@ -6473,7 +6712,8 @@
       "highestPrice": 6.697,
       "trailingActive": false,
       "entryConfidence": 0.3742608233261966,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "msfwn6v7tpd1f",
@@ -6500,7 +6740,8 @@
       "highestPrice": 0.0000049,
       "trailingActive": false,
       "entryConfidence": 0.3749648985340423,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "msg4ltpaz2eh7",
@@ -6527,7 +6768,8 @@
       "highestPrice": 1.0658,
       "trailingActive": false,
       "entryConfidence": 0.3363465169353516,
-      "closeReason": "manual"
+      "closeReason": "manual",
+      "quoteAsset": "USD"
     },
     {
       "id": "msgkacs9ar7h5",
@@ -6554,7 +6796,8 @@
       "highestPrice": 4.177,
       "trailingActive": false,
       "entryConfidence": 0.30255580147316674,
-      "closeReason": "manual"
+      "closeReason": "manual",
+      "quoteAsset": "USD"
     },
     {
       "id": "msgpm7nfrnox6",
@@ -6581,7 +6824,8 @@
       "highestPrice": 1.926,
       "trailingActive": true,
       "entryConfidence": 0.4037848707383318,
-      "closeReason": "manual"
+      "closeReason": "manual",
+      "quoteAsset": "USD"
     },
     {
       "id": "msgt7q5w0f3gr",
@@ -6608,7 +6852,8 @@
       "highestPrice": 0.0035,
       "trailingActive": false,
       "entryConfidence": 0.37718092883076126,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "msgv6wwuncj6p",
@@ -6635,7 +6880,8 @@
       "highestPrice": 0.00000482,
       "trailingActive": false,
       "entryConfidence": 0.37316339280274413,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "msgv9wrxvflpz",
@@ -6662,7 +6908,8 @@
       "highestPrice": 0.16272,
       "trailingActive": false,
       "entryConfidence": 0.3768339042502998,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mshcoq5k47pbl",
@@ -6689,7 +6936,8 @@
       "highestPrice": 6.445,
       "trailingActive": false,
       "entryConfidence": 0.43667601421943786,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mshhwhqa5a40b",
@@ -6716,7 +6964,8 @@
       "highestPrice": 844.4,
       "trailingActive": true,
       "entryConfidence": 0.4622862279748204,
-      "closeReason": "manual"
+      "closeReason": "manual",
+      "quoteAsset": "USD"
     },
     {
       "id": "mt5xe4mt4k8il",
@@ -6743,7 +6992,8 @@
       "highestPrice": 52.97,
       "trailingActive": false,
       "entryConfidence": 0.3343220680906721,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mt5xe4mtmlcwx",
@@ -6770,7 +7020,8 @@
       "highestPrice": 0.19854,
       "trailingActive": false,
       "entryConfidence": 0.3343220680906721,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mt5xq52p55uyt",
@@ -6797,7 +7048,8 @@
       "highestPrice": 0.00000334,
       "trailingActive": false,
       "entryConfidence": 0.32074588659332587,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mt5z8l3a4cqwn",
@@ -6824,7 +7076,8 @@
       "highestPrice": 4.603,
       "trailingActive": true,
       "entryConfidence": 0.33823877437605243,
-      "closeReason": "manual"
+      "closeReason": "manual",
+      "quoteAsset": "USD"
     },
     {
       "id": "mt62r1k0uohcf",
@@ -6851,7 +7104,8 @@
       "highestPrice": 2.594,
       "trailingActive": false,
       "entryConfidence": 0.35999110204003965,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mt64tuyrgw3n1",
@@ -6878,7 +7132,8 @@
       "highestPrice": 0.00538,
       "trailingActive": true,
       "entryConfidence": 0.3353884748429375,
-      "closeReason": "manual"
+      "closeReason": "manual",
+      "quoteAsset": "USD"
     },
     {
       "id": "mt6an32nwr6xu",
@@ -6905,7 +7160,8 @@
       "highestPrice": 2.632,
       "trailingActive": true,
       "entryConfidence": 0.3703567482387766,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mt6gvacje4mxv",
@@ -6932,7 +7188,8 @@
       "highestPrice": 2.592,
       "trailingActive": false,
       "entryConfidence": 0.36956202986077596,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mt6l7lyqlvx85",
@@ -6959,7 +7216,8 @@
       "highestPrice": 1.963,
       "trailingActive": false,
       "entryConfidence": 0.2976914792788671,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mt6lfrgm5huyc",
@@ -6986,7 +7244,8 @@
       "highestPrice": 0.00000313,
       "trailingActive": false,
       "entryConfidence": 0.3587195647638535,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mt724ly4cmqzs",
@@ -7013,7 +7272,8 @@
       "highestPrice": 0.005577,
       "trailingActive": false,
       "entryConfidence": 0.39406378740242604,
-      "closeReason": "manual"
+      "closeReason": "manual",
+      "quoteAsset": "USD"
     },
     {
       "id": "mt726rk55vhkw",
@@ -7040,7 +7300,8 @@
       "highestPrice": 0.005624,
       "trailingActive": false,
       "entryConfidence": 0.390716266485507,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mt726rk5iyl1y",
@@ -7067,7 +7328,8 @@
       "highestPrice": 80.85,
       "trailingActive": true,
       "entryConfidence": 0.3211360003835259,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mt79d8ij34yxa",
@@ -7094,7 +7356,8 @@
       "highestPrice": 0.00504,
       "trailingActive": false,
       "entryConfidence": 0.43432065598505387,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mt7dawt7zuanp",
@@ -7121,7 +7384,8 @@
       "highestPrice": 0.0004,
       "trailingActive": false,
       "entryConfidence": 0.49520401943270725,
-      "closeReason": "manual"
+      "closeReason": "manual",
+      "quoteAsset": "USD"
     },
     {
       "id": "mt7dawy0viubw",
@@ -7148,7 +7412,8 @@
       "highestPrice": 0.005539,
       "trailingActive": false,
       "entryConfidence": 0.3616925224849131,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mt7mbygm32ka5",
@@ -7175,7 +7440,8 @@
       "highestPrice": 0.185,
       "trailingActive": false,
       "entryConfidence": 0.40355322759844664,
-      "closeReason": "manual"
+      "closeReason": "manual",
+      "quoteAsset": "USD"
     },
     {
       "id": "mt7ud5p4krx2q",
@@ -7202,7 +7468,8 @@
       "highestPrice": 0.806,
       "trailingActive": true,
       "entryConfidence": 0.32132752249391106,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mt7ue0aghzmzh",
@@ -7229,7 +7496,8 @@
       "highestPrice": 51.63,
       "trailingActive": false,
       "entryConfidence": 0.3843151684695326,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mt8nha5nfih8b",
@@ -7256,7 +7524,8 @@
       "highestPrice": 2.363,
       "trailingActive": false,
       "entryConfidence": 0.42554964257337263,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mt8nha5rrq32s",
@@ -7283,7 +7552,8 @@
       "highestPrice": 1.915,
       "trailingActive": false,
       "entryConfidence": 0.4091187466313712,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mt8pix8n5jboc",
@@ -7310,7 +7580,8 @@
       "highestPrice": 1.56,
       "trailingActive": true,
       "entryConfidence": 0.43076138193425056,
-      "closeReason": "manual"
+      "closeReason": "manual",
+      "quoteAsset": "USD"
     },
     {
       "id": "mt8v82szzkhcp",
@@ -7337,7 +7608,8 @@
       "highestPrice": 0.00000314,
       "trailingActive": false,
       "entryConfidence": 0.4349921292941545,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mt903twlns9ip",
@@ -7364,7 +7636,8 @@
       "highestPrice": 0.04,
       "trailingActive": false,
       "entryConfidence": 0.4931609158163736,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mt9csrzx645n3",
@@ -7391,7 +7664,8 @@
       "highestPrice": 0.18234,
       "trailingActive": false,
       "entryConfidence": 0.4732210513704184,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mt9wt34u3a4z0",
@@ -7418,7 +7692,8 @@
       "highestPrice": 0.00000378,
       "trailingActive": false,
       "entryConfidence": 0.4188068642401524,
-      "closeReason": "manual"
+      "closeReason": "manual",
+      "quoteAsset": "USD"
     },
     {
       "id": "mt9wutadq8m8n",
@@ -7445,7 +7720,8 @@
       "highestPrice": 1.4321,
       "trailingActive": true,
       "entryConfidence": 0.3840761127257907,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mt9yr6ah2op1c",
@@ -7472,7 +7748,8 @@
       "highestPrice": 50.71,
       "trailingActive": true,
       "entryConfidence": 0.3557928228401356,
-      "closeReason": "manual"
+      "closeReason": "manual",
+      "quoteAsset": "USD"
     },
     {
       "id": "mta0nfpwt9w97",
@@ -7499,7 +7776,8 @@
       "highestPrice": 0.175,
       "trailingActive": false,
       "entryConfidence": 0.39716562350660417,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mta0oqjalsj6j",
@@ -7526,7 +7804,8 @@
       "highestPrice": 1.4152,
       "trailingActive": false,
       "entryConfidence": 0.32082984127481107,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mta0tvwpfaex6",
@@ -7553,7 +7832,8 @@
       "highestPrice": 0.119,
       "trailingActive": true,
       "entryConfidence": 0.3856389483684104,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mta1qhm1ybkva",
@@ -7580,7 +7860,8 @@
       "highestPrice": 0.005914,
       "trailingActive": true,
       "entryConfidence": 0.38326341899408145,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtaf3cuuylh6n",
@@ -7607,7 +7888,8 @@
       "highestPrice": 0.00000293,
       "trailingActive": true,
       "entryConfidence": 0.4712049336527223,
-      "closeReason": "manual"
+      "closeReason": "manual",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtaj39dcxs4ij",
@@ -7634,7 +7916,8 @@
       "highestPrice": 0.1073,
       "trailingActive": false,
       "entryConfidence": 0.4372232339355883,
-      "closeReason": "manual"
+      "closeReason": "manual",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtaj44nz87ice",
@@ -7661,7 +7944,8 @@
       "highestPrice": 0.00494,
       "trailingActive": false,
       "entryConfidence": 0.4119287704263064,
-      "closeReason": "manual"
+      "closeReason": "manual",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtarsz44tc3eu",
@@ -7688,7 +7972,8 @@
       "highestPrice": 0.00494,
       "trailingActive": false,
       "entryConfidence": 0.38344981935361533,
-      "closeReason": "manual"
+      "closeReason": "manual",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtaux2phjddxe",
@@ -7715,7 +8000,8 @@
       "highestPrice": 0.179,
       "trailingActive": false,
       "entryConfidence": 0.3292339500142803,
-      "closeReason": "manual"
+      "closeReason": "manual",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtbk6iap1pttm",
@@ -7743,7 +8029,8 @@
       "highestPrice": 0.000409,
       "trailingActive": false,
       "entryConfidence": 0.3943624649407288,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtbk6iaprq7mx",
@@ -7770,7 +8057,8 @@
       "highestPrice": 0.007627,
       "trailingActive": true,
       "entryConfidence": 0.35526976127098303,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtboodshndiyt",
@@ -7797,7 +8085,8 @@
       "highestPrice": 2.521,
       "trailingActive": true,
       "entryConfidence": 0.339922645875849,
-      "closeReason": "manual"
+      "closeReason": "manual",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtca5nf2kob5g",
@@ -7824,7 +8113,8 @@
       "highestPrice": 1.63,
       "trailingActive": false,
       "entryConfidence": 0.32622742458136067,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtcripy26tiih",
@@ -7851,7 +8141,8 @@
       "highestPrice": 0.3192,
       "trailingActive": false,
       "entryConfidence": 0.4673480619270541,
-      "closeReason": "manual"
+      "closeReason": "manual",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtcripy3uiv7g",
@@ -7878,7 +8169,8 @@
       "highestPrice": 0.002511,
       "trailingActive": false,
       "entryConfidence": 0.43616951079897565,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtcw7p6d8qtwd",
@@ -7905,7 +8197,8 @@
       "highestPrice": 0.00472,
       "trailingActive": false,
       "entryConfidence": 0.4739603578587681,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtdbue6zodrkc",
@@ -7932,7 +8225,8 @@
       "highestPrice": 0.00000369,
       "trailingActive": true,
       "entryConfidence": 0.43090791633826475,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtdri5c5k4pp3",
@@ -7959,7 +8253,8 @@
       "highestPrice": 0.00000367,
       "trailingActive": false,
       "entryConfidence": 0.3847808458155898,
-      "closeReason": "manual"
+      "closeReason": "manual",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtdrjg4bdtps9",
@@ -7986,7 +8281,8 @@
       "highestPrice": 0.00000367,
       "trailingActive": false,
       "entryConfidence": 0.3842093073991457,
-      "closeReason": "manual"
+      "closeReason": "manual",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtdrjg4bphcck",
@@ -8013,7 +8309,8 @@
       "highestPrice": 0.20222,
       "trailingActive": false,
       "entryConfidence": 0.3216038008576307,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtecpcs0vwkyr",
@@ -8040,7 +8337,8 @@
       "highestPrice": 1.414,
       "trailingActive": false,
       "entryConfidence": 0.4352625886781575,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtedb5zlagmfm",
@@ -8067,7 +8365,8 @@
       "highestPrice": 0.0376,
       "trailingActive": false,
       "entryConfidence": 0.3818807774900246,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtem5qce3t6re",
@@ -8094,7 +8393,8 @@
       "highestPrice": 0.000356,
       "trailingActive": true,
       "entryConfidence": 0.49074393547599415,
-      "closeReason": "manual"
+      "closeReason": "manual",
+      "quoteAsset": "USD"
     },
     {
       "id": "mteq7d9ggaevh",
@@ -8121,7 +8421,8 @@
       "highestPrice": 0.1051,
       "trailingActive": true,
       "entryConfidence": 0.40876019513890643,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mteq88k2mz58a",
@@ -8148,7 +8449,8 @@
       "highestPrice": 0.0376,
       "trailingActive": false,
       "entryConfidence": 0.3546035205808617,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtf5gaeehcmao",
@@ -8175,7 +8477,8 @@
       "highestPrice": 2.615,
       "trailingActive": false,
       "entryConfidence": 0.4158122849032933,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtfgydi86joea",
@@ -8202,7 +8505,8 @@
       "highestPrice": 0.000422,
       "trailingActive": true,
       "entryConfidence": 0.4169588541450378,
-      "closeReason": "manual"
+      "closeReason": "manual",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtfgydij2ikin",
@@ -8229,7 +8533,8 @@
       "highestPrice": 2.443,
       "trailingActive": false,
       "entryConfidence": 0.40761642579933305,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtfp1kn2av9xa",
@@ -8256,7 +8561,8 @@
       "highestPrice": 2.495,
       "trailingActive": false,
       "entryConfidence": 0.4604058292381171,
-      "closeReason": "manual"
+      "closeReason": "manual",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtg25xj5k9jm6",
@@ -8283,7 +8589,8 @@
       "highestPrice": 5.435,
       "trailingActive": true,
       "entryConfidence": 0.3436628604994426,
-      "closeReason": "manual"
+      "closeReason": "manual",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtg7bnx6sngzc",
@@ -8310,7 +8617,8 @@
       "highestPrice": 0.005,
       "trailingActive": false,
       "entryConfidence": 0.29472013956406146,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtgbhhxu0nvgs",
@@ -8337,7 +8645,8 @@
       "highestPrice": 2.398,
       "trailingActive": false,
       "entryConfidence": 0.40481232850490734,
-      "closeReason": "manual"
+      "closeReason": "manual",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtgbhhxyzwel5",
@@ -8364,7 +8673,8 @@
       "highestPrice": 0.006886,
       "trailingActive": false,
       "entryConfidence": 0.3529412601694445,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtgjhjvmvkxxz",
@@ -8391,7 +8701,8 @@
       "highestPrice": 2.321,
       "trailingActive": false,
       "entryConfidence": 0.48371426180180904,
-      "closeReason": "manual"
+      "closeReason": "manual",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtgjif73xxo2f",
@@ -8418,7 +8729,8 @@
       "highestPrice": 0.00000341,
       "trailingActive": false,
       "entryConfidence": 0.45987845457798904,
-      "closeReason": "manual"
+      "closeReason": "manual",
+      "quoteAsset": "USD"
     },
     {
       "id": "mth4kuvnz5qik",
@@ -8445,7 +8757,8 @@
       "highestPrice": 0.00674,
       "trailingActive": true,
       "entryConfidence": 0.43147004766633085,
-      "closeReason": "manual"
+      "closeReason": "manual",
+      "quoteAsset": "USD"
     },
     {
       "id": "mth4kuvntg0ag",
@@ -8472,7 +8785,8 @@
       "highestPrice": 2.432,
       "trailingActive": true,
       "entryConfidence": 0.4203178962758113,
-      "closeReason": "manual"
+      "closeReason": "manual",
+      "quoteAsset": "USD"
     },
     {
       "id": "mti1k802wicck",
@@ -8499,7 +8813,8 @@
       "highestPrice": 0.0929,
       "trailingActive": true,
       "entryConfidence": 0.40013785305789795,
-      "closeReason": "manual"
+      "closeReason": "manual",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtihu569vjmud",
@@ -8526,7 +8841,8 @@
       "highestPrice": 2.35,
       "trailingActive": false,
       "entryConfidence": 0.43875977064754584,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtijll0cn7syu",
@@ -8553,7 +8869,8 @@
       "highestPrice": 0.00000349,
       "trailingActive": false,
       "entryConfidence": 0.40093853260155105,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtiolp0vx0shp",
@@ -8580,7 +8897,8 @@
       "highestPrice": 0.006785,
       "trailingActive": true,
       "entryConfidence": 0.4344787368315138,
-      "closeReason": "sell_signal"
+      "closeReason": "sell_signal",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtit29l9t5w9b",
@@ -8607,7 +8925,8 @@
       "highestPrice": 0.0000035,
       "trailingActive": false,
       "entryConfidence": 0.3783743787933764,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtivfcnzxql39",
@@ -8634,7 +8953,8 @@
       "highestPrice": 0.3244,
       "trailingActive": false,
       "entryConfidence": 0.4047221295528783,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtiykudo3xh8h",
@@ -8661,7 +8981,8 @@
       "highestPrice": 101.02,
       "trailingActive": false,
       "entryConfidence": 0.37947519967718835,
-      "closeReason": "sell_signal"
+      "closeReason": "sell_signal",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtiyuqbkjebya",
@@ -8688,7 +9009,8 @@
       "highestPrice": 2.298,
       "trailingActive": false,
       "entryConfidence": 0.4566715415434777,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtizkorl3el6r",
@@ -8715,7 +9037,8 @@
       "highestPrice": 0.3223,
       "trailingActive": false,
       "entryConfidence": 0.40758140607132265,
-      "closeReason": "manual"
+      "closeReason": "manual",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtj1qcypbjpk5",
@@ -8742,7 +9065,8 @@
       "highestPrice": 0.00000304,
       "trailingActive": false,
       "entryConfidence": 0.40461507582878803,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtjbz83kfyae5",
@@ -8769,7 +9093,8 @@
       "highestPrice": 830.01,
       "trailingActive": false,
       "entryConfidence": 0.3170371037617938,
-      "closeReason": "sell_signal"
+      "closeReason": "sell_signal",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtjg7s3r5meiu",
@@ -8796,7 +9121,8 @@
       "highestPrice": 0.00000303,
       "trailingActive": true,
       "entryConfidence": 0.4325134195785645,
-      "closeReason": "manual"
+      "closeReason": "manual",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtjg7s3rei2x7",
@@ -8823,7 +9149,8 @@
       "highestPrice": 1.3382,
       "trailingActive": false,
       "entryConfidence": 0.40777932752560825,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtjgxser36xau",
@@ -8850,7 +9177,8 @@
       "highestPrice": 0.17351,
       "trailingActive": false,
       "entryConfidence": 0.3788903104726453,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtjhej3b1k1ti",
@@ -8877,7 +9205,8 @@
       "highestPrice": 1.874,
       "trailingActive": true,
       "entryConfidence": 0.44269260189650417,
-      "closeReason": "sell_signal"
+      "closeReason": "sell_signal",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtjwg03j0iymi",
@@ -8904,7 +9233,8 @@
       "highestPrice": 0.00000343,
       "trailingActive": false,
       "entryConfidence": 0.39983823302058996,
-      "closeReason": "manual"
+      "closeReason": "manual",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtjyx6blpjqni",
@@ -8931,7 +9261,8 @@
       "highestPrice": 2386.13,
       "trailingActive": true,
       "entryConfidence": 0.3818115819385842,
-      "closeReason": "sell_signal"
+      "closeReason": "sell_signal",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtk2ror7l24c7",
@@ -8958,7 +9289,8 @@
       "highestPrice": 0.1738,
       "trailingActive": true,
       "entryConfidence": 0.3567764996733312,
-      "closeReason": "sell_signal"
+      "closeReason": "sell_signal",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtk7pb6u7eyvy",
@@ -8985,7 +9317,8 @@
       "highestPrice": 0.00000512,
       "trailingActive": true,
       "entryConfidence": 0.38009795615473185,
-      "closeReason": "sell_signal"
+      "closeReason": "sell_signal",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtkas22k0kkhd",
@@ -9012,7 +9345,8 @@
       "highestPrice": 0.0000034,
       "trailingActive": false,
       "entryConfidence": 0.38009795615473185,
-      "closeReason": "sell_signal"
+      "closeReason": "sell_signal",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtkoed9f6z1rv",
@@ -9039,7 +9373,8 @@
       "highestPrice": 0.00000339,
       "trailingActive": false,
       "entryConfidence": 0.3923441996214877,
-      "closeReason": "sell_signal"
+      "closeReason": "sell_signal",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtkqo9icm9o4s",
@@ -9066,7 +9401,8 @@
       "highestPrice": 0.167,
       "trailingActive": true,
       "entryConfidence": 0.4089338505601195,
-      "closeReason": "sell_signal"
+      "closeReason": "sell_signal",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtlq5bhtrg0j5",
@@ -9093,7 +9429,8 @@
       "highestPrice": 1.966,
       "trailingActive": false,
       "entryConfidence": 0.28791921826498074,
-      "closeReason": "sell_signal"
+      "closeReason": "sell_signal",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtmab04wfrtdm",
@@ -9120,7 +9457,8 @@
       "highestPrice": 0.005,
       "trailingActive": false,
       "entryConfidence": 0.3148211600252578,
-      "closeReason": "stop"
+      "closeReason": "stop",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtmx79ouvk2zv",
@@ -9147,7 +9485,8 @@
       "highestPrice": 0.00484,
       "trailingActive": false,
       "entryConfidence": 0.38079145173084733,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtmxmas9bpamv",
@@ -9174,7 +9513,8 @@
       "highestPrice": 1.439,
       "trailingActive": false,
       "entryConfidence": 0.44849782396423266,
-      "closeReason": "manual"
+      "closeReason": "manual",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtmxo0s811n1c",
@@ -9201,7 +9541,8 @@
       "highestPrice": 0.854,
       "trailingActive": false,
       "entryConfidence": 0.4444931968977285,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtmy6xmilhlc7",
@@ -9228,7 +9569,8 @@
       "highestPrice": 0.2145,
       "trailingActive": false,
       "entryConfidence": 0.47949997625259444,
-      "closeReason": "manual"
+      "closeReason": "manual",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtmyw7xkqq1mh",
@@ -9255,7 +9597,8 @@
       "highestPrice": 0.7504,
       "trailingActive": false,
       "entryConfidence": 0.45195386566031237,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtn377wfpehzc",
@@ -9282,7 +9625,8 @@
       "highestPrice": 0.00000348,
       "trailingActive": false,
       "entryConfidence": 0.472173119214423,
-      "closeReason": "manual"
+      "closeReason": "manual",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtn9pfv67reao",
@@ -9309,7 +9653,8 @@
       "highestPrice": 1.411,
       "trailingActive": false,
       "entryConfidence": 0.4333122136927413,
-      "closeReason": "sell_signal"
+      "closeReason": "sell_signal",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtn9pfv6w39bw",
@@ -9336,7 +9681,8 @@
       "highestPrice": 2.271,
       "trailingActive": false,
       "entryConfidence": 0.42699339124305175,
-      "closeReason": "sell_signal"
+      "closeReason": "sell_signal",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtngv0jnsq2pp",
@@ -9363,7 +9709,8 @@
       "highestPrice": 84.26,
       "trailingActive": false,
       "entryConfidence": 0.3198051905315907,
-      "closeReason": "sell_signal"
+      "closeReason": "sell_signal",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtnio9tkcl6x9",
@@ -9390,7 +9737,8 @@
       "highestPrice": 6.09,
       "trailingActive": false,
       "entryConfidence": 0.31987351075517423,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtnk2ska95wcl",
@@ -9417,7 +9765,8 @@
       "highestPrice": 0.2109,
       "trailingActive": false,
       "entryConfidence": 0.3947098511986099,
-      "closeReason": "swapped"
+      "closeReason": "swapped",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtnkd4686f2v7",
@@ -9444,7 +9793,8 @@
       "highestPrice": 6.299,
       "trailingActive": true,
       "entryConfidence": 0.31953635659695423,
-      "closeReason": "sell_signal"
+      "closeReason": "sell_signal",
+      "quoteAsset": "USD"
     },
     {
       "id": "mtnpykqzitgti",
@@ -9471,7 +9821,8 @@
       "highestPrice": 0.2178,
       "trailingActive": false,
       "entryConfidence": 0.387849124622103,
-      "closeReason": "sell_signal"
+      "closeReason": "sell_signal",
+      "quoteAsset": "USD"
     },
     {
       "id": "mto9u26no58l0",
@@ -9498,7 +9849,120 @@
       "highestPrice": 0.00000357,
       "trailingActive": true,
       "entryConfidence": 0.41765523149190986,
-      "closeReason": "sell_signal"
+      "closeReason": "sell_signal",
+      "quoteAsset": "USD"
+    },
+    {
+      "id": "mtp0ic0gkx81r",
+      "symbol": "RVN",
+      "pair": "RVNUSDT",
+      "name": "Ravencoin",
+      "entryPrice": 0.00355,
+      "currentPrice": 0.00355,
+      "quantity": 7042.2535211267605,
+      "investedUsd": 25,
+      "profitPercent": 0,
+      "profitUsd": 0,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "rsi",
+        "bollinger",
+        "vwap",
+        "ml"
+      ],
+      "openedAt": "2026-09-05T23:26:47.632Z",
+      "closedAt": "2026-09-05T23:27:28.244Z",
+      "paperMode": true,
+      "quoteAsset": "USDT",
+      "highestPrice": 0.00355,
+      "trailingActive": false,
+      "entryConfidence": 0.41638680244131004,
+      "closeReason": "manual"
+    },
+    {
+      "id": "mtp0ic0gbd0oq",
+      "symbol": "ZIL",
+      "pair": "ZILUSDT",
+      "name": "Zilliqa",
+      "entryPrice": 0.004802,
+      "currentPrice": 0.004802,
+      "quantity": 5206.164098292378,
+      "investedUsd": 25,
+      "profitPercent": 0,
+      "profitUsd": 0,
+      "status": "closed",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "macd",
+        "ema",
+        "momentum",
+        "ml"
+      ],
+      "openedAt": "2026-09-05T23:26:47.632Z",
+      "closedAt": "2026-09-05T23:27:28.240Z",
+      "paperMode": true,
+      "quoteAsset": "USDT",
+      "highestPrice": 0.004802,
+      "trailingActive": false,
+      "entryConfidence": 0.3593800772456386,
+      "closeReason": "manual"
+    },
+    {
+      "id": "mtp0j8mff311w",
+      "symbol": "ZIL",
+      "pair": "ZILUSDT",
+      "name": "Zilliqa",
+      "entryPrice": 0.004802,
+      "currentPrice": 0.004802,
+      "quantity": 5206.164098292378,
+      "investedUsd": 25,
+      "profitPercent": 0,
+      "profitUsd": 0,
+      "status": "open",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "macd",
+        "ema",
+        "momentum",
+        "ml"
+      ],
+      "openedAt": "2026-09-05T23:27:29.895Z",
+      "closedAt": null,
+      "paperMode": true,
+      "quoteAsset": "USDT",
+      "highestPrice": 0.004802,
+      "trailingActive": false,
+      "entryConfidence": 0.35818309087589145,
+      "closeReason": null
+    },
+    {
+      "id": "mtp0j8mfo6e2s",
+      "symbol": "GRT",
+      "pair": "GRTUSDT",
+      "name": "The Graph",
+      "entryPrice": 0.0179,
+      "currentPrice": 0.0179,
+      "quantity": 1396.6480446927376,
+      "investedUsd": 25,
+      "profitPercent": 0,
+      "profitUsd": 0,
+      "status": "open",
+      "strategy": "Voting Consensus",
+      "winningStrategies": [
+        "macd",
+        "ema",
+        "momentum",
+        "ml"
+      ],
+      "openedAt": "2026-09-05T23:27:29.895Z",
+      "closedAt": null,
+      "paperMode": true,
+      "quoteAsset": "USDT",
+      "highestPrice": 0.0179,
+      "trailingActive": false,
+      "entryConfidence": 0.30175399015165016,
+      "closeReason": null
     }
   ],
   "settings": {
@@ -9511,54 +9975,54 @@
     "voteThreshold": 4
   },
   "botRunning": true,
-  "learningCycles": 1424,
+  "learningCycles": 1432,
   "strategyStats": [
     {
       "id": "rsi",
-      "weight": 1.3045283018867926,
-      "totalSignals": 265,
+      "weight": 1.3007518796992483,
+      "totalSignals": 266,
       "successfulSignals": 121,
       "profitContribution": 291.95026648316303
     },
     {
       "id": "macd",
-      "weight": 0.9557692307692307,
-      "totalSignals": 104,
+      "weight": 0.9495238095238097,
+      "totalSignals": 105,
       "successfulSignals": 31,
       "profitContribution": 57.677651680991374
     },
     {
       "id": "bollinger",
-      "weight": 1.3153846153846156,
-      "totalSignals": 273,
+      "weight": 1.3116788321167885,
+      "totalSignals": 274,
       "successfulSignals": 126,
       "profitContribution": 322.7229023407256
     },
     {
       "id": "ema",
-      "weight": 1.2012048192771085,
-      "totalSignals": 83,
+      "weight": 1.1904761904761905,
+      "totalSignals": 84,
       "successfulSignals": 34,
       "profitContribution": 87.37651079751903
     },
     {
       "id": "vwap",
-      "weight": 1.2986348122866895,
-      "totalSignals": 293,
+      "weight": 1.2952380952380953,
+      "totalSignals": 294,
       "successfulSignals": 133,
       "profitContribution": 348.95170376011487
     },
     {
       "id": "momentum",
-      "weight": 1.06,
-      "totalSignals": 55,
+      "weight": 1.0464285714285715,
+      "totalSignals": 56,
       "successfulSignals": 19,
       "profitContribution": 31.600544563038646
     },
     {
       "id": "ml",
-      "weight": 1.2527065527065528,
-      "totalSignals": 351,
+      "weight": 1.2473087818696884,
+      "totalSignals": 353,
       "successfulSignals": 152,
       "profitContribution": 371.1562482884711
     }
@@ -10741,216 +11205,6 @@
     }
   },
   "balanceHistory": [
-    {
-      "ts": 1788581628497,
-      "balance": 163.59140686764204,
-      "pnl": 63.59140686764201
-    },
-    {
-      "ts": 1788581648212,
-      "balance": 163.59140686764204,
-      "pnl": 63.59140686764201
-    },
-    {
-      "ts": 1788581668220,
-      "balance": 163.59140686764204,
-      "pnl": 63.59140686764201
-    },
-    {
-      "ts": 1788581688521,
-      "balance": 163.59140686764204,
-      "pnl": 63.59140686764201
-    },
-    {
-      "ts": 1788581708526,
-      "balance": 163.59140686764204,
-      "pnl": 63.59140686764201
-    },
-    {
-      "ts": 1788604100596,
-      "balance": 163.59140686764204,
-      "pnl": 63.59140686764201
-    },
-    {
-      "ts": 1788604122297,
-      "balance": 163.59140686764204,
-      "pnl": 63.59140686764201
-    },
-    {
-      "ts": 1788604141960,
-      "balance": 163.59140686764204,
-      "pnl": 63.59140686764201
-    },
-    {
-      "ts": 1788604161963,
-      "balance": 163.59140686764204,
-      "pnl": 63.59140686764201
-    },
-    {
-      "ts": 1788604181951,
-      "balance": 163.59140686764204,
-      "pnl": 63.59140686764201
-    },
-    {
-      "ts": 1788604202260,
-      "balance": 163.59140686764204,
-      "pnl": 63.59140686764201
-    },
-    {
-      "ts": 1788604221976,
-      "balance": 163.59140686764204,
-      "pnl": 63.59140686764201
-    },
-    {
-      "ts": 1788604242271,
-      "balance": 163.59140686764204,
-      "pnl": 63.59140686764201
-    },
-    {
-      "ts": 1788604261975,
-      "balance": 163.59140686764204,
-      "pnl": 63.59140686764201
-    },
-    {
-      "ts": 1788604281973,
-      "balance": 163.59140686764204,
-      "pnl": 63.59140686764201
-    },
-    {
-      "ts": 1788604301983,
-      "balance": 163.59140686764204,
-      "pnl": 63.59140686764201
-    },
-    {
-      "ts": 1788604321972,
-      "balance": 163.59140686764204,
-      "pnl": 63.59140686764201
-    },
-    {
-      "ts": 1788604342274,
-      "balance": 163.59140686764204,
-      "pnl": 63.59140686764201
-    },
-    {
-      "ts": 1788604362303,
-      "balance": 163.59140686764204,
-      "pnl": 63.59140686764201
-    },
-    {
-      "ts": 1788604382290,
-      "balance": 163.59140686764204,
-      "pnl": 63.59140686764201
-    },
-    {
-      "ts": 1788604404565,
-      "balance": 163.59140686764204,
-      "pnl": 63.59140686764201
-    },
-    {
-      "ts": 1788604422301,
-      "balance": 163.59140686764204,
-      "pnl": 63.59140686764201
-    },
-    {
-      "ts": 1788604442285,
-      "balance": 163.59140686764204,
-      "pnl": 63.59140686764201
-    },
-    {
-      "ts": 1788604462285,
-      "balance": 163.59140686764204,
-      "pnl": 63.59140686764201
-    },
-    {
-      "ts": 1788604482313,
-      "balance": 163.59140686764204,
-      "pnl": 63.59140686764201
-    },
-    {
-      "ts": 1788604502031,
-      "balance": 163.59140686764204,
-      "pnl": 63.59140686764201
-    },
-    {
-      "ts": 1788604522307,
-      "balance": 163.59140686764204,
-      "pnl": 63.59140686764201
-    },
-    {
-      "ts": 1788604542296,
-      "balance": 163.59140686764204,
-      "pnl": 63.59140686764201
-    },
-    {
-      "ts": 1788604562015,
-      "balance": 163.59140686764204,
-      "pnl": 63.59140686764201
-    },
-    {
-      "ts": 1788604582011,
-      "balance": 163.59140686764204,
-      "pnl": 63.59140686764201
-    },
-    {
-      "ts": 1788604602026,
-      "balance": 163.59140686764204,
-      "pnl": 63.59140686764201
-    },
-    {
-      "ts": 1788604622028,
-      "balance": 163.59140686764204,
-      "pnl": 63.59140686764201
-    },
-    {
-      "ts": 1788604642008,
-      "balance": 163.59140686764204,
-      "pnl": 63.59140686764201
-    },
-    {
-      "ts": 1788604662366,
-      "balance": 163.59140686764204,
-      "pnl": 63.59140686764201
-    },
-    {
-      "ts": 1788604682054,
-      "balance": 163.59140686764204,
-      "pnl": 63.59140686764201
-    },
-    {
-      "ts": 1788604702071,
-      "balance": 163.59140686764204,
-      "pnl": 63.59140686764201
-    },
-    {
-      "ts": 1788604724358,
-      "balance": 163.59140686764204,
-      "pnl": 63.59140686764201
-    },
-    {
-      "ts": 1788604742371,
-      "balance": 163.59140686764204,
-      "pnl": 63.59140686764201
-    },
-    {
-      "ts": 1788604762101,
-      "balance": 163.59140686764204,
-      "pnl": 63.59140686764201
-    },
-    {
-      "ts": 1788604782083,
-      "balance": 163.59140686764204,
-      "pnl": 63.59140686764201
-    },
-    {
-      "ts": 1788604802093,
-      "balance": 163.59140686764204,
-      "pnl": 63.59140686764201
-    },
-    {
-      "ts": 1788604822099,
-      "balance": 163.59140686764204,
-      "pnl": 63.59140686764201
-    },
     {
       "ts": 1788604842100,
       "balance": 163.59140686764204,
@@ -12900,13 +13154,291 @@
       "ts": 1788650216159,
       "balance": 164.8916275869658,
       "pnl": 64.89162758696575
+    },
+    {
+      "ts": 1788650236167,
+      "balance": 164.8916275869658,
+      "pnl": 64.89162758696575
+    },
+    {
+      "ts": 1788650255869,
+      "balance": 164.8916275869658,
+      "pnl": 64.89162758696575
+    },
+    {
+      "ts": 1788650276158,
+      "balance": 164.8916275869658,
+      "pnl": 64.89162758696575
+    },
+    {
+      "ts": 1788650296158,
+      "balance": 164.8916275869658,
+      "pnl": 64.89162758696575
+    },
+    {
+      "ts": 1788650316168,
+      "balance": 164.8916275869658,
+      "pnl": 64.89162758696575
+    },
+    {
+      "ts": 1788650335897,
+      "balance": 164.8916275869658,
+      "pnl": 64.89162758696575
+    },
+    {
+      "ts": 1788650356159,
+      "balance": 164.8916275869658,
+      "pnl": 64.89162758696575
+    },
+    {
+      "ts": 1788650376182,
+      "balance": 164.8916275869658,
+      "pnl": 64.89162758696575
+    },
+    {
+      "ts": 1788650395878,
+      "balance": 164.8916275869658,
+      "pnl": 64.89162758696575
+    },
+    {
+      "ts": 1788650416163,
+      "balance": 164.8916275869658,
+      "pnl": 64.89162758696575
+    },
+    {
+      "ts": 1788650435881,
+      "balance": 164.8916275869658,
+      "pnl": 64.89162758696575
+    },
+    {
+      "ts": 1788650456174,
+      "balance": 164.8916275869658,
+      "pnl": 64.89162758696575
+    },
+    {
+      "ts": 1788650476177,
+      "balance": 164.8916275869658,
+      "pnl": 64.89162758696575
+    },
+    {
+      "ts": 1788650498761,
+      "balance": 164.8916275869658,
+      "pnl": 64.89162758696575
+    },
+    {
+      "ts": 1788650516171,
+      "balance": 164.8916275869658,
+      "pnl": 64.89162758696575
+    },
+    {
+      "ts": 1788650536191,
+      "balance": 164.8916275869658,
+      "pnl": 64.89162758696575
+    },
+    {
+      "ts": 1788650556179,
+      "balance": 164.8916275869658,
+      "pnl": 64.89162758696575
+    },
+    {
+      "ts": 1788650576186,
+      "balance": 164.8916275869658,
+      "pnl": 64.89162758696575
+    },
+    {
+      "ts": 1788650596199,
+      "balance": 164.8916275869658,
+      "pnl": 64.89162758696575
+    },
+    {
+      "ts": 1788650616207,
+      "balance": 164.8916275869658,
+      "pnl": 64.89162758696575
+    },
+    {
+      "ts": 1788650636187,
+      "balance": 164.8916275869658,
+      "pnl": 64.89162758696575
+    },
+    {
+      "ts": 1788650656185,
+      "balance": 164.8916275869658,
+      "pnl": 64.89162758696575
+    },
+    {
+      "ts": 1788650676232,
+      "balance": 164.8916275869658,
+      "pnl": 64.89162758696575
+    },
+    {
+      "ts": 1788650696200,
+      "balance": 164.8916275869658,
+      "pnl": 64.89162758696575
+    },
+    {
+      "ts": 1788650716196,
+      "balance": 164.8916275869658,
+      "pnl": 64.89162758696575
+    },
+    {
+      "ts": 1788650736228,
+      "balance": 164.8916275869658,
+      "pnl": 64.89162758696575
+    },
+    {
+      "ts": 1788650756204,
+      "balance": 164.8916275869658,
+      "pnl": 64.89162758696575
+    },
+    {
+      "ts": 1788650776219,
+      "balance": 164.8916275869658,
+      "pnl": 64.89162758696575
+    },
+    {
+      "ts": 1788650796225,
+      "balance": 164.8916275869658,
+      "pnl": 64.89162758696575
+    },
+    {
+      "ts": 1788650807632,
+      "balance": 164.8916275869658,
+      "pnl": 64.89162758696575
+    },
+    {
+      "ts": 1788650829869,
+      "balance": 164.8916275869658,
+      "pnl": 64.89162758696575
+    },
+    {
+      "ts": 1788650849895,
+      "balance": 164.8916275869658,
+      "pnl": 64.89162758696575
+    },
+    {
+      "ts": 1788650851760,
+      "balance": 164.8916275869658,
+      "pnl": 64.89162758696575
+    },
+    {
+      "ts": 1788650874012,
+      "balance": 164.8916275869658,
+      "pnl": 64.89162758696575
+    },
+    {
+      "ts": 1788650894004,
+      "balance": 164.8916275869658,
+      "pnl": 64.89162758696575
+    },
+    {
+      "ts": 1788650914001,
+      "balance": 164.8916275869658,
+      "pnl": 64.89162758696575
+    },
+    {
+      "ts": 1788650938787,
+      "balance": 164.8916275869658,
+      "pnl": 64.89162758696575
+    },
+    {
+      "ts": 1788650961049,
+      "balance": 164.8916275869658,
+      "pnl": 64.89162758696575
+    },
+    {
+      "ts": 1788650981027,
+      "balance": 164.8916275869658,
+      "pnl": 64.89162758696575
+    },
+    {
+      "ts": 1788651001091,
+      "balance": 164.8916275869658,
+      "pnl": 64.89162758696575
+    },
+    {
+      "ts": 1788651021086,
+      "balance": 164.8916275869658,
+      "pnl": 64.89162758696575
+    },
+    {
+      "ts": 1788651041055,
+      "balance": 164.8916275869658,
+      "pnl": 64.89162758696575
+    }
+  ],
+  "usdtBalanceHistory": [
+    {
+      "ts": 1788650807632,
+      "balance": 100,
+      "pnl": 0
+    },
+    {
+      "ts": 1788650829870,
+      "balance": 100,
+      "pnl": 0
+    },
+    {
+      "ts": 1788650849895,
+      "balance": 100,
+      "pnl": 0
+    },
+    {
+      "ts": 1788650851760,
+      "balance": 100,
+      "pnl": 0
+    },
+    {
+      "ts": 1788650874012,
+      "balance": 100,
+      "pnl": 0
+    },
+    {
+      "ts": 1788650894004,
+      "balance": 100,
+      "pnl": 0
+    },
+    {
+      "ts": 1788650914001,
+      "balance": 100,
+      "pnl": 0
+    },
+    {
+      "ts": 1788650938787,
+      "balance": 100,
+      "pnl": 0
+    },
+    {
+      "ts": 1788650961049,
+      "balance": 100,
+      "pnl": 0
+    },
+    {
+      "ts": 1788650981027,
+      "balance": 100,
+      "pnl": 0
+    },
+    {
+      "ts": 1788651001091,
+      "balance": 100,
+      "pnl": 0
+    },
+    {
+      "ts": 1788651021086,
+      "balance": 100,
+      "pnl": 0
+    },
+    {
+      "ts": 1788651041055,
+      "balance": 100,
+      "pnl": 0
     }
   ],
   "voteBelowThresholdScans": {
     "mtihu569vjmud": 1,
     "mtit29l9t5w9b": 1,
     "mtiyuqbkjebya": 1,
-    "mtnk2ska95wcl": 1
+    "mtnk2ska95wcl": 1,
+    "mtp0ic0gkx81r": 1
   },
   "stopBannedUntil": {}
 }

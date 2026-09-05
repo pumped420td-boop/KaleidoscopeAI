@@ -338,6 +338,8 @@ components:
           type: string
         symbol:
           type: string
+        pair:
+          type: string
         name:
           type: string
         entryPrice:
@@ -368,6 +370,9 @@ components:
           nullable: true
         paperMode:
           type: boolean
+        quoteAsset:
+          type: string
+          enum: [USD, USDT]
         highestPrice:
           type: number
         trailingActive:
@@ -380,7 +385,7 @@ components:
           nullable: true
           enum: [profit, stop, sell_signal, manual, swapped]
           description: Why the trade was closed
-      required: [id, symbol, name, entryPrice, currentPrice, quantity, investedUsd, profitPercent, profitUsd, status, strategy, winningStrategies, openedAt, paperMode, highestPrice, trailingActive, entryConfidence]
+      required: [id, symbol, pair, name, entryPrice, currentPrice, quantity, investedUsd, profitPercent, profitUsd, status, strategy, winningStrategies, openedAt, paperMode, quoteAsset, highestPrice, trailingActive, entryConfidence]
 
     TradeList:
       type: object
@@ -497,6 +502,9 @@ components:
           type: string
         pair:
           type: string
+        quoteAsset:
+          type: string
+          enum: [USD, USDT]
         name:
           type: string
         price:
@@ -512,7 +520,7 @@ components:
         category:
           type: string
           enum: [crypto, meme]
-      required: [symbol, pair, name, price, change24h, volume24h, high24h, low24h, category]
+      required: [symbol, pair, quoteAsset, name, price, change24h, volume24h, high24h, low24h, category]
 
     TickerResponse:
       type: object
@@ -592,4 +600,24 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/BalanceSnapshot"
-      required: [totalBalance, availableBalance, allocatedBalance, allocatedInTrades, totalPnl, dailyPnl, totalPnlPercent, winRate, totalTrades, paperMode, balanceHistory]
+        usdtStartingBalance:
+          type: number
+        usdtCurrentBalance:
+          type: number
+        usdtAmountInvested:
+          type: number
+        usdtAvailableBalance:
+          type: number
+        usdtRealizedPnl:
+          type: number
+        usdtUnrealizedPnl:
+          type: number
+        usdtTotalPnl:
+          type: number
+        usdtTradeCount:
+          type: integer
+        usdtBalanceHistory:
+          type: array
+          items:
+            $ref: "#/components/schemas/BalanceSnapshot"
+      required: [totalBalance, availableBalance, allocatedBalance, allocatedInTrades, totalPnl, dailyPnl, totalPnlPercent, winRate, totalTrades, paperMode, balanceHistory, usdtStartingBalance, usdtCurrentBalance, usdtAmountInvested, usdtAvailableBalance, usdtRealizedPnl, usdtUnrealizedPnl, usdtTotalPnl, usdtTradeCount, usdtBalanceHistory]

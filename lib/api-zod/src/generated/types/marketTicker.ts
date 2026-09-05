@@ -6,10 +6,12 @@
  * OpenAPI spec version: 0.1.0
  */
 import type { MarketTickerCategory } from './marketTickerCategory';
+import type { MarketTickerQuoteAsset } from './marketTickerQuoteAsset';
 
 export interface MarketTicker {
   symbol: string;
   pair: string;
+  quoteAsset: MarketTickerQuoteAsset;
   name: string;
   price: number;
   change24h: number;

@@ -96,6 +96,7 @@ export const StartBotResponse = zod.object({
   "activeTrades": zod.array(zod.object({
   "id": zod.string(),
   "symbol": zod.string(),
+  "pair": zod.string(),
   "name": zod.string(),
   "entryPrice": zod.number(),
   "currentPrice": zod.number(),
@@ -109,6 +110,7 @@ export const StartBotResponse = zod.object({
   "openedAt": zod.string(),
   "closedAt": zod.string().nullish(),
   "paperMode": zod.boolean(),
+  "quoteAsset": zod.enum(['USD', 'USDT']),
   "highestPrice": zod.number(),
   "trailingActive": zod.boolean(),
   "entryConfidence": zod.number().describe('Voting confidence score (0-1) at the time this trade was opened'),
@@ -132,6 +134,7 @@ export const StopBotResponse = zod.object({
   "activeTrades": zod.array(zod.object({
   "id": zod.string(),
   "symbol": zod.string(),
+  "pair": zod.string(),
   "name": zod.string(),
   "entryPrice": zod.number(),
   "currentPrice": zod.number(),
@@ -145,6 +148,7 @@ export const StopBotResponse = zod.object({
   "openedAt": zod.string(),
   "closedAt": zod.string().nullish(),
   "paperMode": zod.boolean(),
+  "quoteAsset": zod.enum(['USD', 'USDT']),
   "highestPrice": zod.number(),
   "trailingActive": zod.boolean(),
   "entryConfidence": zod.number().describe('Voting confidence score (0-1) at the time this trade was opened'),
@@ -168,6 +172,7 @@ export const GetBotStatusResponse = zod.object({
   "activeTrades": zod.array(zod.object({
   "id": zod.string(),
   "symbol": zod.string(),
+  "pair": zod.string(),
   "name": zod.string(),
   "entryPrice": zod.number(),
   "currentPrice": zod.number(),
@@ -181,6 +186,7 @@ export const GetBotStatusResponse = zod.object({
   "openedAt": zod.string(),
   "closedAt": zod.string().nullish(),
   "paperMode": zod.boolean(),
+  "quoteAsset": zod.enum(['USD', 'USDT']),
   "highestPrice": zod.number(),
   "trailingActive": zod.boolean(),
   "entryConfidence": zod.number().describe('Voting confidence score (0-1) at the time this trade was opened'),
@@ -204,6 +210,7 @@ export const CloseTradeParams = zod.object({
 export const CloseTradeResponse = zod.object({
   "id": zod.string(),
   "symbol": zod.string(),
+  "pair": zod.string(),
   "name": zod.string(),
   "entryPrice": zod.number(),
   "currentPrice": zod.number(),
@@ -217,6 +224,7 @@ export const CloseTradeResponse = zod.object({
   "openedAt": zod.string(),
   "closedAt": zod.string().nullish(),
   "paperMode": zod.boolean(),
+  "quoteAsset": zod.enum(['USD', 'USDT']),
   "highestPrice": zod.number(),
   "trailingActive": zod.boolean(),
   "entryConfidence": zod.number().describe('Voting confidence score (0-1) at the time this trade was opened'),
@@ -241,6 +249,7 @@ export const GetTradesResponse = zod.object({
   "trades": zod.array(zod.object({
   "id": zod.string(),
   "symbol": zod.string(),
+  "pair": zod.string(),
   "name": zod.string(),
   "entryPrice": zod.number(),
   "currentPrice": zod.number(),
@@ -254,6 +263,7 @@ export const GetTradesResponse = zod.object({
   "openedAt": zod.string(),
   "closedAt": zod.string().nullish(),
   "paperMode": zod.boolean(),
+  "quoteAsset": zod.enum(['USD', 'USDT']),
   "highestPrice": zod.number(),
   "trailingActive": zod.boolean(),
   "entryConfidence": zod.number().describe('Voting confidence score (0-1) at the time this trade was opened'),
@@ -318,6 +328,7 @@ export const GetTickerResponse = zod.object({
   "tickers": zod.array(zod.object({
   "symbol": zod.string(),
   "pair": zod.string(),
+  "quoteAsset": zod.enum(['USD', 'USDT']),
   "name": zod.string(),
   "price": zod.number(),
   "change24h": zod.number(),
@@ -345,6 +356,19 @@ export const GetPortfolioResponse = zod.object({
   "totalTrades": zod.number(),
   "paperMode": zod.boolean(),
   "balanceHistory": zod.array(zod.object({
+  "ts": zod.number(),
+  "balance": zod.number(),
+  "pnl": zod.number()
+})),
+  "usdtStartingBalance": zod.number(),
+  "usdtCurrentBalance": zod.number(),
+  "usdtAmountInvested": zod.number(),
+  "usdtAvailableBalance": zod.number(),
+  "usdtRealizedPnl": zod.number(),
+  "usdtUnrealizedPnl": zod.number(),
+  "usdtTotalPnl": zod.number(),
+  "usdtTradeCount": zod.number(),
+  "usdtBalanceHistory": zod.array(zod.object({
   "ts": zod.number(),
   "balance": zod.number(),
   "pnl": zod.number()
