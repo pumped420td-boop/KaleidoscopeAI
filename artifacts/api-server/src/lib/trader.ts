@@ -77,8 +77,12 @@ async function openTrade(
   if (openTrades.length >= store.settings.maxConcurrentTrades) return;
 
   const available = store.getAvailableForTrade(quoteAsset);
-  const perTrade = available / (store.settings.maxConcurrentTrades - openTrades.length);
-  if (perTrade < 10) {
+  // Each slot receives a fixed share of the quote asset's configured
+  // allocation. Do not divide the remaining balance by remaining slots:
+  // with one USD trade open, a first USDT trade must still receive the same
+  // 25% slot size rather than consuming the unused USD slot.
+  const perTrade = store.getAllocatedAmount(quoteAsset) / store.settings.maxConcurrentTrades;
+  if (perTrade < 10 || available < perTrade) {
     logger.warn({ symbol }, "Insufficient balance to open trade");
     return;
   }
