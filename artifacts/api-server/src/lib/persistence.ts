@@ -8,9 +8,13 @@ import { logger } from "./logger.js";
 // Render's persistent disk convention is /data. DATA_DIR remains overrideable
 // for local development or another mounted persistent volume.
 const DATA_DIR = process.env["DATA_DIR"] ??
-  (process.env["RENDER_EXTERNAL_URL"] ? "/data" : join(process.cwd(), "data"));
+  (process.env["RENDER_EXTERNAL_URL"] || process.env["NODE_ENV"] === "production"
+    ? "/data"
+    : join(process.cwd(), "data"));
 const STATE_FILE = join(DATA_DIR, "bot-state.json");
 const STATE_VERSION = 4;
+
+logger.info({ dataDir: DATA_DIR, stateFile: STATE_FILE }, "Persistence storage configured");
 
 interface PersistedStratStat {
   id: string;
@@ -76,7 +80,7 @@ export function saveMlState(): void {
     writeFileSync(tempFile, JSON.stringify(state, null, 2), "utf8");
     renameSync(tempFile, STATE_FILE);
   } catch (err) {
-    logger.warn({ err }, "Failed to save bot state");
+    logger.error({ err, stateFile: STATE_FILE }, "Failed to save bot state");
   }
 }
 
@@ -86,11 +90,17 @@ export function loadMlState(): boolean {
   const legacyFile = join(DATA_DIR, "ml-state.json");
 
   let raw: string | null = null;
-  if (existsSync(STATE_FILE)) {
-    raw = readFileSync(STATE_FILE, "utf8");
-  } else if (existsSync(legacyFile)) {
-    raw = readFileSync(legacyFile, "utf8");
-    logger.info("Loading from legacy ml-state.json");
+  try {
+    if (!existsSync(DATA_DIR)) mkdirSync(DATA_DIR, { recursive: true });
+    if (existsSync(STATE_FILE)) {
+      raw = readFileSync(STATE_FILE, "utf8");
+    } else if (existsSync(legacyFile)) {
+      raw = readFileSync(legacyFile, "utf8");
+      logger.info("Loading from legacy ml-state.json");
+    }
+  } catch (err) {
+    logger.error({ err, stateFile: STATE_FILE }, "Failed to read bot state");
+    return false;
   }
 
   if (!raw) {

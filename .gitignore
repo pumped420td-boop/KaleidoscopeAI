@@ -47,3 +47,9 @@ Thumbs.db
 # Replit
 .cache/
 .local/
+
+# Runtime trading state. Keep this on Render's persistent disk at /data,
+# not in the GitHub source snapshot.
+artifacts/api-server/data/bot-state.json
+artifacts/api-server/data/bot-state.json.tmp
+artifacts/api-server/data/ml-state.json
