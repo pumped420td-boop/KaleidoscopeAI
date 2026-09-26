@@ -15,6 +15,7 @@ const MIN_VOLUME_USD = 500;
 let scanInterval: ReturnType<typeof setInterval> | null = null;
 let votesInterval: ReturnType<typeof setInterval> | null = null;
 let marketInterval: ReturnType<typeof setInterval> | null = null;
+let scanInProgress = false;
 
 async function refreshMarketCache(): Promise<void> {
   try {
@@ -60,6 +61,11 @@ async function openTrade(
   winningStrategies: string[],
   entryConfidence = 0
 ): Promise<void> {
+  if (store.isBanned(symbol)) {
+    logger.debug({ symbol }, "Trade entry rejected — symbol is on cooldown");
+    return;
+  }
+
   const openTrades = store.getOpenTrades();
   if (openTrades.length >= store.settings.maxConcurrentTrades) return;
 
@@ -114,10 +120,14 @@ async function openTrade(
   logger.info({ symbol, price, perTrade, mode: store.settings.mode }, "Trade opened");
 }
 
-export async function closeTrade(trade: StoredTrade, reason: "profit" | "stop" | "sell_signal" | "manual" | "swapped"): Promise<void> {
+export async function closeTrade(
+  trade: StoredTrade,
+  reason: "profit" | "stop" | "sell_signal" | "manual" | "swapped",
+  exitPrice?: number,
+): Promise<void> {
   const quoteAsset = trade.quoteAsset ?? "USD";
   const priceCache = quoteAsset === "USDT" ? store.usdtMarketCache : store.marketCache;
-  const price = priceCache[trade.symbol]?.price ?? trade.currentPrice;
+  const price = exitPrice ?? priceCache[trade.symbol]?.price ?? trade.currentPrice;
 
   if (store.settings.mode === "live") {
     try {
@@ -212,7 +222,15 @@ async function updateActiveTrades(): Promise<void> {
     if (hardDropPct >= store.settings.stopLossPercent) {
       logger.info({ symbol: trade.symbol, hardDropPct: hardDropPct.toFixed(2) }, "Hard stop loss triggered — banning for 1 hour");
       store.banSymbol(trade.symbol, 3_600_000);
-      await closeTrade(trade, "stop");
+      // Paper mode models a stop at the configured threshold even when the
+      // observed market price gaps below it. Live mode keeps the observed
+      // price because the exchange determines the actual market fill.
+      const paperStopPrice = trade.entryPrice * (1 - store.settings.stopLossPercent / 100);
+      await closeTrade(
+        trade,
+        "stop",
+        store.settings.mode === "paper" ? paperStopPrice : undefined,
+      );
       continue;
     }
 
@@ -250,8 +268,9 @@ async function refreshVotesCache(): Promise<void> {
 }
 
 async function scan(): Promise<void> {
-  if (!store.running) return;
+  if (!store.running || scanInProgress) return;
 
+  scanInProgress = true;
   try {
     // Refresh market data
     const pairs = COINS.flatMap((c) => [c.pair, getUsdtPair(c)]);
@@ -273,20 +292,13 @@ async function scan(): Promise<void> {
 
     // Analyze the full current market universe once. The Signals tab should
     // show every valid market pair, while the trading engine can still apply
-    // its liquidity filter to entries and swaps.
+    // its liquidity filter to entries.
     const cachedCoins = COINS.filter((c) => store.marketCache[c.symbol]);
-    const tradableCoins = cachedCoins.filter((c) => {
-      const cached = store.marketCache[c.symbol];
-      return cached && cached.volume24h >= MIN_VOLUME_USD;
-    });
     const allVoteResults = await analyzeCoins(cachedCoins);
 
     // Persist votes cache for the Signals tab
     store.votesCache = allVoteResults;
     store.votesCachedAt = new Date().toISOString();
-
-    const tradableSymbols = new Set(tradableCoins.map((coin) => coin.symbol));
-    const tradableVoteResults = allVoteResults.filter((result) => tradableSymbols.has(result.symbol));
 
     // Require three consecutive valid scans below the configured BUY-vote
     // threshold before closing an open trade. Missing vote results do not
@@ -369,70 +381,14 @@ async function scan(): Promise<void> {
     });
     if (store.usdtBalanceHistory.length > 432) store.usdtBalanceHistory.shift();
 
-    // Swap logic: if all trade slots are full, check whether any idle coin now has
-    // significantly higher vote confidence than the weakest current trade.
-    // Trades with trailingActive=true are NEVER swapped — let them run to their
-    // trailing stop. Only non-trailing trades are candidates for early replacement.
-    const SWAP_MIN_ADVANTAGE = 0.05; // new signal must beat current trade by ≥5%
-    const currentOpen = store.getOpenTrades();
-    if (currentOpen.length >= store.settings.maxConcurrentTrades) {
-      const activeSymbols = new Set(currentOpen.map((t) => t.symbol));
-
-      // Only consider trades that are NOT currently trailing (trailing trades keep running)
-      const swappableTrades = currentOpen.filter((t) => !t.trailingActive);
-
-      if (swappableTrades.length > 0) {
-          const swappableVotes = tradableVoteResults.filter((r) =>
-          swappableTrades.some((t) => t.symbol === r.symbol)
-        );
-        const weakestVote = swappableVotes.sort((a, b) => a.confidence - b.confidence)[0];
-        const weakestTrade = weakestVote
-          ? swappableTrades.find((t) => t.symbol === weakestVote.symbol)
-          : undefined;
-
-        if (weakestTrade && weakestVote) {
-          const bestSwap = allVoteResults
-            .filter((r) => !activeSymbols.has(r.symbol))
-            .filter((r) => !store.isBanned(r.symbol)) // skip coins banned after a hard stop
-            .filter((r) => r.decision === "buy" && r.confidence >= store.settings.voteThreshold / 14)
-            .sort((a, b) => b.confidence - a.confidence)[0];
-
-          if (bestSwap && bestSwap.confidence >= weakestVote.confidence + SWAP_MIN_ADVANTAGE) {
-            logger.info(
-              {
-                closing: weakestTrade.symbol,
-                closingConfidence: weakestVote.confidence.toFixed(3),
-                opening: bestSwap.symbol,
-                openingConfidence: bestSwap.confidence.toFixed(3),
-                trailingProtected: currentOpen.filter((t) => t.trailingActive).map((t) => t.symbol),
-              },
-              "Swapping trade for higher-confidence opportunity"
-            );
-            await closeTrade(weakestTrade, "swapped");
-            const swapStrategies = bestSwap.votes.filter((v) => v.vote === "buy").map((v) => v.strategyId);
-            const selectedMarket = selectMarket(bestSwap.symbol);
-            if (selectedMarket) {
-              await openTrade(
-                bestSwap.symbol,
-                selectedMarket.pair,
-                selectedMarket.quoteAsset,
-                bestSwap.name,
-                selectedMarket.price,
-                swapStrategies,
-                bestSwap.confidence,
-              );
-            }
-          }
-        }
-      }
-    }
-
     // Persist trades, learning state, balances, and vote counters after every
     // completed scan so restarts do not discard the latest state.
     saveMlState();
   } catch (err) {
     logger.error({ err }, "Scan error");
     saveMlState();
+  } finally {
+    scanInProgress = false;
   }
 }
 
