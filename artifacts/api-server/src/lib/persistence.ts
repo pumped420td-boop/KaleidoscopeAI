@@ -41,6 +41,7 @@ interface BotState {
   voteBelowThresholdScans?: Record<string, number>;
   // Temporary entry protection state
   stopBannedUntil?: Record<string, number>;
+  swapBannedUntil?: Record<string, number>;
 }
 
 export function saveMlState(): void {
@@ -69,6 +70,7 @@ export function saveMlState(): void {
       usdtBalanceHistory: store.usdtBalanceHistory,
       voteBelowThresholdScans: store.voteBelowThresholdScans,
       stopBannedUntil: store.stopBannedUntil,
+      swapBannedUntil: store.swapBannedUntil,
     };
     const tempFile = `${STATE_FILE}.tmp`;
     writeFileSync(tempFile, JSON.stringify(state, null, 2), "utf8");
@@ -169,6 +171,9 @@ export function loadMlState(): boolean {
     }
     if (state.stopBannedUntil && typeof state.stopBannedUntil === "object") {
       store.stopBannedUntil = state.stopBannedUntil;
+    }
+    if (state.swapBannedUntil && typeof state.swapBannedUntil === "object") {
+      store.swapBannedUntil = state.swapBannedUntil;
     }
 
     // Return whether the bot should auto-start (only safe for paper mode)

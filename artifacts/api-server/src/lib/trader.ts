@@ -11,6 +11,9 @@ const SCAN_INTERVAL_MS = 20_000;    // 20 seconds
 const VOTES_REFRESH_MS = 20_000;    // background votes refresh when bot is off
 const MARKET_REFRESH_MS = 20_000;   // background market cache refresh when bot is off
 const MIN_VOLUME_USD = 500;
+const SWAP_MIN_ADVANTAGE = 0.05;
+const SWAP_CONFIRMATION_SCANS = 3;
+const SWAP_REENTRY_COOLDOWN_MS = 10 * 60_000;
 
 let scanInterval: ReturnType<typeof setInterval> | null = null;
 let votesInterval: ReturnType<typeof setInterval> | null = null;
@@ -63,6 +66,10 @@ async function openTrade(
 ): Promise<void> {
   if (store.isBanned(symbol)) {
     logger.debug({ symbol }, "Trade entry rejected — symbol is on cooldown");
+    return;
+  }
+  if (store.isSwapBanned(symbol)) {
+    logger.debug({ symbol }, "Trade entry rejected — recent swap cooldown");
     return;
   }
 
@@ -380,6 +387,92 @@ async function scan(): Promise<void> {
       pnl: store.getTotalPnlIncludingOpen("USDT"),
     });
     if (store.usdtBalanceHistory.length > 432) store.usdtBalanceHistory.shift();
+
+    // Preserve the 5% confidence swap strategy while requiring the same
+    // opportunity to persist across three scans. A symbol closed by a swap is
+    // also held out briefly so score oscillation cannot immediately reopen it.
+    const currentOpen = store.getOpenTrades();
+    if (currentOpen.length >= store.settings.maxConcurrentTrades) {
+      const activeSymbols = new Set(currentOpen.map((t) => t.symbol));
+      const swappableTrades = currentOpen.filter((t) => !t.trailingActive);
+
+      if (swappableTrades.length > 0) {
+        const swappableVotes = allVoteResults.filter((r) =>
+          swappableTrades.some((t) => t.symbol === r.symbol)
+        );
+        const weakestVote = [...swappableVotes].sort((a, b) => a.confidence - b.confidence)[0];
+        const weakestTrade = weakestVote
+          ? swappableTrades.find((t) => t.symbol === weakestVote.symbol)
+          : undefined;
+
+        const bestSwap = allVoteResults
+          .filter((r) => !activeSymbols.has(r.symbol))
+          .filter((r) => !store.isBanned(r.symbol) && !store.isSwapBanned(r.symbol))
+          .filter((r) => r.decision === "buy" && r.confidence >= store.settings.voteThreshold / 14)
+          .filter((r) => selectMarket(r.symbol) !== null)
+          .sort((a, b) => b.confidence - a.confidence)[0];
+
+        if (
+          weakestTrade &&
+          weakestVote &&
+          bestSwap &&
+          bestSwap.confidence >= weakestVote.confidence + SWAP_MIN_ADVANTAGE
+        ) {
+          const previous = store.swapConfirmation;
+          if (
+            previous &&
+            previous.closingSymbol === weakestTrade.symbol &&
+            previous.openingSymbol === bestSwap.symbol
+          ) {
+            previous.scans++;
+          } else {
+            store.swapConfirmation = {
+              closingSymbol: weakestTrade.symbol,
+              openingSymbol: bestSwap.symbol,
+              scans: 1,
+            };
+          }
+
+          const confirmation = store.swapConfirmation;
+          if (confirmation && confirmation.scans >= SWAP_CONFIRMATION_SCANS) {
+            const selectedMarket = selectMarket(bestSwap.symbol);
+            if (selectedMarket) {
+              logger.info(
+                {
+                  closing: weakestTrade.symbol,
+                  closingConfidence: weakestVote.confidence.toFixed(3),
+                  opening: bestSwap.symbol,
+                  openingConfidence: bestSwap.confidence.toFixed(3),
+                  confirmedScans: confirmation.scans,
+                },
+                "Swapping trade for sustained higher-confidence opportunity"
+              );
+              store.banAfterSwap(weakestTrade.symbol, SWAP_REENTRY_COOLDOWN_MS);
+              await closeTrade(weakestTrade, "swapped");
+              const swapStrategies = bestSwap.votes
+                .filter((v) => v.vote === "buy")
+                .map((v) => v.strategyId);
+              await openTrade(
+                bestSwap.symbol,
+                selectedMarket.pair,
+                selectedMarket.quoteAsset,
+                bestSwap.name,
+                selectedMarket.price,
+                swapStrategies,
+                bestSwap.confidence,
+              );
+            }
+            store.swapConfirmation = null;
+          }
+        } else {
+          store.swapConfirmation = null;
+        }
+      } else {
+        store.swapConfirmation = null;
+      }
+    } else {
+      store.swapConfirmation = null;
+    }
 
     // Persist trades, learning state, balances, and vote counters after every
     // completed scan so restarts do not discard the latest state.

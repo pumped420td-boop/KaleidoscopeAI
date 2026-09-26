@@ -62,6 +62,12 @@ export interface BalanceSnapshot {
   pnl: number;
 }
 
+export interface SwapConfirmation {
+  closingSymbol: string;
+  openingSymbol: string;
+  scans: number;
+}
+
 export interface OHLCCandle {
   time: number;
   open: number;
@@ -201,6 +207,27 @@ class Store {
 
   banSymbol(symbol: string, durationMs = 3_600_000): void {
     this.stopBannedUntil[symbol] = Date.now() + durationMs;
+  }
+
+  /**
+   * Symbols recently closed by a confidence swap are temporarily excluded
+   * from all new entries so a changing score cannot immediately reopen them.
+   */
+  swapBannedUntil: Record<string, number> = {};
+  swapConfirmation: SwapConfirmation | null = null;
+
+  isSwapBanned(symbol: string): boolean {
+    const until = this.swapBannedUntil[symbol];
+    if (!until) return false;
+    if (Date.now() >= until) {
+      delete this.swapBannedUntil[symbol];
+      return false;
+    }
+    return true;
+  }
+
+  banAfterSwap(symbol: string, durationMs: number): void {
+    this.swapBannedUntil[symbol] = Date.now() + durationMs;
   }
 
   getOpenTrades(quoteAsset?: QuoteAsset): StoredTrade[] {
