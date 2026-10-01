@@ -15,6 +15,17 @@ export interface BotStatus {
   activeTrades: Trade[];
   balance: number;
   allocatedBalance: number;
+  stopLossPercent: number;
+  learningCycles: number;
+  /** USDT cash balance */
+  usdtBalance: number;
+  /** USDT cash plus the current value of open USDT trades */
+  usdtCurrentBalance: number;
+  usdtAllocatedBalance: number;
+  usdtAvailableBalance: number;
+  usdtAmountInvested: number;
+  usdtActiveTradeCount: number;
+  usdtActiveTrades: Trade[];
   lastScanAt?: string | null;
   scanIntervalSeconds: number;
   /** True when all Binance.US market cache entries are less than 30 seconds old */

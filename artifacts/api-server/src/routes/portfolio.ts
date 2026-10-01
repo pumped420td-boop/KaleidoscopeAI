@@ -31,6 +31,7 @@ router.get("/portfolio", (_req, res) => {
     balanceHistory: store.balanceHistory,
     usdtStartingBalance: 100,
     usdtCurrentBalance,
+    usdtBalance: store.getBalance("USDT"),
     usdtAmountInvested: usdtInvested,
     usdtAvailableBalance: usdtAvailable,
     usdtRealizedPnl,

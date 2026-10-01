@@ -56,11 +56,11 @@ export function BotProvider({ children }: { children: React.ReactNode }) {
   });
 
   const handleStart = useCallback(() => {
-    startMutation.mutate({});
+    startMutation.mutate();
   }, [startMutation]);
 
   const handleStop = useCallback(() => {
-    stopMutation.mutate({});
+    stopMutation.mutate();
   }, [stopMutation]);
 
   return (

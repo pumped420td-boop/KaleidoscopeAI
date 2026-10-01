@@ -551,6 +551,28 @@ components:
           type: number
         allocatedBalance:
           type: number
+        stopLossPercent:
+          type: number
+        learningCycles:
+          type: integer
+        usdtBalance:
+          type: number
+          description: USDT cash balance
+        usdtCurrentBalance:
+          type: number
+          description: USDT cash plus the current value of open USDT trades
+        usdtAllocatedBalance:
+          type: number
+        usdtAvailableBalance:
+          type: number
+        usdtAmountInvested:
+          type: number
+        usdtActiveTradeCount:
+          type: integer
+        usdtActiveTrades:
+          type: array
+          items:
+            $ref: "#/components/schemas/Trade"
         lastScanAt:
           type: string
           nullable: true
@@ -559,7 +581,7 @@ components:
         priceFeedFresh:
           type: boolean
           description: True when all Binance.US market cache entries are less than 30 seconds old
-      required: [running, mode, activeTradeCount, activeTrades, balance, allocatedBalance, scanIntervalSeconds]
+      required: [running, mode, activeTradeCount, activeTrades, balance, allocatedBalance, stopLossPercent, learningCycles, usdtBalance, usdtCurrentBalance, usdtAllocatedBalance, usdtAvailableBalance, usdtAmountInvested, usdtActiveTradeCount, usdtActiveTrades, scanIntervalSeconds]
 
     BalanceSnapshot:
       type: object
@@ -604,6 +626,9 @@ components:
           type: number
         usdtCurrentBalance:
           type: number
+        usdtBalance:
+          type: number
+          description: USDT cash balance
         usdtAmountInvested:
           type: number
         usdtAvailableBalance:
@@ -620,4 +645,4 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/BalanceSnapshot"
-      required: [totalBalance, availableBalance, allocatedBalance, allocatedInTrades, totalPnl, dailyPnl, totalPnlPercent, winRate, totalTrades, paperMode, balanceHistory, usdtStartingBalance, usdtCurrentBalance, usdtAmountInvested, usdtAvailableBalance, usdtRealizedPnl, usdtUnrealizedPnl, usdtTotalPnl, usdtTradeCount, usdtBalanceHistory]
+      required: [totalBalance, availableBalance, allocatedBalance, allocatedInTrades, totalPnl, dailyPnl, totalPnlPercent, winRate, totalTrades, paperMode, balanceHistory, usdtStartingBalance, usdtCurrentBalance, usdtBalance, usdtAmountInvested, usdtAvailableBalance, usdtRealizedPnl, usdtUnrealizedPnl, usdtTotalPnl, usdtTradeCount, usdtBalanceHistory]

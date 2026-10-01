@@ -88,7 +88,7 @@ export default function SettingsScreen() {
   const handleDeleteKeys = () => {
     Alert.alert("Remove API Keys", "This will also switch to paper trading mode.", [
       { text: "Cancel", style: "cancel" },
-      { text: "Remove", style: "destructive", onPress: () => deleteKeys.mutate({}) },
+      { text: "Remove", style: "destructive", onPress: () => deleteKeys.mutate() },
     ]);
   };
 

@@ -22,6 +22,8 @@ export interface Portfolio {
   balanceHistory: BalanceSnapshot[];
   usdtStartingBalance: number;
   usdtCurrentBalance: number;
+  /** USDT cash balance */
+  usdtBalance: number;
   usdtAmountInvested: number;
   usdtAvailableBalance: number;
   usdtRealizedPnl: number;

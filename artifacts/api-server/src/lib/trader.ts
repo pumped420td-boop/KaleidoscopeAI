@@ -13,6 +13,7 @@ const MARKET_REFRESH_MS = 20_000;   // background market cache refresh when bot 
 const MIN_VOLUME_USD = 500;
 const SWAP_MIN_ADVANTAGE = 0.05;
 const SWAP_CONFIRMATION_SCANS = 3;
+const VOTE_EXIT_CONFIRMATION_SCANS = 5;
 const SWAP_REENTRY_COOLDOWN_MS = 10 * 60_000;
 
 let scanInterval: ReturnType<typeof setInterval> | null = null;
@@ -192,7 +193,7 @@ export async function closeTrade(
 
 // Cached prices older than this require an emergency direct fetch before any
 // exit decision can be made — stale data must never be treated as current.
-const PRICE_STALE_MS = 90_000; // 90 seconds ≈ 4.5 scan cycles
+const PRICE_STALE_MS = 15_000; // fetch a position-specific price when the latest scan ticker is stale
 
 async function updateActiveTrades(): Promise<void> {
   const open = store.getOpenTrades();
@@ -229,8 +230,9 @@ async function updateActiveTrades(): Promise<void> {
     trade.profitUsd = trade.quantity * price - trade.investedUsd;
 
     // Hard stop loss
+    const stopLossPrice = trade.entryPrice * (1 - store.settings.stopLossPercent / 100);
     const hardDropPct = ((trade.entryPrice - price) / trade.entryPrice) * 100;
-    if (hardDropPct >= store.settings.stopLossPercent) {
+    if (price <= stopLossPrice) {
       logger.info({ symbol: trade.symbol, hardDropPct: hardDropPct.toFixed(2) }, "Hard stop loss triggered — banning for 1 hour");
       store.banSymbol(trade.symbol, 3_600_000);
       // Paper mode models a stop at the configured threshold even when the
@@ -285,7 +287,13 @@ async function scan(): Promise<void> {
   try {
     // Refresh market data
     const pairs = COINS.flatMap((c) => [c.pair, getUsdtPair(c)]);
-    await updateTickerCache(pairs);
+    let marketDataUpdated = false;
+    try {
+      await updateTickerCache(pairs);
+      marketDataUpdated = true;
+    } catch (err) {
+      logger.warn({ err }, "Market refresh failed — checking open positions with fresh individual prices");
+    }
 
     // Update live balance if needed
     if (store.settings.mode === "live" && store.apiKey && store.apiSecret) {
@@ -300,6 +308,13 @@ async function scan(): Promise<void> {
 
     // Update open trade prices + check exits
     await updateActiveTrades();
+    if (!marketDataUpdated) {
+      // Do not make vote or entry decisions on stale market data, but never
+      // skip stop-loss checks just because the broad ticker refresh failed.
+      store.lastScanAt = new Date().toISOString();
+      saveMlState();
+      return;
+    }
 
     // Analyze the full current market universe once. The Signals tab should
     // show every valid market pair, while the trading engine can still apply
@@ -327,10 +342,15 @@ async function scan(): Promise<void> {
           { symbol: trade.symbol, buyVotes, threshold: store.settings.voteThreshold, lowVoteScans },
           "Open trade below vote threshold"
         );
-        if (lowVoteScans >= 3) {
+        if (lowVoteScans >= VOTE_EXIT_CONFIRMATION_SCANS) {
           logger.info(
-            { symbol: trade.symbol, buyVotes, threshold: store.settings.voteThreshold },
-            "Closing trade after three consecutive below-threshold scans"
+            {
+              symbol: trade.symbol,
+              buyVotes,
+              threshold: store.settings.voteThreshold,
+              confirmationScans: lowVoteScans,
+            },
+            "Closing trade after five consecutive below-threshold scans"
           );
           await closeTrade(trade, "sell_signal");
           delete store.voteBelowThresholdScans[trade.id];
