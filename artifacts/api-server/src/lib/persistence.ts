@@ -13,7 +13,7 @@ const DATA_DIR = process.env["DATA_DIR"] ??
     ? "/data"
     : join(process.cwd(), "data"));
 const STATE_FILE = join(DATA_DIR, "bot-state.json");
-const STATE_VERSION = 5;
+const STATE_VERSION = 6;
 
 logger.info({ dataDir: DATA_DIR, stateFile: STATE_FILE }, "Persistence storage configured");
 
@@ -69,6 +69,7 @@ interface BotState {
   // Temporary entry protection state
   stopBannedUntil?: Record<string, number>;
   swapBannedUntil?: Record<string, number>;
+  sellSignalBannedUntil?: Record<string, number>;
   swapConfirmation?: SwapConfirmation | null;
 }
 
@@ -99,6 +100,7 @@ export function saveMlState(): void {
       voteBelowThresholdScans: store.voteBelowThresholdScans,
       stopBannedUntil: store.stopBannedUntil,
       swapBannedUntil: store.swapBannedUntil,
+      sellSignalBannedUntil: store.sellSignalBannedUntil,
       swapConfirmation: store.swapConfirmation,
     };
     const tempFile = `${STATE_FILE}.tmp`;
@@ -201,14 +203,24 @@ export function loadMlState(): boolean {
     if (Array.isArray(state.usdtBalanceHistory)) {
       store.usdtBalanceHistory = state.usdtBalanceHistory;
     }
-    if (state.voteBelowThresholdScans && typeof state.voteBelowThresholdScans === "object") {
-      store.voteBelowThresholdScans = state.voteBelowThresholdScans;
-    }
     if (state.stopBannedUntil && typeof state.stopBannedUntil === "object") {
       store.stopBannedUntil = state.stopBannedUntil;
     }
     if (state.swapBannedUntil && typeof state.swapBannedUntil === "object") {
       store.swapBannedUntil = state.swapBannedUntil;
+    }
+    if (state.version >= STATE_VERSION) {
+      if (state.voteBelowThresholdScans && typeof state.voteBelowThresholdScans === "object") {
+        store.voteBelowThresholdScans = state.voteBelowThresholdScans;
+      }
+      if (state.sellSignalBannedUntil && typeof state.sellSignalBannedUntil === "object") {
+        store.sellSignalBannedUntil = state.sellSignalBannedUntil;
+      }
+    } else {
+      // Do not carry partial raw-vote exit counts into the new weighted-signal
+      // rule; their meaning changed with the state-format upgrade.
+      store.voteBelowThresholdScans = {};
+      store.sellSignalBannedUntil = {};
     }
     if (
       state.swapConfirmation &&

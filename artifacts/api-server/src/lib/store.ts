@@ -178,8 +178,7 @@ class Store {
   // Pre-computed votes cache — updated in background, served instantly from GET /strategies/votes
   votesCache: import("./voting.js").VoteResult[] = [];
   votesCachedAt: string | null = null;
-  // Consecutive completed scans where an open trade was below the configured
-  // minimum BUY-vote threshold.
+  // Consecutive completed scans where an open trade no longer met entry criteria.
   voteBelowThresholdScans: Record<string, number> = {};
 
   balanceHistory: BalanceSnapshot[] = [];
@@ -207,6 +206,23 @@ class Store {
 
   banSymbol(symbol: string, durationMs = 3_600_000): void {
     this.stopBannedUntil[symbol] = Date.now() + durationMs;
+  }
+
+  /** Recently sell-signal-closed symbols are held out to prevent signal churn. */
+  sellSignalBannedUntil: Record<string, number> = {};
+
+  isSellSignalBanned(symbol: string): boolean {
+    const until = this.sellSignalBannedUntil[symbol];
+    if (!until) return false;
+    if (Date.now() >= until) {
+      delete this.sellSignalBannedUntil[symbol];
+      return false;
+    }
+    return true;
+  }
+
+  banAfterSellSignal(symbol: string, durationMs: number): void {
+    this.sellSignalBannedUntil[symbol] = Date.now() + durationMs;
   }
 
   /**

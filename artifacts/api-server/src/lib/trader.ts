@@ -14,6 +14,7 @@ const MIN_VOLUME_USD = 500;
 const SWAP_MIN_ADVANTAGE = 0.05;
 const SWAP_CONFIRMATION_SCANS = 3;
 const VOTE_EXIT_CONFIRMATION_SCANS = 5;
+const SELL_SIGNAL_REENTRY_COOLDOWN_MS = 5 * 60_000;
 const SWAP_REENTRY_COOLDOWN_MS = 10 * 60_000;
 
 let scanInterval: ReturnType<typeof setInterval> | null = null;
@@ -56,6 +57,13 @@ function generateId(): string {
   return Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
 }
 
+function meetsEntryCriteria(
+  result: { decision: string; confidence: number },
+  voteThreshold: number,
+): boolean {
+  return result.decision === "buy" && result.confidence >= voteThreshold / 14;
+}
+
 async function openTrade(
   symbol: string,
   pair: string,
@@ -71,6 +79,10 @@ async function openTrade(
   }
   if (store.isSwapBanned(symbol)) {
     logger.debug({ symbol }, "Trade entry rejected — recent swap cooldown");
+    return;
+  }
+  if (store.isSellSignalBanned(symbol)) {
+    logger.debug({ symbol }, "Trade entry rejected — recent sell-signal cooldown");
     return;
   }
 
@@ -160,6 +172,9 @@ export async function closeTrade(
   trade.status = reason === "stop" ? "stopped" : "closed";
   trade.closedAt = new Date().toISOString();
   trade.closeReason = reason;
+  if (reason === "sell_signal") {
+    store.banAfterSellSignal(trade.symbol, SELL_SIGNAL_REENTRY_COOLDOWN_MS);
+  }
 
   if (store.settings.mode === "paper") {
     if (quoteAsset === "USDT") store.paperUsdtBalance += exitValue;
@@ -326,31 +341,39 @@ async function scan(): Promise<void> {
     store.votesCache = allVoteResults;
     store.votesCachedAt = new Date().toISOString();
 
-    // Require three consecutive valid scans below the configured BUY-vote
-    // threshold before closing an open trade. Missing vote results do not
-    // count as a low-vote scan.
+    // Exit only after five consecutive valid scans fail the same weighted
+    // decision/confidence test used to open a trade. Missing votes do not count.
     const votesBySymbol = new Map(allVoteResults.map((result) => [result.symbol, result]));
     for (const trade of store.getOpenTrades()) {
       const voteResult = votesBySymbol.get(trade.symbol);
       if (!voteResult) continue;
 
       const buyVotes = voteResult.votes.filter((vote) => vote.vote === "buy").length;
-      if (buyVotes < store.settings.voteThreshold) {
+      if (!meetsEntryCriteria(voteResult, store.settings.voteThreshold)) {
         const lowVoteScans = (store.voteBelowThresholdScans[trade.id] ?? 0) + 1;
         store.voteBelowThresholdScans[trade.id] = lowVoteScans;
         logger.info(
-          { symbol: trade.symbol, buyVotes, threshold: store.settings.voteThreshold, lowVoteScans },
-          "Open trade below vote threshold"
+          {
+            symbol: trade.symbol,
+            buyVotes,
+            threshold: store.settings.voteThreshold,
+            decision: voteResult.decision,
+            confidence: voteResult.confidence,
+            minimumConfidence: store.settings.voteThreshold / 14,
+            lowVoteScans,
+          },
+          "Open trade no longer meets entry criteria"
         );
         if (lowVoteScans >= VOTE_EXIT_CONFIRMATION_SCANS) {
           logger.info(
             {
               symbol: trade.symbol,
-              buyVotes,
-              threshold: store.settings.voteThreshold,
+              decision: voteResult.decision,
+              confidence: voteResult.confidence.toFixed(3),
+              minimumConfidence: (store.settings.voteThreshold / 14).toFixed(3),
               confirmationScans: lowVoteScans,
             },
-            "Closing trade after five consecutive below-threshold scans"
+            "Closing trade after five consecutive scans below entry criteria"
           );
           await closeTrade(trade, "sell_signal");
           delete store.voteBelowThresholdScans[trade.id];
@@ -364,14 +387,11 @@ async function scan(): Promise<void> {
     const openTrades = store.getOpenTrades();
     if (openTrades.length < store.settings.maxConcurrentTrades) {
       const activeSymbols = new Set(openTrades.map((t) => t.symbol));
-      // Trust the weighted voting engine's decision — no secondary raw-count gate.
-      // voteThreshold is now a minimum confidence % (scaled: threshold/7) so the
-      // setting still gives users control without blocking every weighted buy signal.
-      const minConfidence = store.settings.voteThreshold / 14; // 4/14 ≈ 0.29 default
       const buySignals = allVoteResults
         .filter((r) => !activeSymbols.has(r.symbol))
         .filter((r) => !store.isBanned(r.symbol)) // skip coins banned after a hard stop
-        .filter((r) => r.decision === "buy" && r.confidence >= minConfidence)
+        .filter((r) => !store.isSellSignalBanned(r.symbol))
+        .filter((r) => meetsEntryCriteria(r, store.settings.voteThreshold))
         .sort((a, b) => b.confidence - a.confidence);
 
       for (const signal of buySignals) {
@@ -431,8 +451,12 @@ async function scan(): Promise<void> {
 
         const bestSwap = allVoteResults
           .filter((r) => !activeSymbols.has(r.symbol))
-          .filter((r) => !store.isBanned(r.symbol) && !store.isSwapBanned(r.symbol))
-          .filter((r) => r.decision === "buy" && r.confidence >= store.settings.voteThreshold / 14)
+          .filter((r) =>
+            !store.isBanned(r.symbol) &&
+            !store.isSwapBanned(r.symbol) &&
+            !store.isSellSignalBanned(r.symbol)
+          )
+          .filter((r) => meetsEntryCriteria(r, store.settings.voteThreshold))
           .filter((r) => selectMarket(r.symbol) !== null)
           .sort((a, b) => b.confidence - a.confidence)[0];
 
