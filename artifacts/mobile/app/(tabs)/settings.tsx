@@ -61,7 +61,7 @@ export default function SettingsScreen() {
   const [allocation, setAllocation] = useState("50");
   const [profitTarget, setProfitTarget] = useState("5");
   const [trailingStop, setTrailingStop] = useState("2");
-  const [stopLossPercent, setStopLossPercent] = useState("7");
+  const [stopLossPercent, setStopLossPercent] = useState("2");
   const [voteThreshold, setVoteThreshold] = useState("4");
 
   useEffect(() => {
@@ -69,7 +69,7 @@ export default function SettingsScreen() {
       setAllocation(String(settings.allocation));
       setProfitTarget(String(settings.profitTarget));
       setTrailingStop(String(settings.trailingStop));
-      setStopLossPercent(String(settings.stopLossPercent ?? 7));
+      setStopLossPercent(String(settings.stopLossPercent ?? 2));
       setVoteThreshold(String(settings.voteThreshold));
     }
   }, [settings]);
@@ -100,7 +100,7 @@ export default function SettingsScreen() {
         mode: settings?.mode ?? "paper",
         profitTarget: parseFloat(profitTarget) || 5,
         trailingStop: parseFloat(trailingStop) || 2,
-        stopLossPercent: parseFloat(stopLossPercent) || 7,
+        stopLossPercent: parseFloat(stopLossPercent) || 2,
         maxConcurrentTrades: settings?.maxConcurrentTrades ?? 2,
         voteThreshold: parseInt(voteThreshold) || 4,
       },
@@ -116,7 +116,7 @@ export default function SettingsScreen() {
       allocation: settings?.allocation ?? 50,
       profitTarget: settings?.profitTarget ?? 5,
       trailingStop: settings?.trailingStop ?? 2,
-      stopLossPercent: settings?.stopLossPercent ?? 7,
+      stopLossPercent: settings?.stopLossPercent ?? 2,
       maxConcurrentTrades: settings?.maxConcurrentTrades ?? 2,
       voteThreshold: settings?.voteThreshold ?? 4,
     };

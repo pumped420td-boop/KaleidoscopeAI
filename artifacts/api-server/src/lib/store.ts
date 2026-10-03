@@ -87,7 +87,7 @@ class Store {
     mode: "paper",
     profitTarget: 5,
     trailingStop: 2,
-    stopLossPercent: 7,
+    stopLossPercent: 2,
     maxConcurrentTrades: 2,
     voteThreshold: 4,
   };
