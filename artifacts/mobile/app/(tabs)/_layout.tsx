@@ -1,6 +1,6 @@
 import { Tabs } from "expo-router";
 import { isLiquidGlassAvailable } from "expo-glass-effect";
-import { Icon, Label, NativeTabs } from "expo-router/unstable-native-tabs";
+import { NativeTabs } from "expo-router/unstable-native-tabs";
 import { Feather } from "@expo/vector-icons";
 import { BlurView } from "expo-blur";
 import React from "react";
@@ -11,24 +11,24 @@ function NativeTabLayout() {
   return (
     <NativeTabs>
       <NativeTabs.Trigger name="index">
-        <Icon sf={{ default: "house", selected: "house.fill" }} />
-        <Label>Dashboard</Label>
+        <NativeTabs.Trigger.Icon sf={{ default: "house", selected: "house.fill" }} />
+        <NativeTabs.Trigger.Label>Dashboard</NativeTabs.Trigger.Label>
       </NativeTabs.Trigger>
       <NativeTabs.Trigger name="trades">
-        <Icon sf={{ default: "arrow.up.arrow.down", selected: "arrow.up.arrow.down.circle.fill" }} />
-        <Label>Trades</Label>
+        <NativeTabs.Trigger.Icon sf={{ default: "arrow.up.arrow.down", selected: "arrow.up.arrow.down.circle.fill" }} />
+        <NativeTabs.Trigger.Label>Trades</NativeTabs.Trigger.Label>
       </NativeTabs.Trigger>
       <NativeTabs.Trigger name="signals">
-        <Icon sf={{ default: "bolt", selected: "bolt.fill" }} />
-        <Label>Signals</Label>
+        <NativeTabs.Trigger.Icon sf={{ default: "bolt", selected: "bolt.fill" }} />
+        <NativeTabs.Trigger.Label>Signals</NativeTabs.Trigger.Label>
       </NativeTabs.Trigger>
       <NativeTabs.Trigger name="market">
-        <Icon sf={{ default: "chart.bar", selected: "chart.bar.fill" }} />
-        <Label>Market</Label>
+        <NativeTabs.Trigger.Icon sf={{ default: "chart.bar", selected: "chart.bar.fill" }} />
+        <NativeTabs.Trigger.Label>Market</NativeTabs.Trigger.Label>
       </NativeTabs.Trigger>
       <NativeTabs.Trigger name="settings">
-        <Icon sf={{ default: "slider.horizontal.3", selected: "slider.horizontal.3" }} />
-        <Label>Settings</Label>
+        <NativeTabs.Trigger.Icon sf={{ default: "slider.horizontal.3", selected: "slider.horizontal.3" }} />
+        <NativeTabs.Trigger.Label>Settings</NativeTabs.Trigger.Label>
       </NativeTabs.Trigger>
     </NativeTabs>
   );

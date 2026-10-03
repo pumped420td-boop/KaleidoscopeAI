@@ -4,3 +4,4 @@
 - [Binance.US active universe](binance-active-universe.md) — exchangeInfo status and nonzero ticker price must both be checked; TRADING symbols can still return lastPrice 0.
 - [Vote display universe](vote-display-universe.md) — Live Votes shows every valid market pair; liquidity thresholds remain for trade eligibility only.
 - [Trade-signal churn](trade-signal-churn.md) — use identical weighted entry/exit criteria and a persisted cooldown after sell-signal exits.
+- [Git shell authentication](git-shell-auth.md) — Git provider reconnects may not refresh Replit's shell askpass; verify shell auth separately before retrying pushes.
