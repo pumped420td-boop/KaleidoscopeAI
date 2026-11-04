@@ -1,9 +1,42 @@
 import { Router } from "express";
 import { store } from "../lib/store.js";
+import { fetchBalance } from "../lib/binance.js";
+import { logger } from "../lib/logger.js";
 
 const router = Router();
+const BALANCE_REFRESH_TTL_MS = 15_000;
+let lastBalanceRefreshAt = 0;
+let balanceRefreshInFlight: Promise<void> | null = null;
 
-router.get("/portfolio", (_req, res) => {
+async function refreshLiveBalancesIfNeeded(): Promise<void> {
+  if (store.settings.mode !== "live" || !store.apiKey || !store.apiSecret) return;
+  if (balanceRefreshInFlight) {
+    await balanceRefreshInFlight;
+    return;
+  }
+  if (Date.now() - lastBalanceRefreshAt < BALANCE_REFRESH_TTL_MS) return;
+
+  const refresh = (async () => {
+    try {
+      const balances = await fetchBalance();
+      const usd = Number.parseFloat(balances.USD ?? "0");
+      const usdt = Number.parseFloat(balances.USDT ?? "0");
+      store.liveBalance = Number.isFinite(usd) ? usd : 0;
+      store.liveUsdtBalance = Number.isFinite(usdt) ? usdt : 0;
+    } catch (err) {
+      logger.warn({ err }, "Live Binance.US balance refresh failed");
+    } finally {
+      lastBalanceRefreshAt = Date.now();
+      balanceRefreshInFlight = null;
+    }
+  })();
+  balanceRefreshInFlight = refresh;
+  await refresh;
+}
+
+router.get("/portfolio", async (_req, res) => {
+  await refreshLiveBalancesIfNeeded();
+
   const totalBalance = store.getBalance();
   const allocatedBalance = store.getAllocatedAmount();
   const allocatedInTrades = store.getAmountInTrades();
