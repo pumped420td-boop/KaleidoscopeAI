@@ -1,7 +1,7 @@
- { store } from "./store.js";
+import { store } from "./store.js";
 import { COINS, getUsdtPair } from "./coins.js";
 import { analyzeCoins } from "./voting.js";
-import { updateTickerCache, fetchUsdBalimportance, fetchUsdtBalance, placeMarketBuy, placeMarketSell, fetchSymbolPrice } from "./binance.js";
+import { updateTickerCache, fetchUsdBalance, fetchUsdtBalance, placeMarketBuy, placeMarketSell, fetchSymbolPrice } from "./binance.js";
 import { encodePattern, recordPatternOutcome } from "./strategies/ml.js";
 import { saveMlState } from "./persistence.js";
 import { logger } from "./logger.js";
@@ -100,11 +100,16 @@ async function openTrade(
     return;
   }
 
-  const quantity = perTrade / price;
+  let quantity = perTrade / price;
 
   if (store.settings.mode === "live") {
     try {
-      await placeMarketBuy(pair, quantity.toFixed(8));
+      const order = await placeMarketBuy(pair, perTrade.toFixed(2));
+      const executedQuantity = Number.parseFloat(order.executedQty);
+      if (!Number.isFinite(executedQuantity) || executedQuantity <= 0) {
+        throw new Error(`Invalid executedQty from Binance: ${order.executedQty}`);
+      }
+      quantity = executedQuantity;
     } catch (err) {
       logger.error({ err, symbol }, "Failed to place live buy order");
       return;

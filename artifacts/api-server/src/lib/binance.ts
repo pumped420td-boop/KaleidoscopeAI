@@ -133,24 +133,60 @@ export interface OrderResult {
   descr: { order: string };
 }
 
-export async function placeMarketBuy(pair: string, quoteQty: string): Promise<OrderResult> {
-  await privateRequest("/api/v3/order", {
+export async function placeMarketBuy(
+  pair: string,
+  quoteOrderQty: string,
+): Promise<{ executedQty: string }> {
+  return privateRequest<{ executedQty: string }>("/api/v3/order", {
     symbol: pair,
     side: "BUY",
     type: "MARKET",
-    quoteOrderQty: quoteQty,
+    quoteOrderQty,
   }, "POST");
-  return { txid: [`${pair}-buy-${Date.now()}`], descr: { order: `BUY $${quoteQty} of ${pair}` } };
 }
 
 export async function placeMarketSell(pair: string, quantity: string): Promise<OrderResult> {
+  const qty = Number.parseFloat(quantity);
+  if (!Number.isFinite(qty) || qty <= 0) {
+    throw new Error(`Invalid sell quantity for ${pair}: ${quantity}`);
+  }
+
+  const exchangeInfo = await publicGet<{
+    symbols: Array<{
+      symbol: string;
+      filters: Array<{ filterType: string; stepSize?: string }>;
+    }>;
+  }>("/api/v3/exchangeInfo", { symbol: pair });
+  const pairInfo = exchangeInfo.symbols.find((item) => item.symbol === pair);
+  const marketStepSize = pairInfo?.filters.find(
+    (filter) => filter.filterType === "MARKET_LOT_SIZE",
+  )?.stepSize;
+  const lotStepSize = pairInfo?.filters.find(
+    (filter) => filter.filterType === "LOT_SIZE",
+  )?.stepSize;
+  const stepSizeText =
+    marketStepSize && Number(marketStepSize) > 0 ? marketStepSize : lotStepSize;
+  const stepSize = stepSizeText ? Number(stepSizeText) : 0;
+  if (!stepSizeText || !Number.isFinite(stepSize) || stepSize <= 0) {
+    throw new Error(`Could not find a valid sell stepSize for ${pair}`);
+  }
+
+  const roundedQty = Math.floor(qty / stepSize) * stepSize;
+  if (!Number.isFinite(roundedQty) || roundedQty <= 0) {
+    throw new Error(`Sell quantity for ${pair} is below stepSize ${stepSizeText}`);
+  }
+  const stepSizeDecimals = stepSizeText.includes(".")
+    ? stepSizeText.split(".")[1].length
+    : 0;
+  const roundedQuantity = roundedQty.toFixed(stepSizeDecimals);
+
   await privateRequest("/api/v3/order", {
     symbol: pair,
     side: "SELL",
     type: "MARKET",
-    quantity,
+    quantity: roundedQuantity,
   }, "POST");
-  return { txid: [`${pair}-sell-${Date.now()}`], descr: { order: `SELL ${quantity} of ${pair}` } };
+  return { txid: [`${pair}-sell-${Date.now()}`], descr: { order: `SELL ${roundedQuantity} of ${pair}` } };
 }
 
 /** Fetch the latest traded price for a single pair directly from Binance.US. */
