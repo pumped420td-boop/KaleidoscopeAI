@@ -10,7 +10,6 @@ import { setBaseUrl } from "@workspace/api-client-react";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import React, { useEffect } from "react";
-import { Platform } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { KeyboardProvider } from "react-native-keyboard-controller";
 import { SafeAreaProvider } from "react-native-safe-area-context";
@@ -18,14 +17,8 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { BotProvider } from "@/contexts/BotContext";
 
-// Native (Expo Go / standalone) → KaleidoscopeAI backend on Render.
-// Web (Replit preview in browser) → relative URLs; browser resolves against
-// the same host automatically so no base URL is needed.
-setBaseUrl(
-  Platform.OS === "web"
-    ? "" // empty → custom-fetch uses relative paths, browser resolves host
-    : "https://kaleidoscopeai.onrender.com"
-);
+// Use the production Render API for native and web clients.
+setBaseUrl("https://kaleidoscopeai.onrender.com");
 
 SplashScreen.preventAutoHideAsync();
 
