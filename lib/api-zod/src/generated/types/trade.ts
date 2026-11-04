@@ -5,7 +5,7 @@
  * Binance.US Trading Bot API
  * OpenAPI spec version: 0.1.0
  */
-import t*ype { TradeCloseReason } from './tradeCloseReason';
+import type { TradeCloseReason } from './tradeCloseReason';
 import type { TradeQuoteAsset } from './tradeQuoteAsset';
 import type { TradeStatus } from './tradeStatus';
 
