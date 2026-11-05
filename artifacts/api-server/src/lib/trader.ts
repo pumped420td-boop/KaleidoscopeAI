@@ -315,14 +315,19 @@ async function scan(): Promise<void> {
       logger.warn({ err }, "Market refresh failed — checking open positions with fresh individual prices");
     }
 
-    // Update live balance if needed
-    if (store.settings.mode === "live" && store.apiKey && store.apiSecret) {
+    // Refresh both quote balances on every live scan. Each request is isolated
+    // so a USD failure does not prevent the USDT balance from being attempted.
+    if (store.settings.mode === "live") {
       try {
         store.liveBalance = await fetchUsdBalance();
-        // USDT is tracked independently from USD when the live account is used.
+      } catch (err) {
+        logger.error({ err, asset: "USD" }, "Failed to fetch live Binance.US balance");
+      }
+
+      try {
         store.liveUsdtBalance = await fetchUsdtBalance();
-      } catch {
-        // ignore
+      } catch (err) {
+        logger.error({ err, asset: "USDT" }, "Failed to fetch live Binance.US balance");
       }
     }
 
