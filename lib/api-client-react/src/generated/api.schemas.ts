@@ -14,9 +14,8 @@ export interface KeysStatus {
   paperMode: boolean;
 }
 
-export interface ApiKeysInput {
-  apiKey: string;
-  apiSecret: string;
+export interface ErrorResponse {
+  error: string;
 }
 
 export type SettingsMode = typeof SettingsMode[keyof typeof SettingsMode];

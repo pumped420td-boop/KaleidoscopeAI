@@ -79,9 +79,6 @@ export interface OHLCCandle {
 }
 
 class Store {
-  apiKey: string | null = null;
-  apiSecret: string | null = null;
-
   settings: StoredSettings = {
     allocation: 50,
     mode: "paper",

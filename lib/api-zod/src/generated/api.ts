@@ -26,29 +26,6 @@ export const GetKeysStatusResponse = zod.object({
 
 
 /**
- * @summary Save Binance.US API keys
- */
-export const SaveKeysBody = zod.object({
-  "apiKey": zod.string(),
-  "apiSecret": zod.string()
-})
-
-export const SaveKeysResponse = zod.object({
-  "configured": zod.boolean(),
-  "paperMode": zod.boolean()
-})
-
-
-/**
- * @summary Remove Binance.US API keys
- */
-export const DeleteKeysResponse = zod.object({
-  "configured": zod.boolean(),
-  "paperMode": zod.boolean()
-})
-
-
-/**
  * @summary Get current bot settings
  */
 export const GetSettingsResponse = zod.object({

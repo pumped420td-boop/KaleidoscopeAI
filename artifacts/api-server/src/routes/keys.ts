@@ -1,37 +1,25 @@
 import { Router } from "express";
 import { store } from "../lib/store.js";
+import { hasBinanceCredentials } from "../lib/binance.js";
 
 const router = Router();
 
 router.get("/keys/status", (_req, res) => {
   res.json({
-    configured: !!(store.apiKey && store.apiSecret),
+    configured: hasBinanceCredentials(),
     paperMode: store.settings.mode === "paper",
   });
 });
 
-router.post("/keys", (req, res) => {
-  const { apiKey, apiSecret } = req.body as { apiKey?: string; apiSecret?: string };
-  if (!apiKey || !apiSecret) {
-    res.status(400).json({ error: "apiKey and apiSecret are required" });
-    return;
-  }
-  store.apiKey = apiKey.trim();
-  store.apiSecret = apiSecret.trim();
-  res.json({
-    configured: true,
-    paperMode: store.settings.mode === "paper",
+router.post("/keys", (_req, res) => {
+  res.status(400).json({
+    error: "Configure BINANCE_API_KEY and BINANCE_SECRET in the API server environment.",
   });
 });
 
 router.delete("/keys", (_req, res) => {
-  store.apiKey = null;
-  store.apiSecret = null;
-  // Force paper mode when keys are removed
-  store.settings.mode = "paper";
-  res.json({
-    configured: false,
-    paperMode: true,
+  res.status(400).json({
+    error: "Remove BINANCE_API_KEY and BINANCE_SECRET from the API server environment.",
   });
 });
 

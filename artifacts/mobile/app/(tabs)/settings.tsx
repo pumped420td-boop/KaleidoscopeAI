@@ -19,8 +19,6 @@ import { useQueryClient } from "@tanstack/react-query";
 import {
   useGetSettings,
   useUpdateSettings,
-  useSaveKeys,
-  useDeleteKeys,
   useGetKeysStatus,
   getGetSettingsQueryKey,
   getGetPortfolioQueryKey,
@@ -52,12 +50,6 @@ export default function SettingsScreen() {
       },
     },
   });
-  const saveKeys = useSaveKeys({ mutation: { onSuccess: () => queryClient.invalidateQueries() } });
-  const deleteKeys = useDeleteKeys({ mutation: { onSuccess: () => queryClient.invalidateQueries() } });
-
-  const [apiKey, setApiKey] = useState("");
-  const [apiSecret, setApiSecret] = useState("");
-  const [showKey, setShowKey] = useState(false);
   const [allocation, setAllocation] = useState("50");
   const [profitTarget, setProfitTarget] = useState("5");
   const [trailingStop, setTrailingStop] = useState("2");
@@ -73,24 +65,6 @@ export default function SettingsScreen() {
       setVoteThreshold(String(settings.voteThreshold));
     }
   }, [settings]);
-
-  const handleSaveKeys = async () => {
-    if (!apiKey.trim() || !apiSecret.trim()) {
-      Alert.alert("Error", "Both API key and secret are required");
-      return;
-    }
-    await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
-    saveKeys.mutate({ data: { apiKey: apiKey.trim(), apiSecret: apiSecret.trim() } });
-    setApiKey("");
-    setApiSecret("");
-  };
-
-  const handleDeleteKeys = () => {
-    Alert.alert("Remove API Keys", "This will also switch to paper trading mode.", [
-      { text: "Cancel", style: "cancel" },
-      { text: "Remove", style: "destructive", onPress: () => deleteKeys.mutate() },
-    ]);
-  };
 
   const handleSaveSettings = async () => {
     await Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
@@ -109,7 +83,10 @@ export default function SettingsScreen() {
 
   const handleModeToggle = (toLive: boolean) => {
     if (toLive && !keysStatus?.configured) {
-      Alert.alert("API Keys Required", "Add your Binance.US API keys before switching to live mode.");
+      Alert.alert(
+        "API Keys Required",
+        "Set BINANCE_API_KEY and BINANCE_SECRET in the Render API service environment before switching to live mode."
+      );
       return;
     }
     const base = {
@@ -155,59 +132,13 @@ export default function SettingsScreen() {
           <View style={styles.keysConfigured}>
             <View style={[styles.keysBadge, { backgroundColor: `${(colors as any).success}22` }]}>
               <Feather name="check-circle" size={16} color={(colors as any).success} />
-              <Text style={[styles.keysBadgeText, { color: (colors as any).success }]}>API Keys Configured</Text>
+              <Text style={[styles.keysBadgeText, { color: (colors as any).success }]}>Server API keys configured</Text>
             </View>
-            <TouchableOpacity onPress={handleDeleteKeys} style={[styles.removeBtn, { borderColor: colors.destructive }]}>
-              <Feather name="trash-2" size={14} color={colors.destructive} />
-              <Text style={[styles.removeBtnText, { color: colors.destructive }]}>Remove Keys</Text>
-            </TouchableOpacity>
           </View>
         ) : (
-          <>
-            <Text style={[styles.cardNote, { color: colors.mutedForeground }]}>
-              Keys are stored in memory only and never sent outside your server.
-            </Text>
-            <View style={[styles.inputRow, { backgroundColor: colors.secondary, borderColor: colors.border }]}>
-              <Feather name="key" size={14} color={colors.mutedForeground} />
-              <TextInput
-                placeholder="API Key"
-                placeholderTextColor={colors.mutedForeground}
-                value={apiKey}
-                onChangeText={setApiKey}
-                secureTextEntry={!showKey}
-                autoCapitalize="none"
-                autoCorrect={false}
-                style={[styles.textInput, { color: colors.foreground }]}
-              />
-              <TouchableOpacity onPress={() => setShowKey(!showKey)}>
-                <Feather name={showKey ? "eye-off" : "eye"} size={16} color={colors.mutedForeground} />
-              </TouchableOpacity>
-            </View>
-            <View style={[styles.inputRow, { backgroundColor: colors.secondary, borderColor: colors.border }]}>
-              <Feather name="lock" size={14} color={colors.mutedForeground} />
-              <TextInput
-                placeholder="API Secret"
-                placeholderTextColor={colors.mutedForeground}
-                value={apiSecret}
-                onChangeText={setApiSecret}
-                secureTextEntry
-                autoCapitalize="none"
-                autoCorrect={false}
-                style={[styles.textInput, { color: colors.foreground }]}
-              />
-            </View>
-            <TouchableOpacity
-              onPress={handleSaveKeys}
-              disabled={saveKeys.isPending}
-              style={[styles.actionBtn, { backgroundColor: colors.primary }]}
-            >
-              {saveKeys.isPending ? (
-                <ActivityIndicator color={colors.primaryForeground} size="small" />
-              ) : (
-                <Text style={[styles.actionBtnText, { color: colors.primaryForeground }]}>Save Keys</Text>
-              )}
-            </TouchableOpacity>
-          </>
+          <Text style={[styles.cardNote, { color: colors.mutedForeground }]}>
+            Set BINANCE_API_KEY and BINANCE_SECRET in the Render API service environment. Do not enter credentials in the app.
+          </Text>
         )}
       </View>
 

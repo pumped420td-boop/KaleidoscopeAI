@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { store } from "../lib/store.js";
-import { fetchBalance } from "../lib/binance.js";
+import { fetchBalance, hasBinanceCredentials } from "../lib/binance.js";
 import { logger } from "../lib/logger.js";
 
 const router = Router();
@@ -9,7 +9,7 @@ let lastBalanceRefreshAt = 0;
 let balanceRefreshInFlight: Promise<void> | null = null;
 
 async function refreshLiveBalancesIfNeeded(): Promise<void> {
-  if (store.settings.mode !== "live" || !store.apiKey || !store.apiSecret) return;
+  if (store.settings.mode !== "live" || !hasBinanceCredentials()) return;
   if (balanceRefreshInFlight) {
     await balanceRefreshInFlight;
     return;

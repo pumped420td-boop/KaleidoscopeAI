@@ -6,11 +6,11 @@
  * OpenAPI spec version: 0.1.0
  */
 
-export * from './apiKeysInput';
 export * from './balanceSnapshot';
 export * from './botStatus';
 export * from './botStatusMode';
 export * from './closeTrade404';
+export * from './errorResponse';
 export * from './getTradesMode';
 export * from './getTradesParams';
 export * from './healthStatus';

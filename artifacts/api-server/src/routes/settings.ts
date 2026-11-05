@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { store } from "../lib/store.js";
 import { saveMlState } from "../lib/persistence.js";
+import { hasBinanceCredentials } from "../lib/binance.js";
 
 const router = Router();
 
@@ -12,9 +13,11 @@ router.put("/settings", (req, res) => {
   const body = req.body as Partial<typeof store.settings>;
   if (body.allocation !== undefined) store.settings.allocation = Math.max(1, Math.min(100, Number(body.allocation)));
   if (body.mode !== undefined && (body.mode === "paper" || body.mode === "live")) {
-    // Only allow live mode if keys are configured
-    if (body.mode === "live" && !store.apiKey) {
-      res.status(400).json({ error: "API keys required for live mode" });
+    // Only allow live mode if environment credentials are configured.
+    if (body.mode === "live" && !hasBinanceCredentials()) {
+      res.status(400).json({
+        error: "Set BINANCE_API_KEY and BINANCE_SECRET in the API server environment for live mode.",
+      });
       return;
     }
     store.settings.mode = body.mode;

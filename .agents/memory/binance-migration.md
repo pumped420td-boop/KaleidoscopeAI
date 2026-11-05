@@ -14,6 +14,14 @@ description: Exchange replaced from Kraken to Binance.US; key differences in API
 - Account balance: `GET /api/v3/account` → `{ balances: [{ asset, free, locked }] }`. USD key is `"USD"`.
 - Market buy uses `quoteOrderQty` (spend X dollars). Market sell uses `quantity` (sell X units).
 
+## Credentials
+
+Private Binance.US requests read only `process.env.BINANCE_API_KEY` and `process.env.BINANCE_SECRET`. Credentials must be configured in the API server environment; there is no app-submitted, local `.env`, or hardcoded fallback.
+
+**Why:** The user explicitly requested environment-only credentials after Render reported that API keys were not configured.
+
+**How to apply:** If Binance reports missing credentials, verify those exact variable names in Render and redeploy/restart the API. Never ask for or print their values.
+
 ## On migration
 Delete `artifacts/api-server/data/bot-state.json` — saved trades reference old Kraken pair names and will fail lookups.
 

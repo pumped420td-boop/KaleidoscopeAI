@@ -20,9 +20,9 @@ import type {
 } from '@tanstack/react-query';
 
 import type {
-  ApiKeysInput,
   BotStatus,
   CloseTrade404,
+  ErrorResponse,
   GetTradesParams,
   HealthStatus,
   KeysStatus,
@@ -211,26 +211,25 @@ export const getSaveKeysUrl = () => {
 }
 
 /**
- * @summary Save Binance.US API keys
+ * @summary Reject app-managed keys; use server environment variables
  */
-export const saveKeys = async (apiKeysInput: ApiKeysInput, options?: RequestInit): Promise<KeysStatus> => {
+export const saveKeys = async ( options?: RequestInit): Promise<unknown> => {
 
-  return customFetch<KeysStatus>(getSaveKeysUrl(),
+  return customFetch<unknown>(getSaveKeysUrl(),
   {
     ...options,
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', ...options?.headers },
-    body: JSON.stringify(
-      apiKeysInput,)
+    method: 'POST'
+
+
   }
 );}
 
 
 
 
-export const getSaveKeysMutationOptions = <TError = ErrorType<unknown>,
-    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof saveKeys>>, TError,{data: BodyType<ApiKeysInput>}, TContext>, request?: SecondParameter<typeof customFetch>}
-): UseMutationOptions<Awaited<ReturnType<typeof saveKeys>>, TError,{data: BodyType<ApiKeysInput>}, TContext> => {
+export const getSaveKeysMutationOptions = <TError = ErrorType<ErrorResponse>,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof saveKeys>>, TError,void, TContext>, request?: SecondParameter<typeof customFetch>}
+): UseMutationOptions<Awaited<ReturnType<typeof saveKeys>>, TError,void, TContext> => {
 
 const mutationKey = ['saveKeys'];
 const {mutation: mutationOptions, request: requestOptions} = options ?
@@ -242,10 +241,10 @@ const {mutation: mutationOptions, request: requestOptions} = options ?
 
 
 
-      const mutationFn: MutationFunction<Awaited<ReturnType<typeof saveKeys>>, {data: BodyType<ApiKeysInput>}> = (props) => {
-          const {data} = props ?? {};
+      const mutationFn: MutationFunction<Awaited<ReturnType<typeof saveKeys>>, void> = () => {
 
-          return  saveKeys(data,requestOptions)
+
+          return  saveKeys(requestOptions)
         }
 
 
@@ -256,18 +255,18 @@ const {mutation: mutationOptions, request: requestOptions} = options ?
   return  { mutationFn, ...mutationOptions }}
 
     export type SaveKeysMutationResult = NonNullable<Awaited<ReturnType<typeof saveKeys>>>
-    export type SaveKeysMutationBody = BodyType<ApiKeysInput>
-    export type SaveKeysMutationError = ErrorType<unknown>
+
+    export type SaveKeysMutationError = ErrorType<ErrorResponse>
 
     /**
- * @summary Save Binance.US API keys
+ * @summary Reject app-managed keys; use server environment variables
  */
-export const useSaveKeys = <TError = ErrorType<unknown>,
-    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof saveKeys>>, TError,{data: BodyType<ApiKeysInput>}, TContext>, request?: SecondParameter<typeof customFetch>}
+export const useSaveKeys = <TError = ErrorType<ErrorResponse>,
+    TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof saveKeys>>, TError,void, TContext>, request?: SecondParameter<typeof customFetch>}
  ): UseMutationResult<
         Awaited<ReturnType<typeof saveKeys>>,
         TError,
-        {data: BodyType<ApiKeysInput>},
+        void,
         TContext
       > => {
       return useMutation(getSaveKeysMutationOptions(options));
@@ -282,11 +281,11 @@ export const getDeleteKeysUrl = () => {
 }
 
 /**
- * @summary Remove Binance.US API keys
+ * @summary Reject app-managed key removal; use server environment variables
  */
-export const deleteKeys = async ( options?: RequestInit): Promise<KeysStatus> => {
+export const deleteKeys = async ( options?: RequestInit): Promise<unknown> => {
 
-  return customFetch<KeysStatus>(getDeleteKeysUrl(),
+  return customFetch<unknown>(getDeleteKeysUrl(),
   {
     ...options,
     method: 'DELETE'
@@ -298,7 +297,7 @@ export const deleteKeys = async ( options?: RequestInit): Promise<KeysStatus> =>
 
 
 
-export const getDeleteKeysMutationOptions = <TError = ErrorType<unknown>,
+export const getDeleteKeysMutationOptions = <TError = ErrorType<ErrorResponse>,
     TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof deleteKeys>>, TError,void, TContext>, request?: SecondParameter<typeof customFetch>}
 ): UseMutationOptions<Awaited<ReturnType<typeof deleteKeys>>, TError,void, TContext> => {
 
@@ -327,12 +326,12 @@ const {mutation: mutationOptions, request: requestOptions} = options ?
 
     export type DeleteKeysMutationResult = NonNullable<Awaited<ReturnType<typeof deleteKeys>>>
 
-    export type DeleteKeysMutationError = ErrorType<unknown>
+    export type DeleteKeysMutationError = ErrorType<ErrorResponse>
 
     /**
- * @summary Remove Binance.US API keys
+ * @summary Reject app-managed key removal; use server environment variables
  */
-export const useDeleteKeys = <TError = ErrorType<unknown>,
+export const useDeleteKeys = <TError = ErrorType<ErrorResponse>,
     TContext = unknown>(options?: { mutation?:UseMutationOptions<Awaited<ReturnType<typeof deleteKeys>>, TError,void, TContext>, request?: SecondParameter<typeof customFetch>}
  ): UseMutationResult<
         Awaited<ReturnType<typeof deleteKeys>>,

@@ -6,7 +6,6 @@
  * OpenAPI spec version: 0.1.0
  */
 
-export interface ApiKeysInput {
-  apiKey: string;
-  apiSecret: string;
+export interface ErrorResponse {
+  error: string;
 }

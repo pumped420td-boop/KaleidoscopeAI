@@ -54,31 +54,25 @@ paths:
     post:
       operationId: saveKeys
       tags: [keys]
-      summary: Save Binance.US API keys
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/ApiKeysInput"
+      summary: Reject app-managed keys; use server environment variables
       responses:
-        "200":
-          description: Keys saved
+        "400":
+          description: Configure API credentials in the API server environment
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/KeysStatus"
+                $ref: "#/components/schemas/ErrorResponse"
     delete:
       operationId: deleteKeys
       tags: [keys]
-      summary: Remove Binance.US API keys
+      summary: Reject app-managed key removal; use server environment variables
       responses:
-        "200":
-          description: Keys removed
+        "400":
+          description: Remove API credentials from the API server environment
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/KeysStatus"
+                $ref: "#/components/schemas/ErrorResponse"
 
   /settings:
     get:
@@ -277,14 +271,12 @@ components:
           type: boolean
       required: [configured, paperMode]
 
-    ApiKeysInput:
+    ErrorResponse:
       type: object
       properties:
-        apiKey:
+        error:
           type: string
-        apiSecret:
-          type: string
-      required: [apiKey, apiSecret]
+      required: [error]
 
     Settings:
       type: object

@@ -18,6 +18,10 @@ function sign(queryString: string, secret: string): string {
   return createHmac("sha256", secret).update(queryString).digest("hex");
 }
 
+export function hasBinanceCredentials(): boolean {
+  return Boolean(process.env.BINANCE_API_KEY && process.env.BINANCE_SECRET);
+}
+
 async function publicGet<T>(path: string, params: Record<string, string> = {}): Promise<T> {
   const url = new URL(`${BASE_URL}${path}`);
   for (const [k, v] of Object.entries(params)) url.searchParams.set(k, v);
@@ -34,17 +38,21 @@ async function privateRequest<T>(
   params: Record<string, string> = {},
   method: "GET" | "POST" | "DELETE" = "GET"
 ): Promise<T> {
-  if (!store.apiKey || !store.apiSecret) throw new Error("API keys not configured");
+  const apiKey = process.env.BINANCE_API_KEY;
+  const apiSecret = process.env.BINANCE_SECRET;
+  if (!apiKey || !apiSecret) {
+    throw new Error("BINANCE_API_KEY and BINANCE_SECRET environment variables are required");
+  }
   const timestamp = Date.now().toString();
   const allParams = { ...params, timestamp };
   const queryString = new URLSearchParams(allParams).toString();
-  const signature = sign(queryString, store.apiSecret);
+  const signature = sign(queryString, apiSecret);
   const url = `${BASE_URL}${path}?${queryString}&signature=${signature}`;
 
   const res = await fetch(url, {
     method,
     headers: {
-      "X-MBX-APIKEY": store.apiKey,
+      "X-MBX-APIKEY": apiKey,
       "User-Agent": "BinanceTradingBot/1.0",
     },
     signal: withTimeout(REQUEST_TIMEOUT_MS),
