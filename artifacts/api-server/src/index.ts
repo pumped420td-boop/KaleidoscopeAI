@@ -6,6 +6,8 @@ import { loadMlState, saveMlState } from "./lib/persistence";
 
 // Restore learned weights, balance, trades, settings — returns true if bot was running
 const shouldAutoStart = loadMlState();
+const liveModeEnabled = process.env["LIVE_MODE"] === "true";
+store.settings.mode = liveModeEnabled ? "live" : "paper";
 
 const rawPort = process.env["PORT"];
 
@@ -36,11 +38,14 @@ app.listen(port, (err) => {
     startVotesCacheTimer();
     logger.info("Votes cache initialized");
 
-    // Always start the bot in paper mode on server start/restart/upgrade.
-    // startBot() is idempotent — it no-ops if already running.
+    // Startup mode comes from LIVE_MODE after saved state is loaded.
+    // With LIVE_MODE=true, this auto-start can place real orders.
     if (!store.running) {
       await startBot();
-      logger.info(shouldAutoStart ? "Bot auto-resumed from saved state" : "Bot auto-started (paper mode)");
+      logger.info(
+        { mode: store.settings.mode, wasRunningBeforeShutdown: shouldAutoStart },
+        "Bot auto-started"
+      );
     }
   }, 4_000);
 

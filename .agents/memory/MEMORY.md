@@ -1,6 +1,6 @@
 - [Binance.US migration](binance-migration.md) — Kraken replaced with Binance.US; krakenPair field kept but now holds BinanceUS symbols like BTCUSD; bot-state.json must be deleted on migration.
 - [Settings persistence gotcha](settings-persistence.md) — spreading saved settings can clobber new default fields with undefined; always use ?? fallback for fields added after initial release.
-- [Render state persistence](render-persistence.md) — bot-state snapshots survive Render redeploys only when DATA_DIR points to a mounted persistent disk such as /data.
+- [Render state and mode](render-persistence.md) — State uses relative `./data` after `/data` permission errors; `LIVE_MODE` overrides saved mode and may auto-start real trading.
 - [Binance.US active universe](binance-active-universe.md) — exchangeInfo status and nonzero ticker price must both be checked; TRADING symbols can still return lastPrice 0.
 - [Vote display universe](vote-display-universe.md) — Live Votes shows every valid market pair; liquidity thresholds remain for trade eligibility only.
 - [Trade-signal churn](trade-signal-churn.md) — use identical weighted entry/exit criteria and a persisted cooldown after sell-signal exits.
