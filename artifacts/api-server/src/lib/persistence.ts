@@ -1,43 +1,16 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync, renameSync } from "node:fs";
-import { join } from "node:path";
+import { dirname, join } from "node:path";
 import { store } from "./store.js";
 import type { StoredTrade, StoredSettings, BalanceSnapshot, SwapConfirmation } from "./store.js";
 import { getPatternHistory, setPatternHistory } from "./strategies/ml.js";
 import { logger } from "./logger.js";
 
-// Render's persistent disk convention is /data. DATA_DIR remains overrideable
-// for local development or another mounted persistent volume.
-const IS_RENDER = Boolean(process.env["RENDER_EXTERNAL_URL"] || process.env["RENDER_SERVICE_ID"]);
-const DATA_DIR = process.env["DATA_DIR"] ??
-  (IS_RENDER || process.env["NODE_ENV"] === "production"
-    ? "/data"
-    : join(process.cwd(), "data"));
+// Store state in a relative directory under the app's working directory.
+const DATA_DIR = "./data";
 const STATE_FILE = join(DATA_DIR, "bot-state.json");
 const STATE_VERSION = 6;
 
 logger.info({ dataDir: DATA_DIR, stateFile: STATE_FILE }, "Persistence storage configured");
-
-function hasDedicatedMount(path: string): boolean {
-  try {
-    const mountPoints = readFileSync("/proc/self/mountinfo", "utf8")
-      .split("\n")
-      .map((line) => line.split(" ")[4])
-      .filter((mountPoint): mountPoint is string => Boolean(mountPoint))
-      .map((mountPoint) => mountPoint.replace(/\\040/g, " ").replace(/\\011/g, "\t").replace(/\\134/g, "\\"));
-    return mountPoints.some((mountPoint) =>
-      mountPoint !== "/" && (path === mountPoint || path.startsWith(`${mountPoint}/`))
-    );
-  } catch {
-    return false;
-  }
-}
-
-if (IS_RENDER && !hasDedicatedMount(DATA_DIR)) {
-  logger.error(
-    { dataDir: DATA_DIR },
-    "No persistent volume mount detected for bot state; Render redeploys may reset balances and learning data"
-  );
-}
 
 interface PersistedStratStat {
   id: string;
@@ -75,7 +48,6 @@ interface BotState {
 
 export function saveMlState(): void {
   try {
-    if (!existsSync(DATA_DIR)) mkdirSync(DATA_DIR, { recursive: true });
     const state: BotState = {
       version: STATE_VERSION,
       savedAt: new Date().toISOString(),
@@ -104,6 +76,7 @@ export function saveMlState(): void {
       swapConfirmation: store.swapConfirmation,
     };
     const tempFile = `${STATE_FILE}.tmp`;
+    mkdirSync(dirname(tempFile), { recursive: true });
     writeFileSync(tempFile, JSON.stringify(state, null, 2), "utf8");
     renameSync(tempFile, STATE_FILE);
   } catch (err) {
