@@ -179,7 +179,8 @@ export async function placeMarketSell(pair: string, quantity: string): Promise<O
     throw new Error(`Could not find a valid sell stepSize for ${pair}`);
   }
 
-  const roundedQty = Math.floor(qty / stepSize) * stepSize;
+  const sellQty = qty * 0.995;
+  const roundedQty = Math.floor(sellQty / stepSize) * stepSize;
   if (!Number.isFinite(roundedQty) || roundedQty <= 0) {
     throw new Error(`Sell quantity for ${pair} is below stepSize ${stepSizeText}`);
   }

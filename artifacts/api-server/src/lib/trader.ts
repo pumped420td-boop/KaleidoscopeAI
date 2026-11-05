@@ -109,6 +109,7 @@ async function openTrade(
       if (!Number.isFinite(executedQuantity) || executedQuantity <= 0) {
         throw new Error(`Invalid executedQty from Binance: ${order.executedQty}`);
       }
+      // Live positions must use Binance's filled quantity, not the price estimate.
       quantity = executedQuantity;
     } catch (err) {
       logger.error({ err, symbol }, "Failed to place live buy order");
@@ -160,7 +161,7 @@ export async function closeTrade(
 
   if (store.settings.mode === "live") {
     try {
-      await placeMarketSell(trade.pair, trade.quantity.toFixed(8));
+      await placeMarketSell(trade.pair, String(trade.quantity));
     } catch (err) {
       logger.error({ err, symbol: trade.symbol }, "Failed to place live sell order");
       return;

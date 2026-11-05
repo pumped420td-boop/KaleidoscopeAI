@@ -14,6 +14,14 @@ description: Exchange replaced from Kraken to Binance.US; key differences in API
 - Account balance: `GET /api/v3/account` → `{ balances: [{ asset, free, locked }] }`. USD key is `"USD"`.
 - Market buy uses `quoteOrderQty` (spend X dollars). Market sell uses `quantity` (sell X units).
 
+## Live trade sizing
+
+For live buys, store Binance's returned `executedQty` as the trade quantity rather than retaining the estimated amount. For live sells, submit 99.5% of that filled quantity, floored to the applicable exchange step size.
+
+**Why:** Trading fees can reduce the available base-asset balance below the gross executed buy quantity.
+
+**How to apply:** Keep sell submissions at or below the reported buy fill. Treat this as execution sizing; do not alter voting, trailing-stop, or scan behavior unless explicitly requested.
+
 ## Credentials
 
 Private Binance.US requests read only `process.env.BINANCE_API_KEY` and `process.env.BINANCE_SECRET`. Credentials must be configured in the API server environment; there is no app-submitted, local `.env`, or hardcoded fallback.
