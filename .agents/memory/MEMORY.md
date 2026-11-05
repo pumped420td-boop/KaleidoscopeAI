@@ -5,3 +5,4 @@
 - [Vote display universe](vote-display-universe.md) — Live Votes shows every valid market pair; liquidity thresholds remain for trade eligibility only.
 - [Trade-signal churn](trade-signal-churn.md) — use identical weighted entry/exit criteria and a persisted cooldown after sell-signal exits.
 - [Git shell authentication](git-shell-auth.md) — Git provider reconnects may not refresh Replit's shell askpass; verify shell auth separately before retrying pushes.
+- [Trading parameters](trading-parameters.md) — user-reported live profit target is 1%, with a 0.5% trailing stop.
