@@ -22,6 +22,12 @@ For live buys, store Binance's returned `executedQty` as the trade quantity rath
 
 **How to apply:** Keep sell submissions at or below the reported buy fill. Treat this as execution sizing; do not alter voting, trailing-stop, or scan behavior unless explicitly requested.
 
+Before each live buy, check the Binance account's total free-plus-locked balance for the base asset and value it at the current pair price. Skip the buy above $1.00, and fail closed if the check cannot complete.
+
+**Why:** The local trade state can lag the exchange and permit duplicate entries.
+
+**How to apply:** Keep this check in the live order path before `placeMarketBuy`; log the skipped symbol and estimated holding value.
+
 ## Credentials
 
 Private Binance.US requests read only `process.env.BINANCE_API_KEY` and `process.env.BINANCE_SECRET`. Credentials must be configured in the API server environment; there is no app-submitted, local `.env`, or hardcoded fallback.

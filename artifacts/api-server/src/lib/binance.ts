@@ -126,6 +126,21 @@ export async function fetchBalance(): Promise<Record<string, string>> {
   return Object.fromEntries(data.balances.map((b) => [b.asset, b.free]));
 }
 
+export async function fetchAccountAssetBalance(asset: string): Promise<number> {
+  const data = await privateRequest<{
+    balances: { asset: string; free: string; locked?: string }[];
+  }>("/api/v3/account");
+  const balance = data.balances.find((item) => item.asset === asset);
+  if (!balance) return 0;
+
+  const free = Number(balance.free);
+  const locked = Number(balance.locked ?? "0");
+  if (!Number.isFinite(free) || !Number.isFinite(locked)) {
+    throw new Error(`Invalid Binance balance for ${asset}`);
+  }
+  return free + locked;
+}
+
 export async function fetchUsdBalance(): Promise<number> {
   const balance = await fetchBalance();
   return parseFloat(balance["USD"] ?? "0");

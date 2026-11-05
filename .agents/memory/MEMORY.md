@@ -1,4 +1,4 @@
-- [Binance.US migration](binance-migration.md) — credentials are env-only; live buys track `executedQty` and sells target 99.5%, floored to `stepSize`.
+- [Binance.US migration](binance-migration.md) — env-only keys; live buys check holdings and store fills; sells use 99.5% rounded down; API requests stay on Binance.US.
 - [Settings persistence gotcha](settings-persistence.md) — spreading saved settings can clobber new default fields with undefined; always use ?? fallback for fields added after initial release.
 - [Render state and mode](render-persistence.md) — State uses relative `./data` after `/data` permission errors; `LIVE_MODE` overrides saved mode and may auto-start real trading.
 - [Binance.US active universe](binance-active-universe.md) — exchangeInfo status and nonzero ticker price must both be checked; TRADING symbols can still return lastPrice 0.

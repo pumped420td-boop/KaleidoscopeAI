@@ -1,7 +1,15 @@
 import { store } from "./store.js";
 import { COINS, getUsdtPair } from "./coins.js";
 import { analyzeCoins } from "./voting.js";
-import { updateTickerCache, fetchUsdBalance, fetchUsdtBalance, placeMarketBuy, placeMarketSell, fetchSymbolPrice } from "./binance.js";
+import {
+  updateTickerCache,
+  fetchUsdBalance,
+  fetchUsdtBalance,
+  fetchAccountAssetBalance,
+  placeMarketBuy,
+  placeMarketSell,
+  fetchSymbolPrice,
+} from "./binance.js";
 import { encodePattern, recordPatternOutcome } from "./strategies/ml.js";
 import { saveMlState } from "./persistence.js";
 import { logger } from "./logger.js";
@@ -103,6 +111,26 @@ async function openTrade(
   let quantity = perTrade / price;
 
   if (store.settings.mode === "live") {
+    let holdingValue = 0;
+    try {
+      const [assetBalance, livePrice] = await Promise.all([
+        fetchAccountAssetBalance(symbol),
+        fetchSymbolPrice(pair),
+      ]);
+      holdingValue = assetBalance * livePrice;
+      if (!Number.isFinite(holdingValue)) {
+        throw new Error(`Invalid estimated holding value for ${symbol}`);
+      }
+    } catch (err) {
+      logger.error({ err, symbol }, "Failed to verify Binance balance; skipping live buy");
+      return;
+    }
+
+    if (holdingValue > 1) {
+      logger.info({ symbol, holdingValue }, "Skipping buy - already holding");
+      return;
+    }
+
     try {
       const order = await placeMarketBuy(pair, perTrade.toFixed(2));
       const executedQuantity = Number.parseFloat(order.executedQty);
